@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": {
+      "item": "edumia:legends_coin"
+    },
+    "title": "Middle Earth",
+    "description": "One Advancement to rule them all",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "background": "edumia:textures/item/legends_coin.png"
+  },
+  "criteria": {
+    "entered_middle_earth": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "edumia:middle_earth"
+      }
+    }
+  }
+}

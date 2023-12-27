@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "edumia",
+	"version": "${version}",
+	"name": "Edumia",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/edumia/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.legends.edumia.Edumia"
+		],
+		"client": [
+			"com.legends.edumia.EdumiaClient"
+		],
+		"fabric-datagen": [
+			"com.legends.edumia.datageneration.edumia.DataGenerators"
+		]
+	},
+	"mixins": [
+		"edumia.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.3",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

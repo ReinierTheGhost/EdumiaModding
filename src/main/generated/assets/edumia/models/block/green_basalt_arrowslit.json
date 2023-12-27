@@ -1,0 +1,8 @@
+{
+  "parent": "edumia:block/template/template_arrowslit",
+  "textures": {
+    "bottom": "edumia:block/green_basalt",
+    "texture": "edumia:block/green_basalt",
+    "top": "edumia:block/green_basalt"
+  }
+}

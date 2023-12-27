@@ -1,0 +1,12 @@
+// 1.20.1	2023-12-27T23:25:37.1811591	Edumia/Tags for minecraft:block
+08f2a4a946bacfac6816e50b27b8a3749d4bca79 data\minecraft\tags\blocks\buttons.json
+6a8bc99fcc7bd787174b7f2b216cbaa289388a6e data\edumia\tags\blocks\reeds_placeable_on.json
+b61ab40fc2614ed88a233e94a27f425591dc4c1a data\minecraft\tags\blocks\fences.json
+8bf4057e1c7ac3ba96c362e0a9a8e00042a76447 data\minecraft\tags\blocks\pressure_plates.json
+16a395d82a7214f0d715d8cae187f5e3aed3fad4 data\minecraft\tags\blocks\walls.json
+9d065c413d7be7bd448db4da594e4f85a47cb389 data\minecraft\tags\blocks\mineable\axe.json
+b1355172214ac9a73b12984c63688891afcff9c5 data\minecraft\tags\blocks\mineable\pickaxe.json
+c272f1c9d201b7860cd2464fbac2bb013acd02be data\minecraft\tags\blocks\logs.json
+f6bbb31b83b8ed8455b0c3f7fbd2d1ad5ab5d3c4 data\edumia\tags\blocks\pillars.json
+9d1531a07e18e5097476aa4c8816b31a5967ee3b data\minecraft\tags\blocks\planks.json
+bf55173860632fb85df587e1d2be0b663bee71a2 data\minecraft\tags\blocks\fence_gates.json
