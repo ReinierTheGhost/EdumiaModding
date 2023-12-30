@@ -1,12 +1,14 @@
 package com.legends.edumia;
 
-import com.legends.edumia.block.blocksets.BuildingSets;
-import com.legends.edumia.block.blocksets.OreRockSets;
-import com.legends.edumia.block.blocksets.StoneSets;
-import com.legends.edumia.block.blocksets.WoodBlockSets;
+import com.legends.edumia.block.ModNatureBlocks;
+import com.legends.edumia.block.WoodBlocks;
+import com.legends.edumia.block.blocksets.*;
 import com.legends.edumia.core.BlockLoader;
 import com.legends.edumia.core.CreativeTabLoader;
 import com.legends.edumia.core.ItemLoader;
+import com.legends.edumia.mixin.FoliagePlacerTypeInvoker;
+import com.legends.edumia.world.worldgen.trees.EdumiaFoliagePlacerTypes;
+import com.legends.edumia.world.worldgen.trees.foliageplacer.GhostGumFoliagePlacer;
 import net.fabricmc.api.ModInitializer;
 import com.legends.edumia.entity.ModEntities;
 import com.legends.edumia.statusEffects.ModStatusEffects;
@@ -39,9 +41,13 @@ public class Edumia implements ModInitializer {
         CreativeTabLoader.register();
 
         WoodBlockSets.registerModBlockSets();
+        WoodBlocks.registerModBlocks();
+        ModNatureBlocks.registerModBlocks();
         OreRockSets.registerModBlockSets();
         BuildingSets.registerModBlockSets();
         StoneSets.registerModBlockSets();
+        ClayTilingSets.registerModBlockSets();
+
 
         ModRecipes.registerRecipes();
 
@@ -49,6 +55,7 @@ public class Edumia implements ModInitializer {
         ModEntitySpawning.addSpawns();
 
         ModSounds.registerModSounds();
+        EdumiaFoliagePlacerTypes.register();
 
         ModDimensions.register();
         EdumiaBiomeKeys.registerModBiomes();

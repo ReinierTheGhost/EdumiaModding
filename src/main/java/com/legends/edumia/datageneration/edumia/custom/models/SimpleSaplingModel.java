@@ -12,6 +12,8 @@ public class SimpleSaplingModel {
     public static List<Block> blocks = new ArrayList<>() {
         {
             add(BlockLoader.APPLE_SAPLING);
+            add(BlockLoader.ASPEN_SAPLING);
+            add(BlockLoader.GHOST_GUM_SAPLING);
         }
     };
 }

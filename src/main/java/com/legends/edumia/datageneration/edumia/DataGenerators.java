@@ -1,8 +1,5 @@
 package com.legends.edumia.datageneration.edumia;
 
-import com.legends.edumia.datageneration.edumia.ModBlockLootTables;
-import com.legends.edumia.datageneration.edumia.ModModelProvider;
-import com.legends.edumia.datageneration.edumia.WorldGenerator;
 import com.legends.edumia.datageneration.edumia.custom.EdumiaHelpingGenerator;
 import com.legends.edumia.datageneration.me.BlockTagProvider;
 import com.legends.edumia.world.biomes.EdumiaBiomeKeys;
@@ -21,7 +18,8 @@ public class DataGenerators implements DataGeneratorEntrypoint {
 
         var pack = fabricDataGenerator.createPack();
         //pack.addProvider(ModelProvider::new);
-        //pack.addProvider(ModBlockLootTables::new);
+        pack.addProvider(RecipeProvider::new);
+        pack.addProvider(ModBlockLootTables::new);
         pack.addProvider(ModModelProvider::new);
         pack.addProvider(WorldGenerator::new);
         pack.addProvider(BlockTagProvider::new);

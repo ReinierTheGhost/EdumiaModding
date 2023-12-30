@@ -1,5 +1,6 @@
 package com.legends.edumia.datageneration.edumia.custom.models;
 
+import com.legends.edumia.block.blocksets.StoneSets;
 import com.legends.edumia.core.BlockLoader;
 import net.minecraft.block.Block;
 
@@ -11,7 +12,7 @@ public class SimpleBalustradeModels {
 
     public static List<Balustrade> blocks = new ArrayList<>() {
         {
-            add(new Balustrade(BlockLoader.GREEN_BASALT, BlockLoader.GREEN_BASALT_BALUSTRADE));
+            add(new Balustrade(StoneSets.GREEN_BASALT.block(), BlockLoader.GREEN_BASALT_BALUSTRADE));
         }
     };
 }

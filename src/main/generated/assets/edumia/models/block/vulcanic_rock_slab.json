@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "edumia:block/vulcanic_rock",
-    "side": "edumia:block/vulcanic_rock",
-    "top": "edumia:block/vulcanic_rock"
-  }
-}

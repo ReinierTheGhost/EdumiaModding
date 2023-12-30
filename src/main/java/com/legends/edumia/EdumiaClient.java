@@ -71,6 +71,8 @@ public class EdumiaClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.HIBISCUS, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.APPLE_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.ASPEN_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.GHOST_GUM_SAPLING, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.POTTED_ASPHODEL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.POTTED_BLUE_DELPHINIUM, RenderLayer.getCutout());

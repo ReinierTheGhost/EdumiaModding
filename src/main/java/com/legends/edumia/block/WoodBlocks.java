@@ -3,12 +3,18 @@ package com.legends.edumia.block;
 import com.legends.edumia.Edumia;
 import com.legends.edumia.core.CreativeTabLoader;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.LeavesBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+
+import static com.legends.edumia.block.blocksets.WoodBlockSets.LEAVES_STRENGTH;
 
 public class WoodBlocks {
 

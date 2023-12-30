@@ -3,12 +3,17 @@
   "values": [
     "edumia:brick_pillar",
     "edumia:stone_pillar",
+    "edumia:sandstone_pillar",
+    "edumia:gensai_pillar",
+    "edumia:red_gensai_pillar",
     "edumia:chalk_pillar",
     "edumia:high_elven_pillar",
     "edumia:light_high_elven_pillar",
     "edumia:dark_high_elven_pillar",
+    "edumia:brown_sandstone_pillar",
     "edumia:cacholong_pillar",
-    "edumia:red_pillar",
-    "edumia:gensai_pillar"
+    "edumia:black_demon_pillar",
+    "edumia:volcanic_demon_pillar",
+    "edumia:desert_mud_pillar"
   ]
 }

@@ -21,6 +21,10 @@ public class BlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(BlockLoader.WHITE_SAND);
         addDrop(BlockLoader.WHITE_SAND_LAYER);
 
+        addDrop(BlockLoader.STONE_PILLAR);
+        addDrop(BlockLoader.SANDSTONE_PILLAR);
+        addDrop(BlockLoader.BRICK_PILLAR);
+
         for (Block block : BlockDrops.blocks) {
             addDrop(block);
         }

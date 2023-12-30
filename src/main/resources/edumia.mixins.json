@@ -3,6 +3,7 @@
 	"package": "com.legends.edumia.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
+		"FoliagePlacerTypeInvoker"
 	],
 	"injectors": {
 		"defaultRequire": 1

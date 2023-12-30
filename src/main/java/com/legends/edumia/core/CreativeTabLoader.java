@@ -1,11 +1,11 @@
 package com.legends.edumia.core;
 
 import com.legends.edumia.Edumia;
+import com.legends.edumia.block.blocksets.BuildingSets;
 import com.legends.edumia.block.blocksets.WoodBlockSets;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
@@ -71,9 +71,7 @@ public class CreativeTabLoader {
                         entries.add(BlockLoader.HIBISCUS);
 //
                         entries.add(BlockLoader.APPLE_SAPLING);
-//                        entries.add(BlockLoader.APPLE_LEAVES);
-//                        entries.add(BlockLoader.ASPEN_SAPLING);
-//                        entries.add(BlockLoader.ASPEN_LEAVES);
+                        entries.add(BlockLoader.ASPEN_SAPLING);
 //                        entries.add(BlockLoader.BEECH_SAPLING);
 //                        entries.add(BlockLoader.BEECH_LEAVES);
 //                        entries.add(BlockLoader.BLACKTHORN_SAPLING);
@@ -86,7 +84,7 @@ public class CreativeTabLoader {
 //                        entries.add(BlockLoader.CYPRESS_LEAVES);
 //                        entries.add(BlockLoader.FIR_SAPLING);
 //                        entries.add(BlockLoader.FIR_LEAVES);
-//                        entries.add(BlockLoader.GHOST_GUM_SAPLING);
+                        entries.add(BlockLoader.GHOST_GUM_SAPLING);
 //                        entries.add(BlockLoader.GHOST_GUM_LEAVES);
 //                        entries.add(BlockLoader.GREEN_OAK_SAPLING);
 //                        entries.add(BlockLoader.GREEN_OAK_LEAVES);
@@ -251,97 +249,18 @@ public class CreativeTabLoader {
     public static final List<ItemStack> BUILDING_CONTENTS = new LinkedList<>();
     public static final ItemGroup EDUMIA_BUILDING_BLOCKS = FabricItemGroup.builder()
                     .displayName(Text.literal("Edumia Building Blocks"))
-                    .icon(() -> new ItemStack(BlockLoader.GREEN_BASALT_BRICKS)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(BuildingSets.GREEN_BASALT_BRICKS.block())).entries((displayContext, entries) -> {
                         for (ItemStack item : BUILDING_CONTENTS) {
                             entries.add(item);
                         }
                         entries.add(BlockLoader.BRICK_PILLAR);
                         entries.add(BlockLoader.STONE_PILLAR);
-
-                        entries.add(BlockLoader.BASALT_BRICKS);
-                        entries.add(BlockLoader.BASALT_BRICKS_SLAB);
-                        entries.add(BlockLoader.BASALT_BRICKS_STAIRS);
-                        entries.add(BlockLoader.BASALT_BRICKS_WALL);
-
-                        entries.add(BlockLoader.GREEN_BASALT_BRICKS);
-                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_WALL);
-                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_SLAB);
-                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_STAIRS);
-//                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_GOTHIC_ARCH);
-//                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_SEGMENTAL_ARCH);
-//                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_ROUND_ARCH);
-//                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_SMALL_ARCH);
-//                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_TWO_METER_ARCH);
-//                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_ARROWSLIT);
-//                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_BALUSTRADE);
-//                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_CORINTHIAN_CAPITAL);
-//                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_CORINTHIAN_CAPITAL_PILLAR);
-//                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_CORINTHIAN_CAPITAL_WALL);
-//                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_IONIAN_CAPITAL);
-//                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_IONIAN_CAPITAL_LARGE_PILLAR);
-//                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_IONIAN_CAPITAL_PILAR);
-//                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_IONIAN_CAPITAL_SMALL_PILLAR);
-//                        entries.add(BlockLoader.GREEN_BASALT_BRICKS_IONIAN_CAPITAL_WALL);
-
-                        entries.add(BlockLoader.GREEN_BASALT_COBBLESTONE);
-                        entries.add(BlockLoader.GREEN_BASALT_COBBLESTONE_WALL);
-                        entries.add(BlockLoader.GREEN_BASALT_COBBLESTONE_SLAB);
-                        entries.add(BlockLoader.GREEN_BASALT_COBBLESTONE_STAIRS);
-
-                        entries.add(BlockLoader.LIGHT_GRAY_STONE_BRICKS);
-                        entries.add(BlockLoader.LIGHT_GRAY_STONE_BRICKS_SLAB);
-                        entries.add(BlockLoader.LIGHT_GRAY_STONE_BRICKS_STAIRS);
-                        entries.add(BlockLoader.LIGHT_GRAY_STONE_BRICKS_WALL);
+                        entries.add(BlockLoader.SANDSTONE_PILLAR);
 
                         entries.add(BlockLoader.BLUE_BRICK);
                         entries.add(BlockLoader.BLUE_BRICK_SLAB);
                         entries.add(BlockLoader.BLUE_BRICK_STAIRS);
                         entries.add(BlockLoader.BLUE_BRICK_WALL);
-
-                        entries.add(BlockLoader.BROWN_STONE);
-                        entries.add(BlockLoader.BROWN_STONE_SLAB);
-                        entries.add(BlockLoader.BROWN_STONE_STAIRS);
-                        entries.add(BlockLoader.BROWN_STONE_WALL);
-
-                        entries.add(BlockLoader.YELLOW_STONE_BRICKS_2);
-                        entries.add(BlockLoader.YELLOW_STONE_BRICKS_2_SLAB);
-                        entries.add(BlockLoader.YELLOW_STONE_BRICKS_2_STAIRS);
-                        entries.add(BlockLoader.YELLOW_STONE_BRICKS_2_WALL);
-
-                        entries.add(BlockLoader.YELLOW_STONE_BRICKS);
-                        entries.add(BlockLoader.YELLOW_STONE_BRICKS_SLAB);
-                        entries.add(BlockLoader.YELLOW_STONE_BRICKS_STAIRS);
-                        entries.add(BlockLoader.YELLOW_STONE_BRICKS_WALL);
-
-                        entries.add(BlockLoader.HIGH_ELVEN_BRICKS);
-                        entries.add(BlockLoader.HIGH_ELVEN_BRICKS_STAIRS);
-                        entries.add(BlockLoader.HIGH_ELVEN_BRICKS_WALL);
-                        entries.add(BlockLoader.HIGH_ELVEN_BRICKS_SLAB);
-//
-//                        entries.add(BlockLoader.HIGH_ELVEN_BRICKS_ROUND_ARCH);
-//                        entries.add(BlockLoader.HIGH_ELVEN_BRICKS_SEGMENTAL_ARCH);
-//                        entries.add(BlockLoader.HIGH_ELVEN_BRICKS_GOTHIC_ARCH);
-//                        entries.add(BlockLoader.HIGH_ELVEN_BRICKS_SMALL_ARCH);
-//                        entries.add(BlockLoader.HIGH_ELVEN_BRICKS_TWO_METER_ARCH);
-//
-                        entries.add(BlockLoader.HIGH_ELVEN_PILLAR);
-//                        entries.add(BlockLoader.HIGH_ELVEN_BALUSTRADE);
-//                        entries.add(BlockLoader.HIGH_ELVEN_BRICK_ARROWSLIT);
-
-                        entries.add(BlockLoader.SMALL_HIGH_ELVEN_BRICKS);
-                        entries.add(BlockLoader.SMALL_HIGH_ELVEN_BRICKS_STAIRS);
-                        entries.add(BlockLoader.SMALL_HIGH_ELVEN_BRICKS_WALL);
-                        entries.add(BlockLoader.SMALL_HIGH_ELVEN_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.CRACKED_HIGH_ELVEN_BRICKS);
-                        entries.add(BlockLoader.CRACKED_HIGH_ELVEN_BRICKS_STAIRS);
-                        entries.add(BlockLoader.CRACKED_HIGH_ELVEN_BRICKS_WALL);
-                        entries.add(BlockLoader.CRACKED_HIGH_ELVEN_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.MOSSY_HIGH_ELVEN_BRICKS);
-                        entries.add(BlockLoader.MOSSY_HIGH_ELVEN_BRICKS_STAIRS);
-                        entries.add(BlockLoader.MOSSY_HIGH_ELVEN_BRICKS_WALL);
-                        entries.add(BlockLoader.MOSSY_HIGH_ELVEN_BRICKS_SLAB);
 
                         entries.add(BlockLoader.CHISELED_HIGH_ELVEN_BRICKS);
 
@@ -349,57 +268,11 @@ public class CreativeTabLoader {
                         entries.add(BlockLoader.HIGH_ELVEN_BRICK_TILING_STAIRS);
                         entries.add(BlockLoader.HIGH_ELVEN_BRICK_TILING_SLAB);
 
-                        entries.add(BlockLoader.LIGHT_HIGH_ELVEN_BRICKS);
-                        entries.add(BlockLoader.LIGHT_HIGH_ELVEN_BRICKS_STAIRS);
-                        entries.add(BlockLoader.LIGHT_HIGH_ELVEN_BRICKS_WALL);
-                        entries.add(BlockLoader.LIGHT_HIGH_ELVEN_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.LIGHT_HIGH_ELVEN_PILLAR);
-//                        entries.add(BlockLoader.LIGHT_HIGH_ELVEN_BALUSTRADE);
-
-                        entries.add(BlockLoader.SMALL_LIGHT_HIGH_ELVEN_BRICKS);
-                        entries.add(BlockLoader.SMALL_LIGHT_HIGH_ELVEN_BRICKS_STAIRS);
-                        entries.add(BlockLoader.SMALL_LIGHT_HIGH_ELVEN_BRICKS_WALL);
-                        entries.add(BlockLoader.SMALL_LIGHT_HIGH_ELVEN_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.CRACKED_LIGHT_HIGH_ELVEN_BRICKS);
-                        entries.add(BlockLoader.CRACKED_LIGHT_HIGH_ELVEN_BRICKS_STAIRS);
-                        entries.add(BlockLoader.CRACKED_LIGHT_HIGH_ELVEN_BRICKS_WALL);
-                        entries.add(BlockLoader.CRACKED_LIGHT_HIGH_ELVEN_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.MOSSY_LIGHT_HIGH_ELVEN_BRICKS);
-                        entries.add(BlockLoader.MOSSY_LIGHT_HIGH_ELVEN_BRICKS_STAIRS);
-                        entries.add(BlockLoader.MOSSY_LIGHT_HIGH_ELVEN_BRICKS_WALL);
-                        entries.add(BlockLoader.MOSSY_LIGHT_HIGH_ELVEN_BRICKS_SLAB);
-
                         entries.add(BlockLoader.CHISELED_LIGHT_HIGH_ELVEN_BRICKS);
 
                         entries.add(BlockLoader.LIGHT_HIGH_ELVEN_BRICK_TILING);
                         entries.add(BlockLoader.LIGHT_HIGH_ELVEN_BRICK_TILING_SLAB);
                         entries.add(BlockLoader.LIGHT_HIGH_ELVEN_BRICK_TILING_STAIRS);
-
-                        entries.add(BlockLoader.DARK_HIGH_ELVEN_BRICKS);
-                        entries.add(BlockLoader.DARK_HIGH_ELVEN_BRICKS_STAIRS);
-                        entries.add(BlockLoader.DARK_HIGH_ELVEN_BRICKS_WALL);
-                        entries.add(BlockLoader.DARK_HIGH_ELVEN_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.DARK_HIGH_ELVEN_PILLAR);
-//                        entries.add(BlockLoader.DARK_HIGH_ELVEN_BALUSTRADE);
-
-                        entries.add(BlockLoader.SMALL_DARK_HIGH_ELVEN_BRICKS);
-                        entries.add(BlockLoader.SMALL_DARK_HIGH_ELVEN_BRICKS_STAIRS);
-                        entries.add(BlockLoader.SMALL_DARK_HIGH_ELVEN_BRICKS_WALL);
-                        entries.add(BlockLoader.SMALL_DARK_HIGH_ELVEN_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.CRACKED_DARK_HIGH_ELVEN_BRICKS);
-                        entries.add(BlockLoader.CRACKED_DARK_HIGH_ELVEN_BRICKS_STAIRS);
-                        entries.add(BlockLoader.CRACKED_DARK_HIGH_ELVEN_BRICKS_WALL);
-                        entries.add(BlockLoader.CRACKED_DARK_HIGH_ELVEN_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.MOSSY_DARK_HIGH_ELVEN_BRICKS);
-                        entries.add(BlockLoader.MOSSY_DARK_HIGH_ELVEN_BRICKS_STAIRS);
-                        entries.add(BlockLoader.MOSSY_DARK_HIGH_ELVEN_BRICKS_WALL);
-                        entries.add(BlockLoader.MOSSY_DARK_HIGH_ELVEN_BRICKS_SLAB);
 
                         entries.add(BlockLoader.CHISELED_DARK_HIGH_ELVEN_BRICKS);
 
@@ -414,233 +287,19 @@ public class CreativeTabLoader {
 
                         entries.add(BlockLoader.CHISELED_BASALT);
 
-                        entries.add(BlockLoader.MOSSY_BASALT_BRICKS);
-                        entries.add(BlockLoader.MOSSY_BASALT_BRICKS_SLAB);
-                        entries.add(BlockLoader.MOSSY_BASALT_BRICKS_STAIRS);
-                        entries.add(BlockLoader.MOSSY_BASALT_BRICKS_WALL);
-
-                        entries.add(BlockLoader.CHALK_BRICKS);
-                        entries.add(BlockLoader.CHALK_BRICKS_STAIRS);
-                        entries.add(BlockLoader.CHALK_BRICKS_WALL);
-                        entries.add(BlockLoader.CHALK_BRICKS_SLAB);
-                        entries.add(BlockLoader.CHALK_PILLAR);
-
-                        entries.add(BlockLoader.BROWN_SANDSTONE_BRICKS);
-                        entries.add(BlockLoader.BROWN_SANDSTONE_BRICKS_STAIRS);
-                        entries.add(BlockLoader.BROWN_SANDSTONE_BRICKS_WALL);
-                        entries.add(BlockLoader.BROWN_SANDSTONE_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.CRACKED_BROWN_SANDSTONE_BRICKS);
-                        entries.add(BlockLoader.CRACKED_BROWN_SANDSTONE_BRICKS_STAIRS);
-                        entries.add(BlockLoader.CRACKED_BROWN_SANDSTONE_BRICKS_WALL);
-                        entries.add(BlockLoader.CRACKED_BROWN_SANDSTONE_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.MOSSY_BROWN_SANDSTONE_BRICKS);
-                        entries.add(BlockLoader.MOSSY_BROWN_SANDSTONE_BRICKS_STAIRS);
-                        entries.add(BlockLoader.MOSSY_BROWN_SANDSTONE_BRICKS_WALL);
-                        entries.add(BlockLoader.MOSSY_BROWN_SANDSTONE_BRICKS_SLAB);
-
                         entries.add(BlockLoader.CARVED_BROWN_SANDSTONE_BRICKS);
-
-                        entries.add(BlockLoader.CACHOLONG_BRICKS);
-                        entries.add(BlockLoader.CACHOLONG_BRICKS_STAIRS);
-                        entries.add(BlockLoader.CACHOLONG_BRICKS_WALL);
-                        entries.add(BlockLoader.CACHOLONG_BRICKS_SLAB);
-                        entries.add(BlockLoader.CACHOLONG_PILLAR);
-
-                        entries.add(BlockLoader.CRACKED_CACHOLONG_BRICKS);
-                        entries.add(BlockLoader.CRACKED_CACHOLONG_BRICKS_STAIRS);
-                        entries.add(BlockLoader.CRACKED_CACHOLONG_BRICKS_WALL);
-                        entries.add(BlockLoader.CRACKED_CACHOLONG_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.MOSSY_CACHOLONG_BRICKS);
-                        entries.add(BlockLoader.MOSSY_CACHOLONG_BRICKS_STAIRS);
-                        entries.add(BlockLoader.MOSSY_CACHOLONG_BRICKS_WALL);
-                        entries.add(BlockLoader.MOSSY_CACHOLONG_BRICKS_SLAB);
 
                         entries.add(BlockLoader.CARVED_CACHOLONG_BRICKS);
 
-                        entries.add(BlockLoader.BLACK_DEMON_BRICKS);
-                        entries.add(BlockLoader.BLACK_DEMON_BRICKS_STAIRS);
-                        entries.add(BlockLoader.BLACK_DEMON_BRICKS_WALL);
-                        entries.add(BlockLoader.BLACK_DEMON_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.CRACKED_BLACK_DEMON_BRICKS);
-                        entries.add(BlockLoader.CRACKED_BLACK_DEMON_BRICKS_STAIRS);
-                        entries.add(BlockLoader.CRACKED_BLACK_DEMON_BRICKS_WALL);
-                        entries.add(BlockLoader.CRACKED_BLACK_DEMON_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.MOSSY_BLACK_DEMON_BRICKS);
-                        entries.add(BlockLoader.MOSSY_BLACK_DEMON_BRICKS_STAIRS);
-                        entries.add(BlockLoader.MOSSY_BLACK_DEMON_BRICKS_WALL);
-                        entries.add(BlockLoader.MOSSY_BLACK_DEMON_BRICKS_SLAB);
-
                         entries.add(BlockLoader.CARVED_BLACK_DEMON_BRICKS);
-
-                        entries.add(BlockLoader.BLUE_BRICKS);
-                        entries.add(BlockLoader.BLUE_BRICKS_STAIRS);
-                        entries.add(BlockLoader.BLUE_BRICKS_WALL);
-                        entries.add(BlockLoader.BLUE_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.CRACKED_BLUE_BRICKS);
-                        entries.add(BlockLoader.CRACKED_BLUE_BRICKS_STAIRS);
-                        entries.add(BlockLoader.CRACKED_BLUE_BRICKS_WALL);
-                        entries.add(BlockLoader.CRACKED_BLUE_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.MOSSY_BLUE_BRICKS);
-                        entries.add(BlockLoader.MOSSY_BLUE_BRICKS_STAIRS);
-                        entries.add(BlockLoader.MOSSY_BLUE_BRICKS_WALL);
-                        entries.add(BlockLoader.MOSSY_BLUE_BRICKS_SLAB);
 
                         entries.add(BlockLoader.CARVED_BLUE_BRICKS);
 
-                        entries.add(BlockLoader.DEMON_BASALT_BRICKS);
-                        entries.add(BlockLoader.DEMON_BASALT_BRICKS_STAIRS);
-                        entries.add(BlockLoader.DEMON_BASALT_BRICKS_WALL);
-                        entries.add(BlockLoader.DEMON_BASALT_BRICKS_SLAB);
-
                         entries.add(BlockLoader.CARVED_DEMON_BASALT_BRICKS);
 
-                        entries.add(BlockLoader.VULCANIC_DEMON_BRICKS);
-                        entries.add(BlockLoader.VULCANIC_DEMON_BRICKS_STAIRS);
-                        entries.add(BlockLoader.VULCANIC_DEMON_BRICKS_WALL);
-                        entries.add(BlockLoader.VULCANIC_DEMON_BRICKS_SLAB);
+                        entries.add(BlockLoader.CARVED_VOLCANIC_DEMON_BRICKS);
 
-                        entries.add(BlockLoader.CRACKED_VULCANIC_DEMON_BRICKS);
-                        entries.add(BlockLoader.CRACKED_VULCANIC_DEMON_BRICKS_STAIRS);
-                        entries.add(BlockLoader.CRACKED_VULCANIC_DEMON_BRICKS_WALL);
-                        entries.add(BlockLoader.CRACKED_VULCANIC_DEMON_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.MOSSY_VULCANIC_DEMON_BRICKS);
-                        entries.add(BlockLoader.MOSSY_VULCANIC_DEMON_BRICKS_STAIRS);
-                        entries.add(BlockLoader.MOSSY_VULCANIC_DEMON_BRICKS_WALL);
-                        entries.add(BlockLoader.MOSSY_VULCANIC_DEMON_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.CARVED_VULCANIC_DEMON_BRICKS);
-
-                        entries.add(BlockLoader.RED_BRICKS);
-                        entries.add(BlockLoader.RED_BRICKS_STAIRS);
-                        entries.add(BlockLoader.RED_BRICKS_WALL);
-                        entries.add(BlockLoader.RED_BRICKS_SLAB);
-                        entries.add(BlockLoader.RED_PILLAR);
-
-                        entries.add(BlockLoader.CRACKED_RED_BRICKS);
-                        entries.add(BlockLoader.CRACKED_RED_BRICKS_STAIRS);
-                        entries.add(BlockLoader.CRACKED_RED_BRICKS_WALL);
-                        entries.add(BlockLoader.CRACKED_RED_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.MOSSY_RED_BRICKS);
-                        entries.add(BlockLoader.MOSSY_RED_BRICKS_STAIRS);
-                        entries.add(BlockLoader.MOSSY_RED_BRICKS_WALL);
-                        entries.add(BlockLoader.MOSSY_RED_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.CARVED_RED_BRICKS);
-
-                        entries.add(BlockLoader.DESERT_MUD_BRICKS);
-                        entries.add(BlockLoader.DESERT_MUD_BRICKS_STAIRS);
-                        entries.add(BlockLoader.DESERT_MUD_BRICKS_WALL);
-                        entries.add(BlockLoader.DESERT_MUD_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.CRACKED_DESERT_MUD_BRICKS);
-                        entries.add(BlockLoader.CRACKED_DESERT_MUD_BRICKS_STAIRS);
-                        entries.add(BlockLoader.CRACKED_DESERT_MUD_BRICKS_WALL);
-                        entries.add(BlockLoader.CRACKED_DESERT_MUD_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.MOSSY_DESERT_MUD_BRICKS);
-                        entries.add(BlockLoader.MOSSY_DESERT_MUD_BRICKS_STAIRS);
-                        entries.add(BlockLoader.MOSSY_DESERT_MUD_BRICKS_WALL);
-                        entries.add(BlockLoader.MOSSY_DESERT_MUD_BRICKS_SLAB);
-
-                        entries.add(BlockLoader.CLAY_TILING);
-                        entries.add(BlockLoader.CLAY_TILING_STAIRS);
-                        entries.add(BlockLoader.CLAY_TILING_SLAB);
-                        entries.add(BlockLoader.CLAY_TILING_VERTICAL_CORNER);
-
-                        entries.add(BlockLoader.BLACK_CLAY_TILING);
-                        entries.add(BlockLoader.BLACK_CLAY_TILING_STAIRS);
-                        entries.add(BlockLoader.BLACK_CLAY_TILING_SLAB);
-                        entries.add(BlockLoader.BLACK_CLAY_TILING_VERTICAL_CORNER);
-
-                        entries.add(BlockLoader.BLUE_CLAY_TILING);
-                        entries.add(BlockLoader.BLUE_CLAY_TILING_STAIRS);
-                        entries.add(BlockLoader.BLUE_CLAY_TILING_SLAB);
-                        entries.add(BlockLoader.BLUE_CLAY_TILING_VERTICAL_CORNER);
-
-                        entries.add(BlockLoader.BROWN_CLAY_TILING);
-                        entries.add(BlockLoader.BROWN_CLAY_TILING_STAIRS);
-                        entries.add(BlockLoader.BROWN_CLAY_TILING_SLAB);
-                        entries.add(BlockLoader.BROWN_CLAY_TILING_VERTICAL_CORNER);
-
-                        entries.add(BlockLoader.CYAN_CLAY_TILING);
-                        entries.add(BlockLoader.CYAN_CLAY_TILING_STAIRS );
-                        entries.add(BlockLoader.CYAN_CLAY_TILING_SLAB);
-                        entries.add(BlockLoader.CYAN_CLAY_TILING_VERTICAL_CORNER);
-
-                        entries.add(BlockLoader.GRAY_CLAY_TILING);
-                        entries.add(BlockLoader.GRAY_CLAY_TILING_STAIRS);
-                        entries.add(BlockLoader.GRAY_CLAY_TILING_SLAB);
-                        entries.add(BlockLoader.GRAY_CLAY_TILING_VERTICAL_CORNER);
-
-                        entries.add(BlockLoader.GREEN_CLAY_TILING);
-                        entries.add(BlockLoader.GREEN_CLAY_TILING_STAIRS);
-                        entries.add(BlockLoader.GREEN_CLAY_TILING_SLAB);
-                        entries.add(BlockLoader.GREEN_CLAY_TILING_VERTICAL_CORNER);
-
-                        entries.add(BlockLoader.LIGHT_BLUE_CLAY_TILING);
-                        entries.add(BlockLoader.LIGHT_BLUE_CLAY_TILING_STAIRS);
-                        entries.add(BlockLoader.LIGHT_BLUE_CLAY_TILING_SLAB);
-                        entries.add(BlockLoader.LIGHT_BLUE_CLAY_TILING_VERTICAL_CORNER);
-
-
-                        entries.add(BlockLoader.LIGHT_GRAY_CLAY_TILING);
-                        entries.add(BlockLoader.LIGHT_GRAY_CLAY_TILING_STAIRS);
-                        entries.add(BlockLoader.LIGHT_GRAY_CLAY_TILING_SLAB);
-                        entries.add(BlockLoader.LIGHT_GRAY_CLAY_TILING_VERTICAL_CORNER);
-
-                        entries.add(BlockLoader.LIME_CLAY_TILING);
-                        entries.add(BlockLoader.LIME_CLAY_TILING_STAIRS);
-                        entries.add(BlockLoader.LIME_CLAY_TILING_SLAB);
-                        entries.add(BlockLoader.LIME_CLAY_TILING_VERTICAL_CORNER);
-
-                        entries.add(BlockLoader.MAGENTA_CLAY_TILING);
-                        entries.add(BlockLoader.MAGENTA_CLAY_TILING_STAIRS);
-                        entries.add(BlockLoader.MAGENTA_CLAY_TILING_SLAB);
-                        entries.add(BlockLoader.MAGENTA_CLAY_TILING_VERTICAL_CORNER);
-
-                        entries.add(BlockLoader.ORANGE_CLAY_TILING);
-                        entries.add(BlockLoader.ORANGE_CLAY_TILING_STAIRS);
-                        entries.add(BlockLoader.ORANGE_CLAY_TILING_SLAB);
-                        entries.add(BlockLoader.ORANGE_CLAY_TILING_VERTICAL_CORNER);
-
-                        entries.add(BlockLoader.PINK_CLAY_TILING);
-                        entries.add(BlockLoader.PINK_CLAY_TILING_STAIRS);
-                        entries.add(BlockLoader.PINK_CLAY_TILING_SLAB);
-                        entries.add(BlockLoader.PINK_CLAY_TILING_VERTICAL_CORNER);
-
-                        entries.add(BlockLoader.PURPLE_CLAY_TILING);
-                        entries.add(BlockLoader.PURPLE_CLAY_TILING_STAIRS);
-                        entries.add(BlockLoader.PURPLE_CLAY_TILING_SLAB);
-                        entries.add(BlockLoader.PURPLE_CLAY_TILING_VERTICAL_CORNER);
-
-                        entries.add(BlockLoader.RED_CLAY_TILING);
-                        entries.add(BlockLoader.RED_CLAY_TILING_STAIRS);
-                        entries.add(BlockLoader.RED_CLAY_TILING_SLAB);
-                        entries.add(BlockLoader.RED_CLAY_TILING_VERTICAL_CORNER);
-
-                        entries.add(BlockLoader.WHITE_CLAY_TILING);
-                        entries.add(BlockLoader.WHITE_CLAY_TILING_STAIRS);
-                        entries.add(BlockLoader.WHITE_CLAY_TILING_SLAB);
-                        entries.add(BlockLoader.WHITE_CLAY_TILING_VERTICAL_CORNER);
-
-                        entries.add(BlockLoader.YELLOW_CLAY_TILING);
-                        entries.add(BlockLoader.YELLOW_CLAY_TILING_STAIRS);
-                        entries.add(BlockLoader.YELLOW_CLAY_TILING_SLAB);
-                        entries.add(BlockLoader.YELLOW_CLAY_TILING_VERTICAL_CORNER);
-
-
-
-
-
+                        entries.add(BlockLoader.CARVED_RED_GENSAI_BRICKS);
 
                     }).build();
 
@@ -662,74 +321,11 @@ public class CreativeTabLoader {
                             entries.add(item);
                         }
 
-//                        entries.add(BlockLoader.TOPAZ_ORE);
-//                        entries.add(BlockLoader.ORE_VEIL);
-//
-//                        entries.add(BlockLoader.ALEXANDRITE_BLOCK);
-//                        entries.add(BlockLoader.ALEXANDRITE_ORE);
-//                        entries.add(BlockLoader.RAW_ALEXANDRITE_BLOCK);
-//
-                        entries.add(BlockLoader.GREEN_BASALT_COBBLESTONE);
-                        entries.add(BlockLoader.GREEN_BASALT_COBBLESTONE_WALL);
-                        entries.add(BlockLoader.GREEN_BASALT_COBBLESTONE_SLAB);
-                        entries.add(BlockLoader.GREEN_BASALT_COBBLESTONE_STAIRS);
-
-                        entries.add(BlockLoader.GREEN_BASALT);
-                        entries.add(BlockLoader.GREEN_BASALT_STAIRS);
-                        entries.add(BlockLoader.GREEN_BASALT_WALL);
-                        entries.add(BlockLoader.GREEN_BASALT_SLAB);
                         entries.add(BlockLoader.GREEN_BASALT_BALUSTRADE);
                         entries.add(BlockLoader.GREEN_BASALT_ARROWSLIT);
                         entries.add(BlockLoader.GREEN_BASALT_SMALL_ARCH);
                         entries.add(BlockLoader.GREEN_BASALT_TWO_METER_ARCH);
-//                        entries.add(BlockLoader.GREEN_BASALT_ROUND_ARCH);
-//                        entries.add(BlockLoader.GREEN_BASALT_GOTHIC_ARCH);
-//                        entries.add(BlockLoader.GREEN_BASALT_SEGMENTAL_ARCH);
 
-                        entries.add(BlockLoader.LIGHT_GRAY_STONE);
-                        entries.add(BlockLoader.LIGHT_GRAY_STONE_SLAB);
-                        entries.add(BlockLoader.LIGHT_GRAY_STONE_STAIRS);
-                        entries.add(BlockLoader.LIGHT_GRAY_STONE_WALL);
-
-                        entries.add(BlockLoader.BLUE_STONE);
-                        entries.add(BlockLoader.BLUE_STONE_SLAB);
-                        entries.add(BlockLoader.BLUE_STONE_STAIRS);
-                        entries.add(BlockLoader.BLUE_STONE_WALL);
-
-                        entries.add(BlockLoader.CYAN_STONE);
-                        entries.add(BlockLoader.CYAN_STONE_SLAB);
-                        entries.add(BlockLoader.CYAN_STONE_STAIRS);
-                        entries.add(BlockLoader.CYAN_STONE_WALL);
-
-                        entries.add(BlockLoader.BROWN_STONE);
-                        entries.add(BlockLoader.BROWN_STONE_SLAB);
-                        entries.add(BlockLoader.BROWN_STONE_STAIRS);
-                        entries.add(BlockLoader.BROWN_STONE_WALL);
-
-                        entries.add(BlockLoader.YELLOW_STONE_2);
-                        entries.add(BlockLoader.YELLOW_STONE_2_SLAB);
-                        entries.add(BlockLoader.YELLOW_STONE_2_STAIRS);
-                        entries.add(BlockLoader.YELLOW_STONE_2_WALL);
-
-                        entries.add(BlockLoader.YELLOW_STONE);
-                        entries.add(BlockLoader.YELLOW_STONE_SLAB);
-                        entries.add(BlockLoader.YELLOW_STONE_STAIRS);
-                        entries.add(BlockLoader.YELLOW_STONE_WALL);
-
-                        entries.add(BlockLoader.YELLOW_COBBLE);
-                        entries.add(BlockLoader.YELLOW_COBBLE_SLAB);
-                        entries.add(BlockLoader.YELLOW_COBBLE_STAIRS);
-                        entries.add(BlockLoader.YELLOW_COBBLE_WALL);
-
-                        entries.add(BlockLoader.ORANGE_ROCK);
-                        entries.add(BlockLoader.ORANGE_ROCK_SLAB);
-                        entries.add(BlockLoader.ORANGE_ROCK_STAIRS);
-                        entries.add(BlockLoader.ORANGE_ROCK_WALL);
-
-                        entries.add(BlockLoader.RED_ROCK);
-                        entries.add(BlockLoader.RED_ROCK_SLAB);
-                        entries.add(BlockLoader.RED_ROCK_STAIRS);
-                        entries.add(BlockLoader.RED_ROCK_WALL);
 
                         entries.add(BlockLoader.CRACKED_GREEN_BASALT);
                         entries.add(BlockLoader.CRACKED_GREEN_BASALT_SLAB);
@@ -738,74 +334,7 @@ public class CreativeTabLoader {
 
                         entries.add(BlockLoader.CHISELED_BASALT);
 
-                        entries.add(BlockLoader.GNEISS);
-                        entries.add(BlockLoader.GNEISS_SLAB);
-                        entries.add(BlockLoader.GNEISS_STAIRS);
-                        entries.add(BlockLoader.GNEISS_WALL);
-
-//                        entries.add(BlockLoader.LIMESTONE);
-//                        entries.add(BlockLoader.LIMESTONE_SLAB);
-//                        entries.add(BlockLoader.LIMESTONE_WALL);
-//                        entries.add(BlockLoader.LIMESTONE_STAIRS);
-
-//                        entries.add((BlockLoader.MARBLE_PINK));
-
-                        entries.add(BlockLoader.CHALK);
-                        entries.add(BlockLoader.CHALK_SLAB);
-                        entries.add(BlockLoader.CHALK_WALL);
-                        entries.add(BlockLoader.CHALK_STAIRS);
-
 //                        entries.add(BlockLoader.BROWN_SANDSTONE_SLATES);
-
-                        entries.add(BlockLoader.HIGH_ELVEN_ROCK);
-                        entries.add(BlockLoader.HIGH_ELVEN_ROCK_STAIRS);
-                        entries.add(BlockLoader.HIGH_ELVEN_ROCK_WALL);
-                        entries.add(BlockLoader.HIGH_ELVEN_ROCK_SLAB);
-
-                        entries.add(BlockLoader.DARK_HIGH_ELVEN_ROCK);
-                        entries.add(BlockLoader.DARK_HIGH_ELVEN_ROCK_STAIRS);
-                        entries.add(BlockLoader.DARK_HIGH_ELVEN_ROCK_WALL);
-                        entries.add(BlockLoader.DARK_HIGH_ELVEN_ROCK_SLAB);
-
-                        entries.add(BlockLoader.LIGHT_HIGH_ELVEN_ROCK);
-                        entries.add(BlockLoader.LIGHT_HIGH_ELVEN_ROCK_STAIRS);
-                        entries.add(BlockLoader.LIGHT_HIGH_ELVEN_ROCK_WALL);
-                        entries.add(BlockLoader.LIGHT_HIGH_ELVEN_ROCK_SLAB);
-
-                        entries.add(BlockLoader.HIGH_ELVEN_COBBLESTONE);
-                        entries.add(BlockLoader.HIGH_ELVEN_COBBLESTONE_STAIRS);
-                        entries.add(BlockLoader.HIGH_ELVEN_COBBLESTONE_WALL);
-                        entries.add(BlockLoader.HIGH_ELVEN_COBBLESTONE_SLAB);
-
-                        entries.add(BlockLoader.MOSSY_HIGH_ELVEN_COBBLESTONE);
-                        entries.add(BlockLoader.MOSSY_HIGH_ELVEN_COBBLESTONE_STAIRS);
-                        entries.add(BlockLoader.MOSSY_HIGH_ELVEN_COBBLESTONE_WALL);
-                        entries.add(BlockLoader.MOSSY_HIGH_ELVEN_COBBLESTONE_SLAB);
-
-                        entries.add(BlockLoader.LIGHT_HIGH_ELVEN_COBBLESTONE);
-                        entries.add(BlockLoader.LIGHT_HIGH_ELVEN_COBBLESTONE_STAIRS);
-                        entries.add(BlockLoader.LIGHT_HIGH_ELVEN_COBBLESTONE_WALL);
-                        entries.add(BlockLoader.LIGHT_HIGH_ELVEN_COBBLESTONE_SLAB);
-
-                        entries.add(BlockLoader.MOSSY_LIGHT_HIGH_ELVEN_COBBLESTONE);
-                        entries.add(BlockLoader.MOSSY_LIGHT_HIGH_ELVEN_COBBLESTONE_STAIRS);
-                        entries.add(BlockLoader.MOSSY_LIGHT_HIGH_ELVEN_COBBLESTONE_WALL);
-                        entries.add(BlockLoader.MOSSY_LIGHT_HIGH_ELVEN_COBBLESTONE_SLAB);
-
-                        entries.add(BlockLoader.DARK_HIGH_ELVEN_COBBLESTONE);
-                        entries.add(BlockLoader.DARK_HIGH_ELVEN_COBBLESTONE_STAIRS);
-                        entries.add(BlockLoader.DARK_HIGH_ELVEN_COBBLESTONE_WALL);
-                        entries.add(BlockLoader.DARK_HIGH_ELVEN_COBBLESTONE_SLAB);
-
-                        entries.add(BlockLoader.MOSSY_DARK_HIGH_ELVEN_COBBLESTONE);
-                        entries.add(BlockLoader.MOSSY_DARK_HIGH_ELVEN_COBBLESTONE_STAIRS);
-                        entries.add(BlockLoader.MOSSY_DARK_HIGH_ELVEN_COBBLESTONE_WALL);
-                        entries.add(BlockLoader.MOSSY_DARK_HIGH_ELVEN_COBBLESTONE_SLAB);
-
-                        entries.add(BlockLoader.VULCANIC_ROCK);
-                        entries.add(BlockLoader.VULCANIC_ROCK_STAIRS);
-                        entries.add(BlockLoader.VULCANIC_ROCK_WALL);
-                        entries.add(BlockLoader.VULCANIC_ROCK_SLAB);
 //
                         entries.add(BlockLoader.SAND_LAYER);
                         entries.add(BlockLoader.RED_SAND_LAYER);

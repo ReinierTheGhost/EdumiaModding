@@ -23,9 +23,9 @@ public class WoodBlockSets {
     public static SimpleBlockSet FIR = registerWoodSet("fir", WOOD_STRENGTH, true);
     public static SimpleBlockSet GHOST_GUM = registerWoodSet("ghost_gum", WOOD_STRENGTH, false);
     public static SimpleBlockSet GREEN_OAK = registerWoodSet("green_oak", WOOD_STRENGTH, true);
-    public static SimpleBlockSet HOLLY = registerWoodSet("holly", WOOD_STRENGTH, true);
+    public static SimpleBlockSet HOLLY = registerWoodSet("holly", WOOD_STRENGTH, false);
     public static SimpleBlockSet LARCH = registerWoodSet("larch", WOOD_STRENGTH, true);
-    public static SimpleBlockSet MAPLE = registerWoodSet("maple", WOOD_STRENGTH, true);
+    public static SimpleBlockSet MAPLE = registerWoodSet("maple", WOOD_STRENGTH, false);
     public static SimpleBlockSet PEAR = registerWoodSet("pear", WOOD_STRENGTH, true);
     public static SimpleBlockSet PINE = registerWoodSet("pine", WOOD_STRENGTH, true);
     public static SimpleBlockSet RED_OAK = registerWoodSet("red_oak", WOOD_STRENGTH, true);

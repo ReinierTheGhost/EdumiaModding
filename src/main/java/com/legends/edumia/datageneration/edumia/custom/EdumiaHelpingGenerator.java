@@ -1,12 +1,12 @@
 package com.legends.edumia.datageneration.edumia.custom;
 
-import com.legends.edumia.block.blocksets.BuildingSets;
-import com.legends.edumia.block.blocksets.OreRockSets;
-import com.legends.edumia.block.blocksets.WoodBlockSets;
+import com.legends.edumia.block.blocksets.*;
 import com.legends.edumia.datageneration.edumia.custom.models.SimpleAxisSlabModel;
+import com.legends.edumia.datageneration.edumia.custom.models.SimpleCornerBlockModel;
 import com.legends.edumia.datageneration.edumia.custom.models.SimplePillarModels;
 import com.legends.edumia.datageneration.edumia.custom.tags.Leaves;
 import com.legends.edumia.datageneration.edumia.custom.tags.Pillar;
+import com.legends.edumia.datageneration.edumia.custom.tags.RequiresIronTool;
 import com.legends.edumia.datageneration.me.content.loot_tables.BlockDrops;
 import com.legends.edumia.datageneration.me.content.loot_tables.LeavesDrops;
 import com.legends.edumia.datageneration.me.content.models.*;
@@ -18,9 +18,32 @@ public class EdumiaHelpingGenerator {
             SimplePillarModel.blocks.add(new SimplePillarModel.Pillar(beam.beam()));
         }
 
+        for (ClayTilingSets.ClayTilingSet set : ClayTilingSets.sets){
+            SimpleBlockModel.blocks.add(set.block());
+            SimpleAxisSlabModel.blocks.add(new SimpleAxisSlabModel.Slab(set.block(), set.slab()));
+            SimpleStairModel.blocks.add(new SimpleStairModel.Stair(set.block(), set.stairs()));
+            SimpleCornerBlockModel.blocks.add(new SimpleCornerBlockModel.Corner(set.block(), set.corner()));
+
+            BlockDrops.blocks.add(set.block());
+            BlockDrops.blocks.add(set.slab());
+            BlockDrops.blocks.add(set.stairs());
+            BlockDrops.blocks.add(set.corner());
+
+            MineablePickaxe.blocks.add(set.block());
+            MineablePickaxe.blocks.add(set.slab());
+            MineablePickaxe.blocks.add(set.stairs());
+            MineablePickaxe.blocks.add(set.corner());
+
+            RequiresIronTool.blocks.add(set.block());
+            RequiresIronTool.blocks.add(set.slab());
+            RequiresIronTool.blocks.add(set.stairs());
+            RequiresIronTool.blocks.add(set.corner());
+
+        }
+
         for (WoodBlockSets.SimpleBlockSet set : WoodBlockSets.sets){
             if(set.leaves() != null) {
-                SimpleBlockModel.blocks.add(set.leaves());
+                SimpleLeavesModel.blocks.add(set.leaves());
                 LeavesDrops.blocks.add(set.leaves());
                 Leaves.leaves.add(set.leaves());
             }
@@ -91,6 +114,11 @@ public class EdumiaHelpingGenerator {
             MineablePickaxe.blocks.add(set.stair());
             MineablePickaxe.blocks.add(set.wall());
 
+            RequiresIronTool.blocks.add(set.block());
+            RequiresIronTool.blocks.add(set.slab());
+            RequiresIronTool.blocks.add(set.stair());
+            RequiresIronTool.blocks.add(set.wall());
+
             Walls.walls.add(set.wall());
 
             if (set.pillar() != null){
@@ -98,6 +126,7 @@ public class EdumiaHelpingGenerator {
                 BlockDrops.blocks.add(set.pillar());
                 Pillar.pillars.add(set.pillar());
                 MineablePickaxe.blocks.add(set.pillar());
+                RequiresIronTool.blocks.add(set.pillar());
             }
         }
 
@@ -105,6 +134,31 @@ public class EdumiaHelpingGenerator {
             SimpleBlockModel.blocks.add(set.tin_ore());
 
             MineablePickaxe.blocks.add(set.tin_ore());
+        }
+
+        for (StoneSets.StoneSet set : StoneSets.naturalSets){
+            SimpleBlockModel.blocks.add(set.block());
+            SimpleAxisSlabModel.blocks.add(new SimpleAxisSlabModel.Slab(set.block(), set.slab()));
+            SimpleStairModel.blocks.add(new SimpleStairModel.Stair(set.block(), set.stair()));
+            SimpleWallModel.blocks.add(new SimpleWallModel.Wall(set.block(), set.wall()));
+
+            BlockDrops.blocks.add(set.block());
+            BlockDrops.blocks.add(set.slab());
+            BlockDrops.blocks.add(set.stair());
+            BlockDrops.blocks.add(set.wall());
+
+            MineablePickaxe.blocks.add(set.block());
+            MineablePickaxe.blocks.add(set.slab());
+            MineablePickaxe.blocks.add(set.stair());
+            MineablePickaxe.blocks.add(set.wall());
+
+            RequiresIronTool.blocks.add(set.block());
+            RequiresIronTool.blocks.add(set.slab());
+            RequiresIronTool.blocks.add(set.stair());
+            RequiresIronTool.blocks.add(set.wall());
+
+
+            Walls.walls.add(set.wall());
         }
     }
 }
