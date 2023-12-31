@@ -26,9 +26,13 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        /**
-         * ME
-         */
+        for (SimpleWoodBlockModel.WoodBlocks block : SimpleWoodBlockModel.blocks){
+            TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(block.texture());
+
+            Identifier model = Models.CUBE_ALL.upload(block.wood(), texturedModel.getTextures(), blockStateModelGenerator.modelCollector);
+
+            blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createAxisRotatedBlockState(block.wood(), model));
+        }
 
         for (Block block : SimpleBlockModel.blocks) {
             blockStateModelGenerator.registerSimpleCubeAll(block);

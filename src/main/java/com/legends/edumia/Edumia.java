@@ -8,6 +8,7 @@ import com.legends.edumia.core.CreativeTabLoader;
 import com.legends.edumia.core.ItemLoader;
 import com.legends.edumia.mixin.FoliagePlacerTypeInvoker;
 import com.legends.edumia.world.worldgen.trees.EdumiaFoliagePlacerTypes;
+import com.legends.edumia.world.worldgen.trees.EdumiaTrunkPlacerTypes;
 import com.legends.edumia.world.worldgen.trees.foliageplacer.GhostGumFoliagePlacer;
 import net.fabricmc.api.ModInitializer;
 import com.legends.edumia.entity.ModEntities;
@@ -55,7 +56,9 @@ public class Edumia implements ModInitializer {
         ModEntitySpawning.addSpawns();
 
         ModSounds.registerModSounds();
+
         EdumiaFoliagePlacerTypes.register();
+        EdumiaTrunkPlacerTypes.register();
 
         ModDimensions.register();
         EdumiaBiomeKeys.registerModBiomes();

@@ -96,11 +96,11 @@ public class WoodBlockSets {
         }
         Block log = WoodBlocks.registerWoodBlock(name + "_log", new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).strength(strength).sounds(BlockSoundGroup.WOOD)));
 
-        Block wood = WoodBlocks.registerWoodBlock(name + "_wood", new Block(FabricBlockSettings.copyOf(Blocks.OAK_WOOD).strength(strength).sounds(BlockSoundGroup.WOOD)));
+        Block wood = WoodBlocks.registerWoodBlock(name + "_wood", new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).strength(strength).sounds(BlockSoundGroup.WOOD)));
 
         Block strippedLog = WoodBlocks.registerWoodBlock("stripped_" + name + "_log", new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_LOG).strength(strength).sounds(BlockSoundGroup.WOOD)));
 
-        Block strippedWood = WoodBlocks.registerWoodBlock("stripped_" + name + "_wood", new Block(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_WOOD).strength(strength).sounds(BlockSoundGroup.WOOD)));
+        Block strippedWood = WoodBlocks.registerWoodBlock("stripped_" + name + "_wood", new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_WOOD).strength(strength).sounds(BlockSoundGroup.WOOD)));
 
         Block woodWall = WoodBlocks.registerWoodBlock(name + "_wood_wall", new WallBlock(AbstractBlock.Settings.copy(wood).strength(strength).sounds(BlockSoundGroup.WOOD)));
 

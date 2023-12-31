@@ -69,42 +69,26 @@ public class CreativeTabLoader {
                         entries.add(BlockLoader.YELLOW_IRIS);
                         entries.add(BlockLoader.FLAME_OF_THE_SOUTH);
                         entries.add(BlockLoader.HIBISCUS);
-//
+                        entries.add(BlockLoader.TEST_SAPLING);
                         entries.add(BlockLoader.APPLE_SAPLING);
                         entries.add(BlockLoader.ASPEN_SAPLING);
 //                        entries.add(BlockLoader.BEECH_SAPLING);
-//                        entries.add(BlockLoader.BEECH_LEAVES);
 //                        entries.add(BlockLoader.BLACKTHORN_SAPLING);
-//                        entries.add(BlockLoader.BLACKTHORN_LEAVES);
-//                        entries.add(BlockLoader.CEDAR_SAPLING);
-//                        entries.add(BlockLoader.CEDAR_LEAVES);
+                        entries.add(BlockLoader.CEDAR_SAPLING);
 //                        entries.add(BlockLoader.CHERRY_SAPLING);
-//                        entries.add(BlockLoader.CHERRY_LEAVES);
 //                        entries.add(BlockLoader.CYPRESS_SAPLING);
-//                        entries.add(BlockLoader.CYPRESS_LEAVES);
 //                        entries.add(BlockLoader.FIR_SAPLING);
-//                        entries.add(BlockLoader.FIR_LEAVES);
                         entries.add(BlockLoader.GHOST_GUM_SAPLING);
-//                        entries.add(BlockLoader.GHOST_GUM_LEAVES);
 //                        entries.add(BlockLoader.GREEN_OAK_SAPLING);
-//                        entries.add(BlockLoader.GREEN_OAK_LEAVES);
 //                        entries.add(BlockLoader.HOLLY_SAPLING);
-//                        entries.add(BlockLoader.HOLLY_LEAVES);
 //                        entries.add(BlockLoader.LARCH_SAPLING);
-//                        entries.add(BlockLoader.LARCH_LEAVES);
 //                        entries.add(BlockLoader.MAPLE_SAPLING);
-//                        entries.add(BlockLoader.MAPLE_LEAVES);
 //                        entries.add(BlockLoader.PEAR_SAPLING);
-//                        entries.add(BlockLoader.PEAR_LEAVES);
 //                        entries.add(BlockLoader.PINE_SAPLING);
-//                        entries.add(BlockLoader.PINE_LEAVES);
 //                        entries.add(BlockLoader.RED_OAK_SAPLING);
-//                        entries.add(BlockLoader.RED_OAK_LEAVES);
 //                        entries.add(BlockLoader.REDWOOD_SAPLING);
 //                        entries.add(BlockLoader.SILVER_SPRUCE_SAPLING);
-//                        entries.add(BlockLoader.SILVER_SPRUCE_LEAVES);
-//                        entries.add(BlockLoader.WHITE_ASH_SAPLING);
-//                        entries.add(BlockLoader.WHITE_ASH_LEAVES);
+                        entries.add(BlockLoader.WHITE_ASH_SAPLING);
                     })
                     .build();
 

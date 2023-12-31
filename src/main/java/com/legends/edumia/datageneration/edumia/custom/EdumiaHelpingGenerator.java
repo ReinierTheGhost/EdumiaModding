@@ -4,6 +4,7 @@ import com.legends.edumia.block.blocksets.*;
 import com.legends.edumia.datageneration.edumia.custom.models.SimpleAxisSlabModel;
 import com.legends.edumia.datageneration.edumia.custom.models.SimpleCornerBlockModel;
 import com.legends.edumia.datageneration.edumia.custom.models.SimplePillarModels;
+import com.legends.edumia.datageneration.edumia.custom.models.SimpleWoodBlockModel;
 import com.legends.edumia.datageneration.edumia.custom.tags.Leaves;
 import com.legends.edumia.datageneration.edumia.custom.tags.Pillar;
 import com.legends.edumia.datageneration.edumia.custom.tags.RequiresIronTool;
@@ -48,9 +49,9 @@ public class EdumiaHelpingGenerator {
                 Leaves.leaves.add(set.leaves());
             }
             SimplePillarModel.blocks.add(new SimplePillarModel.Pillar(set.log()));
-            SimpleBlockModel.blocks.add(set.wood());
+            SimpleWoodBlockModel.blocks.add(new SimpleWoodBlockModel.WoodBlocks(set.log(), set.wood()));
             SimplePillarModel.blocks.add(new SimplePillarModel.Pillar(set.strippedLog()));
-            SimpleBlockModel.blocks.add(set.strippedWood());
+            SimpleWoodBlockModel.blocks.add(new SimpleWoodBlockModel.WoodBlocks(set.strippedLog(), set.strippedWood()));
             SimpleWallModel.blocks.add(new SimpleWallModel.Wall(set.log(), set.woodWall()));
             SimpleBlockModel.blocks.add(set.planks());
             SimpleAxisSlabModel.blocks.add(new SimpleAxisSlabModel.Slab(set.planks(), set.planksSlab()));

@@ -47,6 +47,16 @@ public abstract class ExtendedTrunkPlacer extends TrunkPlacer {
         this.branchProvider = branchProvider;
     }
 
+    /**
+     * to place logs with a rotation
+     * @param world
+     * @param random
+     * @param pos
+     * @param trunk
+     * @param config
+     * @param axis
+     * @return
+     */
     protected boolean placeLogWithAxis(TestableWorld world, Random random, BlockPos pos, BiConsumer<BlockPos, BlockState> trunk,
                                        TreeFeatureConfig config, Direction.Axis axis){
         if (TreeFeature.canReplace(world, pos)){
@@ -62,6 +72,16 @@ public abstract class ExtendedTrunkPlacer extends TrunkPlacer {
         }
     }
 
+    /**
+     * To place wood blocks
+     * @param world
+     * @param random
+     * @param pos
+     * @param trunk
+     * @param config
+     * @param axis
+     * @return
+     */
     protected boolean placeWood(TestableWorld world, Random random, BlockPos pos, BiConsumer<BlockPos, BlockState> trunk,
                                 TreeFeatureConfig config, Direction.Axis axis){
         if (TreeFeature.canReplace(world, pos)){
@@ -78,6 +98,17 @@ public abstract class ExtendedTrunkPlacer extends TrunkPlacer {
             return false;
         }
     }
+
+    /**
+     * To place stripped logs
+     * @param world
+     * @param random
+     * @param pos
+     * @param trunk
+     * @param config
+     * @param axis
+     * @return
+     */
 
     protected boolean placeStrippedLog(TestableWorld world, Random random, BlockPos pos, BiConsumer<BlockPos, BlockState> trunk,
                                 TreeFeatureConfig config, Direction.Axis axis){
@@ -126,11 +157,33 @@ public abstract class ExtendedTrunkPlacer extends TrunkPlacer {
         }
     }
 
+    /**
+     * to let roots grow downwards in to the ground
+     * This method is a cut down of
+     * {@linkplain #growRootsDownBranchingOut(TestableWorld, Random, BlockPos.Mutable, int, Direction, int, BiConsumer, TreeFeatureConfig)}
+     * @param world
+     * @param random
+     * @param rootPos
+     * @param rootLength
+     * @param trunk
+     * @param config
+     */
     protected void growRootsDown(TestableWorld world, Random random, BlockPos.Mutable rootPos, int rootLength,
                                  BiConsumer<BlockPos, BlockState> trunk, TreeFeatureConfig config){
         this.growRootsDownBranchingOut(world, random, rootPos, rootLength, (Direction) null, 0, trunk, config);
     }
 
+    /**
+     * This Method is used to let roots grown down and branch outwards
+     * @param world
+     * @param random
+     * @param rootPos
+     * @param rootLength
+     * @param outwardsDir
+     * @param outwardsInterval
+     * @param trunk
+     * @param config
+     */
     protected void growRootsDownBranchingOut(TestableWorld world, Random random, BlockPos.Mutable rootPos, int rootLength,
                                              Direction outwardsDir, int outwardsInterval,
                                              BiConsumer<BlockPos, BlockState> trunk, TreeFeatureConfig config){
@@ -151,6 +204,17 @@ public abstract class ExtendedTrunkPlacer extends TrunkPlacer {
         }
     }
 
+    /**
+     *
+     * @param world
+     * @param random
+     * @param rootPos
+     * @param rootLength
+     * @param outwardsDir
+     * @param maxOut
+     * @param trunk
+     * @param config
+     */
     protected void growRootsDownAndThanOut(TestableWorld world, Random random, BlockPos.Mutable rootPos, int rootLength,
                                              Direction outwardsDir, int maxOut,
                                              BiConsumer<BlockPos, BlockState> trunk, TreeFeatureConfig config){
