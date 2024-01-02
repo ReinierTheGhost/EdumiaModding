@@ -11,7 +11,6 @@ import net.minecraft.sound.BlockSoundGroup;
 
 public class StoneSets {
     public static final float STONE_STRENGTH = 2.0f;
-
     public static StoneSet LIGHT_GRAY_STONE = registerStoneSet("light_gray_stone", STONE_STRENGTH);
     public static StoneSet BROWN_STONE = registerStoneSet("brown_stone", STONE_STRENGTH);
     public static StoneSet LIMESTONE = registerStoneSet("limestone", STONE_STRENGTH);
@@ -37,7 +36,9 @@ public class StoneSets {
     public static StoneSet MOSSY_LIGHT_HIGH_ELVEN_COBBLESTONE = registerStoneSet("mossy_light_high_elven_cobblestone", STONE_STRENGTH);
     public static StoneSet MOSSY_DARK_HIGH_ELVEN_COBBLESTONE = registerStoneSet("mossy_dark_high_elven_cobblestone", STONE_STRENGTH);
 
+    public static StoneSet RED_GENSAI_STONE = registerStoneSet("red_gensai_stone", STONE_STRENGTH);
     public static StoneSet[] naturalSets = new StoneSet[]{
+            RED_GENSAI_STONE,
             BLUE_STONE,
             LIMESTONE,
             BROWN_STONE,

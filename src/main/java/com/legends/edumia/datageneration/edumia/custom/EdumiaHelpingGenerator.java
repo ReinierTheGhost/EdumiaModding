@@ -131,6 +131,29 @@ public class EdumiaHelpingGenerator {
             }
         }
 
+        for (NotBrickBuildingSets.BuildSet set : NotBrickBuildingSets.buildSets){
+            SimpleBlockModel.blocks.add(set.block());
+            SimpleAxisSlabModel.blocks.add(new SimpleAxisSlabModel.Slab(set.block(), set.slab()));
+            SimpleStairModel.blocks.add(new SimpleStairModel.Stair(set.block(), set.stair()));
+
+            BlockDrops.blocks.add(set.block());
+            BlockDrops.blocks.add(set.slab());
+            BlockDrops.blocks.add(set.stair());
+
+            MineablePickaxe.blocks.add(set.block());
+            MineablePickaxe.blocks.add(set.slab());
+            MineablePickaxe.blocks.add(set.stair());
+
+            if (set.wall() != null){
+                SimpleWallModel.blocks.add(new SimpleWallModel.Wall(set.block(), set.wall()));
+                BlockDrops.blocks.add(set.wall());
+                MineablePickaxe.blocks.add(set.wall());
+                RequiresIronTool.blocks.add(set.wall());
+                Walls.walls.add(set.wall());
+            }
+
+        }
+
         for (OreRockSets.CompleteOreRockSet set : OreRockSets.vanillaSets) {
             SimpleBlockModel.blocks.add(set.tin_ore());
 

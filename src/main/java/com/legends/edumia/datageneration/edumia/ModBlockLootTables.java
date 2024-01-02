@@ -17,6 +17,8 @@ public class ModBlockLootTables extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
 
+        addDrop(BlockLoader.BROWN_SANDSTONE_SLATES);
+
         addDrop(BlockLoader.REEDS);
         addDrop(BlockLoader.DRIED_REEDS);
         addDrop(BlockLoader.PAPYRUS);

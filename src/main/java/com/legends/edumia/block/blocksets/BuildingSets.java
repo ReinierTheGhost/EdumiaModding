@@ -11,6 +11,9 @@ import net.minecraft.sound.BlockSoundGroup;
 public class BuildingSets {
 
     public static final float STONE_STRENGTH = 2.0f;
+    public static BuildSet REDISH_GENSAI_BRICKS = registerBuildingSet("redish_gensai", STONE_STRENGTH, false);
+    public static BuildSet CRACKED_REDISH_GENSAI_BRICKS = registerBuildingSet("cracked_redish_gensai", STONE_STRENGTH, false);
+    public static BuildSet MOSSY_REDISH_GENSAI_BRICKS = registerBuildingSet("mossy_redish_gensai", STONE_STRENGTH, false);
     public static BuildSet MOSSY_LIGHT_HIGH_ELVEN = registerBuildingSet("mossy_light_high_elven", STONE_STRENGTH, false);
     public static BuildSet MOSSY_DARK_HIGH_ELVEN = registerBuildingSet("mossy_dark_high_elven", STONE_STRENGTH, false);
     public static BuildSet MOSSY_HIGH_ELVEN = registerBuildingSet("mossy_high_elven", STONE_STRENGTH, false);
@@ -56,8 +59,19 @@ public class BuildingSets {
     public static BuildSet CRACKED_DESERT_MUD_BRICKS = registerBuildingSet("cracked_desert_mud", STONE_STRENGTH, false);
     public static BuildSet MOSSY_DESERT_MUD_BRICKS = registerBuildingSet("mossy_desert_mud", STONE_STRENGTH, false);
 
+    public static BuildSet ANDESITE_BRICKS = registerBuildingSet("andesite", STONE_STRENGTH, false);
+    public static BuildSet GRANITE_BRICKS = registerBuildingSet("granite", STONE_STRENGTH, false);
+    public static BuildSet DIORITE_BRICKS = registerBuildingSet("diorite", STONE_STRENGTH, false);
+    public static BuildSet DRIPSTONE_BRICKS = registerBuildingSet("dripstone", STONE_STRENGTH, false);
 
     public static BuildSet[] buildSets = new BuildSet[]{
+            REDISH_GENSAI_BRICKS,
+            CRACKED_REDISH_GENSAI_BRICKS,
+            MOSSY_REDISH_GENSAI_BRICKS,
+            DRIPSTONE_BRICKS,
+            DIORITE_BRICKS,
+            GRANITE_BRICKS,
+            ANDESITE_BRICKS,
             MOSSY_GENSAI_BRICK,
             TRIMMED_GENSAI_BRICK,
             GENSAI_BRICK,

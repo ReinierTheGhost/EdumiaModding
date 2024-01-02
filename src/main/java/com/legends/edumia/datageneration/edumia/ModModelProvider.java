@@ -348,6 +348,12 @@ public class ModModelProvider extends FabricModelProvider {
         blue_bricks.wall( BlockLoader.BLUE_BRICK_WALL);
 
 
+        blockStateModelGenerator.registerAxisRotated(BlockLoader.CHISELED_ANDESITE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(BlockLoader.CHISELED_DIORITE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(BlockLoader.CHISELED_GRANITE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(BlockLoader.CHISELED_DRIPSTONE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(BlockLoader.DIRTY_CHALK, TexturedModel.CUBE_COLUMN);
+
         blockStateModelGenerator.registerSimpleCubeAll(BlockLoader.CHISELED_HIGH_ELVEN_BRICKS);
 
 
@@ -381,8 +387,6 @@ public class ModModelProvider extends FabricModelProvider {
 
 
 //
-//        blockStateModelGenerator.registerSimpleCubeAll(BlockLoader.BROWN_SANDSTONE_SLATES);
-//
 //        simpleBlockWithItem(BlockLoader.ARID_GRASS,
 //                models().cross(blockTexture(BlockLoader.ARID_GRASS).getPath(),
 //                        blockTexture(BlockLoader.ARID_GRASS)).renderType("cutout"));
@@ -397,6 +401,16 @@ public class ModModelProvider extends FabricModelProvider {
 //                        blockTexture(BlockLoader.FLAX_GRASS)).renderType("cutout"));
 //
 //
+
+        blockStateModelGenerator.registerTintableCross(BlockLoader.ARID_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(BlockLoader.BLACK_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(BlockLoader.FLAX_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerDoubleBlock(BlockLoader.BEACH_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerDoubleBlock(BlockLoader.TALL_BEACH_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(BlockLoader.FROSTED_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerDoubleBlock(BlockLoader.TALL_FROSTED_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
+
+
         //flowers
         blockStateModelGenerator.registerFlowerPotPlant(BlockLoader.ASPHODEL, BlockLoader.POTTED_ASPHODEL,
                 BlockStateModelGenerator.TintType.NOT_TINTED);

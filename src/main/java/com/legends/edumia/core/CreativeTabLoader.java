@@ -28,22 +28,27 @@ public class CreativeTabLoader {
 
     public static final ItemGroup EDUMIA_PLANTS = FabricItemGroup.builder()
             .displayName(Text.literal("Edumia Plants"))
-                    .icon(() -> new ItemStack(BlockLoader.PAPYRUS)).entries((displayContext, entries) -> {
-                        for (ItemStack item : PLANT_CONTENTS) {
-                            entries.add(item);
-                        }
-                        entries.add(BlockLoader.PAPYRUS);
-                        entries.add(BlockLoader.REEDS);
-                        entries.add(BlockLoader.DRIED_REEDS);
+            .icon(() -> new ItemStack(BlockLoader.PAPYRUS)).entries((displayContext, entries) -> {
+                for (ItemStack item : PLANT_CONTENTS) {
+                    entries.add(item);
+                }
+                entries.add(BlockLoader.PAPYRUS);
+                entries.add(BlockLoader.REEDS);
+                entries.add(BlockLoader.DRIED_REEDS);
 //
-//                        entries.add(BlockLoader.ARID_GRASS);
-//                        entries.add(BlockLoader.BLACK_GRASS);
-//                        entries.add(BlockLoader.FLAX_GRASS);
+                entries.add(BlockLoader.ARID_GRASS);
+                entries.add(BlockLoader.BLACK_GRASS);
+                entries.add(BlockLoader.FLAX_GRASS);
+                entries.add(BlockLoader.BEACH_GRASS);
+                entries.add(BlockLoader.TALL_BEACH_GRASS);
+                entries.add(BlockLoader.FROSTED_GRASS);
+                entries.add(BlockLoader.TALL_FROSTED_GRASS);
+
 //                        flowers
-                        entries.add(BlockLoader.ASPHODEL);
-                        entries.add(BlockLoader.BLUE_DELPHINIUM);
-                        entries.add(BlockLoader.BLUEBELL);
-                        entries.add(BlockLoader.CALLA_LILY);
+                entries.add(BlockLoader.ASPHODEL);
+                entries.add(BlockLoader.BLUE_DELPHINIUM);
+                entries.add(BlockLoader.BLUEBELL);
+                entries.add(BlockLoader.CALLA_LILY);
                         entries.add(BlockLoader.CELSEMIUM);
                         entries.add(BlockLoader.CHRYS_BLUE);
                         entries.add(BlockLoader.CHRYS_ORANGE);
@@ -76,18 +81,18 @@ public class CreativeTabLoader {
 //                        entries.add(BlockLoader.BLACKTHORN_SAPLING);
                         entries.add(BlockLoader.CEDAR_SAPLING);
 //                        entries.add(BlockLoader.CHERRY_SAPLING);
-//                        entries.add(BlockLoader.CYPRESS_SAPLING);
-//                        entries.add(BlockLoader.FIR_SAPLING);
+                        entries.add(BlockLoader.CYPRESS_SAPLING);
+                        entries.add(BlockLoader.FIR_SAPLING);
                         entries.add(BlockLoader.GHOST_GUM_SAPLING);
-//                        entries.add(BlockLoader.GREEN_OAK_SAPLING);
-//                        entries.add(BlockLoader.HOLLY_SAPLING);
-//                        entries.add(BlockLoader.LARCH_SAPLING);
+                        entries.add(BlockLoader.GREEN_OAK_SAPLING);
+                        entries.add(BlockLoader.HOLLY_SAPLING);
+                        entries.add(BlockLoader.LARCH_SAPLING);
 //                        entries.add(BlockLoader.MAPLE_SAPLING);
 //                        entries.add(BlockLoader.PEAR_SAPLING);
 //                        entries.add(BlockLoader.PINE_SAPLING);
-//                        entries.add(BlockLoader.RED_OAK_SAPLING);
+                        entries.add(BlockLoader.RED_OAK_SAPLING);
 //                        entries.add(BlockLoader.REDWOOD_SAPLING);
-//                        entries.add(BlockLoader.SILVER_SPRUCE_SAPLING);
+                        entries.add(BlockLoader.SILVER_SPRUCE_SAPLING);
                         entries.add(BlockLoader.WHITE_ASH_SAPLING);
                     })
                     .build();
@@ -285,6 +290,12 @@ public class CreativeTabLoader {
 
                         entries.add(BlockLoader.CARVED_RED_GENSAI_BRICKS);
 
+                        entries.add(BlockLoader.CHISELED_ANDESITE);
+                        entries.add(BlockLoader.CHISELED_DRIPSTONE);
+                        entries.add(BlockLoader.CHISELED_DIORITE);
+                        entries.add(BlockLoader.CHISELED_GRANITE);
+                        entries.add(BlockLoader.DIRTY_CHALK);
+
                     }).build();
 
     public static final List<ItemStack> WOOD_BLOCKS_CONTENTS = new LinkedList<>();
@@ -318,7 +329,9 @@ public class CreativeTabLoader {
 
                         entries.add(BlockLoader.CHISELED_BASALT);
 
-//                        entries.add(BlockLoader.BROWN_SANDSTONE_SLATES);
+                        entries.add(BlockLoader.BROWN_SANDSTONE_SLATES);
+
+                        entries.add(BlockLoader.DIRTY_CHALK);
 //
                         entries.add(BlockLoader.SAND_LAYER);
                         entries.add(BlockLoader.RED_SAND_LAYER);

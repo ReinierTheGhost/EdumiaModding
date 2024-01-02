@@ -39,6 +39,16 @@ public class EdumiaClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.PAPYRUS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.DRIED_REEDS, RenderLayer.getCutout());
 
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.FLAX_GRASS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.BLACK_GRASS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.ARID_GRASS, RenderLayer.getCutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.BEACH_GRASS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.TALL_BEACH_GRASS, RenderLayer.getCutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.FROSTED_GRASS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.TALL_FROSTED_GRASS, RenderLayer.getCutout());
+
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.ASPHODEL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.BLUE_DELPHINIUM, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.BLUEBELL, RenderLayer.getCutout());
@@ -74,7 +84,14 @@ public class EdumiaClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.TEST_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.ASPEN_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.CEDAR_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.CYPRESS_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.FIR_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.GHOST_GUM_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.GREEN_OAK_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.HOLLY_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.LARCH_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.RED_OAK_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.SILVER_SPRUCE_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.WHITE_ASH_SAPLING, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.POTTED_ASPHODEL, RenderLayer.getCutout());

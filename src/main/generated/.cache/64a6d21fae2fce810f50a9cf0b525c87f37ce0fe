@@ -1,13 +1,13 @@
-// 1.20.1	2023-12-29T20:35:49.2626993	Edumia/Tags for minecraft:block
+// 1.20.1	2024-01-02T17:15:56.2811614	Edumia/Tags for minecraft:block
 6a8bc99fcc7bd787174b7f2b216cbaa289388a6e data\edumia\tags\blocks\reeds_placeable_on.json
 b61ab40fc2614ed88a233e94a27f425591dc4c1a data\minecraft\tags\blocks\fences.json
 8bf4057e1c7ac3ba96c362e0a9a8e00042a76447 data\minecraft\tags\blocks\pressure_plates.json
 9d065c413d7be7bd448db4da594e4f85a47cb389 data\minecraft\tags\blocks\mineable\axe.json
 9d1531a07e18e5097476aa4c8816b31a5967ee3b data\minecraft\tags\blocks\planks.json
 08f2a4a946bacfac6816e50b27b8a3749d4bca79 data\minecraft\tags\blocks\buttons.json
-bf32c99075700fc7f30b41e5d7f9f30cde27790f data\minecraft\tags\blocks\needs_iron_tool.json
-a1a56d7e37099cfa8dedcf5451506cf0f5def10a data\minecraft\tags\blocks\walls.json
-76ffe676f7afcbf8974785daaae28ee0e5a73395 data\minecraft\tags\blocks\mineable\pickaxe.json
+b3f3aad42d3c78c32fa795959bbba233d80403e7 data\minecraft\tags\blocks\needs_iron_tool.json
+f4f5cfe2c81806597fd83bf8d571acab5a9f1c3c data\minecraft\tags\blocks\walls.json
+5b7ee4db2eafcd055f626e24f7dbd78aac95c595 data\minecraft\tags\blocks\mineable\pickaxe.json
 c272f1c9d201b7860cd2464fbac2bb013acd02be data\minecraft\tags\blocks\logs.json
 f44af4e9b5681eaf21d2ea980c06e5f8a9d5fd76 data\edumia\tags\blocks\pillars.json
 bf55173860632fb85df587e1d2be0b663bee71a2 data\minecraft\tags\blocks\fence_gates.json

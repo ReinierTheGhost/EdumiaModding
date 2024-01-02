@@ -156,9 +156,29 @@ public class BlockLoader {
             new AxialSlabBlock(LIGHT_HIGH_ELVEN_BRICK_TILING));
 
 
-//    public static final Block BROWN_SANDSTONE_SLATES = registerBlock("brown_sandstone_slates",
-//            new EdumiaStoneBlock(AbstractBlock.Settings.create().requiresTool()
-//                    .strength(1.5f, 6f)));
+
+    public static final Block BROWN_SANDSTONE_SLATES = registerBlock("brown_sandstone_slates",
+            new PillarBlock(AbstractBlock.Settings.create().requiresTool()
+                    .strength(1.5f, 6f)));
+
+    public static final Block CHISELED_ANDESITE = registerBlock("chiseled_andesite",
+            new PillarBlock(AbstractBlock.Settings.create().requiresTool()
+                    .strength(2f, 6f)));
+
+    public static final Block CHISELED_DIORITE = registerBlock("chiseled_diorite",
+            new PillarBlock(AbstractBlock.Settings.create().requiresTool()
+                    .strength(2f, 6f)));
+
+    public static final Block CHISELED_GRANITE = registerBlock("chiseled_granite",
+            new PillarBlock(AbstractBlock.Settings.create().requiresTool()
+                    .strength(2f, 6f)));
+
+    public static final Block CHISELED_DRIPSTONE = registerBlock("chiseled_dripstone",
+            new PillarBlock(AbstractBlock.Settings.create().requiresTool()
+                    .strength(2f, 6f)));
+    public static final Block DIRTY_CHALK = registerBlock("dirty_chalk",
+            new PillarBlock(AbstractBlock.Settings.create().requiresTool()
+                    .strength(2f, 6f)));
 //
 //
 //
@@ -208,24 +228,24 @@ public class BlockLoader {
 //            new SaplingBlock(new AppleTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
 
-//    public static final Block CYPRESS_SAPLING = registerBlock("cypress_sapling",
-//            new SaplingBlock(new CypressTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+    public static final Block CYPRESS_SAPLING = registerBlock("cypress_sapling",
+            new SaplingBlock(new CypressTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
 
-//    public static final Block FIR_SAPLING = registerBlock("fir_sapling",
-//            new SaplingBlock(new FirTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+    public static final Block FIR_SAPLING = registerBlock("fir_sapling",
+            new SaplingBlock(new FirTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
 
-//    public static final Block GREEN_OAK_SAPLING = registerBlock("green_oak_sapling",
-//            new SaplingBlock(new GreenOakTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+    public static final Block GREEN_OAK_SAPLING = registerBlock("green_oak_sapling",
+            new SaplingBlock(new GreenOakTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
 
-//    public static final Block HOLLY_SAPLING = registerBlock("holly_sapling",
-//            new SaplingBlock(new HollyTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+    public static final Block HOLLY_SAPLING = registerBlock("holly_sapling",
+            new SaplingBlock(new HollyTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
 
-//    public static final Block LARCH_SAPLING = registerBlock("larch_sapling",
-//            new SaplingBlock(new LarchTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+    public static final Block LARCH_SAPLING = registerBlock("larch_sapling",
+            new SaplingBlock(new LarchTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
 //    public static final Block MAPLE_SAPLING = registerBlock("maple_sapling",
 //            new SaplingBlock(new AppleTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
@@ -240,8 +260,8 @@ public class BlockLoader {
 
 
 
-//    public static final Block RED_OAK_SAPLING = registerBlock("red_oak_sapling",
-//            new SaplingBlock(new RedOakTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+    public static final Block RED_OAK_SAPLING = registerBlock("red_oak_sapling",
+            new SaplingBlock(new RedOakTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
 
 //    public static final Block REDWOOD_SAPLING = registerBlock("redwood_sapling",
@@ -249,8 +269,8 @@ public class BlockLoader {
 
 
 //
-//    public static final Block SILVER_SPRUCE_SAPLING = registerBlock("silver_spruce_sapling",
-//            new SaplingBlock(new AppleTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+    public static final Block SILVER_SPRUCE_SAPLING = registerBlock("silver_spruce_sapling",
+            new SaplingBlock(new SilverSpruceTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
 
     public static final Block WHITE_ASH_SAPLING = registerBlock("white_ash_sapling",
@@ -267,18 +287,37 @@ public class BlockLoader {
 
     //grass
 
-//    public static final Block ARID_GRASS = registerBlock("arid_grass",
-//            new TallGrassBlock(AbstractBlock.Settings.create().mapColor(MapColor.PLANT).replaceable()
-//                    .noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)
-//                    .ignitedByLava().pushReaction(PushReaction.DESTROY)));
-//    public static final Block BLACK_GRASS = registerBlock("black_grass",
-//            new TallGrassBlock(AbstractBlock.Settings.create().mapColor(MapColor.PLANT).replaceable()
-//                    .noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)
-//                    .ignitedByLava().pushReaction(PushReaction.DESTROY)));
-//    public static final Block FLAX_GRASS = registerBlock("flax_grass",
-//            new TallGrassBlock(AbstractBlock.Settings.create().mapColor(MapColor.PLANT).replaceable()
-//                    .noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)
-//                    .ignitedByLava().pushReaction(PushReaction.DESTROY)));
+    public static final Block ARID_GRASS = registerBlock("arid_grass",
+            new FernBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable()
+                    .noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XYZ)
+                    .burnable().pistonBehavior(PistonBehavior.DESTROY)));
+
+    public static final Block BLACK_GRASS = registerBlock("black_grass",
+            new FernBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable()
+                    .noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XYZ)
+                    .burnable().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block FLAX_GRASS = registerBlock("flax_grass",
+            new FernBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable()
+                    .noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XYZ)
+                    .burnable().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block BEACH_GRASS = registerBlock("beach_grass",
+            new TallPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable()
+                    .noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XYZ)
+                    .burnable().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block TALL_BEACH_GRASS = registerBlock("tall_beach_grass",
+            new TallPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable()
+                    .noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XYZ)
+                    .burnable().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block FROSTED_GRASS = registerBlock("frosted_grass",
+            new FernBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable()
+                    .noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XYZ)
+                    .burnable().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block TALL_FROSTED_GRASS = registerBlock("tall_frosted_grass",
+            new TallPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable()
+                    .noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XYZ)
+                    .burnable().pistonBehavior(PistonBehavior.DESTROY)));
+
+
 //
     //flowers
     public static final Block ASPHODEL = registerBlock("asphodel",

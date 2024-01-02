@@ -48,6 +48,7 @@ public class Edumia implements ModInitializer {
         BuildingSets.registerModBlockSets();
         StoneSets.registerModBlockSets();
         ClayTilingSets.registerModBlockSets();
+        NotBrickBuildingSets.registerModBlockSets();
 
 
         ModRecipes.registerRecipes();
