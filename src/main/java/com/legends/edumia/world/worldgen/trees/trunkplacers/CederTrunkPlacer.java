@@ -44,11 +44,11 @@ public class CederTrunkPlacer extends ExtendedTrunkPlacer {
         setToDirt(world, trunk, random, basePos.down(), config);
 
         for (int y = 0; y < trunkHeight; ++y){
-            getAndSetState(world, trunk, random, basePos.up(y), config);
+            getAndSetState(world, trunk, random, basePos.up(y), config); //builds the trunk
         }
 
         List<FoliagePlacer.TreeNode> foliage = new ArrayList<>();
-        foliage.add(new FoliagePlacer.TreeNode(basePos.up(trunkHeight), 0, false));
+        foliage.add(new FoliagePlacer.TreeNode(basePos.up(trunkHeight), 0, false)); // places the leaves on top of the trunk
 
         int i;
 

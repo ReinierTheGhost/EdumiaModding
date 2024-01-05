@@ -14,6 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 
 public class BlockLoader {
@@ -29,6 +30,8 @@ public class BlockLoader {
             new Layer(AbstractBlock.Settings.copy(Blocks.SAND).sounds(BlockSoundGroup.SAND)));
 
 
+    public static final Block HIGH_ELVEN_CRYSTAL = registerBlock("high_elven_crystal",
+            new CrystalBlock(12, 2, DyeColor.LIGHT_BLUE));
 
 
 
@@ -214,11 +217,11 @@ public class BlockLoader {
             new SaplingBlock(new GhostGumTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
 
-//    public static final Block BEECH_SAPLING = registerBlock("beech_sapling",
-//            new SaplingBlock(new AppleTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+    public static final Block BEECH_SAPLING = registerBlock("beech_sapling",
+            new SaplingBlock(new BeechTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
-//    public static final Block BLACKTHORN_SAPLING = registerBlock("blackthorn_sapling",
-//            new SaplingBlock(new AppleTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+    public static final Block BLACKTHORN_SAPLING = registerBlock("blackthorn_sapling",
+            new SaplingBlock(new BlackthornTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
     public static final Block CEDAR_SAPLING = registerBlock("cedar_sapling",
             new SaplingBlock(new CederTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
@@ -255,8 +258,8 @@ public class BlockLoader {
 //            new SaplingBlock(new AppleTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
 
-//    public static final Block PINE_SAPLING = registerBlock("pine_sapling",
-//            new SaplingBlock(new PineTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+    public static final Block PINE_SAPLING = registerBlock("pine_sapling",
+            new SaplingBlock(new PineTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
 
 
@@ -264,8 +267,8 @@ public class BlockLoader {
             new SaplingBlock(new RedOakTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
 
-//    public static final Block REDWOOD_SAPLING = registerBlock("redwood_sapling",
-//            new SaplingBlock(new AppleTreeGrower(), AbstractBlock.Settings.create()));
+    public static final Block REDWOOD_SAPLING = registerBlock("redwood_sapling",
+            new SaplingBlock(new RedwoodTreeGrowen(), AbstractBlock.Settings.create()));
 
 
 //

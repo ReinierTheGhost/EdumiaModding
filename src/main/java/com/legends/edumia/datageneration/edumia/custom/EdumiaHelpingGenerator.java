@@ -53,6 +53,7 @@ public class EdumiaHelpingGenerator {
             SimplePillarModel.blocks.add(new SimplePillarModel.Pillar(set.strippedLog()));
             SimpleWoodBlockModel.blocks.add(new SimpleWoodBlockModel.WoodBlocks(set.strippedLog(), set.strippedWood()));
             SimpleWallModel.blocks.add(new SimpleWallModel.Wall(set.log(), set.woodWall()));
+            SimpleFenceModel.blocks.add(new SimpleFenceModel.Fence(set.wood(), set.woodFence()));
             SimpleBlockModel.blocks.add(set.planks());
             SimpleAxisSlabModel.blocks.add(new SimpleAxisSlabModel.Slab(set.planks(), set.planksSlab()));
             SimpleStairModel.blocks.add(new SimpleStairModel.Stair(set.planks(), set.planksStairs()));
@@ -67,6 +68,7 @@ public class EdumiaHelpingGenerator {
             BlockDrops.blocks.add(set.strippedLog());
             BlockDrops.blocks.add(set.strippedWood());
             BlockDrops.blocks.add(set.woodWall());
+            BlockDrops.blocks.add(set.woodFence());
             BlockDrops.blocks.add(set.planks());
             BlockDrops.blocks.add(set.planksSlab());
             BlockDrops.blocks.add(set.planksStairs());
@@ -80,6 +82,7 @@ public class EdumiaHelpingGenerator {
             MineableAxe.blocks.add(set.strippedLog());
             MineableAxe.blocks.add(set.strippedWood());
             MineableAxe.blocks.add(set.woodWall());
+            MineableAxe.blocks.add(set.woodFence());
             MineableAxe.blocks.add(set.planks());
             MineableAxe.blocks.add(set.planksSlab());
             MineableAxe.blocks.add(set.planksStairs());
@@ -89,6 +92,7 @@ public class EdumiaHelpingGenerator {
             MineableAxe.blocks.add(set.pressurePlate());
 
             Buttons.buttons.add(set.button());
+            Fences.fences.add(set.woodFence());
             Fences.fences.add(set.planksFence());
             FenceGates.fenceGates.add(set.planksGate());
             Logs.logs.add(set.log());

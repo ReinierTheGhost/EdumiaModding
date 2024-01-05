@@ -1,6 +1,8 @@
 package com.legends.edumia.world.worldgen.treegrowers;
 
 import com.legends.edumia.world.worldgen.configured.TreeConfiguredFeatures;
+import com.legends.edumia.world.worldgen.configured.trees.SequoiaTreeConfiguredFeatures;
+import com.legends.edumia.world.worldgen.placed.trees.SequoiaTreePlacedFeatures;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.math.random.Random;

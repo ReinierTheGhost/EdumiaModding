@@ -83,6 +83,8 @@ public class EdumiaClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.APPLE_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.TEST_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.ASPEN_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.BEECH_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.BLACKTHORN_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.CEDAR_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.CYPRESS_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.FIR_SAPLING, RenderLayer.getCutout());
@@ -90,7 +92,9 @@ public class EdumiaClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.GREEN_OAK_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.HOLLY_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.LARCH_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.PINE_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.RED_OAK_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.REDWOOD_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.SILVER_SPRUCE_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.WHITE_ASH_SAPLING, RenderLayer.getCutout());
 
@@ -120,6 +124,8 @@ public class EdumiaClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.POTTED_PINK_ANEMONE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.POTTED_SIMBLELMYNE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.POTTED_TUBEROSE, RenderLayer.getCutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.HIGH_ELVEN_CRYSTAL, RenderLayer.getTranslucent());
 
     }
 

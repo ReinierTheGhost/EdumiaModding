@@ -73,7 +73,7 @@ public class WoodBlockSets {
             DARK_OAK,
     };
 
-    public record SimpleBlockSet(Block leaves, Block log, Block wood, Block strippedLog, Block strippedWood, Block woodWall,
+    public record SimpleBlockSet(Block leaves, Block log, Block wood, Block strippedLog, Block strippedWood, Block woodWall, Block woodFence,
                                  Block planks, Block planksSlab, Block planksStairs, Block planksFence, Block planksGate,
                                  Block pressurePlate, Block button, Block beam) {
     }
@@ -103,6 +103,7 @@ public class WoodBlockSets {
         Block strippedWood = WoodBlocks.registerWoodBlock("stripped_" + name + "_wood", new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_WOOD).strength(strength).sounds(BlockSoundGroup.WOOD)));
 
         Block woodWall = WoodBlocks.registerWoodBlock(name + "_wood_wall", new WallBlock(AbstractBlock.Settings.copy(wood).strength(strength).sounds(BlockSoundGroup.WOOD)));
+        Block woodFence = WoodBlocks.registerWoodBlock(name + "_wood_fence", new FenceBlock(FabricBlockSettings.copyOf(wood).strength(strength).sounds(BlockSoundGroup.WOOD)));
 
         Block planks = WoodBlocks.registerWoodBlock(name + "_planks", new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(strength).sounds(BlockSoundGroup.WOOD)));
 
@@ -126,7 +127,7 @@ public class WoodBlockSets {
         Block beam = WoodBlocks.registerWoodBlock(name + "_beam", new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).strength(strength)
                 .sounds(BlockSoundGroup.WOOD)));
 
-        return new SimpleBlockSet(leaves, log, wood, strippedLog, strippedWood, woodWall, planks, slab, stairs, fence, gate, pressurePlate, button, beam);
+        return new SimpleBlockSet(leaves, log, wood, strippedLog, strippedWood, woodWall,woodFence, planks, slab, stairs, fence, gate, pressurePlate, button, beam);
     }
 
     public static void registerModBlockSets() {

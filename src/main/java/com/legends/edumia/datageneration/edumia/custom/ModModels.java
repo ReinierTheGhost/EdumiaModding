@@ -8,6 +8,7 @@ import net.minecraft.util.Identifier;
 import java.util.Optional;
 
 public class ModModels {
+    public static final Model CRYSTAL_CLUSTER;
     public static final Model SMALL_ARCH;
     public static final Model TWO_METER_ARCH;
     public static final Model TWO_METER_ARCH_HALF_LEFT;
@@ -68,6 +69,7 @@ public class ModModels {
     }
 
     static {
+        CRYSTAL_CLUSTER = block("template_crystal_cluster", TextureKey.TEXTURE);
         SMALL_ARCH = block("arch_small_parent", TextureKey.PARTICLE, TextureKey.TEXTURE, TextureKey.TOP);
         TWO_METER_ARCH = block("arch_twometer_shape", TextureKey.SIDE);
         TWO_METER_ARCH_HALF_LEFT = block("arch_twometer_half_left_shape", TextureKey.SIDE);
@@ -102,7 +104,7 @@ public class ModModels {
         SMOOTH_SEGMENTAL_ARCH_3 = block("smooth_segmental_arch_3", TextureKey.PARTICLE, TextureKey.TEXTURE);
         SMOOTH_SEGMENTAL_ARCH_3_MIDDLE = block("smooth_segmental_arch_3_middle", TextureKey.PARTICLE, TextureKey.TEXTURE);
 
-        TEMPLATE_ARROWSLIT = block("template_arrowslit", TextureKey.TEXTURE, TextureKey.BOTTOM, TextureKey.TOP);
+        TEMPLATE_ARROWSLIT = block("template_arrowslit", TextureKey.TEXTURE, TextureKey.BOTTOM, TextureKey.TOP, TextureKey.PARTICLE);
         TEMPLATE_VERTICAL_CORNER_1 = block("template_vertical_corner_1", TextureKey.NORTH, TextureKey.EAST, TextureKey.SOUTH,
                 TextureKey.WEST, TextureKey.TOP, TextureKey.BOTTOM, TextureKey.PARTICLE);
         TEMPLATE_VERTICAL_CORNER_2 = block("template_vertical_corner_2", TextureKey.NORTH, TextureKey.EAST, TextureKey.SOUTH,

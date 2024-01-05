@@ -26,6 +26,14 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+//        for (SimpleCrystalBlockModel.Crystals block : SimpleCrystalBlockModel.blocks){
+//            TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(block.crystal());
+//
+//            Identifier model = ModModels.CRYSTAL_CLUSTER.upload(block.crystal(), texturedModel.getTextures(), blockStateModelGenerator.modelCollector);
+//
+//            blockStateModelGenerator.blockStateCollector.accept(EdumiaBlockStateModelGenerator.createCrystalBlockState(block.crystal(), model));
+//        }
+
         for (SimpleWoodBlockModel.WoodBlocks block : SimpleWoodBlockModel.blocks){
             TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(block.texture());
 

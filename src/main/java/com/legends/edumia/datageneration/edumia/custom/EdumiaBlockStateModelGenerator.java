@@ -31,6 +31,56 @@ public class EdumiaBlockStateModelGenerator {
         this.modelCollector = modelCollector;
     }
 
+    public static BlockStateSupplier createCrystalBlockState(Block block, Identifier model){
+        return VariantsBlockStateSupplier.create(block).coordinate(BlockStateVariantMap.create(CrystalBlock.CRYSTAL_FACING)
+                .register(Direction.UP, BlockStateVariant.create()
+                        .put(VariantSettings.MODEL, model)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R0)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R90)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R180)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R270))
+
+                .register(Direction.DOWN, BlockStateVariant.create()
+                        .put(VariantSettings.MODEL, model)
+                        .put(VariantSettings.X, VariantSettings.Rotation.R180)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R0)
+                        .put(VariantSettings.X, VariantSettings.Rotation.R180)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R90)
+                        .put(VariantSettings.X, VariantSettings.Rotation.R180)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R180)
+                        .put(VariantSettings.X, VariantSettings.Rotation.R180)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R270))
+
+                .register(Direction.WEST, BlockStateVariant.create()
+                        .put(VariantSettings.MODEL, model)
+                        .put(VariantSettings.X, VariantSettings.Rotation.R270)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R90)
+                        .put(VariantSettings.X, VariantSettings.Rotation.R90)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R270))
+
+                .register(Direction.EAST, BlockStateVariant.create()
+                        .put(VariantSettings.MODEL, model)
+                        .put(VariantSettings.X, VariantSettings.Rotation.R270)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R270)
+                        .put(VariantSettings.X, VariantSettings.Rotation.R90)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R90))
+
+                .register(Direction.NORTH, BlockStateVariant.create()
+                        .put(VariantSettings.MODEL, model)
+                        .put(VariantSettings.X, VariantSettings.Rotation.R90)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R0)
+                        .put(VariantSettings.X, VariantSettings.Rotation.R270)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R180))
+
+                .register(Direction.SOUTH, BlockStateVariant.create()
+                        .put(VariantSettings.MODEL, model)
+                        .put(VariantSettings.X, VariantSettings.Rotation.R270)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R0)
+                        .put(VariantSettings.X, VariantSettings.Rotation.R90)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R180))
+        );
+    }
+
     public static BlockStateSupplier createTwoMeterArchBlockState(Block block, Identifier model){
         return VariantsBlockStateSupplier.create(block).coordinate(BlockStateVariantMap.create(ArchTwoMeter.DIRECTION, ArchTwoMeter.TYPE_UPDOWN)
                 .register(Direction.EAST, BlockHalf.BOTTOM, BlockStateVariant.create()

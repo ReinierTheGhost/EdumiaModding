@@ -1,20 +1,38 @@
 package com.legends.edumia.world.worldgen.placed;
 
 import com.legends.edumia.Edumia;
+import com.legends.edumia.world.worldgen.configured.TreeConfiguredFeatures;
+import com.legends.edumia.world.worldgen.placed.trees.SequoiaTreePlacedFeatures;
+import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.Heightmap;
+import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.placementmodifier.PlacementModifier;
+import net.minecraft.world.gen.feature.PlacedFeatures;
+import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
+import net.minecraft.world.gen.placementmodifier.*;
 
 import java.util.List;
 
 public class TreePlacedFeatures {
 
+    public static final RegistryKey<PlacedFeature> BEECH_KEY = registerKey("tree/beech_tree");
+
+
     public static void boostrap(Registerable<PlacedFeature> context) {
+        var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
+
+        register(context, BEECH_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(TreeConfiguredFeatures.BEECH_KEY),
+                List.of(CountPlacementModifier.of(6), SquarePlacementModifier.of(), HeightmapPlacementModifier.of(Heightmap.Type.WORLD_SURFACE),
+                        NoiseBasedCountPlacementModifier.of(157, 0, 9),
+                        BlockFilterPlacementModifier.of(BlockPredicate.matchingBlocks(Blocks.GRASS_BLOCK, Blocks.DIRT)),
+                        BiomePlacementModifier.of()));
+
 
     }
 

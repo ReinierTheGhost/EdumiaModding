@@ -21,6 +21,7 @@ public class CreativeTabLoader {
                     .icon(() -> new ItemStack(ItemLoader.LEGENDS_COIN)).entries((displayContext, entries) -> {
                         entries.add(ItemLoader.LEGENDS_COIN);
                         entries.add(ItemLoader.ATLAS);
+                        entries.add(BlockLoader.HIGH_ELVEN_CRYSTAL);
                     }).build();
 
 
@@ -77,8 +78,8 @@ public class CreativeTabLoader {
                         entries.add(BlockLoader.TEST_SAPLING);
                         entries.add(BlockLoader.APPLE_SAPLING);
                         entries.add(BlockLoader.ASPEN_SAPLING);
-//                        entries.add(BlockLoader.BEECH_SAPLING);
-//                        entries.add(BlockLoader.BLACKTHORN_SAPLING);
+                        entries.add(BlockLoader.BEECH_SAPLING);
+                        entries.add(BlockLoader.BLACKTHORN_SAPLING);
                         entries.add(BlockLoader.CEDAR_SAPLING);
 //                        entries.add(BlockLoader.CHERRY_SAPLING);
                         entries.add(BlockLoader.CYPRESS_SAPLING);
@@ -89,9 +90,9 @@ public class CreativeTabLoader {
                         entries.add(BlockLoader.LARCH_SAPLING);
 //                        entries.add(BlockLoader.MAPLE_SAPLING);
 //                        entries.add(BlockLoader.PEAR_SAPLING);
-//                        entries.add(BlockLoader.PINE_SAPLING);
+                        entries.add(BlockLoader.PINE_SAPLING);
                         entries.add(BlockLoader.RED_OAK_SAPLING);
-//                        entries.add(BlockLoader.REDWOOD_SAPLING);
+                        entries.add(BlockLoader.REDWOOD_SAPLING);
                         entries.add(BlockLoader.SILVER_SPRUCE_SAPLING);
                         entries.add(BlockLoader.WHITE_ASH_SAPLING);
                     })

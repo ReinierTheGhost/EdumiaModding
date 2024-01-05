@@ -1,6 +1,7 @@
 package com.legends.edumia.world.biomes;
 
 import com.legends.edumia.Edumia;
+import com.legends.edumia.world.worldgen.placed.TreePlacedFeatures;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -9,7 +10,10 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.carver.ConfiguredCarvers;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.feature.MiscPlacedFeatures;
+import net.minecraft.world.gen.feature.OrePlacedFeatures;
+import net.minecraft.world.gen.feature.UndergroundPlacedFeatures;
 
 public class EdumiaBiomeKeys extends BiomeKeys {
     public static final RegistryKey<Biome> DARK_ELF_FOREST = EdumiaBiomeKeys.register("dark_elf_forest");
