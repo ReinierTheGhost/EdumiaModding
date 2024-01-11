@@ -4,6 +4,7 @@ import com.legends.edumia.core.BlockLoader;
 import com.legends.edumia.datageneration.edumia.custom.models.SimplePillarModels;
 import com.legends.edumia.datageneration.edumia.custom.tags.Pillar;
 import com.legends.edumia.datageneration.edumia.custom.tags.RequiresIronTool;
+import com.legends.edumia.datageneration.edumia.custom.tags.RequiresStoneTool;
 import com.legends.edumia.datageneration.me.content.tags.*;
 import com.legends.edumia.utils.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -31,6 +32,9 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
         var mineableAxe = getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("minecraft", "mineable/axe")));
         mineableAxe.add(MineableAxe.blocks.toArray(new Block[0]));
         mineablePickaxe.add(MineablePickaxe.blocks.toArray(new Block[0]));
+
+        getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
+                .add(RequiresStoneTool.blocks.toArray(new Block[0]));
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(RequiresIronTool.blocks.toArray(new Block[0]));

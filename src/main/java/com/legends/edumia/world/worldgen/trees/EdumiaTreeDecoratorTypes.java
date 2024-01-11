@@ -14,6 +14,6 @@ public class EdumiaTreeDecoratorTypes {
             PineBranchDecorator.CODEC);
 
     public static void register() {
-        Edumia.LOGGER.info("Registering Trunk Placers for " + Edumia.MOD_ID);
+        Edumia.LOGGER.info("Registering Tree Decorators for " + Edumia.MOD_ID);
     }
 }

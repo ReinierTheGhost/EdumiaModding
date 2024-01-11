@@ -12,7 +12,6 @@ public class SimpleBalustradeModels {
 
     public static List<Balustrade> blocks = new ArrayList<>() {
         {
-            add(new Balustrade(StoneSets.GREEN_BASALT.block(), BlockLoader.GREEN_BASALT_BALUSTRADE));
         }
     };
 }

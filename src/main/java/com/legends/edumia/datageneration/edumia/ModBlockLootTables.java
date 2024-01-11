@@ -28,11 +28,6 @@ public class ModBlockLootTables extends FabricBlockLootTableProvider {
         addDrop(BlockLoader.WHITE_SAND);
         addDrop(BlockLoader.WHITE_SAND_LAYER);
 
-        addDrop(BlockLoader.GREEN_BASALT_BALUSTRADE);
-        addDrop(BlockLoader.GREEN_BASALT_ARROWSLIT);
-        addDrop(BlockLoader.GREEN_BASALT_SMALL_ARCH);
-        addDrop(BlockLoader.GREEN_BASALT_TWO_METER_ARCH);
-
 
         addDrop(BlockLoader.CHISELED_HIGH_ELVEN_BRICKS);
 

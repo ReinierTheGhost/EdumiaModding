@@ -40,6 +40,7 @@ public class ModModels {
     public static final Model SMOOTH_SEGMENTAL_ARCH_3;
     public static final Model SMOOTH_SEGMENTAL_ARCH_3_MIDDLE;
     public static final Model TEMPLATE_ARROWSLIT;
+    public static final Model TEMPLATE_FALLEN_LEAVES;
     public static final Model TEMPLATE_VERTICAL_CORNER_1;
     public static final Model TEMPLATE_VERTICAL_CORNER_2;
     public static final Model TEMPLATE_VERTICAL_CORNER_4;
@@ -105,6 +106,8 @@ public class ModModels {
         SMOOTH_SEGMENTAL_ARCH_3_MIDDLE = block("smooth_segmental_arch_3_middle", TextureKey.PARTICLE, TextureKey.TEXTURE);
 
         TEMPLATE_ARROWSLIT = block("template_arrowslit", TextureKey.TEXTURE, TextureKey.BOTTOM, TextureKey.TOP, TextureKey.PARTICLE);
+        TEMPLATE_FALLEN_LEAVES = block("template_fallen_leaves", TextureKey.ALL);
+
         TEMPLATE_VERTICAL_CORNER_1 = block("template_vertical_corner_1", TextureKey.NORTH, TextureKey.EAST, TextureKey.SOUTH,
                 TextureKey.WEST, TextureKey.TOP, TextureKey.BOTTOM, TextureKey.PARTICLE);
         TEMPLATE_VERTICAL_CORNER_2 = block("template_vertical_corner_2", TextureKey.NORTH, TextureKey.EAST, TextureKey.SOUTH,

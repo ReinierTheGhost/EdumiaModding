@@ -1,31 +1,16 @@
 {
   "type": "minecraft:tree",
   "config": {
-    "decorators": [
-      {
-        "type": "minecraft:leave_vine",
-        "probability": 0.25
-      },
-      {
-        "type": "minecraft:alter_ground",
-        "provider": {
-          "type": "minecraft:simple_state_provider",
-          "state": {
-            "Name": "minecraft:moss_block"
-          }
-        }
-      }
-    ],
+    "decorators": [],
     "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:rooted_dirt"
+        "Name": "minecraft:dirt"
       }
     },
     "foliage_placer": {
-      "type": "minecraft:random_spread_foliage_placer",
-      "foliage_height": 3,
-      "leaf_placement_attempts": 55,
+      "type": "minecraft:dragon_blood_foliage_placer",
+      "foliage_heiht": 2,
       "offset": 0,
       "radius": 3
     },
@@ -49,14 +34,19 @@
       "upper_size": 1
     },
     "trunk_placer": {
-      "type": "minecraft:cross_trunk_placer",
-      "base_height": 12,
-      "branch": 1,
-      "branch_offset": 6,
-      "crown_offset": 0,
-      "height_rand_a": 6,
-      "height_rand_b": 1,
-      "leaves_at_end": false
+      "type": "minecraft:big_dragon_blood_trunk_placer",
+      "base_height": 6,
+      "height_rand_a": 2,
+      "height_rand_b": 0,
+      "wood_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "edumia:beech_wood",
+          "Properties": {
+            "axis": "y"
+          }
+        }
+      }
     },
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",

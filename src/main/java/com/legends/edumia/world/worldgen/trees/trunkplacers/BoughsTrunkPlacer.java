@@ -81,6 +81,10 @@ public class BoughsTrunkPlacer extends ExtendedTrunkPlacer {
                         branchPos.move(0, (int) Math.signum(sinY), 0);
                     }
 
+                    if (Math.floor((cosY * l)) != Math.floor((cosY * (l - 1)))){
+                        branchPos.move(0, (int) Math.signum(cosY), 0);
+                    }
+
                     if (branchPos.getX() != basePos.getX() || branchPos.getY() != basePos.getY() || branchPos.getZ() > basePos.getZ() + branchMaxHeight){
                         if (!TreeFeature.canReplace(world, basePos)){
                             break;

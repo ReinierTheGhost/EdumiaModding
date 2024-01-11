@@ -49,6 +49,9 @@ public class EdumiaFoliagePlacerTypes {
     public static final FoliagePlacerType<?> PINUS_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("pinus_foliage_placer",
             PinusFoliagePlacer.CODEC);
 
+    public static final FoliagePlacerType<?> DRAGON_BLOOD_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("dragon_blood_foliage_placer",
+            DragonBloodFoliagePlacer.CODEC);
+
     public static void register() {
         Edumia.LOGGER.info("Registering Foliage Placer for " + Edumia.MOD_ID);
     }

@@ -1,9 +1,7 @@
 package com.legends.edumia.block.blocksets;
 
 import com.legends.edumia.Edumia;
-import com.legends.edumia.block.AxialSlabBlock;
-import com.legends.edumia.block.BlockRegisters;
-import com.legends.edumia.block.EdumiaPillarBlock;
+import com.legends.edumia.block.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.sound.BlockSoundGroup;
@@ -118,7 +116,7 @@ public class BuildingSets {
             MOSSY_DESERT_MUD_BRICKS
     };
 
-    public record BuildSet(Block block, Block slab, Block stair, Block wall, Block pillar){
+    public record BuildSet(Block block, Block slab, Block stair, Block wall, Block pillar, Block smallArch, Block twoMeterArch, Block roundArch, Block segmentalArch, Block gothicArch, Block balustrade, Block arrowSlit){
     }
 
     public static BuildSet registerBuildingSet(String name, float strength, boolean hasPillar){
@@ -141,10 +139,31 @@ public class BuildingSets {
                     .strength(strength).sounds(BlockSoundGroup.STONE).requiresTool()));
         }
 
-        return new BuildSet(stone, slab, stairs, wall, pillar);
+        Block smallArch = BlockRegisters.registerbuildingBlock(name + "_bricks_small_arch", new ArchSmall(AbstractBlock.Settings.create()
+                    .strength(STONE_STRENGTH).sounds(BlockSoundGroup.STONE).requiresTool()));
+
+        Block twoMeterArch = BlockRegisters.registerbuildingBlock(name + "_bricks_two_meter_arch", new ArchTwoMeter(AbstractBlock.Settings.create()
+                    .strength(STONE_STRENGTH).sounds(BlockSoundGroup.STONE).requiresTool()));
+
+        Block roundArch = BlockRegisters.registerbuildingBlock(name + "_bricks_round_arch", new Arch(AbstractBlock.Settings.create()
+                    .strength(STONE_STRENGTH).sounds(BlockSoundGroup.STONE).requiresTool()));
+
+        Block segmentalArch = BlockRegisters.registerbuildingBlock(name + "_bricks_segmental_arch", new Arch(AbstractBlock.Settings.create()
+                    .strength(STONE_STRENGTH).sounds(BlockSoundGroup.STONE).requiresTool()));
+
+        Block gothicArch = BlockRegisters.registerbuildingBlock(name + "_bricks_gothic_arch", new Arch(AbstractBlock.Settings.create()
+                    .strength(STONE_STRENGTH).sounds(BlockSoundGroup.STONE).requiresTool()));
+
+        Block balustrade = BlockRegisters.registerbuildingBlock(name + "_bricks_balustrade", new Balustrade(AbstractBlock.Settings.create()
+                .strength(STONE_STRENGTH).sounds(BlockSoundGroup.STONE).requiresTool()));
+
+        Block arrowslit = BlockRegisters.registerbuildingBlock(name + "_bricks_arrowslit", new ArrowSlit(AbstractBlock.Settings.create()
+                .strength(STONE_STRENGTH).sounds(BlockSoundGroup.STONE).requiresTool()));
+
+        return new BuildSet(stone, slab, stairs, wall, pillar, smallArch, twoMeterArch, roundArch, segmentalArch, gothicArch, balustrade, arrowslit);
     }
 
     public static void registerModBlockSets() {
-        Edumia.LOGGER.debug("Registering OreSets for " + Edumia.MOD_ID);
+        Edumia.LOGGER.debug("Registering BuildingSets for " + Edumia.MOD_ID);
     }
 }

@@ -54,6 +54,7 @@ public class TreeConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> PINE_KEY = registerKey("tree/pine_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> REDWOOD_KEY = registerKey("tree/redwood_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> BLACKTHORN_KEY = registerKey("tree/blackthorn_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> DRAGON_BLOOD_SMALL_KEY = registerKey("tree/dragon_blood_small");
     public static final RegistryKey<ConfiguredFeature<?, ?>> PALM = registerKey("tree/palm");
     public static final RegistryKey<ConfiguredFeature<?, ?>> PALM2 = registerKey("tree/palm2");
     public static final RegistryKey<ConfiguredFeature<?, ?>> PALM3 = registerKey("tree/palm3");
@@ -63,14 +64,17 @@ public class TreeConfiguredFeatures {
 
         register(context, TEST_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.BEECH.log()),
-                new CrossTrunkPlacer(12, 6, 1, ConstantIntProvider.create(1), ConstantIntProvider.create(6),
-                        ConstantIntProvider.create(0), false),
+                new BigDragonbloodTrunkPlacer(WoodBlockSets.BEECH.wood().getDefaultState()),
                 BlockStateProvider.of(WoodBlockSets.BEECH.leaves()),
-                new RandomSpreadFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), ConstantIntProvider.create(3),55),
-                new TwoLayersFeatureSize(1, 0, 1))
-                .decorators(List.of(new LeavesVineTreeDecorator(0.25f),
-                        new AlterGroundTreeDecorator(BlockStateProvider.of(Blocks.MOSS_BLOCK)))
-                ).dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).ignoreVines().build());
+                new DragonBloodFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 2),
+                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
+
+        register(context, DRAGON_BLOOD_SMALL_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(WoodBlockSets.DRAGON_BLOOD.log()),
+                new DragonBloodTrunkPlacer(3, 4, 0, WoodBlockSets.DRAGON_BLOOD.wood().getDefaultState(), WoodBlockSets.DRAGON_BLOOD.woodWall().getDefaultState()),
+                BlockStateProvider.of(WoodBlockSets.DRAGON_BLOOD.leaves()),
+                new DragonBloodFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 2),
+                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
         register(context, PALM3, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.BEECH.log()),

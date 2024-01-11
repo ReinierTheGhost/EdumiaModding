@@ -13,7 +13,6 @@ public class SimpleSmallArchModel {
 
     public static List<Arch> blocks = new ArrayList<>() {
         {
-            add(new Arch(StoneSets.GREEN_BASALT.block(), BlockLoader.GREEN_BASALT_SMALL_ARCH));
         }
     };
 }

@@ -37,67 +37,68 @@ public class MediumRedwoodTrunkPlacer extends ExtendedTrunkPlacer{
     }
 
     @Override
-    public List<FoliagePlacer.TreeNode> generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, int height, BlockPos startPos, TreeFeatureConfig config) {
-        BlockPos blockPos = startPos.down();
-        setToDirt(world, replacer, random, blockPos, config);
+    public List<FoliagePlacer.TreeNode> generate(TestableWorld world, BiConsumer<BlockPos, BlockState> trunk, Random random,
+                                                 int trunkHeight, BlockPos basePos, TreeFeatureConfig config) {
+        BlockPos blockPos = basePos.down();
+        setToDirt(world, trunk, random, blockPos, config);
 
-        setToDirt(world, replacer, random, blockPos.north(), config);
-        setToDirt(world, replacer, random, blockPos.west(), config);
-        setToDirt(world, replacer, random, blockPos.east(), config);
-        setToDirt(world, replacer, random, blockPos.south(), config);
-        setToDirt(world, replacer, random, blockPos.north().east(), config);
-        setToDirt(world, replacer, random, blockPos.north().west(), config);
-        setToDirt(world, replacer, random, blockPos.south().east(), config);
-        setToDirt(world, replacer, random, blockPos.south().west(), config);
+        setToDirt(world, trunk, random, blockPos.north(), config);
+        setToDirt(world, trunk, random, blockPos.west(), config);
+        setToDirt(world, trunk, random, blockPos.east(), config);
+        setToDirt(world, trunk, random, blockPos.south(), config);
+        setToDirt(world, trunk, random, blockPos.north().east(), config);
+        setToDirt(world, trunk, random, blockPos.north().west(), config);
+        setToDirt(world, trunk, random, blockPos.south().east(), config);
+        setToDirt(world, trunk, random, blockPos.south().west(), config);
         BlockPos.Mutable mutable = new BlockPos.Mutable();
-        for (int i = 0; i < height + 30; ++i) {
-            this.setLog(world, replacer, random, mutable, config, startPos, 0, i, 0);
-            if (i >= height - 1) continue; // makes the log on the position of the sapling 1 higher than the rest
-            this.setLog(world, replacer, random, mutable, config, startPos, 1, i, 0);
-            this.setLog(world, replacer, random, mutable, config, startPos, 1, i, 1);
-            this.setLog(world, replacer, random, mutable, config, startPos, 0, i, 1);
+        for (int i = 0; i < trunkHeight + 30; ++i) {
+            this.setLog(world, trunk, random, mutable, config, basePos, 0, i, 0);
+            if (i >= trunkHeight - 1) continue; // makes the log on the position of the sapling 1 higher than the rest
+            this.setLog(world, trunk, random, mutable, config, basePos, 1, i, 0);
+            this.setLog(world, trunk, random, mutable, config, basePos, 1, i, 1);
+            this.setLog(world, trunk, random, mutable, config, basePos, 0, i, 1);
 
-            this.setLog(world, replacer, random, mutable, config, startPos, -1, i, 1);
-            this.setLog(world, replacer, random, mutable, config, startPos, -1, i, 0);
-            this.setLog(world, replacer, random, mutable, config, startPos, -1, i, -1);
-            this.setLog(world, replacer, random, mutable, config, startPos, 1, i, -1);
-            this.setLog(world, replacer, random, mutable, config, startPos, 0, i, -1);
+            this.setLog(world, trunk, random, mutable, config, basePos, -1, i, 1);
+            this.setLog(world, trunk, random, mutable, config, basePos, -1, i, 0);
+            this.setLog(world, trunk, random, mutable, config, basePos, -1, i, -1);
+            this.setLog(world, trunk, random, mutable, config, basePos, 1, i, -1);
+            this.setLog(world, trunk, random, mutable, config, basePos, 0, i, -1);
         }
 
-        BlockPos.Mutable rootPos1 = (new BlockPos.Mutable()).set(startPos, -1, random.nextBetween(1, 3), -2);
-        BlockPos.Mutable rootPos2 = (new BlockPos.Mutable()).set(startPos, 0, random.nextBetween(1, 3), -2);
-        BlockPos.Mutable rootPos3 = (new BlockPos.Mutable()).set(startPos, 1, random.nextBetween(1, 3), -2);
+        BlockPos.Mutable rootPos1 = (new BlockPos.Mutable()).set(basePos, -1, random.nextBetween(1, 3), -2);
+        BlockPos.Mutable rootPos2 = (new BlockPos.Mutable()).set(basePos, 0, random.nextBetween(1, 3), -2);
+        BlockPos.Mutable rootPos3 = (new BlockPos.Mutable()).set(basePos, 1, random.nextBetween(1, 3), -2);
 
-        BlockPos.Mutable rootPos4 = (new BlockPos.Mutable()).set(startPos, -1, random.nextBetween(1, 3), 2);
-        BlockPos.Mutable rootPos5 = (new BlockPos.Mutable()).set(startPos, 0, random.nextBetween(1, 3), 2);
-        BlockPos.Mutable rootPos6 = (new BlockPos.Mutable()).set(startPos, 1, random.nextBetween(1, 3), 2);
+        BlockPos.Mutable rootPos4 = (new BlockPos.Mutable()).set(basePos, -1, random.nextBetween(1, 3), 2);
+        BlockPos.Mutable rootPos5 = (new BlockPos.Mutable()).set(basePos, 0, random.nextBetween(1, 3), 2);
+        BlockPos.Mutable rootPos6 = (new BlockPos.Mutable()).set(basePos, 1, random.nextBetween(1, 3), 2);
 
-        BlockPos.Mutable rootPos7 = (new BlockPos.Mutable()).set(startPos, 2, random.nextBetween(1, 3), -1);
-        BlockPos.Mutable rootPos8 = (new BlockPos.Mutable()).set(startPos, 2, random.nextBetween(1, 3), 0);
-        BlockPos.Mutable rootPos9 = (new BlockPos.Mutable()).set(startPos, 2, random.nextBetween(1, 3), 1);
+        BlockPos.Mutable rootPos7 = (new BlockPos.Mutable()).set(basePos, 2, random.nextBetween(1, 3), -1);
+        BlockPos.Mutable rootPos8 = (new BlockPos.Mutable()).set(basePos, 2, random.nextBetween(1, 3), 0);
+        BlockPos.Mutable rootPos9 = (new BlockPos.Mutable()).set(basePos, 2, random.nextBetween(1, 3), 1);
 
-        BlockPos.Mutable rootPos10 = (new BlockPos.Mutable()).set(startPos, -2, random.nextBetween(1, 3), -1);
-        BlockPos.Mutable rootPos11 = (new BlockPos.Mutable()).set(startPos, -2, random.nextBetween(1, 3), 0);
-        BlockPos.Mutable rootPos12 = (new BlockPos.Mutable()).set(startPos, -2, random.nextBetween(1, 3), 1);
+        BlockPos.Mutable rootPos10 = (new BlockPos.Mutable()).set(basePos, -2, random.nextBetween(1, 3), -1);
+        BlockPos.Mutable rootPos11 = (new BlockPos.Mutable()).set(basePos, -2, random.nextBetween(1, 3), 0);
+        BlockPos.Mutable rootPos12 = (new BlockPos.Mutable()).set(basePos, -2, random.nextBetween(1, 3), 1);
 
         int rootLength = 4 + random.nextInt(3);
-        this.growRootsDown(world, random, rootPos1, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos2, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos3, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos4, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos5, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos6, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos7, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos8, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos9, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos10, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos11, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos12, rootLength, replacer, config);
+        this.growRootsDown(world, random, rootPos1, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos2, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos3, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos4, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos5, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos6, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos7, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos8, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos9, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos10, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos11, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos12, rootLength, trunk, config);
 
 
 
 
-        return ImmutableList.of(new FoliagePlacer.TreeNode(startPos.up(height), 0, true));
+        return ImmutableList.of(new FoliagePlacer.TreeNode(basePos.up(trunkHeight), 0, true));
     }
 
     private void setLog(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, BlockPos.Mutable tmpPos, TreeFeatureConfig config, BlockPos startPos, int dx, int dy, int dz) {

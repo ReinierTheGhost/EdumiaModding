@@ -54,9 +54,9 @@ public class CrossTrunkPlacer extends TrunkPlacer
     }
 
     @Override
-    public List<FoliagePlacer.TreeNode> generate(TestableWorld reader, BiConsumer<BlockPos, BlockState> blockConsumer, Random random, int height, BlockPos startPos, TreeFeatureConfig config)
+    public List<FoliagePlacer.TreeNode> generate(TestableWorld world, BiConsumer<BlockPos, BlockState> trunk, Random random, int trunkHeight, BlockPos basePos, TreeFeatureConfig config)
     {
-        setToDirt(reader, blockConsumer, random, startPos.down(), config);
+        setToDirt(world, trunk, random, basePos.down(), config);
         List<FoliagePlacer.TreeNode> foliages = new ArrayList<>();
 
         int crownHeightOffset = crownOffset.get(random);
@@ -67,18 +67,18 @@ public class CrossTrunkPlacer extends TrunkPlacer
                 this.branchTopOffset.get(random),
                 this.branchTopOffset.get(random)
         };
-        for (int i = 0; i < height; ++i)
+        for (int i = 0; i < trunkHeight; ++i)
         {
-            getAndSetState(reader, blockConsumer, random, startPos.up(i), config);
+            getAndSetState(world, trunk, random, basePos.up(i), config);
             for (Direction dir : Direction.Type.HORIZONTAL)
             {
-                if (i + 1 + branchOffsets[dir.getHorizontal()] == height)
+                if (i + 1 + branchOffsets[dir.getHorizontal()] == trunkHeight)
                 {
                     int thisBranchLen = this.branchLength.get(random);
                     for (int branch = 1; branch <= thisBranchLen; branch++)
                     {
-                        BlockPos p = startPos.up(i).offset(dir, branch);
-                        getAndSetState(reader, blockConsumer, random, p, config, state -> state.with(PillarBlock.AXIS, dir.getAxis()));
+                        BlockPos p = basePos.up(i).offset(dir, branch);
+                        getAndSetState(world, trunk, random, p, config, state -> state.with(PillarBlock.AXIS, dir.getAxis()));
                         if (branch == thisBranchLen && this.leavesAtEnd)
                         {
                             foliages.add(new FoliagePlacer.TreeNode(p.up(crownHeightOffset), 0, false));
@@ -88,7 +88,7 @@ public class CrossTrunkPlacer extends TrunkPlacer
             }
         }
 
-        foliages.add(new FoliagePlacer.TreeNode(startPos.up(height + crownHeightOffset - 1), 0, false));
+        foliages.add(new FoliagePlacer.TreeNode(basePos.up(trunkHeight + crownHeightOffset - 1), 0, false));
         return foliages;
     }
 }

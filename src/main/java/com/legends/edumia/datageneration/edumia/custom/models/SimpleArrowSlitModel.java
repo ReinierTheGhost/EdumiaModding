@@ -12,7 +12,6 @@ public class SimpleArrowSlitModel {
 
     public static List<ArrowSlit> blocks = new ArrayList<>() {
         {
-            add(new ArrowSlit(StoneSets.GREEN_BASALT.block(), BlockLoader.GREEN_BASALT_ARROWSLIT));
         }
     };
 }

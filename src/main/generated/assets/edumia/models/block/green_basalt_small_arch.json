@@ -1,8 +1,0 @@
-{
-  "parent": "edumia:block/template/arch_small_parent",
-  "textures": {
-    "particle": "edumia:block/green_basalt",
-    "texture": "edumia:block/green_basalt",
-    "top": "edumia:block/green_basalt"
-  }
-}

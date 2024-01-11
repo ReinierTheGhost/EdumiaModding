@@ -55,20 +55,21 @@ public class PalmTrunkPlacer extends ExtendedTrunkPlacer{
     }
 
     @Override
-    public List<FoliagePlacer.TreeNode> generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, int height, BlockPos startPos, TreeFeatureConfig config) {
+    public List<FoliagePlacer.TreeNode> generate(TestableWorld world, BiConsumer<BlockPos, BlockState> trunk, Random random,
+                                                 int trunkHeight, BlockPos startPos, TreeFeatureConfig config) {
         int j;
         Direction direction = Direction.Type.HORIZONTAL.random(random);
-        int i = height - 1;
+        int i = trunkHeight - 1;
         BlockPos.Mutable mutable = startPos.mutableCopy();
         Vec3i blockPos = mutable.down();
-        setToDirt(world, replacer, random, (BlockPos)blockPos, config);
+        setToDirt(world, trunk, random, (BlockPos)blockPos, config);
         ArrayList<FoliagePlacer.TreeNode> list = Lists.newArrayList();
         for (j = 0; j <= i; ++j) {
             if (j + 1 >= i + random.nextInt(2)) {
                 mutable.move(direction);
             }
             if (TreeFeature.canReplace(world, mutable)) {
-                this.getAndSetState(world, replacer, random, mutable, config);
+                this.getAndSetState(world, trunk, random, mutable, config);
             }
             if (j >= this.minHeightForLeaves) {
                 list.add(new FoliagePlacer.TreeNode(mutable.toImmutable(), 0, false));
@@ -81,12 +82,12 @@ public class PalmTrunkPlacer extends ExtendedTrunkPlacer{
 
             BlockPos.Mutable branchPos = new BlockPos.Mutable();
             BlockPos.Mutable woodPos = new BlockPos.Mutable();
-            if (j == height){
+            if (j == trunkHeight){
                 for (int k = -1; k <= 1; k++) {
                     for (int z = -1; z <= 1; z++) {
                         if ((k == 0 || z == 0) && k != z) {
                             woodPos.set(branchPos, k, 0, z);
-                            placeWood(world, random, woodPos, replacer, config, Direction.Axis.Y);
+                            placeWood(world, random, woodPos, trunk, config, Direction.Axis.Y);
                         }
                     }
                 }
@@ -95,7 +96,7 @@ public class PalmTrunkPlacer extends ExtendedTrunkPlacer{
         j = this.bendLength.get(random);
         for (int k = 0; k <= j; ++k) {
             if (TreeFeature.canReplace(world, mutable)) {
-                this.getAndSetState(world, replacer, random, mutable, config);
+                this.getAndSetState(world, trunk, random, mutable, config);
             }
             list.add(new FoliagePlacer.TreeNode(mutable.toImmutable(), 0, false));
             mutable.move(direction);

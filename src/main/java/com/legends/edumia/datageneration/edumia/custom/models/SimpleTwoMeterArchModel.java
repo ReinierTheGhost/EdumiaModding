@@ -12,7 +12,6 @@ public class SimpleTwoMeterArchModel {
 
     public static List<Arch> blocks = new ArrayList<>() {
         {
-            add(new Arch(StoneSets.GREEN_BASALT.block(), BlockLoader.GREEN_BASALT_TWO_METER_ARCH));
         }
     };
 }

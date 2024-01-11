@@ -32,38 +32,40 @@ public class GoldenOakTrunkPlacer extends TrunkPlacer {
 
     /**
      * Randomly places logs in Golden Oak Trees branching out from the center until they reach the edge of the leaves.
-     * @param level The {@link TestableWorld}.
-     * @param blockSetter The {@link BiConsumer} of a {@link BlockPos} and {@link BlockState} used for block placement.
+     * @param world The {@link TestableWorld}.
+     * @param trunk The {@link BiConsumer} of a {@link BlockPos} and {@link BlockState} used for block placement.
      * @param random The {@link Random}.
-     * @param height The {@link Integer} height of the tree.
-     * @param pos The initial {@link BlockPos} for placement.
+     * @param trunkHeight The {@link Integer} height of the tree.
+     * @param basePos The initial {@link BlockPos} for placement.
      * @param config The {@link TreeFeatureConfig}.
      * @return A {@link List} of {@link FoliagePlacer.TreeNode}s for the tree.
      */
     @Override
-    public List<FoliagePlacer.TreeNode> generate(TestableWorld level, BiConsumer<BlockPos, BlockState> blockSetter, Random random, int height, BlockPos pos, TreeFeatureConfig config) {
-        TrunkPlacer.setToDirt(level, blockSetter, random, pos.down(), config);
-        for (int i = 0; i < height; ++i) {
+    public List<FoliagePlacer.TreeNode> generate(TestableWorld world, BiConsumer<BlockPos, BlockState> trunk, Random random,
+                                                 int trunkHeight, BlockPos basePos, TreeFeatureConfig config) {
+        TrunkPlacer.setToDirt(world, trunk, random, basePos.down(), config);
+        for (int i = 0; i < trunkHeight; ++i) {
             if (i > 4 && random.nextInt(3) > 0 && i < 9) {
-                this.branch(level, random, blockSetter, pos.getX(), pos.getY() + i, pos.getZ(), i / 4 - 1, config);
+                this.branch(world, random, trunk, basePos.getX(), basePos.getY() + i, basePos.getZ(), i / 4 - 1, config);
             }
-            this.getAndSetState(level, blockSetter, random, pos.up(i), config);
+
+            this.getAndSetState(world, trunk, random, basePos.up(i), config);
         }
-        return ImmutableList.of(new FoliagePlacer.TreeNode(pos.up(height), 0, false));
+        return ImmutableList.of(new FoliagePlacer.TreeNode(basePos.up(trunkHeight), 0, false));
     }
 
     /**
      * Places a branch.
-     * @param level The {@link TestableWorld}.
+     * @param world The {@link TestableWorld}.
      * @param random The {@link Random}.
-     * @param blockSetter The {@link BiConsumer} of a {@link BlockPos} and {@link BlockState} used for block placement.
+     * @param trunk The {@link BiConsumer} of a {@link BlockPos} and {@link BlockState} used for block placement.
      * @param i The x {@link Integer} position.
      * @param j The y {@link Integer} position.
      * @param k The z {@link Integer} position.
      * @param slant The {@link Integer} value for the branch slant.
      * @param config The {@link TreeFeatureConfig}.
      */
-    public void branch(TestableWorld level, Random random, BiConsumer<BlockPos, BlockState> blockSetter, int i, int j, int k, int slant, TreeFeatureConfig config) {
+    public void branch(TestableWorld world, Random random, BiConsumer<BlockPos, BlockState> trunk, int i, int j, int k, int slant, TreeFeatureConfig config) {
         int directionX = random.nextInt(3) - 1;
         int directionZ = random.nextInt(3) - 1;
 
@@ -71,7 +73,7 @@ public class GoldenOakTrunkPlacer extends TrunkPlacer {
             i += directionX;
             j += slant;
             k += directionZ;
-            this.getAndSetState(level, blockSetter, random, new BlockPos(i, j, k), config);
+            this.getAndSetState(world, trunk, random, new BlockPos(i, j, k), config);
         }
     }
 }

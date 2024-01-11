@@ -32,13 +32,14 @@ public class WoodBlockSets {
     public static SimpleBlockSet REDWOOD = registerWoodSet("redwood", WOOD_STRENGTH, true);
     public static SimpleBlockSet SILVER_SPRUCE = registerWoodSet("silver_spruce", WOOD_STRENGTH, true);
     public static SimpleBlockSet WHITE_ASH = registerWoodSet("white_ash", WOOD_STRENGTH, true);
+    public static SimpleBlockSet DRAGON_BLOOD = registerWoodSet("dragon_blood", WOOD_STRENGTH, true);
 
-    public static SimpleVanilaBlocks OAK = registerBeams("oak", WOOD_STRENGTH);
-    public static SimpleVanilaBlocks ACACIA = registerBeams("acacia", WOOD_STRENGTH);
-    public static SimpleVanilaBlocks BIRCH = registerBeams("birch", WOOD_STRENGTH);
-    public static SimpleVanilaBlocks SPRUCE = registerBeams("spruce", WOOD_STRENGTH);
-    public static SimpleVanilaBlocks DARK_OAK = registerBeams("dark_oak", WOOD_STRENGTH);
-    public static SimpleVanilaBlocks JUNGLE = registerBeams("jungle", WOOD_STRENGTH);
+    public static SimpleVanillaBlocks OAK = registerBeams("oak", WOOD_STRENGTH);
+    public static SimpleVanillaBlocks ACACIA = registerBeams("acacia", WOOD_STRENGTH);
+    public static SimpleVanillaBlocks BIRCH = registerBeams("birch", WOOD_STRENGTH);
+    public static SimpleVanillaBlocks SPRUCE = registerBeams("spruce", WOOD_STRENGTH);
+    public static SimpleVanillaBlocks DARK_OAK = registerBeams("dark_oak", WOOD_STRENGTH);
+    public static SimpleVanillaBlocks JUNGLE = registerBeams("jungle", WOOD_STRENGTH);
 
 
 
@@ -50,6 +51,7 @@ public class WoodBlockSets {
             CEDAR,
             CHERRY,
             CYPRESS,
+            DRAGON_BLOOD,
             FIR,
             GHOST_GUM,
             GREEN_OAK,
@@ -62,9 +64,10 @@ public class WoodBlockSets {
             REDWOOD,
             SILVER_SPRUCE,
             WHITE_ASH,
+
     };
 
-    public static SimpleVanilaBlocks[] beams = new SimpleVanilaBlocks[]{
+    public static SimpleVanillaBlocks[] beams = new SimpleVanillaBlocks[]{
             OAK,
             ACACIA,
             SPRUCE,
@@ -73,18 +76,20 @@ public class WoodBlockSets {
             DARK_OAK,
     };
 
-    public record SimpleBlockSet(Block leaves, Block log, Block wood, Block strippedLog, Block strippedWood, Block woodWall, Block woodFence,
+    public record SimpleBlockSet(Block leaves, Block log, Block wood, Block woodStairs, Block woodSlab, Block woodWall, Block woodFence,
+                                 Block strippedLog, Block strippedWood, Block strippedWoodStairs, Block strippedWoodSlab,
+                                 Block strippedWoodWall, Block strippedWoodFence,
                                  Block planks, Block planksSlab, Block planksStairs, Block planksFence, Block planksGate,
                                  Block pressurePlate, Block button, Block beam) {
     }
 
-    public record SimpleVanilaBlocks(Block beam){}
+    public record SimpleVanillaBlocks(Block beam){}
 
-    private static SimpleVanilaBlocks registerBeams(String name, float strength){
+    private static SimpleVanillaBlocks registerBeams(String name, float strength){
         Block beam = WoodBlocks.registerWoodBlock(name + "_beam", new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).strength(strength)
                 .sounds(BlockSoundGroup.WOOD)));
 
-         return new SimpleVanilaBlocks(beam);
+         return new SimpleVanillaBlocks(beam);
     }
 
 
@@ -97,13 +102,21 @@ public class WoodBlockSets {
         Block log = WoodBlocks.registerWoodBlock(name + "_log", new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).strength(strength).sounds(BlockSoundGroup.WOOD)));
 
         Block wood = WoodBlocks.registerWoodBlock(name + "_wood", new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).strength(strength).sounds(BlockSoundGroup.WOOD)));
+        Block woodStairs = WoodBlocks.registerWoodBlock(name + "_wood_stairs", new StairsBlock(wood.getDefaultState(),
+                FabricBlockSettings.copy(wood).strength(strength).sounds(BlockSoundGroup.WOOD)));
+        Block woodSlab = WoodBlocks.registerWoodBlock(name + "_wood_slab", new AxialSlabBlock(wood));
+        Block woodWall = WoodBlocks.registerWoodBlock(name + "_wood_wall", new WallBlock(AbstractBlock.Settings.copy(wood).strength(strength).sounds(BlockSoundGroup.WOOD)));
+        Block woodFence = WoodBlocks.registerWoodBlock(name + "_wood_fence", new FenceBlock(FabricBlockSettings.copyOf(wood).strength(strength).sounds(BlockSoundGroup.WOOD)));
 
         Block strippedLog = WoodBlocks.registerWoodBlock("stripped_" + name + "_log", new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_LOG).strength(strength).sounds(BlockSoundGroup.WOOD)));
 
         Block strippedWood = WoodBlocks.registerWoodBlock("stripped_" + name + "_wood", new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_WOOD).strength(strength).sounds(BlockSoundGroup.WOOD)));
 
-        Block woodWall = WoodBlocks.registerWoodBlock(name + "_wood_wall", new WallBlock(AbstractBlock.Settings.copy(wood).strength(strength).sounds(BlockSoundGroup.WOOD)));
-        Block woodFence = WoodBlocks.registerWoodBlock(name + "_wood_fence", new FenceBlock(FabricBlockSettings.copyOf(wood).strength(strength).sounds(BlockSoundGroup.WOOD)));
+        Block strippedWoodStairs = WoodBlocks.registerWoodBlock("stripped_" + name + "_wood_stairs", new StairsBlock(wood.getDefaultState(),
+                FabricBlockSettings.copy(wood).strength(strength).sounds(BlockSoundGroup.WOOD)));
+        Block strippedWoodSlab = WoodBlocks.registerWoodBlock("stripped_" + name + "_wood_slab", new AxialSlabBlock(strippedWood));
+        Block strippedWoodWall = WoodBlocks.registerWoodBlock("stripped_" + name + "_wood_wall", new WallBlock(AbstractBlock.Settings.copy(wood).strength(strength).sounds(BlockSoundGroup.WOOD)));
+        Block strippedWoodFence = WoodBlocks.registerWoodBlock("stripped_" + name + "_wood_fence", new FenceBlock(FabricBlockSettings.copyOf(wood).strength(strength).sounds(BlockSoundGroup.WOOD)));
 
         Block planks = WoodBlocks.registerWoodBlock(name + "_planks", new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(strength).sounds(BlockSoundGroup.WOOD)));
 
@@ -127,7 +140,8 @@ public class WoodBlockSets {
         Block beam = WoodBlocks.registerWoodBlock(name + "_beam", new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).strength(strength)
                 .sounds(BlockSoundGroup.WOOD)));
 
-        return new SimpleBlockSet(leaves, log, wood, strippedLog, strippedWood, woodWall,woodFence, planks, slab, stairs, fence, gate, pressurePlate, button, beam);
+        return new SimpleBlockSet(leaves, log, wood, woodStairs, woodSlab, woodWall,woodFence,
+                strippedLog, strippedWood, strippedWoodStairs, strippedWoodSlab, strippedWoodWall, strippedWoodFence, planks, slab, stairs, fence, gate, pressurePlate, button, beam);
     }
 
     public static void registerModBlockSets() {

@@ -57,19 +57,6 @@ public class BlockLoader {
             new WallBlock(AbstractBlock.Settings.create().requiresTool()
                     .strength(1.5f, 6f)));
 
-     public static final Block GREEN_BASALT_SMALL_ARCH = registerBlock("green_basalt_small_arch",
-             new ArchSmall(AbstractBlock.Settings.create().requiresTool()
-                     .strength(1.5f, 6f)));
-     public static final Block GREEN_BASALT_TWO_METER_ARCH = registerBlock("green_basalt_two_meter_arch",
-             new ArchTwoMeter(AbstractBlock.Settings.create().requiresTool()
-                     .strength(1.5f, 6f)));
-     public static final Block GREEN_BASALT_ARROWSLIT = registerBlock("green_basalt_arrowslit",
-             new ArrowSlit(AbstractBlock.Settings.create().requiresTool()
-                     .strength(1.5f, 6f)));
-    public static final Block GREEN_BASALT_BALUSTRADE = registerBlock("green_basalt_balustrade",
-            new Balustrade(AbstractBlock.Settings.create().requiresTool()
-                    .strength(1.5f, 6f)));
-
     public static final Block CHISELED_BASALT = registerBlock("chiseled_basalt",
             new Block(AbstractBlock.Settings.create().requiresTool()
                     .strength(1.5f, 6f)));
@@ -205,79 +192,7 @@ public class BlockLoader {
 //
     //wood
 
-    public static final Block TEST_SAPLING = registerBlock("test_sapling",
-            new SaplingBlock(new TestTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-    public static final Block APPLE_SAPLING = registerBlock("apple_sapling",
-            new SaplingBlock(new AppleTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
-    public static final Block ASPEN_SAPLING = registerBlock("aspen_sapling",
-            new SaplingBlock(new AspenTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-    public static final Block GHOST_GUM_SAPLING = registerBlock("ghost_gum_sapling",
-            new SaplingBlock(new GhostGumTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-
-    public static final Block BEECH_SAPLING = registerBlock("beech_sapling",
-            new SaplingBlock(new BeechTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-    public static final Block BLACKTHORN_SAPLING = registerBlock("blackthorn_sapling",
-            new SaplingBlock(new BlackthornTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-    public static final Block CEDAR_SAPLING = registerBlock("cedar_sapling",
-            new SaplingBlock(new CederTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-
-//    public static final Block CHERRY_SAPLING = registerBlock("cherry_sapling",
-//            new SaplingBlock(new AppleTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-
-    public static final Block CYPRESS_SAPLING = registerBlock("cypress_sapling",
-            new SaplingBlock(new CypressTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-
-    public static final Block FIR_SAPLING = registerBlock("fir_sapling",
-            new SaplingBlock(new FirTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-
-    public static final Block GREEN_OAK_SAPLING = registerBlock("green_oak_sapling",
-            new SaplingBlock(new GreenOakTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-
-    public static final Block HOLLY_SAPLING = registerBlock("holly_sapling",
-            new SaplingBlock(new HollyTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-
-    public static final Block LARCH_SAPLING = registerBlock("larch_sapling",
-            new SaplingBlock(new LarchTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-//    public static final Block MAPLE_SAPLING = registerBlock("maple_sapling",
-//            new SaplingBlock(new AppleTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-
-//    public static final Block PEAR_SAPLING = registerBlock("pear_sapling",
-//            new SaplingBlock(new AppleTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-
-    public static final Block PINE_SAPLING = registerBlock("pine_sapling",
-            new SaplingBlock(new PineTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-
-
-    public static final Block RED_OAK_SAPLING = registerBlock("red_oak_sapling",
-            new SaplingBlock(new RedOakTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-
-    public static final Block REDWOOD_SAPLING = registerBlock("redwood_sapling",
-            new SaplingBlock(new RedwoodTreeGrowen(), AbstractBlock.Settings.create()));
-
-
-//
-    public static final Block SILVER_SPRUCE_SAPLING = registerBlock("silver_spruce_sapling",
-            new SaplingBlock(new SilverSpruceTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-
-    public static final Block WHITE_ASH_SAPLING = registerBlock("white_ash_sapling",
-            new SaplingBlock(new WhiteAshTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
     //Plants
 

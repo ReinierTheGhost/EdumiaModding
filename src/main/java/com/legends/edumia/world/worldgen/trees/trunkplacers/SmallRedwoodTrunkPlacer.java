@@ -40,19 +40,20 @@ public class SmallRedwoodTrunkPlacer extends ExtendedTrunkPlacer{
     }
 
     @Override
-    public List<FoliagePlacer.TreeNode> generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, int height, BlockPos startPos, TreeFeatureConfig config) {
+    public List<FoliagePlacer.TreeNode> generate(TestableWorld world, BiConsumer<BlockPos, BlockState> trunk, Random random,
+                                                 int trunkHeight, BlockPos startPos, TreeFeatureConfig config) {
         BlockPos blockPos = startPos.down();
-        setToDirt(world, replacer, random, blockPos, config);
-        setToDirt(world, replacer, random, blockPos.east(), config);
-        setToDirt(world, replacer, random, blockPos.south(), config);
-        setToDirt(world, replacer, random, blockPos.south().east(), config);
+        setToDirt(world, trunk, random, blockPos, config);
+        setToDirt(world, trunk, random, blockPos.east(), config);
+        setToDirt(world, trunk, random, blockPos.south(), config);
+        setToDirt(world, trunk, random, blockPos.south().east(), config);
         BlockPos.Mutable mutable = new BlockPos.Mutable();
-        for (int i = 0; i < height; ++i) {
-            this.setLog(world, replacer, random, mutable, config, startPos, 0, i, 0);
-            if (i >= height - 1) continue; // makes the log on the position of the sapling 1 higher than the rest
-            this.setLog(world, replacer, random, mutable, config, startPos, 1, i, 0);
-            this.setLog(world, replacer, random, mutable, config, startPos, 1, i, 1);
-            this.setLog(world, replacer, random, mutable, config, startPos, 0, i, 1);
+        for (int i = 0; i < trunkHeight; ++i) {
+            this.setLog(world, trunk, random, mutable, config, startPos, 0, i, 0);
+            if (i >= trunkHeight - 1) continue; // makes the log on the position of the sapling 1 higher than the rest
+            this.setLog(world, trunk, random, mutable, config, startPos, 1, i, 0);
+            this.setLog(world, trunk, random, mutable, config, startPos, 1, i, 1);
+            this.setLog(world, trunk, random, mutable, config, startPos, 0, i, 1);
         }
 
         BlockPos.Mutable rootPos1 = (new BlockPos.Mutable()).set(startPos, 0, random.nextBetween(1, 3), -1);
@@ -65,23 +66,24 @@ public class SmallRedwoodTrunkPlacer extends ExtendedTrunkPlacer{
         BlockPos.Mutable rootPos8 = (new BlockPos.Mutable()).set(startPos, 1, random.nextBetween(1, 3), 2);
 
         int rootLength = 4 + random.nextInt(3);
-        this.growRootsDown(world, random, rootPos1, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos2, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos3, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos4, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos5, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos6, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos7, rootLength, replacer, config);
-        this.growRootsDown(world, random, rootPos8, rootLength, replacer, config);
+        this.growRootsDown(world, random, rootPos1, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos2, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos3, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos4, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos5, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos6, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos7, rootLength, trunk, config);
+        this.growRootsDown(world, random, rootPos8, rootLength, trunk, config);
 
 
 
-        return ImmutableList.of(new FoliagePlacer.TreeNode(startPos.up(height), 0, true));
+        return ImmutableList.of(new FoliagePlacer.TreeNode(startPos.up(trunkHeight), 0, true));
     }
 
-    private void setLog(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, BlockPos.Mutable tmpPos, TreeFeatureConfig config, BlockPos startPos, int dx, int dy, int dz) {
-        tmpPos.set(startPos, dx, dy, dz);
-        this.trySetState(world, replacer, random, tmpPos, config);
+    private void setLog(TestableWorld world, BiConsumer<BlockPos, BlockState> trunk, Random random, BlockPos.Mutable tmpPos,
+                        TreeFeatureConfig config, BlockPos basePos, int dx, int dy, int dz) {
+        tmpPos.set(basePos, dx, dy, dz);
+        this.trySetState(world, trunk, random, tmpPos, config);
     }
 
 }

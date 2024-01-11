@@ -46,7 +46,9 @@ public class OakTrunkPlacer extends ExtendedTrunkPlacer {
         this.canReplace(world, basePos.down());
         for (int y = 0; y < trunkHeight; y++)
             this.getAndSetState(world, trunk, random, basePos.up(y), config); //builds the log of the tree
-        List<FoliagePlacer.TreeNode> foliage = new ArrayList<>(); //With this you assign where the leaves will start to be placed
+
+        List<FoliagePlacer.TreeNode> foliage = new ArrayList<>(); //Instance to foliage placer
+
         addLeafCanopy(world, random, basePos.up(trunkHeight - 1), trunk, foliage, config);
         int roots = 4 + random.nextInt(1);
         for (int l = 0; l < roots; l++) {

@@ -1,5 +1,6 @@
 package com.legends.edumia.world.worldgen.trees.trunkplacers;
 
+import com.google.common.collect.ImmutableList;
 import com.legends.edumia.world.worldgen.trees.EdumiaTrunkPlacerTypes;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -100,6 +101,6 @@ public class CederTrunkPlacer extends ExtendedTrunkPlacer {
             }
         }
 
-        return foliage;
+        return ImmutableList.of(new FoliagePlacer.TreeNode(basePos.up(trunkHeight), 0, false));
     }
 }

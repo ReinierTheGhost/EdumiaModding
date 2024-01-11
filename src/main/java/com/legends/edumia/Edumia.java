@@ -21,6 +21,8 @@ import com.legends.edumia.world.biomes.EdumiaBiomeKeys;
 import com.legends.edumia.world.biomes.EdumiaBiomesData;
 import com.legends.edumia.world.chunkgen.map.MapImageLoader;
 import com.legends.edumia.world.dimension.ModDimensions;
+import net.minecraft.registry.BuiltinRegistries;
+import net.minecraft.registry.Registry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

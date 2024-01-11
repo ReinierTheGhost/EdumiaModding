@@ -1,8 +1,0 @@
-{
-  "parent": "edumia:block/template/parent_balustrade_base",
-  "textures": {
-    "particle": "edumia:block/green_basalt",
-    "side": "edumia:block/green_basalt",
-    "top": "edumia:block/green_basalt"
-  }
-}

@@ -1,7 +1,7 @@
 {
     "parent": "block/block",
     "textures": {
-        "all": "#leaves",
+        "all": "#all",
         "particle": "#all"
     },
     "loader": "lotr:scatter",

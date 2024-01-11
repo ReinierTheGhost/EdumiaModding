@@ -75,26 +75,6 @@ public class CreativeTabLoader {
                         entries.add(BlockLoader.YELLOW_IRIS);
                         entries.add(BlockLoader.FLAME_OF_THE_SOUTH);
                         entries.add(BlockLoader.HIBISCUS);
-                        entries.add(BlockLoader.TEST_SAPLING);
-                        entries.add(BlockLoader.APPLE_SAPLING);
-                        entries.add(BlockLoader.ASPEN_SAPLING);
-                        entries.add(BlockLoader.BEECH_SAPLING);
-                        entries.add(BlockLoader.BLACKTHORN_SAPLING);
-                        entries.add(BlockLoader.CEDAR_SAPLING);
-//                        entries.add(BlockLoader.CHERRY_SAPLING);
-                        entries.add(BlockLoader.CYPRESS_SAPLING);
-                        entries.add(BlockLoader.FIR_SAPLING);
-                        entries.add(BlockLoader.GHOST_GUM_SAPLING);
-                        entries.add(BlockLoader.GREEN_OAK_SAPLING);
-                        entries.add(BlockLoader.HOLLY_SAPLING);
-                        entries.add(BlockLoader.LARCH_SAPLING);
-//                        entries.add(BlockLoader.MAPLE_SAPLING);
-//                        entries.add(BlockLoader.PEAR_SAPLING);
-                        entries.add(BlockLoader.PINE_SAPLING);
-                        entries.add(BlockLoader.RED_OAK_SAPLING);
-                        entries.add(BlockLoader.REDWOOD_SAPLING);
-                        entries.add(BlockLoader.SILVER_SPRUCE_SAPLING);
-                        entries.add(BlockLoader.WHITE_ASH_SAPLING);
                     })
                     .build();
 
@@ -139,35 +119,46 @@ public class CreativeTabLoader {
                     })
                     .build();
 
+    public static final ItemGroup FOOD_GROUP = FabricItemGroup.builder()
+            .displayName(Text.literal("Food"))
+            .icon(() -> new ItemStack(ItemLoader.TEA_HIBISCUS_PETALS)).entries((displayContext, entries) -> {
+                entries.add(ItemLoader.TEA_SAKURA_PETALS);
+                entries.add(ItemLoader.TEA_MINT_LEAVES);
+                entries.add(ItemLoader.TEA_LEAF);
+                entries.add(ItemLoader.TEA_LILY_PETALS);
+                entries.add(ItemLoader.TEA_WHITE_JADE_PETALS);
+                entries.add(ItemLoader.TEA_HIBISCUS_PETALS);
+                entries.add(ItemLoader.TEA_JASMINE_PETALS);
+                entries.add(ItemLoader.TEA_CINNAMON_STICK);
+                entries.add(ItemLoader.TEA_WHITE_DRAGON_PETALS);
+
+                entries.add(ItemLoader.BROCCOLI);
+                entries.add(ItemLoader.PAPRIKA_GREEN);
+                entries.add(ItemLoader.RAMEN);
+                entries.add(ItemLoader.RAMEN_BEEF);
+                entries.add(ItemLoader.RAMEN_PORK);
+                entries.add(ItemLoader.RAMEN_SHRIMPS);
+                entries.add(ItemLoader.RAMEN_VEGI);
+                entries.add(ItemLoader.RED_GRAPES);
+                entries.add(ItemLoader.RICE);
+                entries.add(ItemLoader.RICE_BALL);
+                entries.add(ItemLoader.SPINACH);
+                entries.add(ItemLoader.TOMATO);
+                entries.add(ItemLoader.CHEESE);
+
+                entries.add(ItemLoader.LETTUCE);
+
+
+            }).build();
 
 //
 //    public static final ItemGroup EDUMIA_ITEMS = Registry.register(Registries.ITEM_GROUP,
 //            new Identifier(Edumia.MOD_ID,"edumia_items"),
 //            FabricItemGroup.builder().displayName(Text.translatable("creativetab.edumia_items"))
 //                    .icon(() -> new ItemStack(ItemLoader.TEA_SAKURA_PETALS)).entries((displayContext, entries) -> {
-//                        entries.add(ItemLoader.TEA_SAKURA_PETALS);
-//                        entries.add(ItemLoader.TEA_MINT_LEAVES);
-//                        entries.add(ItemLoader.TEA_LEAF);
-//                        entries.add(ItemLoader.TEA_LILY_PETALS);
-//                        entries.add(ItemLoader.TEA_WHITE_JADE_PETALS);
-//                        entries.add(ItemLoader.TEA_HIBISCUS_PETALS);
-//                        entries.add(ItemLoader.TEA_JASMINE_PETALS);
-//                        entries.add(ItemLoader.TEA_CINNAMON_STICK);
-//                        entries.add(ItemLoader.TEA_WHITE_DRAGON_PETALS);
 //
-//                        entries.add(ItemLoader.BROCCOLI);
-//                        entries.add(ItemLoader.PAPRIKA_GREEN);
-//                        entries.add(ItemLoader.RAMEN);
-//                        entries.add(ItemLoader.RAMEN_BEEF);
-//                        entries.add(ItemLoader.RAMEN_PORK);
-//                        entries.add(ItemLoader.RAMEN_SHRIMPS);
-//                        entries.add(ItemLoader.RAMEN_VEGI);
-//                        entries.add(ItemLoader.RED_GRAPES);
-//                        entries.add(ItemLoader.RICE);
-//                        entries.add(ItemLoader.RICE_BALL);
-//                        entries.add(ItemLoader.SPINACH);
-//                        entries.add(ItemLoader.TOMATO);
-//                        entries.add(ItemLoader.WINE_BOTTLE);
+//
+//
 //
 //                        entries.add(ItemLoader.POLISHED_JADE);
 //                        entries.add(ItemLoader.TOPAZ_SHARD);
@@ -317,11 +308,6 @@ public class CreativeTabLoader {
                             entries.add(item);
                         }
 
-                        entries.add(BlockLoader.GREEN_BASALT_BALUSTRADE);
-                        entries.add(BlockLoader.GREEN_BASALT_ARROWSLIT);
-                        entries.add(BlockLoader.GREEN_BASALT_SMALL_ARCH);
-                        entries.add(BlockLoader.GREEN_BASALT_TWO_METER_ARCH);
-
 
                         entries.add(BlockLoader.CRACKED_GREEN_BASALT);
                         entries.add(BlockLoader.CRACKED_GREEN_BASALT_SLAB);
@@ -349,5 +335,7 @@ public class CreativeTabLoader {
         Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_building_blocks"), EDUMIA_BUILDING_BLOCKS);
         Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_wood_blocks"), EDUMIA_WOOD_BLOCKS);
         Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_natural_stone_blocks"), EDUMIA_NATURAL_STONE_BLOCKS);
+
+        Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_food"), FOOD_GROUP);
     }
 }

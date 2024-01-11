@@ -46,6 +46,13 @@ public class EdumiaTrunkPlacerTypes {
     public static final TrunkPlacerType<?> CROSS_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("cross_trunk_placer",
             CrossTrunkPlacer.CODEC);
 
+    public static final TrunkPlacerType<?> FINGER_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("finger_trunk_placer",
+            FingerTrunkPlacer.CODEC);
+    public static final TrunkPlacerType<?> DRAGON_BLOOD_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("dragon_blood_trunk_placer",
+            DragonBloodTrunkPlacer.CODEC);
+    public static final TrunkPlacerType<?> BIG_DRAGON_BLOOD_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("big_dragon_blood_trunk_placer",
+            BigDragonbloodTrunkPlacer.CODEC);
+
     public static void register() {
         Edumia.LOGGER.info("Registering Trunk Placers for " + Edumia.MOD_ID);
     }

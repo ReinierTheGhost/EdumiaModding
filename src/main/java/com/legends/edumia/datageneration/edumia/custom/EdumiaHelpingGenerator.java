@@ -1,13 +1,11 @@
 package com.legends.edumia.datageneration.edumia.custom;
 
 import com.legends.edumia.block.blocksets.*;
-import com.legends.edumia.datageneration.edumia.custom.models.SimpleAxisSlabModel;
-import com.legends.edumia.datageneration.edumia.custom.models.SimpleCornerBlockModel;
-import com.legends.edumia.datageneration.edumia.custom.models.SimplePillarModels;
-import com.legends.edumia.datageneration.edumia.custom.models.SimpleWoodBlockModel;
+import com.legends.edumia.datageneration.edumia.custom.models.*;
 import com.legends.edumia.datageneration.edumia.custom.tags.Leaves;
 import com.legends.edumia.datageneration.edumia.custom.tags.Pillar;
 import com.legends.edumia.datageneration.edumia.custom.tags.RequiresIronTool;
+import com.legends.edumia.datageneration.edumia.custom.tags.RequiresStoneTool;
 import com.legends.edumia.datageneration.me.content.loot_tables.BlockDrops;
 import com.legends.edumia.datageneration.me.content.loot_tables.LeavesDrops;
 import com.legends.edumia.datageneration.me.content.models.*;
@@ -15,7 +13,8 @@ import com.legends.edumia.datageneration.me.content.tags.*;
 
 public class EdumiaHelpingGenerator {
     public static void generateFiles() {
-        for (WoodBlockSets.SimpleVanilaBlocks beam : WoodBlockSets.beams){
+
+        for (WoodBlockSets.SimpleVanillaBlocks beam : WoodBlockSets.beams){
             SimplePillarModel.blocks.add(new SimplePillarModel.Pillar(beam.beam()));
         }
 
@@ -48,12 +47,21 @@ public class EdumiaHelpingGenerator {
                 LeavesDrops.blocks.add(set.leaves());
                 Leaves.leaves.add(set.leaves());
             }
+
+
             SimplePillarModel.blocks.add(new SimplePillarModel.Pillar(set.log()));
             SimpleWoodBlockModel.blocks.add(new SimpleWoodBlockModel.WoodBlocks(set.log(), set.wood()));
-            SimplePillarModel.blocks.add(new SimplePillarModel.Pillar(set.strippedLog()));
-            SimpleWoodBlockModel.blocks.add(new SimpleWoodBlockModel.WoodBlocks(set.strippedLog(), set.strippedWood()));
+            SimpleStairModel.blocks.add(new SimpleStairModel.Stair(set.log(), set.woodStairs()));
+            SimpleAxisSlabModel.blocks.add(new SimpleAxisSlabModel.Slab(set.log(), set.woodSlab()));
             SimpleWallModel.blocks.add(new SimpleWallModel.Wall(set.log(), set.woodWall()));
             SimpleFenceModel.blocks.add(new SimpleFenceModel.Fence(set.wood(), set.woodFence()));
+            SimplePillarModel.blocks.add(new SimplePillarModel.Pillar(set.strippedLog()));
+            SimpleWoodBlockModel.blocks.add(new SimpleWoodBlockModel.WoodBlocks(set.strippedLog(), set.strippedWood()));
+            SimpleStairModel.blocks.add(new SimpleStairModel.Stair(set.strippedLog(), set.strippedWoodStairs()));
+            SimpleAxisSlabModel.blocks.add(new SimpleAxisSlabModel.Slab(set.strippedLog(), set.strippedWoodSlab()));
+            SimpleWallModel.blocks.add(new SimpleWallModel.Wall(set.strippedLog(), set.strippedWoodWall()));
+            SimpleFenceModel.blocks.add(new SimpleFenceModel.Fence(set.strippedLog(), set.strippedWoodFence()));
+
             SimpleBlockModel.blocks.add(set.planks());
             SimpleAxisSlabModel.blocks.add(new SimpleAxisSlabModel.Slab(set.planks(), set.planksSlab()));
             SimpleStairModel.blocks.add(new SimpleStairModel.Stair(set.planks(), set.planksStairs()));
@@ -119,10 +127,10 @@ public class EdumiaHelpingGenerator {
             MineablePickaxe.blocks.add(set.stair());
             MineablePickaxe.blocks.add(set.wall());
 
-            RequiresIronTool.blocks.add(set.block());
-            RequiresIronTool.blocks.add(set.slab());
-            RequiresIronTool.blocks.add(set.stair());
-            RequiresIronTool.blocks.add(set.wall());
+            RequiresStoneTool.blocks.add(set.block());
+            RequiresStoneTool.blocks.add(set.slab());
+            RequiresStoneTool.blocks.add(set.stair());
+            RequiresStoneTool.blocks.add(set.wall());
 
             Walls.walls.add(set.wall());
 
@@ -131,8 +139,44 @@ public class EdumiaHelpingGenerator {
                 BlockDrops.blocks.add(set.pillar());
                 Pillar.pillars.add(set.pillar());
                 MineablePickaxe.blocks.add(set.pillar());
-                RequiresIronTool.blocks.add(set.pillar());
+                RequiresStoneTool.blocks.add(set.pillar());
             }
+
+
+            SimpleSmallArchModel.blocks.add(new SimpleSmallArchModel.Arch(set.block(), set.smallArch()));
+            BlockDrops.blocks.add(set.smallArch());
+            MineablePickaxe.blocks.add(set.smallArch());
+            RequiresStoneTool.blocks.add(set.smallArch());
+
+            SimpleTwoMeterArchModel.blocks.add(new SimpleTwoMeterArchModel.Arch(set.block(), set.twoMeterArch()));
+            BlockDrops.blocks.add(set.twoMeterArch());
+            MineablePickaxe.blocks.add(set.twoMeterArch());
+            RequiresStoneTool.blocks.add(set.twoMeterArch());
+
+            SimpleRoundArchModel.blocks.add(new SimpleRoundArchModel.Arch(set.block(), set.roundArch()));
+            BlockDrops.blocks.add(set.roundArch());
+            MineablePickaxe.blocks.add(set.roundArch());
+            RequiresStoneTool.blocks.add(set.roundArch());
+
+            SimpleSegmentalArchModel.blocks.add(new SimpleSegmentalArchModel.Arch(set.block(), set.segmentalArch()));
+            BlockDrops.blocks.add(set.segmentalArch());
+            MineablePickaxe.blocks.add(set.segmentalArch());
+            RequiresStoneTool.blocks.add(set.segmentalArch());
+
+            SimpleGothicArchModel.blocks.add(new SimpleGothicArchModel.Arch(set.block(), set.gothicArch()));
+            BlockDrops.blocks.add(set.gothicArch());
+            MineablePickaxe.blocks.add(set.gothicArch());
+            RequiresStoneTool.blocks.add(set.gothicArch());
+
+            SimpleBalustradeModels.blocks.add(new SimpleBalustradeModels.Balustrade(set.block(), set.balustrade()));
+            BlockDrops.blocks.add(set.balustrade());
+            MineablePickaxe.blocks.add(set.balustrade());
+            RequiresStoneTool.blocks.add(set.balustrade());
+
+            SimpleArrowSlitModel.blocks.add(new SimpleArrowSlitModel.ArrowSlit(set.block(), set.arrowSlit()));
+            BlockDrops.blocks.add(set.arrowSlit());
+            MineablePickaxe.blocks.add(set.arrowSlit());
+            RequiresStoneTool.blocks.add(set.arrowSlit());
         }
 
         for (NotBrickBuildingSets.BuildSet set : NotBrickBuildingSets.buildSets){
