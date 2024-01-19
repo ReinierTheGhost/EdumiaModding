@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/fence_post",
   "textures": {
-    "texture": "edumia:block/beech_wood"
+    "texture": "edumia:block/beech_log"
   }
 }

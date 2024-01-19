@@ -64,7 +64,8 @@ public class ModModelProvider extends FabricModelProvider {
         }
 
         for (SimplePillarModel.Pillar block : SimplePillarModel.blocks) {
-            blockStateModelGenerator.registerAxisRotated(block.base(), TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
+            blockStateModelGenerator.registerAxisRotated(block.base(), TexturedModel.END_FOR_TOP_CUBE_COLUMN,
+                    TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
         }
 
         for (SimpleStairModel.Stair block : SimpleStairModel.blocks) {
@@ -146,14 +147,11 @@ public class ModModelProvider extends FabricModelProvider {
         }
 
         for (Block block : SimpleTrapDoorModel.blocks) {
-            TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(block);
+            blockStateModelGenerator.registerTrapdoor(block);
+        }
 
-            Identifier top = Models.TEMPLATE_ORIENTABLE_TRAPDOOR_TOP.upload(block, texturedModel.getTextures(), blockStateModelGenerator.modelCollector);
-            Identifier bottom = Models.TEMPLATE_ORIENTABLE_TRAPDOOR_BOTTOM.upload(block, texturedModel.getTextures(), blockStateModelGenerator.modelCollector);
-            Identifier open = Models.TEMPLATE_ORIENTABLE_TRAPDOOR_OPEN.upload(block, texturedModel.getTextures(), blockStateModelGenerator.modelCollector);
-
-            blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator
-                    .createTrapdoorBlockState(block, top, bottom, open));
+        for (Block block : SimpleDoorModel.blocks){
+            blockStateModelGenerator.registerDoor(block);
         }
 
         for (Block block : SimpleDoubleFlowerModel.blocks){
@@ -349,6 +347,28 @@ public class ModModelProvider extends FabricModelProvider {
                     .createAxisSlabBlockState(slab, bottom, top, id));
         }
 
+        for (SimpleAxisPillarSlabModel.Slab block : SimpleAxisPillarSlabModel.blocks) {
+            Identifier id = ModelIds.getBlockModelId(block.block());
+            Block slab = block.slab();
+
+
+            Identifier bottom = Models.SLAB.upload(slab, (new TextureMap())
+                    .put(TextureKey.SIDE, TextureMap.getId(block.block()))
+                    .put(TextureKey.TOP, TextureMap.getSubId(block.block(), "_face"))
+                    .put(TextureKey.BOTTOM, TextureMap.getSubId(block.block(), "_face")),
+                    blockStateModelGenerator.modelCollector);
+            Identifier top = Models.SLAB_TOP.upload(slab, (new TextureMap())
+                    .put(TextureKey.SIDE, TextureMap.getId(block.block()))
+                    .put(TextureKey.TOP, TextureMap.getSubId(block.block(), "_face"))
+                    .put(TextureKey.BOTTOM, TextureMap.getSubId(block.block(), "_face")),
+                    blockStateModelGenerator.modelCollector);
+
+            blockStateModelGenerator.blockStateCollector.accept(EdumiaBlockStateModelGenerator
+                    .createAxisSlabBlockState(slab, bottom, top, id));
+        }
+
+
+
         blockStateModelGenerator.registerSimpleCubeAll(BlockLoader.WHITE_SAND);
 
         BlockStateModelGenerator.BlockTexturePool CGB = blockStateModelGenerator
@@ -419,6 +439,10 @@ public class ModModelProvider extends FabricModelProvider {
 //
 //
 
+        blockStateModelGenerator.registerTintableCross(BlockLoader.DRY_BUSH, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerDoubleBlock(BlockLoader.TALL_DRY_BUSH, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerDoubleBlock(BlockLoader.TALL_DEAD_BUSH, BlockStateModelGenerator.TintType.NOT_TINTED);
+
         blockStateModelGenerator.registerTintableCross(BlockLoader.ARID_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCross(BlockLoader.BLACK_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCross(BlockLoader.FLAX_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
@@ -427,6 +451,10 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCross(BlockLoader.FROSTED_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerDoubleBlock(BlockLoader.TALL_FROSTED_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
 
+
+        blockStateModelGenerator.registerTintableCross(BlockLoader.PARASOL_MUSHROOM_1, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(BlockLoader.PARASOL_MUSHROOM_2, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerDoubleBlock(BlockLoader.PARASOL_MUSHROOM_TALL, BlockStateModelGenerator.TintType.NOT_TINTED);
 
         //flowers
         blockStateModelGenerator.registerFlowerPotPlant(BlockLoader.ASPHODEL, BlockLoader.POTTED_ASPHODEL,
@@ -487,6 +515,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerFlowerPotPlant(BlockLoader.GERBERA_RED, BlockLoader.POTTED_GERBERA_RED,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
 
+        blockStateModelGenerator.registerFlowerPotPlant(BlockLoader.GENSAI_ORCHID, BlockLoader.POTTED_GENSAI_ORCHID,
+                BlockStateModelGenerator.TintType.NOT_TINTED);
+
         blockStateModelGenerator.registerFlowerPotPlant(BlockLoader.GERBERA_YELLOW, BlockLoader.POTTED_GERBERA_YELLOW,
                 BlockStateModelGenerator.TintType.NOT_TINTED);
 
@@ -524,6 +555,12 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.register(ItemLoader.GENSAI_AXE, Models.GENERATED);
+        itemModelGenerator.register(ItemLoader.GENSAI_HOE, Models.GENERATED);
+        itemModelGenerator.register(ItemLoader.GENSAI_PICKAXE, Models.GENERATED);
+        itemModelGenerator.register(ItemLoader.GENSAI_SHOVEL, Models.GENERATED);
+        itemModelGenerator.register(ItemLoader.GENSAI_STEEL, Models.GENERATED);
+
         itemModelGenerator.register(ItemLoader.ATLAS, Models.GENERATED);
         itemModelGenerator.register(ItemLoader.GEM_FINE_AMBER, Models.GENERATED);
         itemModelGenerator.register(ItemLoader.GEM_FLAWED_AMBER, Models.GENERATED);

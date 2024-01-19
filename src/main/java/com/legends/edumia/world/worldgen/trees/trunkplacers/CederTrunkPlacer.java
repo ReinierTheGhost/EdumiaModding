@@ -101,6 +101,6 @@ public class CederTrunkPlacer extends ExtendedTrunkPlacer {
             }
         }
 
-        return ImmutableList.of(new FoliagePlacer.TreeNode(basePos.up(trunkHeight), 0, false));
+        return foliage;
     }
 }

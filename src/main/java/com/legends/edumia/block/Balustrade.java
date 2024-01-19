@@ -64,7 +64,7 @@ public class Balustrade extends PillarBlock implements ModWaterloggable {
     @Override
     public BlockState getPlacementState(ItemPlacementContext context) {
         FluidState fluidstate = context.getWorld().getFluidState(context.getBlockPos());
-        return (BlockState)((BlockState)super.getPlacementState(context).with(AXIS, context.getSide().getAxis()))
+        return (super.getPlacementState(context).with(AXIS, context.getSide().getAxis()))
                 .with(WATERLOGGED, fluidstate.getFluid() == Fluids.WATER);
     }
 

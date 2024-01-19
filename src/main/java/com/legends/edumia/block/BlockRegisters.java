@@ -40,6 +40,20 @@ public class BlockRegisters {
         return item;
     }
 
+    public static Block registerDoorBlock(String name, Block block) {
+        registerDoorBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, new Identifier(Edumia.MOD_ID, name), block);
+    }
+
+    static Item registerDoorBlockItem(String name, Block block) {
+        var item =  Registry.register(Registries.ITEM, new Identifier(Edumia.MOD_ID, name),
+                new BlockItem(block, new FabricItemSettings()));
+
+        Item.BLOCK_ITEMS.put(block, item);
+        CreativeTabLoader.UTILITY_CONTENTS.add(item.getDefaultStack());
+        return item;
+    }
+
     public static void registerModBlocks() {
         Edumia.LOGGER.debug("Registering ModBlocks for " + Edumia.MOD_ID);
     }

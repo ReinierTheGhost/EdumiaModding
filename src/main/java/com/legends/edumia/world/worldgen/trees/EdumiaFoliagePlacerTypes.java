@@ -52,6 +52,28 @@ public class EdumiaFoliagePlacerTypes {
     public static final FoliagePlacerType<?> DRAGON_BLOOD_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("dragon_blood_foliage_placer",
             DragonBloodFoliagePlacer.CODEC);
 
+    public static final FoliagePlacerType<?> MAHOGANY_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("mahogany_foliage_placer",
+            MahoganyFoliagePlacer.CODEC);
+    public static final FoliagePlacerType<?> REDWOOD_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("redwood_foliage_placer",
+            RedwoodFoliagePlacer.CODEC);
+    public static final FoliagePlacerType<?> CITRUS_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("citrus_foliage_placer",
+            CitrusFoliagePlacer.CODEC);
+    public static final FoliagePlacerType<?> PAPAYA_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("papaya_foliage_placer",
+            PapayaFoliagePlacer.CODEC);
+    public static final FoliagePlacerType<?> PLEODENDRON_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("pleodendron_foliage_placer",
+            PapayaFoliagePlacer.CODEC);
+    public static final FoliagePlacerType<?> WILLOW_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("willow_foliage_placer",
+            WillowFoliagePlacer.CODEC);
+    public static final FoliagePlacerType<?> CAJOLE_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("cajole_foliage_placer",
+            CajoleFoliagePlacer.CODEC);
+    public static final FoliagePlacerType<?> DOUBLE_DISK_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("double_disk_foliage_placer",
+            DoubleDiskFoliagePlacer.CODEC);
+
+    public static final FoliagePlacerType<?> POINTED_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("pointed_foliage_placer",
+            PointedFoliagePlacer.CODEC);
+    public static final FoliagePlacerType<?> STACKED_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("stacked_foliage_placer",
+            StackedFoliagePlacer.CODEC);
+
     public static void register() {
         Edumia.LOGGER.info("Registering Foliage Placer for " + Edumia.MOD_ID);
     }

@@ -56,6 +56,9 @@ public class BuildingSets {
     public static BuildSet DESERT_MUD_BRICKS = registerBuildingSet("desert_mud", STONE_STRENGTH, true);
     public static BuildSet CRACKED_DESERT_MUD_BRICKS = registerBuildingSet("cracked_desert_mud", STONE_STRENGTH, false);
     public static BuildSet MOSSY_DESERT_MUD_BRICKS = registerBuildingSet("mossy_desert_mud", STONE_STRENGTH, false);
+    public static BuildSet GRAYSTONE_BRICKS = registerBuildingSet("graystone", STONE_STRENGTH, true);
+    public static BuildSet CRACKED_GRAYSTONE_BRICKS = registerBuildingSet("cracked_graystone", STONE_STRENGTH, false);
+    public static BuildSet MOSSY_GRAYSTONE_BRICKS = registerBuildingSet("mossy_graystone", STONE_STRENGTH, false);
 
     public static BuildSet ANDESITE_BRICKS = registerBuildingSet("andesite", STONE_STRENGTH, false);
     public static BuildSet GRANITE_BRICKS = registerBuildingSet("granite", STONE_STRENGTH, false);
@@ -113,10 +116,13 @@ public class BuildingSets {
             MOSSY_VOLCANIC_DEMON_BRICKS,
             DESERT_MUD_BRICKS,
             CRACKED_DESERT_MUD_BRICKS,
-            MOSSY_DESERT_MUD_BRICKS
+            MOSSY_DESERT_MUD_BRICKS,
+            GRAYSTONE_BRICKS,
+            CRACKED_GRAYSTONE_BRICKS,
+            MOSSY_GRAYSTONE_BRICKS
     };
 
-    public record BuildSet(Block block, Block slab, Block stair, Block wall, Block pillar, Block smallArch, Block twoMeterArch, Block roundArch, Block segmentalArch, Block gothicArch, Block balustrade, Block arrowSlit){
+    public record BuildSet(Block block, Block slab, Block stair, Block wall, Block pillar, Block pillarSlab, Block smallArch, Block twoMeterArch, Block roundArch, Block segmentalArch, Block gothicArch, Block balustrade, Block arrowSlit){
     }
 
     public static BuildSet registerBuildingSet(String name, float strength, boolean hasPillar){
@@ -134,9 +140,11 @@ public class BuildingSets {
                 .strength(strength).sounds(BlockSoundGroup.STONE).requiresTool()));
 
         Block pillar = null;
+        Block pillarSlab = null;
         if (hasPillar){
             pillar = BlockRegisters.registerbuildingBlock(name + "_pillar", new EdumiaPillarBlock(AbstractBlock.Settings.copy(stone)
                     .strength(strength).sounds(BlockSoundGroup.STONE).requiresTool()));
+            pillarSlab = BlockRegisters.registerbuildingBlock(name + "_pillar_slab", new AxialSlabBlock(pillar));
         }
 
         Block smallArch = BlockRegisters.registerbuildingBlock(name + "_bricks_small_arch", new ArchSmall(AbstractBlock.Settings.create()
@@ -160,7 +168,7 @@ public class BuildingSets {
         Block arrowslit = BlockRegisters.registerbuildingBlock(name + "_bricks_arrowslit", new ArrowSlit(AbstractBlock.Settings.create()
                 .strength(STONE_STRENGTH).sounds(BlockSoundGroup.STONE).requiresTool()));
 
-        return new BuildSet(stone, slab, stairs, wall, pillar, smallArch, twoMeterArch, roundArch, segmentalArch, gothicArch, balustrade, arrowslit);
+        return new BuildSet(stone, slab, stairs, wall, pillar, pillarSlab, smallArch, twoMeterArch, roundArch, segmentalArch, gothicArch, balustrade, arrowslit);
     }
 
     public static void registerModBlockSets() {

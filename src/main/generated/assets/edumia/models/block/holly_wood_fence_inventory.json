@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/fence_inventory",
   "textures": {
-    "texture": "edumia:block/holly_wood"
+    "texture": "edumia:block/holly_log"
   }
 }

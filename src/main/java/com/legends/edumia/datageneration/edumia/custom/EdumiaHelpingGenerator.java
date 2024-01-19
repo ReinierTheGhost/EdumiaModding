@@ -7,6 +7,7 @@ import com.legends.edumia.datageneration.edumia.custom.tags.Pillar;
 import com.legends.edumia.datageneration.edumia.custom.tags.RequiresIronTool;
 import com.legends.edumia.datageneration.edumia.custom.tags.RequiresStoneTool;
 import com.legends.edumia.datageneration.me.content.loot_tables.BlockDrops;
+import com.legends.edumia.datageneration.me.content.loot_tables.DoorDrops;
 import com.legends.edumia.datageneration.me.content.loot_tables.LeavesDrops;
 import com.legends.edumia.datageneration.me.content.models.*;
 import com.legends.edumia.datageneration.me.content.tags.*;
@@ -54,7 +55,7 @@ public class EdumiaHelpingGenerator {
             SimpleStairModel.blocks.add(new SimpleStairModel.Stair(set.log(), set.woodStairs()));
             SimpleAxisSlabModel.blocks.add(new SimpleAxisSlabModel.Slab(set.log(), set.woodSlab()));
             SimpleWallModel.blocks.add(new SimpleWallModel.Wall(set.log(), set.woodWall()));
-            SimpleFenceModel.blocks.add(new SimpleFenceModel.Fence(set.wood(), set.woodFence()));
+            SimpleFenceModel.blocks.add(new SimpleFenceModel.Fence(set.log(), set.woodFence()));
             SimplePillarModel.blocks.add(new SimplePillarModel.Pillar(set.strippedLog()));
             SimpleWoodBlockModel.blocks.add(new SimpleWoodBlockModel.WoodBlocks(set.strippedLog(), set.strippedWood()));
             SimpleStairModel.blocks.add(new SimpleStairModel.Stair(set.strippedLog(), set.strippedWoodStairs()));
@@ -70,6 +71,9 @@ public class EdumiaHelpingGenerator {
             SimpleButtonModel.blocks.add(new SimpleButtonModel.Button(set.planks(), set.button()));
             SimplePressurePlateModel.blocks.add(new SimplePressurePlateModel.PressurePlate(set.planks(), set.pressurePlate()));
             SimplePillarModel.blocks.add(new SimplePillarModel.Pillar(set.beam()));
+            SimpleDoorModel.blocks.add(set.door());
+            SimpleTrapDoorModel.blocks.add(set.trapdoor());
+
 
             BlockDrops.blocks.add(set.log());
             BlockDrops.blocks.add(set.wood());
@@ -84,6 +88,8 @@ public class EdumiaHelpingGenerator {
             BlockDrops.blocks.add(set.planksGate());
             BlockDrops.blocks.add(set.button());
             BlockDrops.blocks.add(set.pressurePlate());
+            DoorDrops.blocks.add(set.door());
+            BlockDrops.blocks.add(set.trapdoor());
 
             MineableAxe.blocks.add(set.log());
             MineableAxe.blocks.add(set.wood());
@@ -109,6 +115,7 @@ public class EdumiaHelpingGenerator {
             PressurePlates.pressurePlates.add(set.pressurePlate());
             Walls.walls.add(set.woodWall());
             Planks.planks.add(set.planks());
+
         }
 
         for (BuildingSets.BuildSet set : BuildingSets.buildSets){
@@ -140,6 +147,11 @@ public class EdumiaHelpingGenerator {
                 Pillar.pillars.add(set.pillar());
                 MineablePickaxe.blocks.add(set.pillar());
                 RequiresStoneTool.blocks.add(set.pillar());
+
+                SimpleAxisPillarSlabModel.blocks.add(new SimpleAxisPillarSlabModel.Slab(set.pillar(), set.pillarSlab()));
+                BlockDrops.blocks.add(set.pillarSlab());
+                MineablePickaxe.blocks.add(set.pillarSlab());
+                RequiresStoneTool.blocks.add(set.pillarSlab());
             }
 
 

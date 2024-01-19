@@ -1,6 +1,7 @@
 package com.legends.edumia;
 
 import com.legends.edumia.block.ModNatureBlocks;
+import com.legends.edumia.block.blocksets.WoodBlockSets;
 import com.legends.edumia.core.BlockLoader;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -12,6 +13,7 @@ import com.legends.edumia.entity.ModEntities;
 import com.legends.edumia.entity.crab.CrabRenderer;
 import com.legends.edumia.entity.model.ModEntityModels;
 import com.legends.edumia.entity.spear.JavelinEntityRenderer;
+import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.DyeableItem;
 import net.minecraft.item.Item;
@@ -44,11 +46,19 @@ public class EdumiaClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.BLACK_GRASS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.ARID_GRASS, RenderLayer.getCutout());
 
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.DRY_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.TALL_DRY_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.TALL_DEAD_BUSH, RenderLayer.getCutout());
+
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.BEACH_GRASS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.TALL_BEACH_GRASS, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.FROSTED_GRASS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.TALL_FROSTED_GRASS, RenderLayer.getCutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.PARASOL_MUSHROOM_1, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.PARASOL_MUSHROOM_2, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.PARASOL_MUSHROOM_TALL, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.ASPHODEL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.BLUE_DELPHINIUM, RenderLayer.getCutout());
@@ -69,6 +79,7 @@ public class EdumiaClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.FOXGLOVE_RED, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.FOXGLOVE_WHITE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.GERBERA_RED, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.GENSAI_ORCHID, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.GERBERA_YELLOW, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.HEATHER_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.LAVENDER, RenderLayer.getCutout());
@@ -128,6 +139,10 @@ public class EdumiaClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.POTTED_TUBEROSE, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.HIGH_ELVEN_CRYSTAL, RenderLayer.getTranslucent());
+        for (WoodBlockSets.SimpleBlockSet set : WoodBlockSets.sets){
+            BlockRenderLayerMap.INSTANCE.putBlock(set.door(), RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(set.trapdoor(), RenderLayer.getCutout());
+        }
 
     }
 

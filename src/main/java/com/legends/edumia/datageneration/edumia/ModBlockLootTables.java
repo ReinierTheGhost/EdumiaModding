@@ -2,6 +2,7 @@ package com.legends.edumia.datageneration.edumia;
 
 import com.legends.edumia.core.BlockLoader;
 import com.legends.edumia.datageneration.me.content.loot_tables.BlockDrops;
+import com.legends.edumia.datageneration.me.content.loot_tables.DoorDrops;
 import com.legends.edumia.datageneration.me.content.loot_tables.LeavesDrops;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
@@ -89,6 +90,7 @@ public class ModBlockLootTables extends FabricBlockLootTableProvider {
         addDrop(BlockLoader.FOXGLOVE_RED);
         addDrop(BlockLoader.FOXGLOVE_WHITE);
         addDrop(BlockLoader.GERBERA_RED);
+        addDrop(BlockLoader.GENSAI_ORCHID);
         addDrop(BlockLoader.GERBERA_YELLOW);
         addDrop(BlockLoader.HEATHER_BUSH);
         addDrop(BlockLoader.LAVENDER);
@@ -121,6 +123,10 @@ public class ModBlockLootTables extends FabricBlockLootTableProvider {
         }
         for (Block block : LeavesDrops.blocks) {
             addDrop(block, BlockLootTableGenerator.dropsWithShears(block));
+        }
+
+        for (Block block : DoorDrops.blocks){
+            addDrop(block, doorDrops(block));
         }
     }
 }

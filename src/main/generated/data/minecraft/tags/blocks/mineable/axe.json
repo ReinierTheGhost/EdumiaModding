@@ -260,6 +260,19 @@
     "edumia:white_ash_fence",
     "edumia:white_ash_fence_gate",
     "edumia:white_ash_button",
-    "edumia:white_ash_pressure_plate"
+    "edumia:white_ash_pressure_plate",
+    "edumia:palm_log",
+    "edumia:palm_wood",
+    "edumia:stripped_palm_log",
+    "edumia:stripped_palm_wood",
+    "edumia:palm_wood_wall",
+    "edumia:palm_wood_fence",
+    "edumia:palm_planks",
+    "edumia:palm_slab",
+    "edumia:palm_stairs",
+    "edumia:palm_fence",
+    "edumia:palm_fence_gate",
+    "edumia:palm_button",
+    "edumia:palm_pressure_plate"
   ]
 }

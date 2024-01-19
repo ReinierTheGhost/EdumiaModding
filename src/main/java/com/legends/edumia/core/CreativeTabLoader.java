@@ -22,7 +22,39 @@ public class CreativeTabLoader {
                         entries.add(ItemLoader.LEGENDS_COIN);
                         entries.add(ItemLoader.ATLAS);
                         entries.add(BlockLoader.HIGH_ELVEN_CRYSTAL);
+//                        entries.add(BlockLoader.BIRCH_LOG_SMALL_BRANCH);
+//                        entries.add(BlockLoader.BIRCH_LOG_BRANCH);
+//                        entries.add(BlockLoader.BIRCH_LOG_LARGE_BRANCH);
                     }).build();
+
+    public static final List<ItemStack> UTILITY_CONTENTS = new LinkedList<>();
+    public static final ItemGroup UTILITY_GROUP = FabricItemGroup.builder()
+            .displayName(Text.literal("Utilities"))
+            .icon(() -> new ItemStack(WoodBlockSets.DRAGON_BLOOD.door())).entries((displayContext, entries) -> {
+                for (ItemStack item : UTILITY_CONTENTS) {
+                    entries.add(item);
+                }
+            }).build();
+    public static final ItemGroup WEAPON_GROUP = FabricItemGroup.builder()
+            .displayName(Text.literal("Weapons"))
+            .icon(() -> new ItemStack(ItemLoader.ABOMINABLE_BLADE)).entries((displayContext, entries) -> {
+                entries.add(ItemLoader.ABOMINABLE_BLADE);
+            }).build();
+
+    public static final ItemGroup MATERIAL_GROUP = FabricItemGroup.builder()
+            .displayName(Text.literal("Materials"))
+            .icon(() -> new ItemStack(ItemLoader.GENSAI_STEEL)).entries((displayContext, entries) -> {
+                entries.add(ItemLoader.GENSAI_STEEL);
+            }).build();
+
+    public static final ItemGroup TOOL_GROUP = FabricItemGroup.builder()
+            .displayName(Text.literal("Tools"))
+            .icon(() -> new ItemStack(ItemLoader.GENSAI_AXE)).entries((displayContext, entries) -> {
+                entries.add(ItemLoader.GENSAI_AXE);
+                entries.add(ItemLoader.GENSAI_HOE);
+                entries.add(ItemLoader.GENSAI_PICKAXE);
+                entries.add(ItemLoader.GENSAI_SHOVEL);
+            }).build();
 
 
     public static final List<ItemStack> PLANT_CONTENTS = new LinkedList<>();
@@ -36,7 +68,11 @@ public class CreativeTabLoader {
                 entries.add(BlockLoader.PAPYRUS);
                 entries.add(BlockLoader.REEDS);
                 entries.add(BlockLoader.DRIED_REEDS);
-//
+
+                entries.add(BlockLoader.DRY_BUSH);
+                entries.add(BlockLoader.TALL_DRY_BUSH);
+                entries.add(BlockLoader.TALL_DEAD_BUSH);
+
                 entries.add(BlockLoader.ARID_GRASS);
                 entries.add(BlockLoader.BLACK_GRASS);
                 entries.add(BlockLoader.FLAX_GRASS);
@@ -45,38 +81,43 @@ public class CreativeTabLoader {
                 entries.add(BlockLoader.FROSTED_GRASS);
                 entries.add(BlockLoader.TALL_FROSTED_GRASS);
 
+                entries.add(BlockLoader.PARASOL_MUSHROOM_1);
+                entries.add(BlockLoader.PARASOL_MUSHROOM_2);
+                entries.add(BlockLoader.PARASOL_MUSHROOM_TALL);
+
 //                        flowers
                 entries.add(BlockLoader.ASPHODEL);
                 entries.add(BlockLoader.BLUE_DELPHINIUM);
                 entries.add(BlockLoader.BLUEBELL);
                 entries.add(BlockLoader.CALLA_LILY);
-                        entries.add(BlockLoader.CELSEMIUM);
-                        entries.add(BlockLoader.CHRYS_BLUE);
-                        entries.add(BlockLoader.CHRYS_ORANGE);
-                        entries.add(BlockLoader.CHRYS_PINK);
-                        entries.add(BlockLoader.CHRYS_WHITE);
-                        entries.add(BlockLoader.CHRYS_YELLOW);
-                        entries.add(BlockLoader.CROCUS);
-                        entries.add(BlockLoader.DAISY);
-                        entries.add(BlockLoader.DELPHINIUM);
-                        entries.add(BlockLoader.FLAX_FLOWERS);
-                        entries.add(BlockLoader.FOXGLOVE_ORANGE);
-                        entries.add(BlockLoader.FOXGLOVE_PINK);
-                        entries.add(BlockLoader.FOXGLOVE_RED);
-                        entries.add(BlockLoader.FOXGLOVE_WHITE);
-                        entries.add(BlockLoader.GERBERA_RED);
-                        entries.add(BlockLoader.GERBERA_YELLOW);
-                        entries.add(BlockLoader.HEATHER_BUSH);
-                        entries.add(BlockLoader.LAVENDER);
-                        entries.add(BlockLoader.MARIGOLD);
-                        entries.add(BlockLoader.PINK_ANEMONE);
-                        entries.add(BlockLoader.SIMBLELMYNE);
-                        entries.add(BlockLoader.TUBEROSE);
-                        entries.add(BlockLoader.YELLOW_IRIS);
-                        entries.add(BlockLoader.FLAME_OF_THE_SOUTH);
-                        entries.add(BlockLoader.HIBISCUS);
-                    })
-                    .build();
+                entries.add(BlockLoader.CELSEMIUM);
+                entries.add(BlockLoader.CHRYS_BLUE);
+                entries.add(BlockLoader.CHRYS_ORANGE);
+                entries.add(BlockLoader.CHRYS_PINK);
+                entries.add(BlockLoader.CHRYS_WHITE);
+                entries.add(BlockLoader.CHRYS_YELLOW);
+                entries.add(BlockLoader.CROCUS);
+                entries.add(BlockLoader.DAISY);
+                entries.add(BlockLoader.DELPHINIUM);
+                entries.add(BlockLoader.FLAX_FLOWERS);
+                entries.add(BlockLoader.FOXGLOVE_ORANGE);
+                entries.add(BlockLoader.FOXGLOVE_PINK);
+                entries.add(BlockLoader.FOXGLOVE_RED);
+                entries.add(BlockLoader.FOXGLOVE_WHITE);
+                entries.add(BlockLoader.GERBERA_RED);
+                entries.add(BlockLoader.GENSAI_ORCHID);
+                entries.add(BlockLoader.GERBERA_YELLOW);
+                entries.add(BlockLoader.HEATHER_BUSH);
+                entries.add(BlockLoader.LAVENDER);
+                entries.add(BlockLoader.MARIGOLD);
+                entries.add(BlockLoader.PINK_ANEMONE);
+                entries.add(BlockLoader.SIMBLELMYNE);
+                entries.add(BlockLoader.TUBEROSE);
+                entries.add(BlockLoader.YELLOW_IRIS);
+                entries.add(BlockLoader.FLAME_OF_THE_SOUTH);
+                entries.add(BlockLoader.HIBISCUS);
+            })
+            .build();
 
     public static final ItemGroup EDUMIA_GEMS = FabricItemGroup.builder()
             .displayName(Text.literal("Edumia Gems"))
@@ -337,5 +378,10 @@ public class CreativeTabLoader {
         Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_natural_stone_blocks"), EDUMIA_NATURAL_STONE_BLOCKS);
 
         Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_food"), FOOD_GROUP);
+        Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_weapons"), WEAPON_GROUP);
+        Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_tools"), TOOL_GROUP);
+        Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_materials"), MATERIAL_GROUP);
+        Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_utilities"), UTILITY_GROUP);
+
     }
 }

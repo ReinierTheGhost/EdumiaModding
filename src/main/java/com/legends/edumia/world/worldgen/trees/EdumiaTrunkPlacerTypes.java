@@ -3,6 +3,7 @@ package com.legends.edumia.world.worldgen.trees;
 import com.legends.edumia.Edumia;
 import com.legends.edumia.mixin.TrunkPlacerTypeInvoker;
 import com.legends.edumia.utils.cliient.NamedRenderTypeManager;
+import com.legends.edumia.world.worldgen.trees.foliageplacer.MahoganyFoliagePlacer;
 import com.legends.edumia.world.worldgen.trees.foliageplacer.OakFoliagePlacer;
 import com.legends.edumia.world.worldgen.trees.trunkplacers.*;
 import net.minecraft.block.BlockState;
@@ -50,8 +51,18 @@ public class EdumiaTrunkPlacerTypes {
             FingerTrunkPlacer.CODEC);
     public static final TrunkPlacerType<?> DRAGON_BLOOD_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("dragon_blood_trunk_placer",
             DragonBloodTrunkPlacer.CODEC);
-    public static final TrunkPlacerType<?> BIG_DRAGON_BLOOD_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("big_dragon_blood_trunk_placer",
-            BigDragonbloodTrunkPlacer.CODEC);
+
+    public static final TrunkPlacerType<?> MAHOGANY_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("mahogany_trunk_placer",
+            MahoganyTrunkPlacer.CODEC);
+
+    public static final TrunkPlacerType<?> COLOSSAL_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("colossal_trunk_placer",
+            ColossalTrunkPlacer.CODEC);
+
+    public static final TrunkPlacerType<?> PLEODENDRON_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("pleodendron_trunk_placer",
+            PleodendronTrunkPlacer.CODEC);
+
+    public static final TrunkPlacerType<?> CITRUS_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("citrus_trunk_placer",
+            CitrusTrunkPlacer.CODEC);
 
     public static void register() {
         Edumia.LOGGER.info("Registering Trunk Placers for " + Edumia.MOD_ID);

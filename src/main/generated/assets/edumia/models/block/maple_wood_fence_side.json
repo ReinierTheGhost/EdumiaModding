@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/fence_side",
   "textures": {
-    "texture": "edumia:block/maple_wood"
+    "texture": "edumia:block/maple_log"
   }
 }

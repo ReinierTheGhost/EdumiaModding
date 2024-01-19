@@ -7,14 +7,27 @@ import com.legends.edumia.item.WorldTeleporterItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.AliasedBlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ItemLoader {
+
+    public static final Item ABOMINABLE_BLADE = registerItem("abominable_blade",
+            new SwordItem(ToolMaterials.IRON, 3, -2.4F, new Item.Settings()));
+
+    public static final Item GENSAI_AXE = registerItem("gensai_axe",
+            new AxeItem(ToolMaterials.IRON, 3, -2.4F, new Item.Settings()));
+    public static final Item GENSAI_HOE = registerItem("gensai_hoe",
+            new HoeItem(ToolMaterials.IRON, 3, -2.4F, new Item.Settings()));
+    public static final Item GENSAI_PICKAXE = registerItem("gensai_pickaxe",
+            new PickaxeItem(ToolMaterials.IRON, 3, -2.4F, new Item.Settings()));
+    public static final Item GENSAI_SHOVEL = registerItem("gensai_shovel",
+            new ShovelItem(ToolMaterials.IRON, 3, -2.4F, new Item.Settings()));
+
+    public static final Item GENSAI_STEEL = registerItem("gensai_steel",
+            new Item(new FabricItemSettings()));
 
     public static final Item LEGENDS_COIN = registerItem("legends_coin",
             new WorldTeleporterItem(new FabricItemSettings().maxCount(1)));

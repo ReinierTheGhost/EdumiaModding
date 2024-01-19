@@ -1,14 +1,14 @@
-// 1.20.1	2024-01-11T16:51:42.8027575	Edumia/Tags for minecraft:block
+// 1.20.1	2024-01-19T12:12:15.5207738	Edumia/Tags for minecraft:block
 6a8bc99fcc7bd787174b7f2b216cbaa289388a6e data\edumia\tags\blocks\reeds_placeable_on.json
-4c6b551d112658d05c1fcea5e6ae437c27f9bb6e data\minecraft\tags\blocks\fences.json
-4d66218f9fd54bc3309de5a8a38b2fc46532e38c data\minecraft\tags\blocks\pressure_plates.json
-127c878b18adc426d10a3a64876d91c6f41445e8 data\minecraft\tags\blocks\mineable\axe.json
-b3e184d7e462f46cf659ccb797a26028c9aef7ba data\minecraft\tags\blocks\planks.json
-24d0ce6fbe7dc597d8cbc5ce0fbf0a768f43a212 data\minecraft\tags\blocks\buttons.json
+aa8762af6bb3e93143628d787566aa7258b87b4c data\minecraft\tags\blocks\fences.json
+708c1c93651766b80e79c2cf5a3ef7923f0975d2 data\minecraft\tags\blocks\pressure_plates.json
+f6fb08a5f6f665564cb807d8745ee13a353725f4 data\minecraft\tags\blocks\mineable\axe.json
+3d5030d47ee3e6a11966ec6d7cf9bad6a9ca44b6 data\minecraft\tags\blocks\planks.json
+2c2673da77d9fa7ff0ab2c1e10cc3aa8a18fceaf data\minecraft\tags\blocks\buttons.json
 10b16864665eb4e4864ad0675c6707a615f2070a data\minecraft\tags\blocks\needs_iron_tool.json
-15b8cb0372766097793af1fdfb606b3ab0995608 data\minecraft\tags\blocks\walls.json
-4ce5966399858d143024f6ad772f9ffa40092b14 data\minecraft\tags\blocks\mineable\pickaxe.json
-df6d778fb32a87c20668b6e157eb09a595aa5dc8 data\minecraft\tags\blocks\needs_stone_tool.json
-f44af4e9b5681eaf21d2ea980c06e5f8a9d5fd76 data\edumia\tags\blocks\pillars.json
-40a74d46d40ad7732ee7c876738e8136135333ea data\minecraft\tags\blocks\logs.json
-32a8fd150d61be9de445d76c50a33dc04bd6d77b data\minecraft\tags\blocks\fence_gates.json
+a2d41302c78dcf6df820b89e0eb4458a6c6749a5 data\minecraft\tags\blocks\walls.json
+59ff2ccc46eeb6f078c32791746448d985de6230 data\minecraft\tags\blocks\mineable\pickaxe.json
+beffd394ef348b6846ad8b67495102d6317ae7bd data\minecraft\tags\blocks\needs_stone_tool.json
+3004743371c85e24cabdf9bd640fbe9ee0dfa03c data\minecraft\tags\blocks\logs.json
+43d879d3ea1e72548a5ee3f88ad1adb0bc1e0df4 data\edumia\tags\blocks\pillars.json
+aac91b680b6eb45e871853be19b639504346f2d0 data\minecraft\tags\blocks\fence_gates.json

@@ -1,2 +1,4 @@
 accessWidener	v2          named
 accessible method net/minecraft/world/gen/feature/TreeFeature setBlockStateWithoutUpdatingNeighbors (Lnet/minecraft/world/ModifiableWorld;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;)V
+mutable field net/minecraft/block/Block stateManager Lnet/minecraft/state/StateManager;
+extendable  method net/minecraft/world/gen/feature/TreeFeature generate (Lnet/minecraft/world/StructureWorldAccess;Lnet/minecraft/util/math/random/Random;Lnet/minecraft/util/math/BlockPos;Ljava/util/function/BiConsumer;Ljava/util/function/BiConsumer;Lnet/minecraft/world/gen/foliage/FoliagePlacer$BlockPlacer;Lnet/minecraft/world/gen/feature/TreeFeatureConfig;)Z

@@ -5,6 +5,7 @@ import com.legends.edumia.Edumia;
 import com.legends.edumia.block.ModNatureBlocks;
 import com.legends.edumia.block.blocksets.WoodBlockSets;
 import com.legends.edumia.world.worldgen.trees.foliageplacer.*;
+import com.legends.edumia.world.worldgen.trees.treedecorators.HangingBranchDecorator;
 import com.legends.edumia.world.worldgen.trees.treedecorators.PineBranchDecorator;
 import com.legends.edumia.world.worldgen.trees.trunkplacers.*;
 import net.minecraft.block.BlockState;
@@ -29,6 +30,7 @@ import net.minecraft.world.gen.treedecorator.*;
 import net.minecraft.world.gen.trunk.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TreeConfiguredFeatures {
@@ -58,16 +60,29 @@ public class TreeConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> PALM = registerKey("tree/palm");
     public static final RegistryKey<ConfiguredFeature<?, ?>> PALM2 = registerKey("tree/palm2");
     public static final RegistryKey<ConfiguredFeature<?, ?>> PALM3 = registerKey("tree/palm3");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> MAHOGANY = registerKey("tree/mahogany");
+
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context){
         BeehiveTreeDecorator beehiveTreeDecorator = new BeehiveTreeDecorator(0.03f);
         BlockStateProvider pineBranchProvider = (new WeightedBlockStateProvider(DataPool.<BlockState>builder().add(WoodBlockSets.PINE.log().getDefaultState(), 2).add(WoodBlockSets.PINE.strippedLog().getDefaultState(), 1)));
 
+        register(context, MAHOGANY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(WoodBlockSets.DRAGON_BLOOD.log()),
+                new MahoganyTrunkPlacer(8, 6, 0, WoodBlockSets.DRAGON_BLOOD.wood().getDefaultState(),
+                        WoodBlockSets.DRAGON_BLOOD.wood().getDefaultState()),
+                BlockStateProvider.of(WoodBlockSets.DRAGON_BLOOD.leaves()),
+                new MahoganyFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 2),
+                new TwoLayersFeatureSize(0, 1, 0))
+                .decorators(List.of(new LeavesVineTreeDecorator(0.25f))).build());
+
         register(context, TEST_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.BEECH.log()),
-                new BigDragonbloodTrunkPlacer(WoodBlockSets.BEECH.wood().getDefaultState()),
+                new GiantTrunkPlacer(8, 3, 2),
                 BlockStateProvider.of(WoodBlockSets.BEECH.leaves()),
-                new DragonBloodFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 2),
-                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
+                new WillowFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0)),
+                new TwoLayersFeatureSize(1, 0, 2)).ignoreVines().decorators(List.of(
+                        new HangingBranchDecorator(0.25F, BlockStateProvider.of(WoodBlockSets.BEECH.wood().getDefaultState()),
+                                BlockStateProvider.of(WoodBlockSets.BEECH.leaves().getDefaultState())))).build());
 
         register(context, DRAGON_BLOOD_SMALL_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.DRAGON_BLOOD.log()),
@@ -136,7 +151,7 @@ public class TreeConfiguredFeatures {
                 new PinusFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(1), UniformIntProvider.create(6, 12)),
 
                 new TwoLayersFeatureSize(1, 0, 1)).ignoreVines()
-                .decorators(List.of(new PineBranchDecorator(WoodBlockSets.PINE.log().getDefaultState(), 0.75f))).build());
+                .decorators(Collections.singletonList(new PineBranchDecorator(WoodBlockSets.PINE.log().getDefaultState(), 0.75f))).build());
 
         register(context, BEECH_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.BEECH.log()),

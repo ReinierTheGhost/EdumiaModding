@@ -2,6 +2,7 @@ package com.legends.edumia.block.blocksets;
 
 import com.legends.edumia.Edumia;
 import com.legends.edumia.block.AxialSlabBlock;
+import com.legends.edumia.block.BlockRegisters;
 import com.legends.edumia.block.ModNatureBlocks;
 import com.legends.edumia.block.WoodBlocks;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -33,6 +34,7 @@ public class WoodBlockSets {
     public static SimpleBlockSet SILVER_SPRUCE = registerWoodSet("silver_spruce", WOOD_STRENGTH, true);
     public static SimpleBlockSet WHITE_ASH = registerWoodSet("white_ash", WOOD_STRENGTH, true);
     public static SimpleBlockSet DRAGON_BLOOD = registerWoodSet("dragon_blood", WOOD_STRENGTH, true);
+    public static SimpleBlockSet PALM = registerWoodSet("palm", WOOD_STRENGTH, true);
 
     public static SimpleVanillaBlocks OAK = registerBeams("oak", WOOD_STRENGTH);
     public static SimpleVanillaBlocks ACACIA = registerBeams("acacia", WOOD_STRENGTH);
@@ -64,6 +66,7 @@ public class WoodBlockSets {
             REDWOOD,
             SILVER_SPRUCE,
             WHITE_ASH,
+            PALM,
 
     };
 
@@ -80,7 +83,7 @@ public class WoodBlockSets {
                                  Block strippedLog, Block strippedWood, Block strippedWoodStairs, Block strippedWoodSlab,
                                  Block strippedWoodWall, Block strippedWoodFence,
                                  Block planks, Block planksSlab, Block planksStairs, Block planksFence, Block planksGate,
-                                 Block pressurePlate, Block button, Block beam) {
+                                 Block pressurePlate, Block button, Block beam, Block door, Block trapdoor) {
     }
 
     public record SimpleVanillaBlocks(Block beam){}
@@ -139,9 +142,12 @@ public class WoodBlockSets {
 
         Block beam = WoodBlocks.registerWoodBlock(name + "_beam", new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).strength(strength)
                 .sounds(BlockSoundGroup.WOOD)));
+        Block door = BlockRegisters.registerDoorBlock(name + "_door", new DoorBlock(FabricBlockSettings.copyOf(planks).nonOpaque(), BlockSetType.OAK));
+
+        Block trapdoor = BlockRegisters.registerDoorBlock(name + "_trapdoor", new TrapdoorBlock(FabricBlockSettings.copyOf(planks).nonOpaque(), BlockSetType.OAK));
 
         return new SimpleBlockSet(leaves, log, wood, woodStairs, woodSlab, woodWall,woodFence,
-                strippedLog, strippedWood, strippedWoodStairs, strippedWoodSlab, strippedWoodWall, strippedWoodFence, planks, slab, stairs, fence, gate, pressurePlate, button, beam);
+                strippedLog, strippedWood, strippedWoodStairs, strippedWoodSlab, strippedWoodWall, strippedWoodFence, planks, slab, stairs, fence, gate, pressurePlate, button, beam, door, trapdoor);
     }
 
     public static void registerModBlockSets() {

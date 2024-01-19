@@ -4,8 +4,12 @@ import com.legends.edumia.Edumia;
 import com.legends.edumia.block.*;
 import com.legends.edumia.block.plants.DriedReedsBlock;
 import com.legends.edumia.block.plants.ReedsBlock;
+import com.legends.edumia.block.trees.Branch;
+import com.legends.edumia.block.trees.BranchLarge;
+import com.legends.edumia.block.trees.BranchSmall;
 import com.legends.edumia.world.worldgen.treegrowers.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.effect.StatusEffects;
@@ -19,6 +23,8 @@ import net.minecraft.util.Identifier;
 
 public class BlockLoader {
 
+//    public static final Block TEST_LOG_LARGE_BRANCH = registerBlock("test_log_large_branch",
+//            new BranchLarge(AbstractBlock.Settings.copy(Blocks.OAK_LOG).sounds(BlockSoundGroup.WOOD)));
     public static final Block SAND_LAYER = registerBlock("sand_layer",
             new Layer(AbstractBlock.Settings.copy(Blocks.SAND).sounds(BlockSoundGroup.SAND)));
     public static final Block RED_SAND_LAYER = registerBlock("red_sand_layer",
@@ -205,6 +211,20 @@ public class BlockLoader {
 
     //grass
 
+    public static final Block DRY_BUSH = registerBlock("dry_bush",
+            new FernBlock(AbstractBlock.Settings.create().mapColor(MapColor.BROWN).replaceable()
+                    .noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XYZ)
+                    .burnable().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block TALL_DRY_BUSH = registerBlock("tall_dry_bush",
+            new TallPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable()
+                    .noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XYZ)
+                    .burnable().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block TALL_DEAD_BUSH = registerBlock("tall_dead_bush",
+            new TallPlantBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable()
+                    .noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XYZ)
+                    .burnable().pistonBehavior(PistonBehavior.DESTROY)));
+
+
     public static final Block ARID_GRASS = registerBlock("arid_grass",
             new FernBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).replaceable()
                     .noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XYZ)
@@ -235,8 +255,19 @@ public class BlockLoader {
                     .noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XYZ)
                     .burnable().pistonBehavior(PistonBehavior.DESTROY)));
 
+    //Mushrooms
+    public static final Block PARASOL_MUSHROOM_1 = registerBlock("parasol_mushroom_01",
+            new FlowerBlock(StatusEffects.SATURATION, 7, AbstractBlock.Settings.copy(Blocks.ALLIUM)
+                    .nonOpaque().noCollision()));
+    public static final Block PARASOL_MUSHROOM_2 = registerBlock("parasol_mushroom_02",
+            new FlowerBlock(StatusEffects.SATURATION, 7, AbstractBlock.Settings.copy(Blocks.ALLIUM)
+                    .nonOpaque().noCollision()));
 
-//
+    public static final Block PARASOL_MUSHROOM_TALL = registerBlock("parasol_mushroom_tall", new TallFlowerBlock(AbstractBlock.Settings
+            .create().mapColor(MapColor.BROWN).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS)
+            .offset(AbstractBlock.OffsetType.XZ).burnable().pistonBehavior(PistonBehavior.DESTROY)));
+
+
     //flowers
     public static final Block ASPHODEL = registerBlock("asphodel",
             new FlowerBlock(StatusEffects.SATURATION, 7, AbstractBlock.Settings.copy(Blocks.ALLIUM)
@@ -293,6 +324,10 @@ public class BlockLoader {
             new FlowerBlock(StatusEffects.SATURATION, 7, AbstractBlock.Settings.copy(Blocks.ALLIUM)
                     .nonOpaque().noCollision()));
     public static final Block GERBERA_RED = registerBlock("gerbera_red",
+            new FlowerBlock(StatusEffects.SATURATION, 7, AbstractBlock.Settings.copy(Blocks.ALLIUM)
+                    .nonOpaque().noCollision()));
+
+    public static final Block GENSAI_ORCHID = registerBlock("gensai_orchid",
             new FlowerBlock(StatusEffects.SATURATION, 7, AbstractBlock.Settings.copy(Blocks.ALLIUM)
                     .nonOpaque().noCollision()));
     public static final Block GERBERA_YELLOW = registerBlock("gerbera_yellow",
@@ -384,6 +419,9 @@ public class BlockLoader {
                     .nonOpaque()));
     public static final Block POTTED_GERBERA_RED = Registry.register(Registries.BLOCK, new Identifier(Edumia.MOD_ID,"potted_gerbera_red"),
             new FlowerPotBlock(GERBERA_RED, AbstractBlock.Settings.copy(Blocks.POTTED_ALLIUM)
+                    .nonOpaque()));
+    public static final Block POTTED_GENSAI_ORCHID = Registry.register(Registries.BLOCK, new Identifier(Edumia.MOD_ID,"potted_gensai_orchid"),
+            new FlowerPotBlock(GENSAI_ORCHID, AbstractBlock.Settings.copy(Blocks.POTTED_ALLIUM)
                     .nonOpaque()));
     public static final Block POTTED_GERBERA_YELLOW = Registry.register(Registries.BLOCK, new Identifier(Edumia.MOD_ID,"potted_gerbera_yellow"),
             new FlowerPotBlock(GERBERA_YELLOW, AbstractBlock.Settings.copy(Blocks.POTTED_ALLIUM)
