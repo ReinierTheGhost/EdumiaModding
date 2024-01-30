@@ -71,4 +71,5 @@ public class PapayaFoliagePlacer extends FoliagePlacer {
     protected boolean isInvalidForLeaves(Random random, int dx, int y, int dz, int radius, boolean giantTrunk) {
         return radius != 0 && dx == radius && dz == radius;
     }
+
 }

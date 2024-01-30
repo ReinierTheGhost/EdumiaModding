@@ -1,38 +1,25 @@
 {
   "type": "minecraft:tree",
   "config": {
-    "decorators": [
-      {
-        "type": "minecraft:leave_vine",
-        "probability": 0.25
-      },
-      {
-        "type": "minecraft:alter_ground",
-        "provider": {
-          "type": "minecraft:simple_state_provider",
-          "state": {
-            "Name": "minecraft:moss_block"
-          }
-        }
-      }
-    ],
+    "decorators": [],
     "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:rooted_dirt"
+        "Name": "minecraft:dirt"
       }
     },
     "foliage_placer": {
-      "type": "minecraft:random_spread_foliage_placer",
-      "foliage_height": 2,
-      "leaf_placement_attempts": 15,
-      "offset": 2,
-      "radius": 2
+      "type": "minecraft:palm_foliage_placer",
+      "acceleration": -0.3,
+      "baseHeight": 4,
+      "baseRadius": 0,
+      "offset": 1,
+      "velocity": 0.3
     },
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "edumia:beech_leaves",
+        "Name": "edumia:palm_leaves",
         "Properties": {
           "distance": "7",
           "persistent": "false",
@@ -49,23 +36,17 @@
       "upper_size": 1
     },
     "trunk_placer": {
-      "type": "minecraft:bending_trunk_placer",
-      "base_height": 3,
-      "bend_length": {
-        "type": "minecraft:uniform",
-        "value": {
-          "max_inclusive": 3,
-          "min_inclusive": 1
-        }
-      },
-      "height_rand_a": 3,
-      "height_rand_b": 0,
-      "min_height_for_leaves": 5
+      "type": "minecraft:palm_trunk_placer",
+      "base_height": 10,
+      "max_acceleration": 0.07,
+      "min_acceleration": 0.02,
+      "random_height": 2,
+      "velocity": 0.0
     },
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "edumia:beech_log",
+        "Name": "edumia:palm_log",
         "Properties": {
           "axis": "y"
         }

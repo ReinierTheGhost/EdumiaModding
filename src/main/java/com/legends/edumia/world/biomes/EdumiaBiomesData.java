@@ -1,6 +1,9 @@
 package com.legends.edumia.world.biomes;
 
 
+import com.legends.edumia.block.blocksets.StoneSets;
+import com.legends.edumia.block.register.NaturalStoneBlocks;
+import com.legends.edumia.core.BlockLoader;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
@@ -38,12 +41,15 @@ public class EdumiaBiomesData {
         addBiome(new Color(54, 75, 12), new EdumiaBiome(6, EdumiaBiomeKeys.DARK_ELF_FOREST, Blocks.GRASS_BLOCK, Blocks.DIRT, Blocks.STONE, Blocks.STONE));
         addBiome(new Color(236, 236, 236), new EdumiaBiome(8, EdumiaBiomeKeys.EDUMIA_TUNDRA, Blocks.SNOW, Blocks.SNOW_BLOCK, Blocks.STONE, Blocks.STONE));
         addBiome(new Color(101, 123, 243), new EdumiaBiome(-18, EdumiaBiomeKeys.FROZEN_OCEAN, Blocks.GRAVEL, Blocks.STONE, Blocks.STONE, Blocks.STONE));
-        addBiome(new Color(237, 229, 145), new EdumiaBiome(5, EdumiaBiomeKeys.ORC_DESERT, Blocks.SAND, Blocks.SAND, Blocks.SANDSTONE, Blocks.STONE));
+        addBiome(new Color(237, 229, 145), new EdumiaBiome(4, EdumiaBiomeKeys.ORC_DESERT, Blocks.SAND, Blocks.SAND, Blocks.SANDSTONE, Blocks.STONE));
         addBiome(new Color(67, 193, 125), new EdumiaBiome(4, EdumiaBiomeKeys.AVELION_PLAINS, Blocks.GRASS_BLOCK, Blocks.DIRT, Blocks.STONE, Blocks.STONE));
         addBiome(new Color(129, 129, 129), new EdumiaBiome(41, EdumiaBiomeKeys.EDUMIA_MOUNTAINS, Blocks.SNOW_BLOCK, Blocks.STONE, Blocks.STONE, Blocks.STONE));
         addBiome(new Color(83, 129, 186), new EdumiaBiome(-22, EdumiaBiomeKeys.EDUMIA_RIVER, Blocks.SAND, Blocks.STONE, Blocks.STONE, Blocks.STONE));
         addBiome(new Color(121, 186, 111), new EdumiaBiome(4, EdumiaBiomeKeys.TAIGA_FOREST, Blocks.GRASS_BLOCK, Blocks.DIRT, Blocks.STONE, Blocks.STONE));
         addBiome(new Color(48, 109, 42), new EdumiaBiome(5, EdumiaBiomeKeys.GENSAI_JUNGLE, Blocks.GRASS_BLOCK, Blocks.DIRT, Blocks.STONE, Blocks.STONE));
+        addBiome(new Color(234, 222, 117), new EdumiaBiome(3, EdumiaBiomeKeys.GENSAI_BEACH, BlockLoader.WHITE_SAND, BlockLoader.WHITE_SAND, Blocks.STONE, Blocks.STONE));
+        addBiome(new Color(255, 0, 110), new EdumiaBiome(-6, EdumiaBiomeKeys.GENSAI_REEF, StoneSets.CHALK.block(), StoneSets.CHALK.block(), Blocks.STONE, Blocks.STONE));
+
 
         waterBiomes.add(EdumiaBiomeKeys.EDUMIA_OCEAN);
         waterBiomes.add(EdumiaBiomeKeys.EDUMIA_RIVER);

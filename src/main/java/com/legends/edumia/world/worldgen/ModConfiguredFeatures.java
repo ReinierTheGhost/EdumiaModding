@@ -1,8 +1,11 @@
 package com.legends.edumia.world.worldgen;
 
 import com.legends.edumia.Edumia;
+import com.legends.edumia.world.worldgen.configured.BushesConfiguredFeatures;
 import com.legends.edumia.world.worldgen.configured.OreConfiguredFeatures;
 import com.legends.edumia.world.worldgen.configured.TreeConfiguredFeatures;
+import com.legends.edumia.world.worldgen.configured.beach.BeachConfiguredFeatures;
+import com.legends.edumia.world.worldgen.configured.trees.SaplingConfiguredFeatures;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -15,7 +18,10 @@ public class ModConfiguredFeatures {
 
     public static void boostrap(Registerable<ConfiguredFeature<?, ?>> context){
         TreeConfiguredFeatures.bootstrap(context);
+        SaplingConfiguredFeatures.bootstrap(context);
         OreConfiguredFeatures.bootstrap(context);
+        BushesConfiguredFeatures.bootstrap(context);
+        BeachConfiguredFeatures.bootstrap(context);
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name){

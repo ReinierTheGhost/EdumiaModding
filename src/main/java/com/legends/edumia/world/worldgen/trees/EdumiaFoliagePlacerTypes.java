@@ -73,6 +73,21 @@ public class EdumiaFoliagePlacerTypes {
             PointedFoliagePlacer.CODEC);
     public static final FoliagePlacerType<?> STACKED_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("stacked_foliage_placer",
             StackedFoliagePlacer.CODEC);
+    public static final FoliagePlacerType<?> PALM_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("palm_foliage_placer",
+            PalmFoliagePlacer.CODEC);
+    public static final FoliagePlacerType<?> COCONUT_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("coconut_foliage_placer",
+            CoconutFoliagePlacer.CODEC);
+    public static final FoliagePlacerType<?> BANANA_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("banana_foliage_placer",
+            BananaFoliagePlacer.CODEC);
+    public static final FoliagePlacerType<?> RANDOM_PALM_LEAVES_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("random_palm_leaves_foliage_placer",
+            RandomPalmLeavesFoliagePlacer.CODEC);
+    public static final FoliagePlacerType<?> OVAL_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("oval_foliage_placer",
+            OvalFoliagePlacer.CODEC);
+
+    public static final FoliagePlacerType<?> PARASOL_PALM_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("parasol_palm_foliage_placer",
+            ParasolPalmFoliagePlacer.CODEC);
+    public static final FoliagePlacerType<?> LARGE_PARASOL_PALM_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("large_parasol_palm_foliage_placer",
+            LargeParasolPalmFoliagePlacer.CODEC);
 
     public static void register() {
         Edumia.LOGGER.info("Registering Foliage Placer for " + Edumia.MOD_ID);

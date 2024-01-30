@@ -38,6 +38,7 @@ public class BuildingSets {
     public static BuildSet TRIMMED_GENSAI_BRICK = registerBuildingSet("trimmed_gensai", STONE_STRENGTH, false);
     public static BuildSet GENSAI_BRICK = registerBuildingSet("gensai", STONE_STRENGTH, true);
     public static BuildSet BROWN_SANDSTONE_BRICKS = registerBuildingSet("brown_sandstone", STONE_STRENGTH, true);
+    public static BuildSet BROWN_SANDSTONE_GOLD_BRICKS = registerBuildingSet("brown_sandstone_gold", STONE_STRENGTH, true);
     public static BuildSet CRACKED_BROWN_SANDSTONE_BRICKS = registerBuildingSet("cracked_brown_sandstone", STONE_STRENGTH, false);
     public static BuildSet MOSSY_BROWN_SANDSTONE_BRICKS = registerBuildingSet("mossy_brown_sandstone", STONE_STRENGTH, false);
     public static BuildSet CACHOLONG_BRICKS = registerBuildingSet("cacholong", STONE_STRENGTH, true);
@@ -59,7 +60,9 @@ public class BuildingSets {
     public static BuildSet GRAYSTONE_BRICKS = registerBuildingSet("graystone", STONE_STRENGTH, true);
     public static BuildSet CRACKED_GRAYSTONE_BRICKS = registerBuildingSet("cracked_graystone", STONE_STRENGTH, false);
     public static BuildSet MOSSY_GRAYSTONE_BRICKS = registerBuildingSet("mossy_graystone", STONE_STRENGTH, false);
+    public static BuildSet LIMESTONE_BRICKS = registerBuildingSet("limestone", STONE_STRENGTH, true);
 
+    public static BuildSet OBSIDIAN = registerBuildingSet("obsidian", STONE_STRENGTH, true);
     public static BuildSet ANDESITE_BRICKS = registerBuildingSet("andesite", STONE_STRENGTH, false);
     public static BuildSet GRANITE_BRICKS = registerBuildingSet("granite", STONE_STRENGTH, false);
     public static BuildSet DIORITE_BRICKS = registerBuildingSet("diorite", STONE_STRENGTH, false);
@@ -101,6 +104,7 @@ public class BuildingSets {
             BROWN_SANDSTONE_BRICKS,
             CRACKED_BROWN_SANDSTONE_BRICKS,
             MOSSY_BROWN_SANDSTONE_BRICKS,
+            BROWN_SANDSTONE_GOLD_BRICKS,
             CACHOLONG_BRICKS,
             CRACKED_CACHOLONG_BRICKS,
             MOSSY_CACHOLONG_BRICKS,
@@ -119,7 +123,9 @@ public class BuildingSets {
             MOSSY_DESERT_MUD_BRICKS,
             GRAYSTONE_BRICKS,
             CRACKED_GRAYSTONE_BRICKS,
-            MOSSY_GRAYSTONE_BRICKS
+            MOSSY_GRAYSTONE_BRICKS,
+            OBSIDIAN,
+            LIMESTONE_BRICKS
     };
 
     public record BuildSet(Block block, Block slab, Block stair, Block wall, Block pillar, Block pillarSlab, Block smallArch, Block twoMeterArch, Block roundArch, Block segmentalArch, Block gothicArch, Block balustrade, Block arrowSlit){

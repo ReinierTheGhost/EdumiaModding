@@ -35,6 +35,9 @@ public class WoodBlockSets {
     public static SimpleBlockSet WHITE_ASH = registerWoodSet("white_ash", WOOD_STRENGTH, true);
     public static SimpleBlockSet DRAGON_BLOOD = registerWoodSet("dragon_blood", WOOD_STRENGTH, true);
     public static SimpleBlockSet PALM = registerWoodSet("palm", WOOD_STRENGTH, true);
+    public static SimpleBlockSet MAHOGANY = registerWoodSet("mahogany", WOOD_STRENGTH, true);
+    public static SimpleBlockSet CHARRED = registerWoodSet("charred", WOOD_STRENGTH, false);
+    public static SimpleBlockSet BLACK_OAK = registerWoodSet("black_oak", WOOD_STRENGTH, false);
 
     public static SimpleVanillaBlocks OAK = registerBeams("oak", WOOD_STRENGTH);
     public static SimpleVanillaBlocks ACACIA = registerBeams("acacia", WOOD_STRENGTH);
@@ -67,6 +70,9 @@ public class WoodBlockSets {
             SILVER_SPRUCE,
             WHITE_ASH,
             PALM,
+            MAHOGANY,
+            CHARRED,
+            BLACK_OAK
 
     };
 

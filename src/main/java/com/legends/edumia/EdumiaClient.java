@@ -1,6 +1,8 @@
 package com.legends.edumia;
 
 import com.legends.edumia.block.ModNatureBlocks;
+import com.legends.edumia.block.blocksets.GlassSets;
+import com.legends.edumia.block.blocksets.PaperwallSets;
 import com.legends.edumia.block.blocksets.WoodBlockSets;
 import com.legends.edumia.core.BlockLoader;
 import net.fabricmc.api.ClientModInitializer;
@@ -97,6 +99,7 @@ public class EdumiaClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModNatureBlocks.ASPEN_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModNatureBlocks.BEECH_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModNatureBlocks.BLACKTHORN_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModNatureBlocks.BLACK_OAK_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModNatureBlocks.CEDAR_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModNatureBlocks.CYPRESS_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModNatureBlocks.DRAGON_BLOOD_SAPLING, RenderLayer.getCutout());
@@ -110,6 +113,11 @@ public class EdumiaClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModNatureBlocks.REDWOOD_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModNatureBlocks.SILVER_SPRUCE_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModNatureBlocks.WHITE_ASH_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModNatureBlocks.PALM_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModNatureBlocks.MAHOGANY_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModNatureBlocks.MAPLE_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModNatureBlocks.CHERRY_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModNatureBlocks.PEAR_SAPLING, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.POTTED_ASPHODEL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockLoader.POTTED_BLUE_DELPHINIUM, RenderLayer.getCutout());
@@ -142,6 +150,15 @@ public class EdumiaClient implements ClientModInitializer {
         for (WoodBlockSets.SimpleBlockSet set : WoodBlockSets.sets){
             BlockRenderLayerMap.INSTANCE.putBlock(set.door(), RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(set.trapdoor(), RenderLayer.getCutout());
+        }
+
+        for (GlassSets.GlassSet set : GlassSets.glassSets){
+            BlockRenderLayerMap.INSTANCE.putBlock(set.block(), RenderLayer.getTranslucent());
+            BlockRenderLayerMap.INSTANCE.putBlock(set.pane(), RenderLayer.getTranslucent());
+        }
+
+        for (PaperwallSets.PaperwallSet set : PaperwallSets.paperwallSets){
+            BlockRenderLayerMap.INSTANCE.putBlock(set.pane(), RenderLayer.getTranslucent());
         }
 
     }

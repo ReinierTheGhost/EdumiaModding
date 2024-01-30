@@ -14,14 +14,13 @@ import net.minecraft.block.LeavesBlock;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
+import net.minecraft.util.math.intprovider.BiasedToBottomIntProvider;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureConfig;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
@@ -32,6 +31,7 @@ import net.minecraft.world.gen.trunk.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.OptionalInt;
 
 public class TreeConfiguredFeatures {
 
@@ -49,9 +49,11 @@ public class TreeConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> FIR_KEY = registerKey("tree/fir_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> HOLLY_KEY = registerKey("tree/holly_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> SILVER_SPRUCE_KEY = registerKey("tree/silver_spruce_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> LARCH_KEY = registerKey("tree/larch_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> LARCH_KEY = registerKey("tree/larch/larch_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BIG_LARCH_KEY = registerKey("tree/larch/big_larch_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GREEN_OAK_KEY = registerKey("tree/green_oak_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> RED_OAK_KEY = registerKey("tree/red_oak_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BLACK_OAK_KEY = registerKey("tree/black_oak_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> BEECH_KEY = registerKey("tree/beech_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> PINE_KEY = registerKey("tree/pine_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> REDWOOD_KEY = registerKey("tree/redwood_tree");
@@ -60,29 +62,34 @@ public class TreeConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> PALM = registerKey("tree/palm");
     public static final RegistryKey<ConfiguredFeature<?, ?>> PALM2 = registerKey("tree/palm2");
     public static final RegistryKey<ConfiguredFeature<?, ?>> PALM3 = registerKey("tree/palm3");
+
     public static final RegistryKey<ConfiguredFeature<?, ?>> MAHOGANY = registerKey("tree/mahogany");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context){
         BeehiveTreeDecorator beehiveTreeDecorator = new BeehiveTreeDecorator(0.03f);
         BlockStateProvider pineBranchProvider = (new WeightedBlockStateProvider(DataPool.<BlockState>builder().add(WoodBlockSets.PINE.log().getDefaultState(), 2).add(WoodBlockSets.PINE.strippedLog().getDefaultState(), 1)));
 
+
+
         register(context, MAHOGANY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.DRAGON_BLOOD.log()),
-                new MahoganyTrunkPlacer(8, 6, 0, WoodBlockSets.DRAGON_BLOOD.wood().getDefaultState(),
-                        WoodBlockSets.DRAGON_BLOOD.wood().getDefaultState()),
-                BlockStateProvider.of(WoodBlockSets.DRAGON_BLOOD.leaves()),
+                BlockStateProvider.of(WoodBlockSets.MAHOGANY.log()),
+                new MahoganyTrunkPlacer(8, 6, 0, WoodBlockSets.MAHOGANY.wood().getDefaultState(),
+                        WoodBlockSets.MAHOGANY.woodWall().getDefaultState()),
+                BlockStateProvider.of(WoodBlockSets.MAHOGANY.leaves()),
                 new MahoganyFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 2),
                 new TwoLayersFeatureSize(0, 1, 0))
-                .decorators(List.of(new LeavesVineTreeDecorator(0.25f))).build());
+                .decorators(List.of(new LeavesVineTreeDecorator(0.25f),
+                        new HangingBranchDecorator(0.25F,
+                                BlockStateProvider.of(WoodBlockSets.MAHOGANY.leaves().getDefaultState().with(Properties.PERSISTENT, true)),
+                                BlockStateProvider.of(WoodBlockSets.MAHOGANY.leaves().getDefaultState().with(Properties.PERSISTENT, true))
+                        ))).build());
 
         register(context, TEST_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.BEECH.log()),
-                new GiantTrunkPlacer(8, 3, 2),
-                BlockStateProvider.of(WoodBlockSets.BEECH.leaves()),
-                new WillowFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0)),
-                new TwoLayersFeatureSize(1, 0, 2)).ignoreVines().decorators(List.of(
-                        new HangingBranchDecorator(0.25F, BlockStateProvider.of(WoodBlockSets.BEECH.wood().getDefaultState()),
-                                BlockStateProvider.of(WoodBlockSets.BEECH.leaves().getDefaultState())))).build());
+                BlockStateProvider.of(WoodBlockSets.MAPLE.log()),
+                new StraightTrunkPlacer(14, 3, 3),
+                BlockStateProvider.of(ModNatureBlocks.MAPLE_LEAVES.getDefaultState()),
+                new LargeParasolPalmFoliagePlacer(),
+                new TwoLayersFeatureSize(1, 0, 2)).ignoreVines().build());
 
         register(context, DRAGON_BLOOD_SMALL_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.DRAGON_BLOOD.log()),
@@ -92,34 +99,26 @@ public class TreeConfiguredFeatures {
                 new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
         register(context, PALM3, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.BEECH.log()),
-                new BendingTrunkPlacer(6, 9, 7, 14, UniformIntProvider.create(3, 6)),
-                BlockStateProvider.of(WoodBlockSets.BEECH.leaves()),
-                new RandomSpreadFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), ConstantIntProvider.create(3),55),
+                BlockStateProvider.of(WoodBlockSets.PALM.log()),
+                new SlantedTrunkPlacer(9, 6, 7),
+                BlockStateProvider.of(WoodBlockSets.PALM.leaves()),
+                new LargeParasolPalmFoliagePlacer(),
                 new TwoLayersFeatureSize(1, 0, 1))
-                .decorators(List.of(new LeavesVineTreeDecorator(0.25f),
-                        new AlterGroundTreeDecorator(BlockStateProvider.of(Blocks.MOSS_BLOCK)))
-                ).dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).ignoreVines().build());
+                .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).ignoreVines().build());
 
         register(context, PALM2, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.BEECH.log()),
-                new BendingTrunkPlacer(7, 3, 5, 14, UniformIntProvider.create(1, 4)),
-                BlockStateProvider.of(WoodBlockSets.BEECH.leaves()),
-                new RandomSpreadFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), ConstantIntProvider.create(3),50),
-                new TwoLayersFeatureSize(1, 0, 1))
-                .decorators(List.of(new LeavesVineTreeDecorator(0.25f),
-                        new AlterGroundTreeDecorator(BlockStateProvider.of(Blocks.MOSS_BLOCK)))
-                ).dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).ignoreVines().build());
+                BlockStateProvider.of(WoodBlockSets.PALM.log()),
+                new SlantedTrunkPlacer(6, 4, 5),
+                BlockStateProvider.of(WoodBlockSets.PALM.leaves()),
+                new ParasolPalmFoliagePlacer(),
+                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
         register(context, PALM, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.BEECH.log()),
-                new BendingTrunkPlacer(3, 3, 0, 5, UniformIntProvider.create(1, 3)),
-                BlockStateProvider.of(WoodBlockSets.BEECH.leaves()),
-                new RandomSpreadFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(2), ConstantIntProvider.create(2),15),
-                new TwoLayersFeatureSize(1, 0, 1))
-                .decorators(List.of(new LeavesVineTreeDecorator(0.25f),
-                        new AlterGroundTreeDecorator(BlockStateProvider.of(Blocks.MOSS_BLOCK)))
-                ).dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).ignoreVines().build());
+                BlockStateProvider.of(WoodBlockSets.PALM.log()),
+                new PalmTrunkPlacer(10, 2, 0.02f, 0.07f, 0),
+                BlockStateProvider.of(WoodBlockSets.PALM.leaves()),
+                new PalmFoliagePlacer(4, ConstantIntProvider.create(0), ConstantIntProvider.create(1), -0.3f, 0.3f),
+                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
         register(context, TEST2_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.BEECH.log()),
@@ -170,6 +169,14 @@ public class TreeConfiguredFeatures {
 
                 new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
+        register(context, BLACK_OAK_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(WoodBlockSets.BLACK_OAK.log()),
+                new OakTrunkPlacer(4, 4, 0, WoodBlockSets.BLACK_OAK.wood().getDefaultState(),
+                        WoodBlockSets.BLACK_OAK.woodWall().getDefaultState()),
+                BlockStateProvider.of(ModNatureBlocks.BLACK_OAK_LEAVES),
+                new OakFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3),
+                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
+
         register(context, GREEN_OAK_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.GREEN_OAK.log()),
                 new OakTrunkPlacer(4, 4, 0, WoodBlockSets.GREEN_OAK.wood().getDefaultState(),
@@ -186,6 +193,15 @@ public class TreeConfiguredFeatures {
                 new SpruceFoliagePlacer(UniformIntProvider.create(2, 3), ConstantIntProvider.create(1), UniformIntProvider.create(1, 3)),
 
                 new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
+
+        register(context, BIG_LARCH_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(WoodBlockSets.LARCH.log()),
+                new StraightTrunkPlacer(8, 4, 13),
+                BlockStateProvider.of(WoodBlockSets.LARCH.leaves()),
+                new MegaPineFoliagePlacer(BiasedToBottomIntProvider.create(1, 1), UniformIntProvider.create(1, 3), UniformIntProvider.create(12, 22)),
+
+                new TwoLayersFeatureSize(1, 0, 1, OptionalInt.of(0)))
+                .dirtProvider(BlockStateProvider.of(Blocks.COARSE_DIRT)).ignoreVines().forceDirt().build());
 
         register(context, SILVER_SPRUCE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.SILVER_SPRUCE.log()),

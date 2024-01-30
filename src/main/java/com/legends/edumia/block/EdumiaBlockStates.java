@@ -11,4 +11,6 @@ public class EdumiaBlockStates {
     public static final EnumProperty<Direction.Axis> SLAB_AXIS = Properties.AXIS;
     public static final BooleanProperty PILLAR_ABOVE = BooleanProperty.of("above");
     public static final BooleanProperty PILLAR_BELOW = BooleanProperty.of("below");
+
+    public static final BooleanProperty GATE_OPEN = BooleanProperty.of("open");
 }

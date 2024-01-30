@@ -63,6 +63,14 @@ public class EdumiaTrunkPlacerTypes {
 
     public static final TrunkPlacerType<?> CITRUS_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("citrus_trunk_placer",
             CitrusTrunkPlacer.CODEC);
+    public static final TrunkPlacerType<?> SLANTED_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("slanted_trunk_placer",
+            SlantedTrunkPlacer.CODEC);
+    public static final TrunkPlacerType<?> CANOPY_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("canopy_trunk_placer",
+            CanopyTrunkPlacer.CODEC);
+    public static final TrunkPlacerType<?> LARGE_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("large_trunk_placer",
+            LargeTrunkPlacer.CODEC);
+    public static final TrunkPlacerType<?> SPRUCE_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("spruce_trunk_placer",
+            SpruceTrunkPlacer.CODEC);;
 
     public static void register() {
         Edumia.LOGGER.info("Registering Trunk Placers for " + Edumia.MOD_ID);

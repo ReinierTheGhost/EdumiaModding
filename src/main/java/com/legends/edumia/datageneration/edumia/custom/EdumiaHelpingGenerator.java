@@ -112,10 +112,21 @@ public class EdumiaHelpingGenerator {
             Logs.logs.add(set.log());
             Logs.logs.add(set.wood());
             Logs.logs.add(set.woodWall());
+            Logs.logs.add(set.woodFence());
+            Logs.logs.add(set.woodSlab());
+            Logs.logs.add(set.woodStairs());
             PressurePlates.pressurePlates.add(set.pressurePlate());
             Walls.walls.add(set.woodWall());
             Planks.planks.add(set.planks());
 
+        }
+
+        for (PaperwallSets.PaperwallSet set : PaperwallSets.paperwallSets){
+            SimplePaperWallModel.blocks.add(set.pane());
+        }
+
+        for (GlassSets.GlassSet set : GlassSets.glassSets){
+            SimpleGlassModel.blocks.add(new SimpleGlassModel.Glass(set.block(), set.pane()));
         }
 
         for (BuildingSets.BuildSet set : BuildingSets.buildSets){

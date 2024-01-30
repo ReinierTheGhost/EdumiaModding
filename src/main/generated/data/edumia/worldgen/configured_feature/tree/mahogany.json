@@ -5,6 +5,32 @@
       {
         "type": "minecraft:leave_vine",
         "probability": 0.25
+      },
+      {
+        "type": "minecraft:hanging_branch_decorator",
+        "body_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "edumia:mahogany_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "true",
+              "waterlogged": "false"
+            }
+          }
+        },
+        "head_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "edumia:mahogany_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "true",
+              "waterlogged": "false"
+            }
+          }
+        },
+        "probability": 0.25
       }
     ],
     "dirt_provider": {
@@ -22,7 +48,7 @@
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "edumia:dragon_blood_leaves",
+        "Name": "edumia:mahogany_leaves",
         "Properties": {
           "distance": "7",
           "persistent": "false",
@@ -44,9 +70,14 @@
       "branch_provider": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "edumia:dragon_blood_wood",
+          "Name": "edumia:mahogany_wood_wall",
           "Properties": {
-            "axis": "y"
+            "east": "none",
+            "north": "none",
+            "south": "none",
+            "up": "true",
+            "waterlogged": "false",
+            "west": "none"
           }
         }
       },
@@ -55,7 +86,7 @@
       "wood_provider": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "edumia:dragon_blood_wood",
+          "Name": "edumia:mahogany_wood",
           "Properties": {
             "axis": "y"
           }
@@ -65,7 +96,7 @@
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "edumia:dragon_blood_log",
+        "Name": "edumia:mahogany_log",
         "Properties": {
           "axis": "y"
         }

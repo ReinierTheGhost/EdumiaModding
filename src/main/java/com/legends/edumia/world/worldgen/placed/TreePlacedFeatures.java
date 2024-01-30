@@ -23,6 +23,10 @@ public class TreePlacedFeatures {
 
     public static final RegistryKey<PlacedFeature> BEECH_KEY = registerKey("tree/beech_tree");
 
+    public static final RegistryKey<PlacedFeature> PALM = registerKey("tree/palm/palm");
+    public static final RegistryKey<PlacedFeature> PALM2 = registerKey("tree/palm/palm2");
+    public static final RegistryKey<PlacedFeature> PALM3 = registerKey("tree/palm/palm3");
+
 
     public static void boostrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -32,6 +36,15 @@ public class TreePlacedFeatures {
                         NoiseBasedCountPlacementModifier.of(157, 0, 9),
                         BlockFilterPlacementModifier.of(BlockPredicate.matchingBlocks(Blocks.GRASS_BLOCK, Blocks.DIRT)),
                         BiomePlacementModifier.of()));
+
+        register(context, PALM, configuredFeatureRegistryEntryLookup.getOrThrow(TreeConfiguredFeatures.PALM),
+                List.of());
+
+        register(context, PALM2, configuredFeatureRegistryEntryLookup.getOrThrow(TreeConfiguredFeatures.PALM2),
+                List.of());
+
+        register(context, PALM3, configuredFeatureRegistryEntryLookup.getOrThrow(TreeConfiguredFeatures.PALM3),
+                List.of());
 
 
     }

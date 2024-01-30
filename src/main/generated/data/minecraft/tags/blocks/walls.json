@@ -22,6 +22,9 @@
     "edumia:silver_spruce_wood_wall",
     "edumia:white_ash_wood_wall",
     "edumia:palm_wood_wall",
+    "edumia:mahogany_wood_wall",
+    "edumia:charred_wood_wall",
+    "edumia:black_oak_wood_wall",
     "edumia:redish_gensai_bricks_wall",
     "edumia:cracked_redish_gensai_bricks_wall",
     "edumia:mossy_redish_gensai_bricks_wall",
@@ -57,6 +60,7 @@
     "edumia:brown_sandstone_bricks_wall",
     "edumia:cracked_brown_sandstone_bricks_wall",
     "edumia:mossy_brown_sandstone_bricks_wall",
+    "edumia:brown_sandstone_gold_bricks_wall",
     "edumia:cacholong_bricks_wall",
     "edumia:cracked_cacholong_bricks_wall",
     "edumia:mossy_cacholong_bricks_wall",
@@ -76,6 +80,8 @@
     "edumia:graystone_bricks_wall",
     "edumia:cracked_graystone_bricks_wall",
     "edumia:mossy_graystone_bricks_wall",
+    "edumia:obsidian_bricks_wall",
+    "edumia:limestone_bricks_wall",
     "edumia:red_gensai_stone_wall",
     "edumia:blue_stone_wall",
     "edumia:limestone_wall",
@@ -100,6 +106,7 @@
     "edumia:light_high_elven_cobblestone_wall",
     "edumia:mossy_high_elven_cobblestone_wall",
     "edumia:mossy_light_high_elven_cobblestone_wall",
-    "edumia:mossy_dark_high_elven_cobblestone_wall"
+    "edumia:mossy_dark_high_elven_cobblestone_wall",
+    "edumia:cacholong_wall"
   ]
 }

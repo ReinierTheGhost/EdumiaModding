@@ -1,38 +1,22 @@
 {
   "type": "minecraft:tree",
   "config": {
-    "decorators": [
-      {
-        "type": "minecraft:leave_vine",
-        "probability": 0.25
-      },
-      {
-        "type": "minecraft:alter_ground",
-        "provider": {
-          "type": "minecraft:simple_state_provider",
-          "state": {
-            "Name": "minecraft:moss_block"
-          }
-        }
-      }
-    ],
+    "decorators": [],
     "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:rooted_dirt"
+        "Name": "minecraft:dirt"
       }
     },
     "foliage_placer": {
-      "type": "minecraft:random_spread_foliage_placer",
-      "foliage_height": 3,
-      "leaf_placement_attempts": 50,
+      "type": "minecraft:parasol_palm_foliage_placer",
       "offset": 0,
-      "radius": 3
+      "radius": 0
     },
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "edumia:beech_leaves",
+        "Name": "edumia:palm_leaves",
         "Properties": {
           "distance": "7",
           "persistent": "false",
@@ -49,23 +33,15 @@
       "upper_size": 1
     },
     "trunk_placer": {
-      "type": "minecraft:bending_trunk_placer",
-      "base_height": 7,
-      "bend_length": {
-        "type": "minecraft:uniform",
-        "value": {
-          "max_inclusive": 4,
-          "min_inclusive": 1
-        }
-      },
-      "height_rand_a": 3,
-      "height_rand_b": 5,
-      "min_height_for_leaves": 14
+      "type": "minecraft:slanted_trunk_placer",
+      "base_height": 6,
+      "height_rand_a": 4,
+      "height_rand_b": 5
     },
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "edumia:beech_log",
+        "Name": "edumia:palm_log",
         "Properties": {
           "axis": "y"
         }

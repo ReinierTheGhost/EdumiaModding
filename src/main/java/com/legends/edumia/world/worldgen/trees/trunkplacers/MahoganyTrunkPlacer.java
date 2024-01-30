@@ -68,11 +68,7 @@ public class MahoganyTrunkPlacer extends ExtendedTrunkPlacer {
                     BlockPos prevBranchPos = branchPos.toImmutable();
                     branchPos.set(basePos, branchX, branchY, branchZ);
                     if (!branchPos.equals(prevBranchPos)){
-                        if (placeWood(world, random, branchPos, trunk, config, Direction.Axis.Y)) {
-                            if (l == length - 1 && leafLayerLessWidth <= 1) {
-                                BlockPos.Mutable woodPos = new BlockPos.Mutable();
-                            }
-                        }
+                        placeWood(world, random, branchPos, trunk, config, Direction.Axis.Y);
 
                     }
 

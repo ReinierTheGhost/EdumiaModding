@@ -15,6 +15,10 @@ public class SimpleSaplingModel {
             add(ModNatureBlocks.ASPEN_SAPLING);
             add(ModNatureBlocks.BEECH_SAPLING);
             add(ModNatureBlocks.BLACKTHORN_SAPLING);
+            add(ModNatureBlocks.BLACK_OAK_SAPLING);
+            add(ModNatureBlocks.CHERRY_SAPLING);
+            add(ModNatureBlocks.MAPLE_SAPLING);
+            add(ModNatureBlocks.PEAR_SAPLING);
             add(ModNatureBlocks.CEDAR_SAPLING);
             add(ModNatureBlocks.CYPRESS_SAPLING);
             add(ModNatureBlocks.DRAGON_BLOOD_SAPLING);
@@ -28,6 +32,9 @@ public class SimpleSaplingModel {
             add(ModNatureBlocks.REDWOOD_SAPLING);
             add(ModNatureBlocks.SILVER_SPRUCE_SAPLING);
             add(ModNatureBlocks.WHITE_ASH_SAPLING);
+            add(ModNatureBlocks.MAHOGANY_SAPLING);
+            add(ModNatureBlocks.PALM_SAPLING);
+
         }
     };
 }

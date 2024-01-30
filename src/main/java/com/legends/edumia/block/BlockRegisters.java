@@ -26,6 +26,20 @@ public class BlockRegisters {
         return item;
     }
 
+    public static Block registerGlassBlock(String name, Block block) {
+        registerGlassBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, new Identifier(Edumia.MOD_ID, name), block);
+    }
+
+    static Item registerGlassBlockItem(String name, Block block) {
+        var item =  Registry.register(Registries.ITEM, new Identifier(Edumia.MOD_ID, name),
+                new BlockItem(block, new FabricItemSettings()));
+
+        Item.BLOCK_ITEMS.put(block, item);
+        CreativeTabLoader.GLASS_CONTENTS.add(item.getDefaultStack());
+        return item;
+    }
+
     public static Block registerStoneBlock(String name, Block block) {
         registerStoneBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(Edumia.MOD_ID, name), block);

@@ -21,6 +21,9 @@
     "edumia:redwood_button",
     "edumia:silver_spruce_button",
     "edumia:white_ash_button",
-    "edumia:palm_button"
+    "edumia:palm_button",
+    "edumia:mahogany_button",
+    "edumia:charred_button",
+    "edumia:black_oak_button"
   ]
 }

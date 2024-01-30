@@ -42,6 +42,12 @@
     "edumia:white_ash_wood_fence",
     "edumia:white_ash_fence",
     "edumia:palm_wood_fence",
-    "edumia:palm_fence"
+    "edumia:palm_fence",
+    "edumia:mahogany_wood_fence",
+    "edumia:mahogany_fence",
+    "edumia:charred_wood_fence",
+    "edumia:charred_fence",
+    "edumia:black_oak_wood_fence",
+    "edumia:black_oak_fence"
   ]
 }

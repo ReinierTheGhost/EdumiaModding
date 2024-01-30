@@ -1,32 +1,7 @@
 {
   "type": "minecraft:tree",
   "config": {
-    "decorators": [
-      {
-        "type": "minecraft:hanging_branch_decorator",
-        "body_provider": {
-          "type": "minecraft:simple_state_provider",
-          "state": {
-            "Name": "edumia:beech_leaves",
-            "Properties": {
-              "distance": "7",
-              "persistent": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        "head_provider": {
-          "type": "minecraft:simple_state_provider",
-          "state": {
-            "Name": "edumia:beech_wood",
-            "Properties": {
-              "axis": "y"
-            }
-          }
-        },
-        "probability": 0.25
-      }
-    ],
+    "decorators": [],
     "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -34,14 +9,14 @@
       }
     },
     "foliage_placer": {
-      "type": "minecraft:willow_foliage_placer",
+      "type": "minecraft:large_parasol_palm_foliage_placer",
       "offset": 0,
-      "radius": 2
+      "radius": 0
     },
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "edumia:beech_leaves",
+        "Name": "edumia:maple_leaves",
         "Properties": {
           "distance": "7",
           "persistent": "false",
@@ -58,15 +33,15 @@
       "upper_size": 2
     },
     "trunk_placer": {
-      "type": "minecraft:giant_trunk_placer",
-      "base_height": 8,
+      "type": "minecraft:straight_trunk_placer",
+      "base_height": 14,
       "height_rand_a": 3,
-      "height_rand_b": 2
+      "height_rand_b": 3
     },
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "edumia:beech_log",
+        "Name": "edumia:maple_log",
         "Properties": {
           "axis": "y"
         }

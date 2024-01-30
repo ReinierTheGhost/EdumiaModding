@@ -1,6 +1,7 @@
 package com.legends.edumia.block;
 
 import com.legends.edumia.Edumia;
+import com.legends.edumia.block.trees.BlackOakLeavesBlock;
 import com.legends.edumia.core.CreativeTabLoader;
 import com.legends.edumia.world.worldgen.treegrowers.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -22,6 +23,8 @@ public class ModNatureBlocks {
             new EdumiaLeavesBlock(), false);
     public static final Block MAPLE_LEAVES = ModNatureBlocks.registerPlantBlock("maple_leaves",
             new EdumiaLeavesBlock(), false);
+    public static final Block BLACK_OAK_LEAVES = ModNatureBlocks.registerPlantBlock("black_oak_leaves",
+            new BlackOakLeavesBlock(), false);
 
     public static final Block APPLE_LEAVES_RED = ModNatureBlocks.registerPlantBlock("apple_leaves_red",
             new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)
@@ -53,13 +56,15 @@ public class ModNatureBlocks {
 
     public static final Block BLACKTHORN_SAPLING = registerPlantBlock("blackthorn_sapling",
             new SaplingBlock(new BlackthornTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
+    public static final Block BLACK_OAK_SAPLING = registerPlantBlock("black_oak_sapling",
+            new SaplingBlock(new BlackOakTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
 
     public static final Block CEDAR_SAPLING = registerPlantBlock("cedar_sapling",
             new SaplingBlock(new CederTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
 
 
-//    public static final Block CHERRY_SAPLING = registerBlock("cherry_sapling",
-//            new SaplingBlock(new AppleTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
+    public static final Block CHERRY_SAPLING = registerPlantBlock("cherry_sapling",
+            new SaplingBlock(null, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
 
 
     public static final Block CYPRESS_SAPLING = registerPlantBlock("cypress_sapling",
@@ -83,14 +88,17 @@ public class ModNatureBlocks {
     public static final Block LARCH_SAPLING = registerPlantBlock("larch_sapling",
             new SaplingBlock(new LarchTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
 
-//    public static final Block MAPLE_SAPLING = registerPlantBlock("maple_sapling",
-//            new SaplingBlock(new AppleTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
+    public static final Block MAHOGANY_SAPLING = registerPlantBlock("mahogany_sapling",
+            new SaplingBlock(new MahoganyTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
+    public static final Block MAPLE_SAPLING = registerPlantBlock("maple_sapling",
+            new SaplingBlock(null, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
 
 
-//    public static final Block PEAR_SAPLING = registerPlantBlock("pear_sapling",
-//            new SaplingBlock(new AppleTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
+    public static final Block PEAR_SAPLING = registerPlantBlock("pear_sapling",
+            new SaplingBlock(null, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
 
-
+    public static final Block PALM_SAPLING = registerPlantBlock("palm_sapling",
+            new SaplingBlock(new PalmTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
     public static final Block PINE_SAPLING = registerPlantBlock("pine_sapling",
             new SaplingBlock(new PineTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
 
@@ -104,13 +112,16 @@ public class ModNatureBlocks {
             new SaplingBlock(new RedwoodTreeGrowen(), AbstractBlock.Settings.create()), false);
 
 
-    //
     public static final Block SILVER_SPRUCE_SAPLING = registerPlantBlock("silver_spruce_sapling",
             new SaplingBlock(new SilverSpruceTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
 
 
     public static final Block WHITE_ASH_SAPLING = registerPlantBlock("white_ash_sapling",
             new SaplingBlock(new WhiteAshTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
+
+
+
+
 
 
     public static Block registerPlantBlock(String name, Block block, boolean absent) {

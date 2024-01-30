@@ -35,6 +35,7 @@ public class StoneSets {
     public static StoneSet MOSSY_HIGH_ELVEN_COBBLESTONE = registerStoneSet("mossy_high_elven_cobblestone", STONE_STRENGTH);
     public static StoneSet MOSSY_LIGHT_HIGH_ELVEN_COBBLESTONE = registerStoneSet("mossy_light_high_elven_cobblestone", STONE_STRENGTH);
     public static StoneSet MOSSY_DARK_HIGH_ELVEN_COBBLESTONE = registerStoneSet("mossy_dark_high_elven_cobblestone", STONE_STRENGTH);
+    public static StoneSet CACHOLONG = registerStoneSet("cacholong", STONE_STRENGTH);
 
     public static StoneSet RED_GENSAI_STONE = registerStoneSet("red_gensai_stone", STONE_STRENGTH);
     public static StoneSet[] naturalSets = new StoneSet[]{
@@ -63,6 +64,7 @@ public class StoneSets {
             MOSSY_HIGH_ELVEN_COBBLESTONE,
             MOSSY_LIGHT_HIGH_ELVEN_COBBLESTONE,
             MOSSY_DARK_HIGH_ELVEN_COBBLESTONE,
+            CACHOLONG,
     };
 
 

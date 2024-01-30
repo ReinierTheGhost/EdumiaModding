@@ -2,6 +2,7 @@ package com.legends.edumia.core;
 
 import com.legends.edumia.Edumia;
 import com.legends.edumia.block.blocksets.BuildingSets;
+import com.legends.edumia.block.blocksets.GlassSets;
 import com.legends.edumia.block.blocksets.WoodBlockSets;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
@@ -368,12 +369,23 @@ public class CreativeTabLoader {
                     })
                     .build();
 
+    public static final List<ItemStack> GLASS_CONTENTS = new LinkedList<>();
+    public static final ItemGroup EDUMIA_GLASS_BLOCKS = FabricItemGroup.builder()
+            .displayName(Text.literal("Edumia Glass Blocks"))
+            .icon(() -> new ItemStack(GlassSets.FINE_GLASS.block().asItem()))
+            .entries((displayContext, entries) ->  {
+                for (ItemStack item: GLASS_CONTENTS){
+                    entries.add(item);
+                }
+            }).build();
 
     public static void register() {
         Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_rewards"),LEGENDS_GROUP);
         Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_plants"), EDUMIA_PLANTS);
         Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID,"edumia_gems"), EDUMIA_GEMS);
         Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_building_blocks"), EDUMIA_BUILDING_BLOCKS);
+
+        Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_glass_blocks"), EDUMIA_GLASS_BLOCKS);
         Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_wood_blocks"), EDUMIA_WOOD_BLOCKS);
         Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_natural_stone_blocks"), EDUMIA_NATURAL_STONE_BLOCKS);
 
@@ -382,6 +394,7 @@ public class CreativeTabLoader {
         Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_tools"), TOOL_GROUP);
         Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_materials"), MATERIAL_GROUP);
         Registry.register(Registries.ITEM_GROUP, new Identifier(Edumia.MOD_ID, "edumia_utilities"), UTILITY_GROUP);
+
 
     }
 }

@@ -11,6 +11,6 @@ public class LarchTreeGrower extends SaplingGenerator {
     @Nullable
     @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {
-        return TreeConfiguredFeatures.LARCH_KEY;
+        return bees ? TreeConfiguredFeatures.BIG_LARCH_KEY : TreeConfiguredFeatures.LARCH_KEY;
     }
 }

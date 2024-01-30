@@ -51,17 +51,19 @@ public class EdumiaChunkGenerator extends ChunkGenerator {
     public EdumiaChunkGenerator(RegistryEntryLookup<Biome> biomeRegistry) {
         super(new ModBiomeSource(
                 new ArrayList<>(Arrays.asList(
-                    biomeRegistry.getOrThrow(EdumiaBiomeKeys.EDUMIA_OCEAN),
-                    biomeRegistry.getOrThrow(EdumiaBiomeKeys.DARK_ELF_FOREST),
-                    biomeRegistry.getOrThrow(EdumiaBiomeKeys.EDUMIA_TUNDRA),
-                    biomeRegistry.getOrThrow(EdumiaBiomeKeys.FROZEN_OCEAN),
-                    biomeRegistry.getOrThrow(EdumiaBiomeKeys.ORC_DESERT),
-                    biomeRegistry.getOrThrow(EdumiaBiomeKeys.AVELION_PLAINS),
-                    biomeRegistry.getOrThrow(EdumiaBiomeKeys.MILLPOND),
-                    biomeRegistry.getOrThrow(EdumiaBiomeKeys.EDUMIA_MOUNTAINS),
-                    biomeRegistry.getOrThrow(EdumiaBiomeKeys.EDUMIA_RIVER),
-                    biomeRegistry.getOrThrow(EdumiaBiomeKeys.TAIGA_FOREST),
-                    biomeRegistry.getOrThrow(EdumiaBiomeKeys.GENSAI_JUNGLE)
+                        biomeRegistry.getOrThrow(EdumiaBiomeKeys.EDUMIA_OCEAN),
+                        biomeRegistry.getOrThrow(EdumiaBiomeKeys.DARK_ELF_FOREST),
+                        biomeRegistry.getOrThrow(EdumiaBiomeKeys.EDUMIA_TUNDRA),
+                        biomeRegistry.getOrThrow(EdumiaBiomeKeys.FROZEN_OCEAN),
+                        biomeRegistry.getOrThrow(EdumiaBiomeKeys.ORC_DESERT),
+                        biomeRegistry.getOrThrow(EdumiaBiomeKeys.AVELION_PLAINS),
+                        biomeRegistry.getOrThrow(EdumiaBiomeKeys.MILLPOND),
+                        biomeRegistry.getOrThrow(EdumiaBiomeKeys.EDUMIA_MOUNTAINS),
+                        biomeRegistry.getOrThrow(EdumiaBiomeKeys.EDUMIA_RIVER),
+                        biomeRegistry.getOrThrow(EdumiaBiomeKeys.TAIGA_FOREST),
+                        biomeRegistry.getOrThrow(EdumiaBiomeKeys.GENSAI_JUNGLE),
+                        biomeRegistry.getOrThrow(EdumiaBiomeKeys.GENSAI_BEACH),
+                        biomeRegistry.getOrThrow(EdumiaBiomeKeys.GENSAI_REEF)
                 ))
             )
         );

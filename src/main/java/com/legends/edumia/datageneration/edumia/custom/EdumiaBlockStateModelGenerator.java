@@ -2,6 +2,7 @@ package com.legends.edumia.datageneration.edumia.custom;
 
 import com.google.gson.JsonElement;
 import com.legends.edumia.block.*;
+import com.legends.edumia.block.blocksets.GlassSets;
 import com.legends.edumia.block.plants.ReedsBlock;
 import com.legends.edumia.block.properties.ArchShape;
 import com.legends.edumia.block.properties.BidirectionalShape;
@@ -12,6 +13,7 @@ import net.minecraft.block.enums.BlockHalf;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.block.enums.StairShape;
 import net.minecraft.data.client.*;
+import net.minecraft.item.Item;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
@@ -24,6 +26,7 @@ import java.util.function.Supplier;
 public class EdumiaBlockStateModelGenerator {
 
     public final Consumer<BlockStateSupplier> blockStateCollector;
+
     public final BiConsumer<Identifier, Supplier<JsonElement>> modelCollector;
 
     public EdumiaBlockStateModelGenerator(Consumer<BlockStateSupplier> blockStateCollector, BiConsumer<Identifier, Supplier<JsonElement>> modelCollector) {
@@ -376,6 +379,26 @@ public class EdumiaBlockStateModelGenerator {
                     return var10000.put(var10001, var2);
                 }));
     }
+
+    public void registerSingleton(Block block, TexturedModel.Factory modelFactory) {
+        this.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block,
+                modelFactory.upload(block, this.modelCollector)));
+    }
+    public void registerSimpleCubeAll(Block block) {
+        this.registerSingleton(block, TexturedModel.CUBE_ALL);
+    }
+    public void registerGlassPane(Block glass, Block glassPane) {
+        this.registerSimpleCubeAll(glass);
+        TextureMap textureMap = TextureMap.paneAndTopForEdge(glass, GlassSets.FINE_GLASS.pane());
+        Identifier identifier = Models.TEMPLATE_GLASS_PANE_POST.upload(glassPane, textureMap, this.modelCollector);
+        Identifier identifier2 = Models.TEMPLATE_GLASS_PANE_SIDE.upload(glassPane, textureMap, this.modelCollector);
+        Identifier identifier3 = Models.TEMPLATE_GLASS_PANE_SIDE_ALT.upload(glassPane, textureMap, this.modelCollector);
+        Identifier identifier4 = Models.TEMPLATE_GLASS_PANE_NOSIDE.upload(glassPane, textureMap, this.modelCollector);
+        Identifier identifier5 = Models.TEMPLATE_GLASS_PANE_NOSIDE_ALT.upload(glassPane, textureMap, this.modelCollector);
+        Item item = glassPane.asItem();
+        Models.GENERATED.upload(ModelIds.getItemModelId(item), TextureMap.layer0(glass), this.modelCollector);
+        this.blockStateCollector.accept(MultipartBlockStateSupplier.create(glassPane).with(BlockStateVariant.create().put(VariantSettings.MODEL, identifier)).with((When)When.create().set(Properties.NORTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, identifier2)).with((When)When.create().set(Properties.EAST, true), BlockStateVariant.create().put(VariantSettings.MODEL, identifier2).put(VariantSettings.Y, VariantSettings.Rotation.R90)).with((When)When.create().set(Properties.SOUTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, identifier3)).with((When)When.create().set(Properties.WEST, true), BlockStateVariant.create().put(VariantSettings.MODEL, identifier3).put(VariantSettings.Y, VariantSettings.Rotation.R90)).with((When)When.create().set(Properties.NORTH, false), BlockStateVariant.create().put(VariantSettings.MODEL, identifier4)).with((When)When.create().set(Properties.EAST, false), BlockStateVariant.create().put(VariantSettings.MODEL, identifier5)).with((When)When.create().set(Properties.SOUTH, false), BlockStateVariant.create().put(VariantSettings.MODEL, identifier5).put(VariantSettings.Y, VariantSettings.Rotation.R90)).with((When)When.create().set(Properties.WEST, false), BlockStateVariant.create().put(VariantSettings.MODEL, identifier4).put(VariantSettings.Y, VariantSettings.Rotation.R270)));
+    }
     public static BlockStateSupplier createAxisSlabBlockState(Block block, Identifier bottomModelId, Identifier topModelId,
                                                                  Identifier fullModelId) {
         return VariantsBlockStateSupplier.create(block).coordinate(BlockStateVariantMap
@@ -417,6 +440,8 @@ public class EdumiaBlockStateModelGenerator {
 
         );
     }
+
+
 
     
 }
