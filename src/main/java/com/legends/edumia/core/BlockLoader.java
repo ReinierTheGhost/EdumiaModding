@@ -4,6 +4,7 @@ import com.legends.edumia.Edumia;
 import com.legends.edumia.block.*;
 import com.legends.edumia.block.plants.DriedReedsBlock;
 import com.legends.edumia.block.plants.ReedsBlock;
+import com.legends.edumia.block.register.NaturalStoneBlocks;
 import com.legends.edumia.block.trees.Branch;
 import com.legends.edumia.block.trees.BranchLarge;
 import com.legends.edumia.block.trees.BranchSmall;
@@ -34,6 +35,9 @@ public class BlockLoader {
             new FallingBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.SAND)));
     public static final Block WHITE_SAND_LAYER = registerBlock("white_sand_layer",
             new Layer(AbstractBlock.Settings.copy(Blocks.SAND).sounds(BlockSoundGroup.SAND)));
+
+    public static final Block RUBY_ORE = NaturalStoneBlocks.registerStoneBlock("ruby_ore", new Block(FabricBlockSettings.copyOf(Blocks.LAPIS_ORE)
+            .strength(3.0f, 3.0f).requiresTool().dropsLike(Blocks.IRON_ORE)), false);
 
 
     public static final Block HIGH_ELVEN_CRYSTAL = registerBlock("high_elven_crystal",

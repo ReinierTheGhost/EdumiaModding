@@ -5,6 +5,7 @@ import com.legends.edumia.mixin.TrunkPlacerTypeInvoker;
 import com.legends.edumia.utils.cliient.NamedRenderTypeManager;
 import com.legends.edumia.world.worldgen.trees.foliageplacer.MahoganyFoliagePlacer;
 import com.legends.edumia.world.worldgen.trees.foliageplacer.OakFoliagePlacer;
+import com.legends.edumia.world.worldgen.trees.treeplacers.trunks.TinyTreeTrunk;
 import com.legends.edumia.world.worldgen.trees.trunkplacers.*;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -70,7 +71,9 @@ public class EdumiaTrunkPlacerTypes {
     public static final TrunkPlacerType<?> LARGE_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("large_trunk_placer",
             LargeTrunkPlacer.CODEC);
     public static final TrunkPlacerType<?> SPRUCE_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("spruce_trunk_placer",
-            SpruceTrunkPlacer.CODEC);;
+            SpruceTrunkPlacer.CODEC);
+    public static final TrunkPlacerType<?> TINY_TREE_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("tiny_tree_trunk_placer",
+            TinyTreeTrunk.CODEC);
 
     public static void register() {
         Edumia.LOGGER.info("Registering Trunk Placers for " + Edumia.MOD_ID);

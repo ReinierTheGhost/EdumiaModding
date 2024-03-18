@@ -1,0 +1,81 @@
+{
+  "type": "minecraft:flat_cache",
+  "argument": {
+    "type": "minecraft:cache_2d",
+    "argument": {
+      "type": "minecraft:spline",
+      "spline": {
+        "coordinate": "minecraft:overworld/continents",
+        "points": [
+          {
+            "location": -0.275,
+            "derivative": 0,
+            "value": 4
+          },
+          {
+            "location": -0.2375,
+            "derivative": 0,
+            "value": {
+              "coordinate": "edumia:erosion",
+              "points": [
+                {
+                  "location": -0.55,
+                  "derivative": 0,
+                  "value": 2.5
+                },
+                {
+                  "location": -0.5,
+                  "derivative": 0,
+                  "value": 4
+                }
+              ]
+            }
+          },
+          {
+            "location": -0.18,
+            "derivative": 0,
+            "value": {
+              "coordinate": "edumia:erosion",
+              "points": [
+                {
+                  "location": -0.55,
+                  "derivative": 0,
+                  "value": 0
+                },
+                {
+                  "location": -0.5,
+                  "derivative": 0,
+                  "value": 4
+                }
+              ]
+            }
+          },
+          {
+            "location": -0.125,
+            "derivative": 0,
+            "value": {
+              "coordinate": "edumia:erosion",
+              "points": [
+                {
+                  "location": -0.55,
+                  "derivative": 0,
+                  "value": 2.5
+                },
+                {
+                  "location": -0.5,
+                  "derivative": 0,
+                  "value": 4
+                }
+              ]
+            }
+          },
+          {
+            "location": -0.09,
+            "derivative": 0,
+            "value": 4
+          }
+        ]
+      }
+    }
+  }
+}

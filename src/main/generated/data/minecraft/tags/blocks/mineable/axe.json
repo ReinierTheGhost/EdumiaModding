@@ -312,6 +312,19 @@
     "edumia:black_oak_fence",
     "edumia:black_oak_fence_gate",
     "edumia:black_oak_button",
-    "edumia:black_oak_pressure_plate"
+    "edumia:black_oak_pressure_plate",
+    "edumia:willow_log",
+    "edumia:willow_wood",
+    "edumia:stripped_willow_log",
+    "edumia:stripped_willow_wood",
+    "edumia:willow_wood_wall",
+    "edumia:willow_wood_fence",
+    "edumia:willow_planks",
+    "edumia:willow_slab",
+    "edumia:willow_stairs",
+    "edumia:willow_fence",
+    "edumia:willow_fence_gate",
+    "edumia:willow_button",
+    "edumia:willow_pressure_plate"
   ]
 }

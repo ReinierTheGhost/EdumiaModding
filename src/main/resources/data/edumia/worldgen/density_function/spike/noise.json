@@ -1,0 +1,43 @@
+{
+  "type": "minecraft:mul",
+  "argument1": {
+    "type": "minecraft:add",
+    "argument1": {
+      "type": "minecraft:add",
+      "argument1": "edumia:spike/dune_height",
+      "argument2": {
+        "type": "minecraft:add",
+        "argument1": {
+          "type": "minecraft:add",
+          "argument1": 0,
+          "argument2": {
+            "type": "minecraft:y_clamped_gradient",
+            "from_y": 30,
+            "to_y": 320,
+            "from_value": 3,
+            "to_value": -20
+          }
+        },
+        "argument2": {
+          "type": "minecraft:add",
+          "argument1": {
+            "type": "minecraft:mul",
+            "argument1": 1,
+            "argument2": "edumia:dune/size_spline"
+          },
+          "argument2": 0
+        }
+      }
+    },
+    "argument2": {
+      "type": "minecraft:add",
+      "argument1": 1,
+      "argument2": {
+        "type": "minecraft:mul",
+        "argument1": "minecraft:overworld/depth",
+        "argument2": 0
+      }
+    }
+  },
+  "argument2": 1
+}

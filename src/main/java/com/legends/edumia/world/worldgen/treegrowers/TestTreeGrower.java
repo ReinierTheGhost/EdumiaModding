@@ -1,6 +1,8 @@
 package com.legends.edumia.world.worldgen.treegrowers;
 
 import com.legends.edumia.world.worldgen.configured.TreeConfiguredFeatures;
+import com.legends.edumia.world.worldgen.configured.beach.BeachConfiguredFeatures;
+import com.legends.edumia.world.worldgen.configured.trees.SaplingConfiguredFeatures;
 import com.legends.edumia.world.worldgen.configured.trees.SequoiaTreeConfiguredFeatures;
 import com.legends.edumia.world.worldgen.placed.trees.SequoiaTreePlacedFeatures;
 import net.minecraft.block.sapling.SaplingGenerator;
@@ -13,6 +15,6 @@ public class TestTreeGrower  extends SaplingGenerator {
     @Nullable
     @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {
-        return TreeConfiguredFeatures.TEST_KEY;
+        return TreeConfiguredFeatures.TINY_BEECH_KEY;
     }
 }

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blend_density",
+  "argument": {
+    "type": "minecraft:add",
+    "argument1": {
+      "type": "minecraft:noise",
+      "noise": "edumia:math/noise/base",
+      "xz_scale": 1,
+      "y_scale": 1
+    },
+    "argument2": 0
+  }
+}

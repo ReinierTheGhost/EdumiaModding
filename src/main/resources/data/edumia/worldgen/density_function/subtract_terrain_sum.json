@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:cache_once",
+  "argument": {
+    "type": "minecraft:range_choice",
+    "input": "edumia:subtract_terrain_base",
+    "min_inclusive": -1000000,
+    "max_exclusive": 2,
+    "when_in_range": "edumia:cliff/carve",
+    "when_out_of_range": 64
+  }
+}

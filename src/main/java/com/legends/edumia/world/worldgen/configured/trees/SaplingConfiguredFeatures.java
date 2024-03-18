@@ -1,6 +1,7 @@
 package com.legends.edumia.world.worldgen.configured.trees;
 
 import com.legends.edumia.Edumia;
+import com.legends.edumia.world.worldgen.placed.BeachPlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.TreePlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.trees.SequoiaTreePlacedFeatures;
 import net.minecraft.registry.Registerable;

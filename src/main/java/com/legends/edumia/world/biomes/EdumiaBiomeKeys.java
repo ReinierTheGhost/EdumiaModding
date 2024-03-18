@@ -3,6 +3,7 @@ package com.legends.edumia.world.biomes;
 import com.legends.edumia.Edumia;
 import com.legends.edumia.world.worldgen.placed.BeachPlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.TreePlacedFeatures;
+import com.legends.edumia.world.worldgen.placed.ocean.ReefPlacedFeatures;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -11,16 +12,14 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.carver.ConfiguredCarvers;
-import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.feature.MiscPlacedFeatures;
-import net.minecraft.world.gen.feature.OrePlacedFeatures;
-import net.minecraft.world.gen.feature.UndergroundPlacedFeatures;
+import net.minecraft.world.gen.feature.*;
 
 public class EdumiaBiomeKeys extends BiomeKeys {
     public static final RegistryKey<Biome> DARK_ELF_FOREST = EdumiaBiomeKeys.register("dark_elf_forest");
     public static final RegistryKey<Biome> EDUMIA_TUNDRA = EdumiaBiomeKeys.register("edumia_tundra");
     public static final RegistryKey<Biome> ORC_DESERT = EdumiaBiomeKeys.register("orc_desert");
     public static final RegistryKey<Biome> AVELION_PLAINS = EdumiaBiomeKeys.register("avelion_plains");
+    public static final RegistryKey<Biome> AVELION_MOUNTAINS = EdumiaBiomeKeys.register("avelion_mountains");
     public static final RegistryKey<Biome> EDUMIA_MOUNTAINS = EdumiaBiomeKeys.register("edumia_mountains");
     public static final RegistryKey<Biome> EDUMIA_OCEAN = EdumiaBiomeKeys.register("edumia_ocean");
     public static final RegistryKey<Biome> EDUMIA_RIVER = EdumiaBiomeKeys.register("edumia_river");
@@ -43,6 +42,7 @@ public class EdumiaBiomeKeys extends BiomeKeys {
         context.register(MILLPOND, millpond(context));
         context.register(GENSAI_BEACH, gensai_beach(context));
         context.register(GENSAI_REEF, gensai_reef(context));
+        context.register(AVELION_MOUNTAINS, avelion_mountains(context));
 
     }
 
@@ -72,9 +72,39 @@ public class EdumiaBiomeKeys extends BiomeKeys {
         biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD_LOWER);
         biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COPPER);
 
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ReefPlacedFeatures.REEF_KEY);
+
         biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
 
         DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .downfall(0.4f)
+                .temperature(0.8f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(4159204)
+                        .waterFogColor(329011)
+                        .skyColor(8827134)
+                        .grassColor(7200640)
+//                        .foliageColor(0xd203fc)
+                        .fogColor(12771327)
+                        .moodSound(BiomeMoodSound.CAVE).build())
+                .build();
+    }
+
+    public static Biome avelion_mountains(Registerable<Biome> context) {
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+
+        GenerationSettings.LookupBackedBuilder biomeBuilder =
+                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
+                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
+
+        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
+        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
+        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
 
         return new Biome.Builder()
                 .precipitation(true)
@@ -569,6 +599,9 @@ public class EdumiaBiomeKeys extends BiomeKeys {
         biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD);
         biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD_LOWER);
         biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COPPER);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, TreePlacedFeatures.BEECH_KEY);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, TreePlacedFeatures.BIG_BEECH_KEY);
 
         biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
 

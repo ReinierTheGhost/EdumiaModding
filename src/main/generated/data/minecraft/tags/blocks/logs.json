@@ -144,6 +144,12 @@
     "edumia:black_oak_wood_wall",
     "edumia:black_oak_wood_fence",
     "edumia:black_oak_wood_slab",
-    "edumia:black_oak_wood_stairs"
+    "edumia:black_oak_wood_stairs",
+    "edumia:willow_log",
+    "edumia:willow_wood",
+    "edumia:willow_wood_wall",
+    "edumia:willow_wood_fence",
+    "edumia:willow_wood_slab",
+    "edumia:willow_wood_stairs"
   ]
 }

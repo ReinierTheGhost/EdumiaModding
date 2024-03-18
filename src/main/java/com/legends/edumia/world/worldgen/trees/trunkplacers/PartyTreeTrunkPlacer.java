@@ -25,7 +25,7 @@ public class PartyTreeTrunkPlacer extends ExtendedTrunkPlacer {
     public static final Codec<PartyTreeTrunkPlacer> CODEC = RecordCodecBuilder.create((instance) ->
             baseCodecWithWood(instance).apply(instance, PartyTreeTrunkPlacer::new));
 
-    protected PartyTreeTrunkPlacer(int baseHeight, int heightRandA, int heightRandB, Optional<BlockStateProvider> woodProvider, Optional<BlockStateProvider> strippedLogProvider, Optional<BlockStateProvider> branchProvider) {
+    private PartyTreeTrunkPlacer(int baseHeight, int heightRandA, int heightRandB, Optional<BlockStateProvider> woodProvider, Optional<BlockStateProvider> strippedLogProvider, Optional<BlockStateProvider> branchProvider) {
         super(baseHeight, heightRandA, heightRandB, woodProvider, strippedLogProvider, branchProvider);
     }
 
@@ -42,7 +42,6 @@ public class PartyTreeTrunkPlacer extends ExtendedTrunkPlacer {
     public List<FoliagePlacer.TreeNode> generate(TestableWorld world, BiConsumer<BlockPos, BlockState> trunk, Random random, int trunkHeight, BlockPos basePos, TreeFeatureConfig config) {
         List<FoliagePlacer.TreeNode> foliage = new ArrayList<>();
         int trunkWidth = 1;
-        boolean flag = true;
         float trunkPitch = (float)Math.toRadians(MathHelper.nextFloat(random, 65.0F, 90.0F));
         float trunkYaw = (float)Math.toRadians((random.nextFloat() * 360.0F));
         BlockPos.Mutable movingPos = new BlockPos.Mutable();
@@ -55,22 +54,22 @@ public class PartyTreeTrunkPlacer extends ExtendedTrunkPlacer {
                     movingPos.set(offsetCentrePos, x, 0, z);
 
                     placeWood(world, random, movingPos, trunk, config, Direction.Axis.Y);
-                    if (y == 0) {
-                        EdumiaTrunkPlacerTypes.setGrassToDirt(world, movingPos.down());
-                        BlockPos.Mutable woodBelowPos = (new BlockPos.Mutable()).set(movingPos.down());
-                        int woodBelow = 0;
-                        int maxWoodBelow = 6 + random.nextInt(3);
-
-                        while (woodBelowPos.getY() >= 0) {
-                            if (placeWood(world, random, woodBelowPos, trunk, config, Direction.Axis.Y)) {
-                                EdumiaTrunkPlacerTypes.setGrassToDirt(world, woodBelowPos.down());
-                                woodBelowPos.move(Direction.DOWN);
-                                woodBelow++;
-                                if (woodBelow > maxWoodBelow)
-                                    break;
-                            }
-                        }
-                    }
+//                    if (y == 0) {
+//                        EdumiaTrunkPlacerTypes.setGrassToDirt(world, movingPos.down());
+//                        BlockPos.Mutable woodBelowPos = (new BlockPos.Mutable()).set(movingPos.down());
+//                        int woodBelow = 0;
+//                        int maxWoodBelow = 6 + random.nextInt(3);
+//
+//                        while (woodBelowPos.getY() >= 0) {
+//                            if (placeWood(world, random, woodBelowPos, trunk, config, Direction.Axis.Y)) {
+//                                EdumiaTrunkPlacerTypes.setGrassToDirt(world, woodBelowPos.down());
+//                                woodBelowPos.move(Direction.DOWN);
+//                                woodBelow++;
+//                                if (woodBelow > maxWoodBelow)
+//                                    break;
+//                            }
+//                        }
+//                    }
                 }
             }
         }
@@ -127,45 +126,41 @@ public class PartyTreeTrunkPlacer extends ExtendedTrunkPlacer {
         foliage.add(new FoliagePlacer.TreeNode(getOffsetCentrePos(basePos, trunkHeight, trunkPitch, trunkYaw), 1, false));
         int roots = 5 + random.nextInt(5);
 
-        for (int l = 0; l < roots; l++) {
-            int rootUpY = 0 + random.nextInt(4);
-            BlockPos.Mutable rootPos = (new BlockPos.Mutable()).set(getOffsetCentrePos(basePos, rootUpY, trunkPitch, trunkYaw));
-            int rootLength = 2 + random.nextInt(4);
-            Direction rootDir = Direction.Type.HORIZONTAL.random(random);
-            rootPos.move(rootDir, trunkWidth + 1);
-            rootPos.move(rootDir.rotateYClockwise(), MathHelper.nextInt(random, -trunkWidth, trunkWidth));
-
-            for (int l1 = 0; l1 < rootLength; l1++) {
-                BlockPos.Mutable dropDownPos = (new BlockPos.Mutable()).set(rootPos);
-                int woodDropped = 0;
-                int maxDropped = 5;
-
-                while (dropDownPos.getY() >= 0) {
-                    BlockPos checkAbovePos = dropDownPos.up();
-                    boolean branch = (woodDropped <= 1 && !world.testBlockState(checkAbovePos, AbstractBlock.AbstractBlockState::isOpaque));
-                    boolean placedBlock = branch ? placeBranch(world, random, dropDownPos, trunk, config) : placeWood(world, random, dropDownPos, trunk, config, Direction.Axis.Y);
-                    if (!placedBlock) {
-                        break;
-                    }
-
-                    if (!branch) {
-                        EdumiaTrunkPlacerTypes.setGrassToDirt(world, dropDownPos.down());
-                    }
-
-                    dropDownPos.move(Direction.DOWN);
-                    woodDropped++;
-                    if (woodDropped > 5) {
-                        break;
-                    }
-
-                }
-
-                rootPos.move(Direction.DOWN);
-                if (random.nextBoolean()) {
-                    rootPos.move(rootDir);
-                }
-            }
-        }
+//        for (int l = 0; l < roots; l++) {
+//            int rootUpY = 0 + random.nextInt(4);
+//            BlockPos.Mutable rootPos = (new BlockPos.Mutable()).set(getOffsetCentrePos(basePos, rootUpY, trunkPitch, trunkYaw));
+//            int rootLength = 2 + random.nextInt(4);
+//            Direction rootDir = Direction.Type.HORIZONTAL.random(random);
+//            rootPos.move(rootDir, trunkWidth + 1);
+//            rootPos.move(rootDir.rotateYClockwise(), MathHelper.nextInt(random, -trunkWidth, trunkWidth));
+//
+//            for (int l1 = 0; l1 < rootLength; l1++) {
+//                BlockPos.Mutable dropDownPos = (new BlockPos.Mutable()).set(rootPos);
+//                int woodDropped = 0;
+//
+//                while (dropDownPos.getY() >= 0) {
+//                    BlockPos checkAbovePos = dropDownPos.up();
+//                    boolean branch = (woodDropped <= 1 && !world.testBlockState(checkAbovePos, AbstractBlock.AbstractBlockState::isOpaque));
+//                    boolean placedBlock = branch ? placeBranch(world, random, dropDownPos, trunk, config) : placeWood(world, random, dropDownPos, trunk, config, Direction.Axis.Y);
+//                    if (placedBlock) {
+////                        if (!branch) {
+////                            EdumiaTrunkPlacerTypes.setGrassToDirt(world, dropDownPos.down());
+////                        }
+//
+//                        dropDownPos.move(Direction.DOWN);
+//                        woodDropped++;
+//                        if (woodDropped > 5) {
+//                            break;
+//                        }
+//                    }
+//                }
+//
+//                rootPos.move(Direction.DOWN);
+//                if (random.nextBoolean()) {
+//                    rootPos.move(rootDir);
+//                }
+//            }
+//        }
         return foliage;
     }
 

@@ -1,13 +1,16 @@
 package com.legends.edumia.datageneration.edumia;
 
 import com.legends.edumia.core.BlockLoader;
+import com.legends.edumia.core.ItemLoader;
 import com.legends.edumia.datageneration.me.content.loot_tables.BlockDrops;
 import com.legends.edumia.datageneration.me.content.loot_tables.DoorDrops;
 import com.legends.edumia.datageneration.me.content.loot_tables.LeavesDrops;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.loottable.BlockLootTableGenerator;
+import net.minecraft.item.Items;
 
 public class ModBlockLootTables extends FabricBlockLootTableProvider {
 
@@ -17,6 +20,8 @@ public class ModBlockLootTables extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
+
+        addDrop(BlockLoader.RUBY_ORE, (Block block) -> this.oreDrops((Block)block, ItemLoader.GEM_ROUGH_RUBY));
 
         addDrop(BlockLoader.BROWN_SANDSTONE_SLATES);
 

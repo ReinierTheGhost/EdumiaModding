@@ -6,6 +6,7 @@ import com.legends.edumia.block.blocksets.*;
 import com.legends.edumia.core.BlockLoader;
 import com.legends.edumia.core.CreativeTabLoader;
 import com.legends.edumia.core.ItemLoader;
+import com.legends.edumia.utils.ModRegisters;
 import com.legends.edumia.world.worldgen.trees.EdumiaFoliagePlacerTypes;
 import com.legends.edumia.world.worldgen.trees.EdumiaTreeDecoratorTypes;
 import com.legends.edumia.world.worldgen.trees.EdumiaTrunkPlacerTypes;
@@ -52,6 +53,7 @@ public class Edumia implements ModInitializer {
         NotBrickBuildingSets.registerModBlockSets();
 
 
+        ModRegisters.registerModStuffs();
 
         ModRecipes.registerRecipes();
 

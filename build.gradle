@@ -17,6 +17,7 @@ repositories {
 			includeGroup "curse.maven"
 		}
 	}
+	maven {url = "https://maven.kyrptonaught.dev"}
 
 	maven { url = "https://maven.quiltmc.org/repository/release" } // QM
 	maven { url = "https://maven.parchmentmc.org" } // Parchment
@@ -56,6 +57,9 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation "curse.maven:terralith-513688:4938254"
+
+	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta64-1.20'
+	include 'net.kyrptonaught:customportalapi:0.0.1-beta64-1.20'
 
 		devEnv(dependencies)
 		compat(dependencies)

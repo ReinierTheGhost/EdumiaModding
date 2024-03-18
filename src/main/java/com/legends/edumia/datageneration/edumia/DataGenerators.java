@@ -3,6 +3,7 @@ package com.legends.edumia.datageneration.edumia;
 import com.legends.edumia.datageneration.edumia.custom.EdumiaHelpingGenerator;
 import com.legends.edumia.datageneration.me.BlockTagProvider;
 import com.legends.edumia.world.biomes.EdumiaBiomeKeys;
+import com.legends.edumia.world.dimension.ModDimensions;
 import com.legends.edumia.world.worldgen.ModConfiguredFeatures;
 import com.legends.edumia.world.worldgen.ModPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -30,5 +31,6 @@ public class DataGenerators implements DataGeneratorEntrypoint {
         registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::boostrap);
         registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::boostrap);
         registryBuilder.addRegistry(RegistryKeys.BIOME, EdumiaBiomeKeys::boostrap);
+        registryBuilder.addRegistry(RegistryKeys.DIMENSION_TYPE, ModDimensions::bootstrapType);
     }
 }

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:range_choice",
+  "input": "edumia:reference/pillars_large_base",
+  "min_inclusive": -1000000,
+  "max_exclusive": 0.01,
+  "when_in_range": 0,
+  "when_out_of_range": {
+    "type": "minecraft:mul",
+    "argument1": 1,
+    "argument2": "edumia:reference/pillars_large_base"
+  }
+}

@@ -58,7 +58,9 @@
       "minecraft:spring_water"
     ],
     [
-      "minecraft:glow_lichen"
+      "minecraft:glow_lichen",
+      "edumia:tree/beech_tree",
+      "edumia:tree/big_beech_tree"
     ]
   ],
   "has_precipitation": true,

@@ -1,6 +1,7 @@
 package com.legends.edumia.world.worldgen.placed;
 
 import com.legends.edumia.Edumia;
+import com.legends.edumia.block.ModNatureBlocks;
 import com.legends.edumia.world.worldgen.configured.TreeConfiguredFeatures;
 import com.legends.edumia.world.worldgen.placed.trees.SequoiaTreePlacedFeatures;
 import net.minecraft.block.Blocks;
@@ -21,7 +22,9 @@ import java.util.List;
 
 public class TreePlacedFeatures {
 
+    public static final RegistryKey<PlacedFeature> TINY_BEECH_KEY = registerKey("tree/tiny_beech_tree");
     public static final RegistryKey<PlacedFeature> BEECH_KEY = registerKey("tree/beech_tree");
+    public static final RegistryKey<PlacedFeature> BIG_BEECH_KEY = registerKey("tree/big_beech_tree");
 
     public static final RegistryKey<PlacedFeature> PALM = registerKey("tree/palm/palm");
     public static final RegistryKey<PlacedFeature> PALM2 = registerKey("tree/palm/palm2");
@@ -32,10 +35,11 @@ public class TreePlacedFeatures {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
         register(context, BEECH_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(TreeConfiguredFeatures.BEECH_KEY),
-                List.of(CountPlacementModifier.of(6), SquarePlacementModifier.of(), HeightmapPlacementModifier.of(Heightmap.Type.WORLD_SURFACE),
-                        NoiseBasedCountPlacementModifier.of(157, 0, 9),
-                        BlockFilterPlacementModifier.of(BlockPredicate.matchingBlocks(Blocks.GRASS_BLOCK, Blocks.DIRT)),
-                        BiomePlacementModifier.of()));
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.1f, 1),
+                        ModNatureBlocks.BEECH_SAPLING));
+        register(context, BIG_BEECH_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(TreeConfiguredFeatures.BIG_BEECH_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.1f, 1),
+                        ModNatureBlocks.BEECH_SAPLING));
 
         register(context, PALM, configuredFeatureRegistryEntryLookup.getOrThrow(TreeConfiguredFeatures.PALM),
                 List.of());

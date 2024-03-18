@@ -5,6 +5,7 @@ import com.legends.edumia.world.worldgen.configured.BushesConfiguredFeatures;
 import com.legends.edumia.world.worldgen.configured.OreConfiguredFeatures;
 import com.legends.edumia.world.worldgen.configured.TreeConfiguredFeatures;
 import com.legends.edumia.world.worldgen.configured.beach.BeachConfiguredFeatures;
+import com.legends.edumia.world.worldgen.configured.ocean.ReefConfiguredFeatures;
 import com.legends.edumia.world.worldgen.configured.trees.SaplingConfiguredFeatures;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -22,6 +23,7 @@ public class ModConfiguredFeatures {
         OreConfiguredFeatures.bootstrap(context);
         BushesConfiguredFeatures.bootstrap(context);
         BeachConfiguredFeatures.bootstrap(context);
+        ReefConfiguredFeatures.bootstrap(context);
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name){

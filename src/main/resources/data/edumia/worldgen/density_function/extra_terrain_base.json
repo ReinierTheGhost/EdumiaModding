@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:cache_once",
+  "argument": {
+    "type": "minecraft:max",
+    "argument1": "edumia:arch/total",
+    "argument2": {
+      "type": "minecraft:max",
+      "argument1": "edumia:dune/total",
+      "argument2": "edumia:spikes/tendrils"
+    }
+  }
+}

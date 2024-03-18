@@ -32,7 +32,7 @@ public class OreRockSets {
 
         Block iron_ore = NaturalStoneBlocks.registerStoneBlock(
                 rockName + "_iron_ore", new Block(FabricBlockSettings.copyOf(Blocks.IRON_ORE).strength(
-                        STONE_STRENGTH * strength_mult, 3*strength_mult).requiresTool().dropsLike(Blocks.IRON_ORE)), false);
+                        STONE_STRENGTH * strength_mult, 3 * strength_mult).requiresTool().dropsLike(Blocks.IRON_ORE)), false);
 
         Block gold_ore = NaturalStoneBlocks.registerStoneBlock(
                 rockName + "_gold_ore", new Block(FabricBlockSettings.copyOf(Blocks.GOLD_ORE).strength(
