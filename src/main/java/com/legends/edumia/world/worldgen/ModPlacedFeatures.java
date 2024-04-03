@@ -1,9 +1,7 @@
 package com.legends.edumia.world.worldgen;
 
 import com.legends.edumia.Edumia;
-import com.legends.edumia.world.worldgen.placed.BeachPlacedFeatures;
-import com.legends.edumia.world.worldgen.placed.OrePlacedFeatures;
-import com.legends.edumia.world.worldgen.placed.TreePlacedFeatures;
+import com.legends.edumia.world.worldgen.placed.*;
 import com.legends.edumia.world.worldgen.placed.ocean.ReefPlacedFeatures;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -23,6 +21,8 @@ public class ModPlacedFeatures {
         TreePlacedFeatures.boostrap(context);
         BeachPlacedFeatures.boostrap(context);
         ReefPlacedFeatures.boostrap(context);
+        RockPlacedFeatures.boostrap(context);
+        FlowerPlacedFeatures.boostrap(context);
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

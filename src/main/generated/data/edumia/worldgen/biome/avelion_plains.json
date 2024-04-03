@@ -59,8 +59,9 @@
     ],
     [
       "minecraft:glow_lichen",
-      "edumia:tree/beech_tree",
-      "edumia:tree/big_beech_tree"
+      "edumia:tree/beech/beech_tree",
+      "edumia:tree/beech/big_beech_tree",
+      "edumia:flowers/avelion/flower"
     ]
   ],
   "has_precipitation": true,

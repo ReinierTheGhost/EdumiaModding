@@ -1,0 +1,210 @@
+{
+  "type": "minecraft:simple_random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": {
+          "type": "minecraft:netherrack_replace_blobs",
+          "config": {
+            "radius": {
+              "type": "minecraft:uniform",
+              "value": {
+                "max_inclusive": 12,
+                "min_inclusive": 7
+              }
+            },
+            "state": {
+              "Name": "edumia:high_elven_rock"
+            },
+            "target": {
+              "Name": "minecraft:terracotta"
+            }
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:air"
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:netherrack_replace_blobs",
+          "config": {
+            "radius": {
+              "type": "minecraft:uniform",
+              "value": {
+                "max_inclusive": 12,
+                "min_inclusive": 7
+              }
+            },
+            "state": {
+              "Name": "edumia:dark_high_elven_rock"
+            },
+            "target": {
+              "Name": "minecraft:yellow_terracotta"
+            }
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:air"
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:netherrack_replace_blobs",
+          "config": {
+            "radius": {
+              "type": "minecraft:uniform",
+              "value": {
+                "max_inclusive": 12,
+                "min_inclusive": 7
+              }
+            },
+            "state": {
+              "Name": "edumia:light_high_elven_rock"
+            },
+            "target": {
+              "Name": "minecraft:orange_terracotta"
+            }
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:air"
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:netherrack_replace_blobs",
+          "config": {
+            "radius": {
+              "type": "minecraft:uniform",
+              "value": {
+                "max_inclusive": 12,
+                "min_inclusive": 7
+              }
+            },
+            "state": {
+              "Name": "edumia:light_high_elven_rock"
+            },
+            "target": {
+              "Name": "minecraft:red_terracotta"
+            }
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:air"
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:netherrack_replace_blobs",
+          "config": {
+            "radius": {
+              "type": "minecraft:uniform",
+              "value": {
+                "max_inclusive": 12,
+                "min_inclusive": 7
+              }
+            },
+            "state": {
+              "Name": "edumia:light_high_elven_rock"
+            },
+            "target": {
+              "Name": "minecraft:light_gray_terracotta"
+            }
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:air"
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:netherrack_replace_blobs",
+          "config": {
+            "radius": {
+              "type": "minecraft:uniform",
+              "value": {
+                "max_inclusive": 12,
+                "min_inclusive": 7
+              }
+            },
+            "state": {
+              "Name": "edumia:light_high_elven_rock"
+            },
+            "target": {
+              "Name": "minecraft:white_terracotta"
+            }
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:air"
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:netherrack_replace_blobs",
+          "config": {
+            "radius": {
+              "type": "minecraft:uniform",
+              "value": {
+                "max_inclusive": 12,
+                "min_inclusive": 7
+              }
+            },
+            "state": {
+              "Name": "edumia:dark_high_elven_rock"
+            },
+            "target": {
+              "Name": "minecraft:brown_terracotta"
+            }
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "blocks": "minecraft:air"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

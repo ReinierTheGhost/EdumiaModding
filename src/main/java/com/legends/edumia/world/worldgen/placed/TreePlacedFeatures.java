@@ -3,6 +3,7 @@ package com.legends.edumia.world.worldgen.placed;
 import com.legends.edumia.Edumia;
 import com.legends.edumia.block.ModNatureBlocks;
 import com.legends.edumia.world.worldgen.configured.TreeConfiguredFeatures;
+import com.legends.edumia.world.worldgen.configured.trees.BeechTreeConfiguredFeatures;
 import com.legends.edumia.world.worldgen.placed.trees.SequoiaTreePlacedFeatures;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
@@ -22,9 +23,9 @@ import java.util.List;
 
 public class TreePlacedFeatures {
 
-    public static final RegistryKey<PlacedFeature> TINY_BEECH_KEY = registerKey("tree/tiny_beech_tree");
-    public static final RegistryKey<PlacedFeature> BEECH_KEY = registerKey("tree/beech_tree");
-    public static final RegistryKey<PlacedFeature> BIG_BEECH_KEY = registerKey("tree/big_beech_tree");
+    public static final RegistryKey<PlacedFeature> TINY_BEECH_KEY = registerKey("tree/beech/tiny_beech_tree");
+    public static final RegistryKey<PlacedFeature> BEECH_KEY = registerKey("tree/beech/beech_tree");
+    public static final RegistryKey<PlacedFeature> BIG_BEECH_KEY = registerKey("tree/beech/big_beech_tree");
 
     public static final RegistryKey<PlacedFeature> PALM = registerKey("tree/palm/palm");
     public static final RegistryKey<PlacedFeature> PALM2 = registerKey("tree/palm/palm2");
@@ -34,10 +35,10 @@ public class TreePlacedFeatures {
     public static void boostrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
-        register(context, BEECH_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(TreeConfiguredFeatures.BEECH_KEY),
+        register(context, BEECH_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(BeechTreeConfiguredFeatures.BEECH_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.1f, 1),
                         ModNatureBlocks.BEECH_SAPLING));
-        register(context, BIG_BEECH_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(TreeConfiguredFeatures.BIG_BEECH_KEY),
+        register(context, BIG_BEECH_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(BeechTreeConfiguredFeatures.BIG_BEECH_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.1f, 1),
                         ModNatureBlocks.BEECH_SAPLING));
 

@@ -1,11 +1,11 @@
 package com.legends.edumia.world.worldgen;
 
 import com.legends.edumia.Edumia;
-import com.legends.edumia.world.worldgen.configured.BushesConfiguredFeatures;
-import com.legends.edumia.world.worldgen.configured.OreConfiguredFeatures;
-import com.legends.edumia.world.worldgen.configured.TreeConfiguredFeatures;
+import com.legends.edumia.world.worldgen.configured.*;
 import com.legends.edumia.world.worldgen.configured.beach.BeachConfiguredFeatures;
 import com.legends.edumia.world.worldgen.configured.ocean.ReefConfiguredFeatures;
+import com.legends.edumia.world.worldgen.configured.trees.BeechTreeConfiguredFeatures;
+import com.legends.edumia.world.worldgen.configured.trees.OakTreeConfiguredFeatures;
 import com.legends.edumia.world.worldgen.configured.trees.SaplingConfiguredFeatures;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -18,12 +18,16 @@ import net.minecraft.world.gen.feature.FeatureConfig;
 public class ModConfiguredFeatures {
 
     public static void boostrap(Registerable<ConfiguredFeature<?, ?>> context){
+        BeechTreeConfiguredFeatures.bootstrap(context);
         TreeConfiguredFeatures.bootstrap(context);
         SaplingConfiguredFeatures.bootstrap(context);
         OreConfiguredFeatures.bootstrap(context);
         BushesConfiguredFeatures.bootstrap(context);
         BeachConfiguredFeatures.bootstrap(context);
         ReefConfiguredFeatures.bootstrap(context);
+        OakTreeConfiguredFeatures.bootstrap(context);
+        RockConfiguredFeatures.bootstrap(context);
+        FlowerConfiguredFeatures.bootstrap(context);
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name){

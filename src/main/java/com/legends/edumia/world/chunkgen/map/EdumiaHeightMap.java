@@ -3,8 +3,11 @@ package com.legends.edumia.world.chunkgen.map;
 import com.legends.edumia.utils.noises.BlendedNoise;
 import com.legends.edumia.world.biomes.EdumiaBiome;
 import com.legends.edumia.world.biomes.EdumiaBiomesData;
+import com.legends.edumia.world.map.EdumiaMapConfigs;
+import com.legends.edumia.world.map.EdumiaMapRuntime;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 public class EdumiaHeightMap {
     public static final int SMOOTH_BRUSH_SIZE = 2;
@@ -14,17 +17,29 @@ public class EdumiaHeightMap {
     public static final int PERLIN_STRETCH_Y2 = 37;
     public static final int PERLIN_HEIGHT_RANGE = 33;
     public static final float MOUNTAIN_HEIGHT_RANGE = 8.6f;
-    public static final float MOUNTAIN_HEIGHT_MULTIPLIER = 2.4f;
+    public static final float MOUNTAIN_HEIGHT_MULTIPLIER = 1.87f;
+    public static final float MOUNTAIN_EXPONENTIAL_HEIGHT = 1.107f;
     public static final int MOUNTAIN_START_HEIGHT = 16; // Height depending on the Biome Data.
     public static final int PERLIN_HEIGHT_OFFSET = 8;
-    public static final int STONE_HEIGHT = 50;
+    public static final int STONE_HEIGHT = 54;
     public static final int HEIGHT = 8 + STONE_HEIGHT;
     public static final int DIRT_HEIGHT = 3 + HEIGHT;
 
     private static BufferedImage heightMapImage;
+    public static final int WATER_MAX = 16;
+    public static final float WATER_MULTIPLIER = 1.31f;
+    public static final float WATER_PERLIN_DIVIDER = 2.2f;
+    private static final int PIXEL_WEIGHT = EdumiaMapConfigs.PIXEL_WEIGHT;
+    public static final ArrayList<Float> percentages = new ArrayList<Float>();
+    private static EdumiaMapRuntime edumiaMapRuntime;
+    private static Float defaultWeightHeight = null;
 
     public static int latitude; // Horizontal
     public static int longitude; // Vertical
+
+    public EdumiaHeightMap(){
+        edumiaMapRuntime = EdumiaMapRuntime.getInstance();
+    }
 
 
     public static void applyHeightMapImage(BufferedImage newHeightMapImage) {

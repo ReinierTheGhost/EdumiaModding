@@ -42,10 +42,6 @@ public class TreeConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> ASPEN_KEY = registerKey("tree/aspen/aspen_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> ASPEN_2_KEY = registerKey("tree/aspen/aspen_2_tree");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> TINY_BEECH_KEY = registerKey("tree/tiny_beech_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> BEECH_KEY = registerKey("tree/beech_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> BIG_BEECH_KEY = registerKey("tree/big_beech_tree");
-
     public static final RegistryKey<ConfiguredFeature<?, ?>> CEDER_KEY = registerKey("tree/ceder_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> LARGE_CEDER_KEY = registerKey("tree/large_ceder_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TEST_KEY = registerKey("tree/test/test_tree");
@@ -77,29 +73,6 @@ public class TreeConfiguredFeatures {
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context){
         BeehiveTreeDecorator beehiveTreeDecorator = new BeehiveTreeDecorator(0.03f);
         BlockStateProvider pineBranchProvider = (new WeightedBlockStateProvider(DataPool.<BlockState>builder().add(WoodBlockSets.PINE.log().getDefaultState(), 2).add(WoodBlockSets.PINE.strippedLog().getDefaultState(), 1)));
-
-        register(context, TINY_BEECH_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.BEECH.log()),
-                new PartyTreeTrunkPlacer(10, 14, 0, WoodBlockSets.BEECH.wood().getDefaultState(),
-                        WoodBlockSets.BEECH.woodWall().getDefaultState()),
-                BlockStateProvider.of(WoodBlockSets.BEECH.leaves()),
-                new ClusterFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0)),
-                new TwoLayersFeatureSize(1, 0, 0)).build());
-
-        register(context, BEECH_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.BEECH.log()),
-                new CanopyTrunkPlacer(12, 2, 0.91f, 0.87f, 5.0f, 3, 0.42f, -0.1f, 1,1),
-                BlockStateProvider.of(WoodBlockSets.BEECH.leaves()),
-                new OvalFoliagePlacer(3, ConstantIntProvider.create(0), ConstantIntProvider.create(2), 0.4f),
-                new TwoLayersFeatureSize(1, 0, 2)).ignoreVines().build());
-
-        register(context, BIG_BEECH_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.BEECH.log()),
-                new CanopyTrunkPlacer(18, 3, 1.0f, 0.67f, 5.2f, 3,
-                        0.44f, -0.05f, 2, 1),
-                BlockStateProvider.of(WoodBlockSets.BEECH.leaves()),
-                new OvalFoliagePlacer(2, ConstantIntProvider.create(0), ConstantIntProvider.create(3), 0.4f),
-                new TwoLayersFeatureSize(1, 0, 2)).ignoreVines().build());
 
         register(context, MAHOGANY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.MAHOGANY.log()),

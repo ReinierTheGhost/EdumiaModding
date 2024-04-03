@@ -1,11 +1,15 @@
 package com.legends.edumia.world.biomes;
 
+import com.legends.edumia.world.biomes.caves.CaveType;
 import net.minecraft.block.Block;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 
+import java.awt.*;
+
 public class EdumiaBiome {
     public float height;
+    public Color color;
     public RegistryKey<Biome> biome;
     public Block surfaceBlock;
     public Block underSurfaceBlock;

@@ -1,15 +1,41 @@
 package com.legends.edumia.world.chunkgen.map;
 
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.awt.image.ConvolveOp;
 import java.awt.image.DataBufferByte;
 import java.awt.image.Kernel;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.util.Arrays;
 
 public class ImageUtils {
-    public static int BRUSH_SIZE = 24;
+    private static byte[] SEED = generateSeed(50);
+    private static int SEED_INDEX = 0;
+    public static int BRUSH_SIZE = 16;
     public static float RATIO = 1.0f / (BRUSH_SIZE * BRUSH_SIZE);
 
+    public static BufferedImage fetchResourceImage(ClassLoader classLoader, String path) throws IOException {
+        URL resource = classLoader.getResource(path);
+        BufferedImage img = ImageIO.read(resource);
+        return img;
+    }
+
+    public static BufferedImage fetchRunImage(String path) throws Exception {
+        File f = new File(path);
+        //System.out.println(f.getAbsolutePath());
+        if(!f.exists()) return null;
+
+        BufferedImage img = ImageIO.read(f);
+        return img;
+    }
+
+    public static void saveImage(BufferedImage bufferedImage, String path, String fileName) throws Exception {
+        new File(path).mkdirs();
+        File f = new File(path + fileName);
+        ImageIO.write(bufferedImage, "png", f);
+    }
     public static BufferedImage blur(BufferedImage image) {
         float[] blurKernel = new float[BRUSH_SIZE * BRUSH_SIZE];
         Arrays.fill(blurKernel, RATIO);
@@ -59,5 +85,27 @@ public class ImageUtils {
             }
         }
         return result;
+    }
+
+    public static byte[] generateSeed(int bound){
+        String piString = "31415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679";
+
+        byte[] piBytes = new byte[piString.length()];
+        for (int i = 0; i < piString.length(); i++) {
+            piBytes[i] = Byte.parseByte(String.valueOf(piString.charAt(i)));
+        }
+
+        SEED = piBytes;
+        SEED_INDEX = bound % piBytes.length;
+
+        return SEED;
+    }
+
+    public static byte getNextSeed(){
+        SEED_INDEX ++;
+        if(SEED_INDEX >= SEED.length){
+            SEED_INDEX = 0;
+        }
+        return SEED[SEED_INDEX];
     }
 }

@@ -1,7 +1,10 @@
 package com.legends.edumia.world.biomes;
 
 import com.legends.edumia.Edumia;
+import com.legends.edumia.world.worldgen.configured.RockConfiguredFeatures;
 import com.legends.edumia.world.worldgen.placed.BeachPlacedFeatures;
+import com.legends.edumia.world.worldgen.placed.FlowerPlacedFeatures;
+import com.legends.edumia.world.worldgen.placed.RockPlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.TreePlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.ocean.ReefPlacedFeatures;
 import net.minecraft.registry.Registerable;
@@ -105,6 +108,8 @@ public class EdumiaBiomeKeys extends BiomeKeys {
         biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
         biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
         biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, RockPlacedFeatures.AVELION_MOUNTAIN_LAYERS);
 
         return new Biome.Builder()
                 .precipitation(true)
@@ -602,6 +607,9 @@ public class EdumiaBiomeKeys extends BiomeKeys {
 
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, TreePlacedFeatures.BEECH_KEY);
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, TreePlacedFeatures.BIG_BEECH_KEY);
+
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, FlowerPlacedFeatures.AVELION_FLOWER_KEY);
 
         biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
 

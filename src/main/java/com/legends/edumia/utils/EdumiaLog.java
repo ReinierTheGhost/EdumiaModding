@@ -11,34 +11,34 @@ public class EdumiaLog {
     }
 
     public static void debug(String s) {
-        LOGGER.debug("lotr: " + s);
+        LOGGER.debug("edumia: " + s);
     }
 
     public static void debug(String s, Object... params) {
-        LOGGER.debug(String.format("lotr: " + s, params));
+        LOGGER.debug(String.format("edumia: " + s, params));
     }
 
     public static void info(String s) {
-        LOGGER.info("lotr: " + s);
+        LOGGER.info("edumia: " + s);
     }
 
     public static void info(String s, Object... params) {
-        LOGGER.info(String.format("lotr: " + s, params));
+        LOGGER.info(String.format("edumia: " + s, params));
     }
 
     public static void warn(String s) {
-        LOGGER.warn("lotr: " + s);
+        LOGGER.warn("edumia: " + s);
     }
 
     public static void warn(String s, Object... params) {
-        LOGGER.warn(String.format("lotr: " + s, params));
+        LOGGER.warn(String.format("edumia: " + s, params));
     }
 
     public static void error(String s) {
-        LOGGER.error("lotr: " + s);
+        LOGGER.error("edumia: " + s);
     }
 
     public static void error(String s, Object... params) {
-        LOGGER.error(String.format("lotr: " + s, params));
+        LOGGER.error(String.format("edumia: " + s, params));
     }
 }

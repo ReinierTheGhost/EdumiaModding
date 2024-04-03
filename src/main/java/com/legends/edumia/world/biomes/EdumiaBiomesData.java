@@ -17,6 +17,8 @@ import java.util.List;
  * Converts PNG pixel color to a BiomeKey reference.
  */
 public class EdumiaBiomesData {
+
+    private static List<EdumiaBiome> biomes = new ArrayList<>();
     public static HashMap<Integer, EdumiaBiome> biomeMap = new HashMap<>();
     public static List<RegistryKey<Biome>> waterBiomes = new ArrayList<>();
     public static List<RegistryKey<Biome>> mirkwoodSwampBiomes = new ArrayList<>();
@@ -29,6 +31,15 @@ public class EdumiaBiomesData {
 
     public static void addBiome(Color color, EdumiaBiome biome) {
         biomeMap.put(color.getRGB(), biome);
+    }
+
+    public static EdumiaBiome getBiomeByColor(Integer rgb){
+        try{
+            return biomes.stream().filter(x -> x.color.getRGB() == rgb).findFirst().get();
+        } catch (Exception e){
+            System.out.println("MeBiomes::No registered biome has %s for color".formatted(rgb));
+        }
+        return null;
     }
 
     public static void loadBiomes() {
