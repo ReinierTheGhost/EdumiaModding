@@ -5,7 +5,9 @@ import com.legends.edumia.world.biomes.EdumiaBiome;
 import com.legends.edumia.world.biomes.EdumiaBiomesData;
 import com.legends.edumia.world.map.EdumiaMapConfigs;
 import com.legends.edumia.world.map.EdumiaMapRuntime;
+import com.legends.edumia.world.map.EdumiaMapUtils;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -48,9 +50,27 @@ public class EdumiaHeightMap {
         longitude = heightMapImage.getWidth();
     }
 
-    private static float getImageHeight(int x, int z) {
-        if(!isCoordinateInBounds(x, z)) return EdumiaBiomesData.defaultBiome.height + getPerlinMapHeight(x, z);
-        return ((float) ((heightMapImage.getRGB(x, z)>>16)&0xFF) / 4) + EdumiaBiomesData.MINIMAL_HEIGHT;
+    private static float getImageHeight(int xWorld, int zWorld) {
+        if (edumiaMapRuntime == null) edumiaMapRuntime = EdumiaMapRuntime.getInstance();
+
+        Color color = edumiaMapRuntime.getHeight(xWorld, zWorld);
+
+        if(color != null){
+            float red = color.getRed();
+            float blue = color.getBlue();
+            float height = red;
+
+            if(blue > 0) { // Water carver
+                float percentage = (WATER_MAX - blue) / WATER_MAX;
+                percentage = Math.max(0, Math.min(1, percentage));
+                height *= percentage;
+                height -= blue * WATER_MULTIPLIER;
+            }
+            return height;
+        }
+
+        return EdumiaBiomesData.defaultBiome.height * WATER_MULTIPLIER;
+
     }
 
     private static double getPerlinHeight(int x, int z) {
@@ -71,20 +91,66 @@ public class EdumiaHeightMap {
         EdumiaBiome edumiaBiome;
         double perlin = getPerlinHeight(x, z);
 
-        if(EdumiaHeightMap.isCoordinateInBounds(x, z)) {
-            float biomeHeight = EdumiaHeightMap.getImageHeight(x, z);
-            if(biomeHeight >= MOUNTAIN_START_HEIGHT) {
-                float multiplier = (biomeHeight / MOUNTAIN_START_HEIGHT) - 1;
-                multiplier = MOUNTAIN_HEIGHT_MULTIPLIER * multiplier;
-                perlin += multiplier * MOUNTAIN_HEIGHT_RANGE * BlendedNoise.noise((double) x / PERLIN_STRETCH_X2,  (double) z / PERLIN_STRETCH_Y2);
-            }
-            additionalHeight = biomeHeight + perlin;
+        float biomeHeight = 0;
+
+        if(EdumiaMapUtils.getInstance().isWorldCoordinateInBorder(x,z)) {
+            biomeHeight = getBiomeWeightHeight(x, z);
         } else {
-            edumiaBiome = EdumiaBiomesData.defaultBiome;
-            additionalHeight = edumiaBiome.height + perlin;
+            biomeHeight = getDefaultWeightHeight();
         }
+
+        if(biomeHeight < 0) {
+            perlin /= (Math.max(1, Math.min(5, Math.abs(biomeHeight / WATER_PERLIN_DIVIDER))));
+        }
+        if(biomeHeight >= MOUNTAIN_START_HEIGHT) {
+            float multiplier = (biomeHeight / MOUNTAIN_START_HEIGHT) - 1;
+            biomeHeight += biomeHeight * multiplier * MOUNTAIN_EXPONENTIAL_HEIGHT;
+            multiplier = MOUNTAIN_HEIGHT_MULTIPLIER * multiplier;
+            perlin += multiplier * MOUNTAIN_EXPONENTIAL_HEIGHT * MOUNTAIN_HEIGHT_RANGE * BlendedNoise.noise((double) x / PERLIN_STRETCH_X2,  (double) z / PERLIN_STRETCH_Y2);
+            perlin += multiplier * (MOUNTAIN_HEIGHT_RANGE / 2) * BlendedNoise.noise((double) (2 * x) / PERLIN_STRETCH_X2,  (double) (2 * z) / PERLIN_STRETCH_Y2);
+        }
+        additionalHeight = biomeHeight + perlin;
+
         return (float) additionalHeight;
     }
+
+    private static float getBiomeWeightHeight(int x, int z) {
+        float topLeft = getImageHeight(x, z);
+        float topRight = getImageHeight(x + PIXEL_WEIGHT, z);
+        float bottomLeft = getImageHeight(x, z + PIXEL_WEIGHT);
+        float bottomRight = getImageHeight(x + PIXEL_WEIGHT, z + PIXEL_WEIGHT);
+        return getHeightBetween(new float[]{topLeft, topRight, bottomLeft, bottomRight},
+                (float) (x % PIXEL_WEIGHT) / PIXEL_WEIGHT, (float) (z % PIXEL_WEIGHT) / PIXEL_WEIGHT);
+    }
+
+    private static float getDefaultWeightHeight() {
+        if(defaultWeightHeight == null) {
+            int x = 0;
+            int z = 0;
+            float topLeft = getImageHeight(x, z);
+
+            float topRight = getImageHeight(x + PIXEL_WEIGHT, z);
+            float bottomLeft = getImageHeight(x, z + PIXEL_WEIGHT);
+            float bottomRight = getImageHeight(x + PIXEL_WEIGHT, z + PIXEL_WEIGHT);
+            defaultWeightHeight =  getHeightBetween(new float[]{topLeft, topRight, bottomLeft, bottomRight},
+                    (float) (x % PIXEL_WEIGHT) / PIXEL_WEIGHT, (float) (z % PIXEL_WEIGHT) / PIXEL_WEIGHT);
+        }
+
+        return defaultWeightHeight;
+    }
+
+    private static float getHeightBetween(float[] heights, float xPercent, float zPercent) {
+        float h1 = getMiddleHeight(heights[0], heights[1], xPercent);
+        float h2 = getMiddleHeight(heights[2], heights[3], xPercent);
+        return getMiddleHeight(h1, h2, zPercent);
+    }
+
+    private static float getMiddleHeight(float a, float b, float percentage) {
+        if(!percentages.contains(percentage)) percentages.add(percentage);
+        float percentage2 = 1 - percentage;
+        return (a * percentage2) + (b * percentage);
+    }
+
 
     private static float getSmoothHeight(int x, int z) {
         float total = 0;
