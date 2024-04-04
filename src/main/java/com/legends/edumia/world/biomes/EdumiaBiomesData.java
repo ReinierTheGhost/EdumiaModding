@@ -6,6 +6,7 @@ import com.legends.edumia.block.register.NaturalStoneBlocks;
 import com.legends.edumia.core.BlockLoader;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.world.biome.Biome;
 
 import java.awt.*;
@@ -19,35 +20,53 @@ import java.util.List;
 public class EdumiaBiomesData {
 
     private static List<EdumiaBiome> biomes = new ArrayList<>();
-    public static HashMap<Integer, EdumiaBiome> biomeMap = new HashMap<>();
     public static List<RegistryKey<Biome>> waterBiomes = new ArrayList<>();
-    public static List<RegistryKey<Biome>> mirkwoodSwampBiomes = new ArrayList<>();
+    public static List<RegistryKey<Biome>> frozenBiomes = new ArrayList<>();
+    public static List<RegistryKey<Biome>> pondBiomes = new ArrayList<>();
+    public static List<RegistryKey<Biome>> oasisBiomes = new ArrayList<>();
     public static EdumiaBiome defaultBiome;
-    public static EdumiaBiome millPond;
-    public static EdumiaBiome mirkwoodSwamp;
-
-    /// Only supports height value from -22 to 41
-    public static final int MINIMAL_HEIGHT = -22;
+    public static EdumiaBiome frozenPond;
+    public static EdumiaBiome oasis;
+    public static EdumiaBiome pond;
 
     public static void addBiome(Color color, EdumiaBiome biome) {
-        biomeMap.put(color.getRGB(), biome);
+        biome.color = color;
+        biomes.add(biome);
     }
 
     public static EdumiaBiome getBiomeByColor(Integer rgb){
         try{
             return biomes.stream().filter(x -> x.color.getRGB() == rgb).findFirst().get();
         } catch (Exception e){
-            System.out.println("MeBiomes::No registered biome has %s for color".formatted(rgb));
+            System.out.println("EdumiaBiomes::No registered biome has %s for color".formatted(rgb));
+        }
+        return null;
+    }
+
+    public static EdumiaBiome getBiomeById(Short id){
+        try{
+            return biomes.get(id);
+        } catch (Exception e){
+            System.out.println("EdumiaBiomes::No registered biome has %s for id".formatted(id));
+        }
+        return null;
+    }
+
+    public static Integer getColorByBiomeId(Short id){
+        try{
+            return biomes.get(id).color.getRGB();
+        } catch (Exception e){
+            System.out.println("EdumiaBiomes::No registered biome has %s for id".formatted(id));
         }
         return null;
     }
 
     public static void loadBiomes() {
         defaultBiome = new EdumiaBiome(-21, EdumiaBiomeKeys.EDUMIA_OCEAN, Blocks.SAND, Blocks.STONE, Blocks.STONE, Blocks.STONE);
-        millPond = new EdumiaBiome(-10, EdumiaBiomeKeys.MILLPOND,  Blocks.GRASS_BLOCK, Blocks.DIRT, Blocks.STONE, Blocks.STONE);
+        pond  = new EdumiaBiome(-10, EdumiaBiomeKeys.MILLPOND,  Blocks.GRASS_BLOCK, Blocks.DIRT, Blocks.STONE, Blocks.STONE);
 
         addBiome(new Color(55, 90, 195), defaultBiome);
-        addBiome(new Color(110, 154, 218), millPond);
+        addBiome(new Color(110, 154, 218), pond);
 
         addBiome(new Color(54, 75, 12), new EdumiaBiome(6, EdumiaBiomeKeys.DARK_ELF_FOREST, Blocks.GRASS_BLOCK, Blocks.DIRT, Blocks.STONE, Blocks.STONE));
         addBiome(new Color(236, 236, 236), new EdumiaBiome(8, EdumiaBiomeKeys.EDUMIA_TUNDRA, Blocks.SNOW, Blocks.SNOW_BLOCK, Blocks.STONE, Blocks.STONE));
@@ -66,5 +85,11 @@ public class EdumiaBiomesData {
         waterBiomes.add(EdumiaBiomeKeys.EDUMIA_RIVER);
 
 
+    }
+
+    public static EdumiaBiome getBiomeByKey(RegistryEntry<Biome> biome) {
+        return biomes.stream().filter(
+                        b -> b.biome.getValue().toString().equalsIgnoreCase(biome.getKey().get().getValue().toString()))
+                .findFirst().get();
     }
 }

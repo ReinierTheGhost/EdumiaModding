@@ -9,9 +9,9 @@ public class EdumiaMapConfigs {
     public static final String INITIAL_IMAGE = "assets/%s/textures/edumia_biome_map.png".formatted(Edumia.MOD_ID);;
 
     /**
-     *  Current image is 4000 x 3000, should be a common divider;
+     *  Current image is 4000 x 4000, should be a common divider;
      */
-    public static final int REGION_SIZE = 3000;
+    public static final int REGION_SIZE = 4000;
     public static final int PIXEL_WEIGHT = 4;
     public static final int THREAD_POOL_SIZE = 8;
     public static final boolean FORCE_GENERATION = false;

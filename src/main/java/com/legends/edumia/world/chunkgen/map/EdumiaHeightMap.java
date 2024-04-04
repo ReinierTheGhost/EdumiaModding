@@ -156,8 +156,8 @@ public class EdumiaHeightMap {
         float total = 0;
         for(int i = -SMOOTH_BRUSH_SIZE; i <= SMOOTH_BRUSH_SIZE; i++) {
             for(int j = -SMOOTH_BRUSH_SIZE; j <= SMOOTH_BRUSH_SIZE; j++) {
-                if(!isCoordinateInBounds(x + i, z + j)) total += EdumiaBiomesData.defaultBiome.height;
-                else total += ((float)((heightMapImage.getRGB(x + i, z + j)>>16)&0xFF) / 4) + EdumiaBiomesData.MINIMAL_HEIGHT;
+                if(EdumiaMapUtils.getInstance().isWorldCoordinateInBorder(x + i, z + j)) total += EdumiaBiomesData.defaultBiome.height;
+                else total += getBiomeWeightHeight(x,z);
             }
         }
 
@@ -165,7 +165,7 @@ public class EdumiaHeightMap {
     }
 
     public static float getHeight(int x, int z) {
-        return getSmoothHeight(x, z) + getPerlinMapHeight(x, z);
+        return getPerlinMapHeight(x, z);
     }
 
     public static boolean isCoordinateInBounds(int x, int z) {

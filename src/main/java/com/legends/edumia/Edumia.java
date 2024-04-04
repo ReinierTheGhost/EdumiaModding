@@ -7,6 +7,8 @@ import com.legends.edumia.core.BlockLoader;
 import com.legends.edumia.core.CreativeTabLoader;
 import com.legends.edumia.core.ItemLoader;
 import com.legends.edumia.utils.ModRegisters;
+import com.legends.edumia.world.chunkgen.EdumiaChunkGenerator;
+import com.legends.edumia.world.map.EdumiaMapGeneration;
 import com.legends.edumia.world.worldgen.trees.EdumiaFoliagePlacerTypes;
 import com.legends.edumia.world.worldgen.trees.EdumiaTreeDecoratorTypes;
 import com.legends.edumia.world.worldgen.trees.EdumiaTrunkPlacerTypes;
@@ -18,7 +20,6 @@ import com.legends.edumia.sound.ModSounds;
 import com.legends.edumia.world.spawners.ModEntitySpawning;
 import com.legends.edumia.world.biomes.EdumiaBiomeKeys;
 import com.legends.edumia.world.biomes.EdumiaBiomesData;
-import com.legends.edumia.world.chunkgen.map.MapImageLoader;
 import com.legends.edumia.world.dimension.ModDimensions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -74,8 +75,8 @@ public class Edumia implements ModInitializer {
         EdumiaBiomesData.loadBiomes();
 
         try {
-            MapImageLoader.loadImage(getClass().getClassLoader());
-        } catch (IOException | URISyntaxException e) {
+            new EdumiaMapGeneration();
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
