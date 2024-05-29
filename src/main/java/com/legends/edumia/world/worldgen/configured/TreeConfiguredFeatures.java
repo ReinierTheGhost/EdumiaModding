@@ -42,6 +42,8 @@ public class TreeConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> ASPEN_KEY = registerKey("tree/aspen/aspen_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> ASPEN_2_KEY = registerKey("tree/aspen/aspen_2_tree");
 
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BIRCH = registerKey("tree/birch/birch");
+
     public static final RegistryKey<ConfiguredFeature<?, ?>> CEDER_KEY = registerKey("tree/ceder_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> LARGE_CEDER_KEY = registerKey("tree/large_ceder_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TEST_KEY = registerKey("tree/test/test_tree");
@@ -56,42 +58,23 @@ public class TreeConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> SILVER_SPRUCE_KEY = registerKey("tree/silver_spruce_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> LARCH_KEY = registerKey("tree/larch/larch_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> BIG_LARCH_KEY = registerKey("tree/larch/big_larch_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> GREEN_OAK_KEY = registerKey("tree/green_oak_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> RED_OAK_KEY = registerKey("tree/red_oak_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> BLACK_OAK_KEY = registerKey("tree/black_oak_tree");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> PINE_KEY = registerKey("tree/pine_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> REDWOOD_KEY = registerKey("tree/redwood_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> BLACKTHORN_KEY = registerKey("tree/blackthorn_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> DRAGON_BLOOD_SMALL_KEY = registerKey("tree/dragon_blood_small");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> PALM = registerKey("tree/palm");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> PALM2 = registerKey("tree/palm2");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> PALM3 = registerKey("tree/palm3");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> MAHOGANY = registerKey("tree/mahogany");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context){
         BeehiveTreeDecorator beehiveTreeDecorator = new BeehiveTreeDecorator(0.03f);
         BlockStateProvider pineBranchProvider = (new WeightedBlockStateProvider(DataPool.<BlockState>builder().add(WoodBlockSets.PINE.log().getDefaultState(), 2).add(WoodBlockSets.PINE.strippedLog().getDefaultState(), 1)));
 
-        register(context, MAHOGANY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.MAHOGANY.log()),
-                new MahoganyTrunkPlacer(8, 6, 0, WoodBlockSets.MAHOGANY.wood().getDefaultState(),
-                        WoodBlockSets.MAHOGANY.woodWall().getDefaultState()),
-                BlockStateProvider.of(WoodBlockSets.MAHOGANY.leaves()),
-                new MahoganyFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 2),
-                new TwoLayersFeatureSize(0, 1, 0))
-                .decorators(List.of(new LeavesVineTreeDecorator(0.25f),
-                        new HangingBranchDecorator(0.25F,
-                                BlockStateProvider.of(WoodBlockSets.MAHOGANY.leaves().getDefaultState().with(Properties.PERSISTENT, true)),
-                                BlockStateProvider.of(WoodBlockSets.MAHOGANY.leaves().getDefaultState().with(Properties.PERSISTENT, true))
-                        ))).build());
 
         register(context, TEST_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.MAPLE.log()),
-                new StraightTrunkPlacer(14, 4, 4),
+                new BirchTrunkPlacer(14, 4, 4),
                 BlockStateProvider.of(ModNatureBlocks.MAPLE_LEAVES.getDefaultState()),
-                new WillowFoliagePlacer( ConstantIntProvider.create(4), ConstantIntProvider.create(0)),
+                new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 2),
                 new TwoLayersFeatureSize(1, 0, 2)).ignoreVines().build());
 
         register(context, DRAGON_BLOOD_SMALL_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
@@ -101,27 +84,6 @@ public class TreeConfiguredFeatures {
                 new DragonBloodFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 2),
                 new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
-        register(context, PALM3, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.PALM.log()),
-                new SlantedTrunkPlacer(9, 6, 7),
-                BlockStateProvider.of(WoodBlockSets.PALM.leaves()),
-                new LargeParasolPalmFoliagePlacer(),
-                new TwoLayersFeatureSize(1, 0, 1))
-                .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).ignoreVines().build());
-
-        register(context, PALM2, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.PALM.log()),
-                new SlantedTrunkPlacer(6, 4, 5),
-                BlockStateProvider.of(WoodBlockSets.PALM.leaves()),
-                new ParasolPalmFoliagePlacer(),
-                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
-
-        register(context, PALM, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.PALM.log()),
-                new PalmTrunkPlacer(10, 2, 0.02f, 0.07f, 0),
-                BlockStateProvider.of(WoodBlockSets.PALM.leaves()),
-                new PalmFoliagePlacer(4, ConstantIntProvider.create(0), ConstantIntProvider.create(1), -0.3f, 0.3f),
-                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
         register(context, TEST2_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.BEECH.log()),
@@ -154,34 +116,6 @@ public class TreeConfiguredFeatures {
 
                 new TwoLayersFeatureSize(1, 0, 1)).ignoreVines()
                 .decorators(Collections.singletonList(new PineBranchDecorator(WoodBlockSets.PINE.log().getDefaultState(), 0.75f))).build());
-
-
-        
-        register(context, RED_OAK_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.RED_OAK.log()),
-                new OakTrunkPlacer(4, 4, 0, WoodBlockSets.RED_OAK.wood().getDefaultState(),
-                        WoodBlockSets.RED_OAK.woodWall().getDefaultState()),
-                BlockStateProvider.of(WoodBlockSets.RED_OAK.leaves()),
-                new OakFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3),
-
-                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
-
-        register(context, BLACK_OAK_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.BLACK_OAK.log()),
-                new OakTrunkPlacer(4, 4, 0, WoodBlockSets.BLACK_OAK.wood().getDefaultState(),
-                        WoodBlockSets.BLACK_OAK.woodWall().getDefaultState()),
-                BlockStateProvider.of(ModNatureBlocks.BLACK_OAK_LEAVES),
-                new OakFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3),
-                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
-
-        register(context, GREEN_OAK_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.GREEN_OAK.log()),
-                new OakTrunkPlacer(4, 4, 0, WoodBlockSets.GREEN_OAK.wood().getDefaultState(),
-                        WoodBlockSets.GREEN_OAK.woodWall().getDefaultState()),
-                BlockStateProvider.of(WoodBlockSets.GREEN_OAK.leaves()),
-                new OakFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3),
-
-                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
         register(context, LARCH_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.LARCH.log()),

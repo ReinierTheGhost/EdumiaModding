@@ -4,6 +4,7 @@ import com.legends.edumia.Edumia;
 import com.legends.edumia.world.worldgen.placed.BeachPlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.TreePlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.trees.SequoiaTreePlacedFeatures;
+import com.legends.edumia.world.worldgen.placed.trees.TropicalTreePlacedFeatures;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
@@ -23,9 +24,9 @@ public class SaplingConfiguredFeatures {
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context){
         RegistryEntryLookup<PlacedFeature> placed = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
-        RegistryEntry.Reference<PlacedFeature> palm = placed.getOrThrow(TreePlacedFeatures.PALM);
-        RegistryEntry.Reference<PlacedFeature> palm2 = placed.getOrThrow(TreePlacedFeatures.PALM2);
-        RegistryEntry.Reference<PlacedFeature> palm3 = placed.getOrThrow(TreePlacedFeatures.PALM3);
+        RegistryEntry.Reference<PlacedFeature> palm = placed.getOrThrow(TropicalTreePlacedFeatures.BIG_PARASOL_PALM);
+        RegistryEntry.Reference<PlacedFeature> palm2 = placed.getOrThrow(TropicalTreePlacedFeatures.SMALL_PARASOL_PALM);
+        RegistryEntry.Reference<PlacedFeature> palm3 = placed.getOrThrow(TropicalTreePlacedFeatures.RANDOM_PALM);
 
 
         register(context, PALM_TREES, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(

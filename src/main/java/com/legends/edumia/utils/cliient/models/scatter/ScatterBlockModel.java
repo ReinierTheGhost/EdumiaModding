@@ -6,11 +6,13 @@ import com.legends.edumia.utils.cliient.models.BlockModelQuadsHolder;
 import com.legends.edumia.utils.cliient.models.data.EmptyModelData;
 import com.legends.edumia.utils.cliient.models.data.IModelData;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.render.model.BakedQuad;
 import net.minecraft.client.render.model.BasicBakedModel;
 import net.minecraft.client.render.model.json.ModelOverrideList;
 import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.texture.Sprite;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockRenderView;
@@ -47,6 +49,10 @@ public class ScatterBlockModel extends BasicBakedModel {
         } else{
             throw new IllegalArgumentException("ScatterBlockModel can only take ScatterPositionContext model data or EmptyModelData, but " + extraData.getClass().getName() + " was supplied");
         }
+    }
+
+    public IModelData getModelData(BlockRenderView world, BlockPos pos, BlockState state, IModelData tileData){
+        return ScatterPositionContext.forPosition(world, pos, state);
     }
 
 

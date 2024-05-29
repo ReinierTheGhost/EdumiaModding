@@ -27,9 +27,6 @@ public class TreePlacedFeatures {
     public static final RegistryKey<PlacedFeature> BEECH_KEY = registerKey("tree/beech/beech_tree");
     public static final RegistryKey<PlacedFeature> BIG_BEECH_KEY = registerKey("tree/beech/big_beech_tree");
 
-    public static final RegistryKey<PlacedFeature> PALM = registerKey("tree/palm/palm");
-    public static final RegistryKey<PlacedFeature> PALM2 = registerKey("tree/palm/palm2");
-    public static final RegistryKey<PlacedFeature> PALM3 = registerKey("tree/palm/palm3");
 
 
     public static void boostrap(Registerable<PlacedFeature> context) {
@@ -42,14 +39,7 @@ public class TreePlacedFeatures {
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.1f, 1),
                         ModNatureBlocks.BEECH_SAPLING));
 
-        register(context, PALM, configuredFeatureRegistryEntryLookup.getOrThrow(TreeConfiguredFeatures.PALM),
-                List.of());
 
-        register(context, PALM2, configuredFeatureRegistryEntryLookup.getOrThrow(TreeConfiguredFeatures.PALM2),
-                List.of());
-
-        register(context, PALM3, configuredFeatureRegistryEntryLookup.getOrThrow(TreeConfiguredFeatures.PALM3),
-                List.of());
 
 
     }

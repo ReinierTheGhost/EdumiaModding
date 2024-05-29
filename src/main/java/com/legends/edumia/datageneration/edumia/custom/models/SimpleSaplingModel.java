@@ -11,6 +11,7 @@ public class SimpleSaplingModel {
     public static List<Block> blocks = new ArrayList<>() {
         {
             add(ModNatureBlocks.APPLE_SAPLING);
+            add(ModNatureBlocks.BANANA_SAPLING);
             add(ModNatureBlocks.TEST_SAPLING);
             add(ModNatureBlocks.ASPEN_SAPLING);
             add(ModNatureBlocks.BEECH_SAPLING);
@@ -18,6 +19,7 @@ public class SimpleSaplingModel {
             add(ModNatureBlocks.BLACK_OAK_SAPLING);
             add(ModNatureBlocks.CHERRY_SAPLING);
             add(ModNatureBlocks.MAPLE_SAPLING);
+            add(ModNatureBlocks.MANGO_SAPLING);
             add(ModNatureBlocks.PEAR_SAPLING);
             add(ModNatureBlocks.CEDAR_SAPLING);
             add(ModNatureBlocks.CYPRESS_SAPLING);

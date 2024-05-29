@@ -15,6 +15,7 @@ public class WoodBlockSets {
     public static final float LEAVES_STRENGTH = 0.1f;
 
     public static SimpleBlockSet APPLE = registerWoodSet("apple", WOOD_STRENGTH, true);
+    public static SimpleBlockSet BANANA = registerWoodSet("banana", WOOD_STRENGTH, true);
     public static SimpleBlockSet ASPEN = registerWoodSet("aspen", WOOD_STRENGTH, true);
     public static SimpleBlockSet BEECH = registerWoodSet("beech", WOOD_STRENGTH, true);
     public static SimpleBlockSet BLACKTHORN = registerWoodSet("blackthorn", WOOD_STRENGTH, true);
@@ -26,6 +27,7 @@ public class WoodBlockSets {
     public static SimpleBlockSet GREEN_OAK = registerWoodSet("green_oak", WOOD_STRENGTH, true);
     public static SimpleBlockSet HOLLY = registerWoodSet("holly", WOOD_STRENGTH, false);
     public static SimpleBlockSet LARCH = registerWoodSet("larch", WOOD_STRENGTH, true);
+    public static SimpleBlockSet MANGO = registerWoodSet("mango", WOOD_STRENGTH, true);
     public static SimpleBlockSet MAPLE = registerWoodSet("maple", WOOD_STRENGTH, false);
     public static SimpleBlockSet PEAR = registerWoodSet("pear", WOOD_STRENGTH, true);
     public static SimpleBlockSet PINE = registerWoodSet("pine", WOOD_STRENGTH, true);
@@ -53,28 +55,30 @@ public class WoodBlockSets {
     public static SimpleBlockSet[] sets = new SimpleBlockSet[] {
             APPLE,
             ASPEN,
+            BANANA,
             BEECH,
+            BLACK_OAK,
             BLACKTHORN,
             CEDAR,
             CHERRY,
             CYPRESS,
+            CHARRED,
             DRAGON_BLOOD,
             FIR,
             GHOST_GUM,
             GREEN_OAK,
             HOLLY,
             LARCH,
+            MAHOGANY,
+            MANGO,
             MAPLE,
+            PALM,
             PEAR,
             PINE,
             RED_OAK,
             REDWOOD,
             SILVER_SPRUCE,
             WHITE_ASH,
-            PALM,
-            MAHOGANY,
-            CHARRED,
-            BLACK_OAK,
             WILLOW
 
     };

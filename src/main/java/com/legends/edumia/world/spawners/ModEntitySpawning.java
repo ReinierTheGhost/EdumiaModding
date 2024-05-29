@@ -13,7 +13,7 @@ public class ModEntitySpawning {
 
     public static void addSpawns() {
 
-        spawns.put(EdumiaBiomeKeys.BEACH, List.of(new EntitySpawningSettings(ModEntities.CRAB, 1, 3)));
+        //spawns.put(EdumiaBiomeKeys.BEACH, List.of(new EntitySpawningSettings(ModEntities.CRAB, 1, 3)));
     }
 
     public static List<EntitySpawningSettings> getSpawnsAt(RegistryKey<Biome> biomeRegistryKey) {

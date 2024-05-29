@@ -7,6 +7,7 @@ import com.legends.edumia.world.worldgen.configured.ocean.ReefConfiguredFeatures
 import com.legends.edumia.world.worldgen.configured.trees.BeechTreeConfiguredFeatures;
 import com.legends.edumia.world.worldgen.configured.trees.OakTreeConfiguredFeatures;
 import com.legends.edumia.world.worldgen.configured.trees.SaplingConfiguredFeatures;
+import com.legends.edumia.world.worldgen.configured.trees.TropicalTreeConfiguredFeatures;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -28,6 +29,7 @@ public class ModConfiguredFeatures {
         OakTreeConfiguredFeatures.bootstrap(context);
         RockConfiguredFeatures.bootstrap(context);
         FlowerConfiguredFeatures.bootstrap(context);
+        TropicalTreeConfiguredFeatures.bootstrap(context);
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name){

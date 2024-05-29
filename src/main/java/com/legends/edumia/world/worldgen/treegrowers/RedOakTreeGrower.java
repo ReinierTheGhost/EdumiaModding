@@ -1,6 +1,7 @@
 package com.legends.edumia.world.worldgen.treegrowers;
 
 import com.legends.edumia.world.worldgen.configured.TreeConfiguredFeatures;
+import com.legends.edumia.world.worldgen.configured.trees.OakTreeConfiguredFeatures;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.math.random.Random;
@@ -11,6 +12,6 @@ public class RedOakTreeGrower extends SaplingGenerator {
     @Nullable
     @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {
-        return TreeConfiguredFeatures.RED_OAK_KEY;
+        return OakTreeConfiguredFeatures.RED_OAK_KEY;
     }
 }

@@ -43,6 +43,8 @@ public class ModNatureBlocks {
             new SaplingBlock(new TestTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
     public static final Block APPLE_SAPLING = registerPlantBlock("apple_sapling",
             new SaplingBlock(new AppleTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
+    public static final Block BANANA_SAPLING = registerPlantBlock("banana_sapling",
+            new SaplingBlock(new AppleTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
 
     public static final Block ASPEN_SAPLING = registerPlantBlock("aspen_sapling",
             new SaplingBlock(new AspenTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
@@ -92,6 +94,8 @@ public class ModNatureBlocks {
             new SaplingBlock(new MahoganyTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
     public static final Block MAPLE_SAPLING = registerPlantBlock("maple_sapling",
             new SaplingBlock(null, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
+    public static final Block MANGO_SAPLING = registerPlantBlock("mango_sapling",
+            new SaplingBlock(new MangoTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
 
 
     public static final Block PEAR_SAPLING = registerPlantBlock("pear_sapling",

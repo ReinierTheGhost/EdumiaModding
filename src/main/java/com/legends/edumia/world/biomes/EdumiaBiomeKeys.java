@@ -7,6 +7,7 @@ import com.legends.edumia.world.worldgen.placed.FlowerPlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.RockPlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.TreePlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.ocean.ReefPlacedFeatures;
+import com.legends.edumia.world.worldgen.placed.trees.TropicalTreePlacedFeatures;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -371,6 +372,9 @@ public class EdumiaBiomeKeys extends BiomeKeys {
         biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD);
         biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD_LOWER);
         biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COPPER);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.BAMBOO_LIGHT);
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, TropicalTreePlacedFeatures.GENSAI_JUNGLE_TREES);
 
         biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
 

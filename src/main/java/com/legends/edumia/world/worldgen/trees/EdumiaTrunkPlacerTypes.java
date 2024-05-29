@@ -74,6 +74,8 @@ public class EdumiaTrunkPlacerTypes {
             SpruceTrunkPlacer.CODEC);
     public static final TrunkPlacerType<?> TINY_TREE_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("tiny_tree_trunk_placer",
             TinyTreeTrunk.CODEC);
+    public static final TrunkPlacerType<?> BIRCH_TREE_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("birch_tree_trunk_placer",
+            BirchTrunkPlacer.CODEC);
 
     public static void register() {
         Edumia.LOGGER.info("Registering Trunk Placers for " + Edumia.MOD_ID);

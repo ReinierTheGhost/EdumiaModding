@@ -69,14 +69,16 @@ dependencies {
 
 	}
 
-// actual dependencies for Create
+// actual dependencies for Mod
 	def dependencies(DependencyHandler deps) {
 
 		for (String module in port_lib_modules.split(",")) {
-			(deps.include("io.github.fabricators_of_create.Porting-Lib:$module:$port_lib_version"))
+			deps.modApi(deps.include("io.github.fabricators_of_create.Porting-Lib:$module:$port_lib_version"))
 		}
 
-
+		deps.modApi(deps.include( "curse.maven:chipped-456956:$chipped_version"))
+		deps.modApi(deps.include( "curse.maven:athena-841890:$athena_version"))
+		deps.modApi(deps.include( "curse.maven:resourceful-lib-570073:$resourceful_version"))
 
 		deps.modApi(deps.include("curse.maven:forge-config-api-port-fabric-547434:$config_api_id"))
 		deps.modApi(deps.include("com.jozufozu.flywheel:flywheel-fabric-$flywheel_minecraft_version:$flywheel_version"))

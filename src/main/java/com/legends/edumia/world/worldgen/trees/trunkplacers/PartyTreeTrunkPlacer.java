@@ -164,6 +164,8 @@ public class PartyTreeTrunkPlacer extends ExtendedTrunkPlacer {
         return foliage;
     }
 
+
+
     private BlockPos getOffsetCentrePos(BlockPos basePos, int trunkHeightHere, float trunkPitch, float trunkYaw) {
         float upFrac = MathHelper.sin(trunkPitch) * trunkHeightHere;
         float outFrac = MathHelper.cos(trunkPitch) * trunkHeightHere;

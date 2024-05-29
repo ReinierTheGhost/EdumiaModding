@@ -72,7 +72,7 @@ public class CrabEntity extends AnimalEntity {
 
     @Nullable
     public CrabEntity createChild(ServerWorld serverWorld, PassiveEntity passiveEntity) {
-        return (CrabEntity) ModEntities.CRAB.create(serverWorld);
+        return  null;//(CrabEntity) ModEntities.CRAB.create(serverWorld);
     }
 
     public boolean isBreedingItem(ItemStack stack) {

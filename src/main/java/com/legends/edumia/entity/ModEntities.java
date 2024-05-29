@@ -20,7 +20,7 @@ public class ModEntities {
         public static final EntityType<SpearEntity> SPEAR = registerEntity("spear", SpearEntity::new, SpawnGroup.MISC, 0.5F, 0.5F);
 
     ///* Animals *///
-    public static final EntityType<CrabEntity> CRAB = registerEntity("crab", CrabEntity::new, SpawnGroup.CREATURE, 0.4f, 0.4f);
+    //public static final EntityType<CrabEntity> CRAB = registerEntity("crab", CrabEntity::new, SpawnGroup.CREATURE, 0.4f, 0.4f);
 
 
     public static <T extends Entity> EntityType<T> registerEntity(String name, EntityType.EntityFactory<T> entity, SpawnGroup spawnGroup,
@@ -32,7 +32,7 @@ public class ModEntities {
     public static void registerModEntities() {
 
         // Animals
-        FabricDefaultAttributeRegistry.register(CRAB, CrabEntity.createCrabAttributes());
+        //FabricDefaultAttributeRegistry.register(CRAB, CrabEntity.createCrabAttributes());
 
         Edumia.LOGGER.debug("Registering Mod Entities for " + Edumia.MOD_ID);
     }
