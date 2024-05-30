@@ -5,7 +5,6 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import com.legends.edumia.Edumia;
 
-import com.legends.edumia.entity.crab.CrabModel;
 
 import net.minecraft.client.model.Dilation;
 import net.minecraft.client.model.TexturedModelData;
@@ -17,7 +16,7 @@ public final class ModEntityModelLayers {
     private static final String MAIN = "main";
 
     // Animals
-    public static final EntityModelLayer CRAB = ModEntityModelLayers.registerEntityModelLayer("crab", CrabModel.getTexturedModelData());
+
 
 
     /**

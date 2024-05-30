@@ -2,23 +2,24 @@ package com.legends.edumia.world.worldgen;
 
 import com.legends.edumia.Edumia;
 import com.legends.edumia.world.worldgen.configured.*;
+import com.legends.edumia.world.worldgen.configured.OreConfiguredFeatures;
+import com.legends.edumia.world.worldgen.configured.TreeConfiguredFeatures;
 import com.legends.edumia.world.worldgen.configured.beach.BeachConfiguredFeatures;
 import com.legends.edumia.world.worldgen.configured.ocean.ReefConfiguredFeatures;
-import com.legends.edumia.world.worldgen.configured.trees.BeechTreeConfiguredFeatures;
-import com.legends.edumia.world.worldgen.configured.trees.OakTreeConfiguredFeatures;
-import com.legends.edumia.world.worldgen.configured.trees.SaplingConfiguredFeatures;
-import com.legends.edumia.world.worldgen.configured.trees.TropicalTreeConfiguredFeatures;
+import com.legends.edumia.world.worldgen.configured.trees.*;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureConfig;
+import net.minecraft.world.gen.feature.*;
 
 public class ModConfiguredFeatures {
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NOTING = registerKey("noting");
 
     public static void boostrap(Registerable<ConfiguredFeature<?, ?>> context){
+
+        register(context, NOTING, Feature.NO_OP, new DefaultFeatureConfig());
+
         BeechTreeConfiguredFeatures.bootstrap(context);
         TreeConfiguredFeatures.bootstrap(context);
         SaplingConfiguredFeatures.bootstrap(context);
@@ -30,6 +31,8 @@ public class ModConfiguredFeatures {
         RockConfiguredFeatures.bootstrap(context);
         FlowerConfiguredFeatures.bootstrap(context);
         TropicalTreeConfiguredFeatures.bootstrap(context);
+        TemperateTreeConfiguredFeatures.bootstrap(context);
+        BorealTreeConfiguredFeatures.bootstrap(context);
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name){

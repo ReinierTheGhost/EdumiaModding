@@ -14,6 +14,6 @@ public class TestTreeGrower  extends SaplingGenerator {
     @Nullable
     @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {
-        return TreeConfiguredFeatures.TEST_KEY;
+        return TemperateTreeConfiguredFeatures.SAKURA_TREE_BIG;
     }
 }

@@ -7,6 +7,7 @@ import com.legends.edumia.world.worldgen.placed.FlowerPlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.RockPlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.TreePlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.ocean.ReefPlacedFeatures;
+import com.legends.edumia.world.worldgen.placed.trees.TemperateTreePlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.trees.TropicalTreePlacedFeatures;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -29,6 +30,7 @@ public class EdumiaBiomeKeys extends BiomeKeys {
     public static final RegistryKey<Biome> EDUMIA_RIVER = EdumiaBiomeKeys.register("edumia_river");
     public static final RegistryKey<Biome> TAIGA_FOREST = EdumiaBiomeKeys.register("taiga_forest");
     public static final RegistryKey<Biome> GENSAI_JUNGLE = EdumiaBiomeKeys.register("gensai_jungle");
+    public static final RegistryKey<Biome> GENSAI_SAKURA_GROVE = EdumiaBiomeKeys.register("gensai_sakura_grove");
     public static final RegistryKey<Biome> GENSAI_BEACH = EdumiaBiomeKeys.register("gensai_beach");
     public static final RegistryKey<Biome> GENSAI_REEF = EdumiaBiomeKeys.register("gensai_reef");
     public static final RegistryKey<Biome> MILLPOND = EdumiaBiomeKeys.register("millpond");
@@ -47,9 +49,57 @@ public class EdumiaBiomeKeys extends BiomeKeys {
         context.register(GENSAI_BEACH, gensai_beach(context));
         context.register(GENSAI_REEF, gensai_reef(context));
         context.register(AVELION_MOUNTAINS, avelion_mountains(context));
-
+        context.register(GENSAI_SAKURA_GROVE, gensai_sakura(context));
     }
 
+    public static Biome gensai_sakura(Registerable<Biome> context) {
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
+
+        GenerationSettings.LookupBackedBuilder biomeBuilder =
+                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
+                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
+
+        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
+        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
+        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
+
+        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.LAKE_LAVA_UNDERGROUND);
+
+        biomeBuilder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, UndergroundPlacedFeatures.AMETHYST_GEODE);
+        DefaultBiomeFeatures.addMineables(biomeBuilder);
+
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_UPPER);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_LOWER);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_UPPER);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_MIDDLE);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_SMALL);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD_LOWER);
+        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COPPER);
+
+        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, TemperateTreePlacedFeatures.GENSAI_SAKURA_GROVE_TREES);
+
+        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
+
+        DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
+
+        return new Biome.Builder()
+                .precipitation(true)
+                .downfall(0.4f)
+                .temperature(0.8f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(4159204)
+                        .waterFogColor(329011)
+                        .skyColor(8827134)
+                        .grassColor(7200640)
+//                        .foliageColor(0xd203fc)
+                        .fogColor(12771327)
+                        .moodSound(BiomeMoodSound.CAVE).build())
+                .build();
+    }
     public static Biome gensai_reef(Registerable<Biome> context) {
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
         DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);

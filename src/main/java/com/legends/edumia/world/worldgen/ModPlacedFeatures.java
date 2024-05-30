@@ -3,6 +3,7 @@ package com.legends.edumia.world.worldgen;
 import com.legends.edumia.Edumia;
 import com.legends.edumia.world.worldgen.placed.*;
 import com.legends.edumia.world.worldgen.placed.ocean.ReefPlacedFeatures;
+import com.legends.edumia.world.worldgen.placed.trees.TemperateTreePlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.trees.TropicalTreePlacedFeatures;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -16,8 +17,14 @@ import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 import java.util.List;
 
 public class ModPlacedFeatures {
+    public static final RegistryKey<PlacedFeature> NOTING = registerKey("noting");
 
     public static void boostrap(Registerable<PlacedFeature> context) {
+        var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
+
+        register(context, NOTING, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NOTING),
+                List.of());
+
         OrePlacedFeatures.boostrap(context);
         TreePlacedFeatures.boostrap(context);
         BeachPlacedFeatures.boostrap(context);
@@ -25,6 +32,7 @@ public class ModPlacedFeatures {
         RockPlacedFeatures.boostrap(context);
         FlowerPlacedFeatures.boostrap(context);
         TropicalTreePlacedFeatures.boostrap(context);
+        TemperateTreePlacedFeatures.boostrap(context);
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

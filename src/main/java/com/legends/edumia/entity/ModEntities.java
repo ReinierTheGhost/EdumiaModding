@@ -3,7 +3,6 @@ package com.legends.edumia.entity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import com.legends.edumia.Edumia;
-import com.legends.edumia.entity.crab.CrabEntity;
 
 import com.legends.edumia.entity.spear.SpearEntity;
 
@@ -19,8 +18,6 @@ public class ModEntities {
 
         public static final EntityType<SpearEntity> SPEAR = registerEntity("spear", SpearEntity::new, SpawnGroup.MISC, 0.5F, 0.5F);
 
-    ///* Animals *///
-    //public static final EntityType<CrabEntity> CRAB = registerEntity("crab", CrabEntity::new, SpawnGroup.CREATURE, 0.4f, 0.4f);
 
 
     public static <T extends Entity> EntityType<T> registerEntity(String name, EntityType.EntityFactory<T> entity, SpawnGroup spawnGroup,

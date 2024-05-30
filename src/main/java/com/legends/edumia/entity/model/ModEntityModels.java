@@ -3,7 +3,6 @@ package com.legends.edumia.entity.model;
 import com.google.common.collect.ImmutableMap;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import com.legends.edumia.entity.crab.CrabModel;
 
 import net.minecraft.client.model.Dilation;
 import net.minecraft.client.model.TexturedModelData;
@@ -18,8 +17,7 @@ public class ModEntityModels {
 
 
 
-        // Animals
-        builder.put(ModEntityModelLayers.CRAB, CrabModel.getTexturedModelData());
+
 
         ImmutableMap<EntityModelLayer, TexturedModelData> immutableMap = builder.build();
         return immutableMap;

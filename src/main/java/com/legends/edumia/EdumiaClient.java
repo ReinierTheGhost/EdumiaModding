@@ -12,7 +12,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import com.legends.edumia.datageneration.me.VariantsModelProvider;
 import com.legends.edumia.entity.ModEntities;
-import com.legends.edumia.entity.crab.CrabRenderer;
 import com.legends.edumia.entity.model.ModEntityModels;
 import com.legends.edumia.entity.spear.JavelinEntityRenderer;
 import net.minecraft.block.Block;

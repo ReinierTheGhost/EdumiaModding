@@ -693,8 +693,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ItemLoader.RAMEN, Models.GENERATED);
         itemModelGenerator.register(ItemLoader.RED_GRAPES, Models.GENERATED);
         itemModelGenerator.register(ItemLoader.RICE, Models.GENERATED);
-
-
+        itemModelGenerator.register(ItemLoader.BANANA, Models.GENERATED);
+        itemModelGenerator.register(ItemLoader.BANANA_BREAD, Models.GENERATED);
+        itemModelGenerator.register(ItemLoader.MANGO, Models.GENERATED);
+        itemModelGenerator.register(ItemLoader.DATE, Models.GENERATED);
 
 
 

@@ -11,6 +11,11 @@ public class MangoTreeGrower  extends SaplingGenerator {
     @Nullable
     @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {
-        return TropicalTreeConfiguredFeatures.MANGO;
+        if (random.nextInt(3) == 0){
+            return TropicalTreeConfiguredFeatures.MANGO;
+        }else {
+            return TropicalTreeConfiguredFeatures.MANGO_TWO;
+        }
+
     }
 }

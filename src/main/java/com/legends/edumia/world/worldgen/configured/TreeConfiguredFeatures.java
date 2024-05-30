@@ -38,26 +38,15 @@ public class TreeConfiguredFeatures {
 
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> APPLE_KEY = registerKey("tree/apple_tree");
-
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ASPEN_KEY = registerKey("tree/aspen/aspen_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ASPEN_2_KEY = registerKey("tree/aspen/aspen_2_tree");
-
-    public static final RegistryKey<ConfiguredFeature<?, ?>> BIRCH = registerKey("tree/birch/birch");
-
-    public static final RegistryKey<ConfiguredFeature<?, ?>> CEDER_KEY = registerKey("tree/ceder_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> LARGE_CEDER_KEY = registerKey("tree/large_ceder_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TEST_KEY = registerKey("tree/test/test_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TEST2_KEY = registerKey("tree/test/test2_tree");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> GHOST_GUM_KEY = registerKey("tree/ghost_gum_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GHOST_GUM_BEES_KEY = registerKey("tree/ghost_gum_bees_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> WHITE_ASH_KEY = registerKey("tree/white_ash_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> CYPRESS_KEY = registerKey("tree/cypress_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FIR_KEY = registerKey("tree/fir_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> HOLLY_KEY = registerKey("tree/holly_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> SILVER_SPRUCE_KEY = registerKey("tree/silver_spruce_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> LARCH_KEY = registerKey("tree/larch/larch_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> BIG_LARCH_KEY = registerKey("tree/larch/big_larch_tree");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> PINE_KEY = registerKey("tree/pine_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> REDWOOD_KEY = registerKey("tree/redwood_tree");
@@ -117,22 +106,7 @@ public class TreeConfiguredFeatures {
                 new TwoLayersFeatureSize(1, 0, 1)).ignoreVines()
                 .decorators(Collections.singletonList(new PineBranchDecorator(WoodBlockSets.PINE.log().getDefaultState(), 0.75f))).build());
 
-        register(context, LARCH_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.LARCH.log()),
-                new StraightTrunkPlacer(8, 8, 0),
-                BlockStateProvider.of(WoodBlockSets.LARCH.leaves()),
-                new SpruceFoliagePlacer(UniformIntProvider.create(2, 3), ConstantIntProvider.create(1), UniformIntProvider.create(1, 3)),
 
-                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
-
-        register(context, BIG_LARCH_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.LARCH.log()),
-                new StraightTrunkPlacer(8, 4, 13),
-                BlockStateProvider.of(WoodBlockSets.LARCH.leaves()),
-                new MegaPineFoliagePlacer(BiasedToBottomIntProvider.create(1, 1), UniformIntProvider.create(1, 3), UniformIntProvider.create(12, 22)),
-
-                new TwoLayersFeatureSize(1, 0, 1, OptionalInt.of(0)))
-                .dirtProvider(BlockStateProvider.of(Blocks.COARSE_DIRT)).ignoreVines().forceDirt().build());
 
         register(context, SILVER_SPRUCE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.SILVER_SPRUCE.log()),
@@ -156,33 +130,10 @@ public class TreeConfiguredFeatures {
                 new FirFoliagePlacer(UniformIntProvider.create(2, 3), ConstantIntProvider.create(2), UniformIntProvider.create(7, 11)),
                 new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
-        register(context, CYPRESS_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.CYPRESS.log()),
-                new StraightTrunkPlacer(8, 5, 0),
-                BlockStateProvider.of(WoodBlockSets.CYPRESS.leaves()),
-                new CypressFoliagePlacer(UniformIntProvider.create(1, 2), ConstantIntProvider.create(1), UniformIntProvider.create(1, 3)),
-                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
 
-        register(context, LARGE_CEDER_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.CEDAR.log()),
-                new CederTrunkPlacer(15, 15, 0, WoodBlockSets.CEDAR.wood().getDefaultState(),
-                        WoodBlockSets.CEDAR.woodWall().getDefaultState()),
 
-                BlockStateProvider.of(WoodBlockSets.CEDAR.leaves()),
-                new CederFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
 
-                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
-
-        register(context, CEDER_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.CEDAR.log()),
-                new CederTrunkPlacer(10, 6, 0, WoodBlockSets.CEDAR.wood().getDefaultState(),
-                        WoodBlockSets.CEDAR.woodWall().getDefaultState()),
-
-                BlockStateProvider.of(WoodBlockSets.CEDAR.leaves()),
-                new CederFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
-
-                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
         register(context, WHITE_ASH_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.WHITE_ASH.log()),
@@ -193,27 +144,6 @@ public class TreeConfiguredFeatures {
                 new BoughsFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(0), 3),
 
                 new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
-
-
-        register(context, ASPEN_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.ASPEN.log()),
-                new StraightTrunkPlacer(8, 7, 0),
-
-                BlockStateProvider.of(WoodBlockSets.ASPEN.leaves()),
-                new AspenFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(2), ConstantIntProvider.create(2)),
-
-                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
-
-        register(context, ASPEN_2_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.ASPEN.log()),
-                new StraightTrunkPlacer(4, 3, 6),
-
-                new WeightedBlockStateProvider(DataPool.<BlockState>builder().add(WoodBlockSets.ASPEN.leaves().getDefaultState(), 4)
-                        .add(Blocks.AIR.getDefaultState(), 1)),
-                new PineFoliagePlacer(UniformIntProvider.create(2, 3), ConstantIntProvider.create(1), ConstantIntProvider.create(3)),
-
-                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
-
 
 
         register(context, APPLE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(

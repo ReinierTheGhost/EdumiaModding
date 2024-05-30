@@ -17,6 +17,8 @@ public class EdumiaFoodComponent {
     public static final FoodComponent RAMEN = new FoodComponent.Builder().hunger(8).build();
     public static final FoodComponent PAPRIKA = new FoodComponent.Builder().hunger(3).build();
     public static final FoodComponent BROCCOLI = new FoodComponent.Builder().hunger(3).build();
-
-
+    public static final FoodComponent BANANA = new FoodComponent.Builder().hunger(2).saturationModifier(2f).build();
+    public static final FoodComponent BANANA_BREAD = new FoodComponent.Builder().hunger(5).saturationModifier(6f).build();
+    public static final FoodComponent MANGO = new FoodComponent.Builder().hunger(4).saturationModifier(2.4F).build();
+    public static final FoodComponent DATE = new FoodComponent.Builder().hunger(2).saturationModifier(1.2f).build();
 }

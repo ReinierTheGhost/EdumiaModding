@@ -1,6 +1,6 @@
 package com.legends.edumia.world.worldgen.treegrowers;
 
-import com.legends.edumia.world.worldgen.configured.TreeConfiguredFeatures;
+import com.legends.edumia.world.worldgen.configured.trees.TemperateTreeConfiguredFeatures;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.math.random.Random;
@@ -11,6 +11,6 @@ public class CypressTreeGrower extends SaplingGenerator {
     @Nullable
     @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {
-        return TreeConfiguredFeatures.CYPRESS_KEY;
+        return TemperateTreeConfiguredFeatures.CYPRESS_KEY;
     }
 }

@@ -189,6 +189,10 @@ public class CreativeTabLoader {
                 entries.add(ItemLoader.CHEESE);
 
                 entries.add(ItemLoader.LETTUCE);
+                entries.add(ItemLoader.BANANA);
+                entries.add(ItemLoader.BANANA_BREAD);
+                entries.add(ItemLoader.MANGO);
+                entries.add(ItemLoader.DATE);
 
 
             }).build();

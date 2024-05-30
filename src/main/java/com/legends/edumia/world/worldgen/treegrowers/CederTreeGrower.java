@@ -1,6 +1,7 @@
 package com.legends.edumia.world.worldgen.treegrowers;
 
 import com.legends.edumia.world.worldgen.configured.TreeConfiguredFeatures;
+import com.legends.edumia.world.worldgen.configured.trees.TemperateTreeConfiguredFeatures;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.math.random.Random;
@@ -11,6 +12,11 @@ public class CederTreeGrower extends SaplingGenerator {
     @Nullable
     @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {
-        return TreeConfiguredFeatures.LARGE_CEDER_KEY;
+        if (random.nextInt(4) == 0){
+            return TemperateTreeConfiguredFeatures.LARGE_CEDER_KEY;
+        }else {
+            return TemperateTreeConfiguredFeatures.CEDER_KEY;
+        }
+
     }
 }

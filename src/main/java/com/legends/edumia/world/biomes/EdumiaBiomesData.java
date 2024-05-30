@@ -57,7 +57,8 @@ public class EdumiaBiomesData {
         addBiome(new Color(129, 129, 129), new EdumiaBiome(41, EdumiaBiomeKeys.EDUMIA_MOUNTAINS, Blocks.SNOW_BLOCK, Blocks.STONE, Blocks.STONE, Blocks.STONE));
         addBiome(new Color(83, 129, 186), new EdumiaBiome(-22, EdumiaBiomeKeys.EDUMIA_RIVER, Blocks.SAND, Blocks.STONE, Blocks.STONE, Blocks.STONE));
         addBiome(new Color(121, 186, 111), new EdumiaBiome(4, EdumiaBiomeKeys.TAIGA_FOREST, Blocks.GRASS_BLOCK, Blocks.DIRT, Blocks.STONE, Blocks.STONE));
-        addBiome(new Color(48, 109, 42), new EdumiaBiome(5, EdumiaBiomeKeys.GENSAI_JUNGLE, Blocks.GRASS_BLOCK, Blocks.DIRT, Blocks.STONE, Blocks.STONE));
+        addBiome(new Color(48, 109, 42), new EdumiaBiome(4.5f, EdumiaBiomeKeys.GENSAI_JUNGLE, Blocks.GRASS_BLOCK, Blocks.DIRT, Blocks.STONE, Blocks.STONE));
+        addBiome(new Color(92, 42, 109), new EdumiaBiome(4, EdumiaBiomeKeys.GENSAI_SAKURA_GROVE, Blocks.GRASS_BLOCK, Blocks.DIRT, Blocks.STONE, Blocks.STONE));
         addBiome(new Color(234, 222, 117), new EdumiaBiome(3, EdumiaBiomeKeys.GENSAI_BEACH, BlockLoader.WHITE_SAND, BlockLoader.WHITE_SAND, Blocks.STONE, Blocks.STONE));
         addBiome(new Color(255, 0, 110), new EdumiaBiome(-6, EdumiaBiomeKeys.GENSAI_REEF, StoneSets.CHALK.block(), StoneSets.CHALK.block(), Blocks.STONE, Blocks.STONE));
 

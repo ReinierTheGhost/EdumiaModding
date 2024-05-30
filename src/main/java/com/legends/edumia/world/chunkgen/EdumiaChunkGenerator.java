@@ -63,7 +63,8 @@ public class EdumiaChunkGenerator extends ChunkGenerator {
                         biomeRegistry.getOrThrow(EdumiaBiomeKeys.TAIGA_FOREST),
                         biomeRegistry.getOrThrow(EdumiaBiomeKeys.GENSAI_JUNGLE),
                         biomeRegistry.getOrThrow(EdumiaBiomeKeys.GENSAI_BEACH),
-                        biomeRegistry.getOrThrow(EdumiaBiomeKeys.GENSAI_REEF)
+                        biomeRegistry.getOrThrow(EdumiaBiomeKeys.GENSAI_REEF),
+                        biomeRegistry.getOrThrow(EdumiaBiomeKeys.GENSAI_SAKURA_GROVE)
                 ))
             )
         );

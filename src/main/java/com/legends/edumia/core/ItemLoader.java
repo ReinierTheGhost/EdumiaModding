@@ -156,6 +156,14 @@ public class ItemLoader {
             new Item(new FabricItemSettings().food(EdumiaFoodComponent.CHEESE)));
     public static final Item LETTUCE = registerItem("lettuce",
             new Item(new FabricItemSettings().food(EdumiaFoodComponent.LETTUCE)));
+    public static final Item BANANA = registerItem("banana",
+            new Item(new FabricItemSettings().food(EdumiaFoodComponent.BANANA)));
+    public static final Item BANANA_BREAD = registerItem("banana_bread",
+            new Item(new FabricItemSettings().food(EdumiaFoodComponent.BANANA_BREAD)));
+    public static final Item MANGO = registerItem("mango",
+            new Item(new FabricItemSettings().food(EdumiaFoodComponent.MANGO)));
+    public static final Item DATE = registerItem("date",
+            new Item(new FabricItemSettings().food(EdumiaFoodComponent.DATE)));
 
 
 
