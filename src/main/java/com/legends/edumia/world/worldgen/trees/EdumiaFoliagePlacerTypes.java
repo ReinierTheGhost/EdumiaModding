@@ -92,6 +92,8 @@ public class EdumiaFoliagePlacerTypes {
     public static final FoliagePlacerType<?> COLOSSAL_PALM_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("colossal_palm_foliage_placer",
             ColossalPalmFoliagePlacer.CODEC);
 
+    public static final FoliagePlacerType<?> TROPICAL_FRUIT_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("tropical_fruit_foliage_placer",
+            TropicalFruitFoliagePlacer.CODEC);
     public static void register() {
         Edumia.LOGGER.info("Registering Foliage Placer for " + Edumia.MOD_ID);
     }

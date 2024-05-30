@@ -54,6 +54,7 @@ public class TropicalTreeConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> BANANA = registerKey("banana");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> MANGO = registerKey("mango");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> MANGO_TWO = registerKey("mango_two");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> GENSAI_JUNGLE_TREES = registerKey("gensai_jungle_trees");
 
@@ -82,6 +83,8 @@ public class TropicalTreeConfiguredFeatures {
 
         RegistryEntry.Reference<PlacedFeature> banana = registryEntryLookup.getOrThrow(TropicalTreePlacedFeatures.BANANA);
 
+        RegistryEntry.Reference<PlacedFeature> mango = registryEntryLookup.getOrThrow(TropicalTreePlacedFeatures.MANGO);
+        RegistryEntry.Reference<PlacedFeature> mango_two = registryEntryLookup.getOrThrow(TropicalTreePlacedFeatures.MANGO_TWO);
 
 
 
@@ -232,9 +235,16 @@ public class TropicalTreeConfiguredFeatures {
 
         register(context, MANGO, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.MANGO.log()),
-                new ForkingTrunkPlacer(5, 3, 2),
+                new StraightTrunkPlacer(4, 2, 0),
                 BlockStateProvider.of(WoodBlockSets.MANGO.leaves()),
-                new BoughsFoliagePlacer(UniformIntProvider.create(2, 4), ConstantIntProvider.create(0), 3),
+                new TropicalFruitFoliagePlacer(),
+                new TwoLayersFeatureSize(0, 1, 0)).build());
+
+        register(context, MANGO_TWO, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(WoodBlockSets.MANGO.log()),
+                new DesertTrunkPlacer(4, 2, 0, WoodBlockSets.MANGO.wood().getDefaultState()),
+                BlockStateProvider.of(WoodBlockSets.MANGO.leaves()),
+                new DesertFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 2),
                 new TwoLayersFeatureSize(0, 1, 0)).build());
 
 
@@ -246,7 +256,8 @@ public class TropicalTreeConfiguredFeatures {
                 new RandomFeatureEntry(mahogany, 0.08f), new RandomFeatureEntry(banana, 0.09f),
                 new RandomFeatureEntry(big_parasol, 0.03f), new RandomFeatureEntry(small_parasol, 0.07f),
                 new RandomFeatureEntry(random_palm, 0.04f), new RandomFeatureEntry(coconut_palm, 0.04f),
-                new RandomFeatureEntry(papaya_palm, 0.04f)), jungle_bush));
+                new RandomFeatureEntry(papaya_palm, 0.04f), new RandomFeatureEntry(mango, 0.05F),
+                new RandomFeatureEntry(mango_two, 0.09f)), jungle_bush));
 
     }
 

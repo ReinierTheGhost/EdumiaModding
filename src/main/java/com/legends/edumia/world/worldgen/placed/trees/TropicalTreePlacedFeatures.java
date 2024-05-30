@@ -43,6 +43,8 @@ public class TropicalTreePlacedFeatures {
 
 
     public static final RegistryKey<PlacedFeature> BANANA = registerKey("banana");
+    public static final RegistryKey<PlacedFeature> MANGO = registerKey("mango");
+    public static final RegistryKey<PlacedFeature> MANGO_TWO = registerKey("mango_two");
     public static final RegistryKey<PlacedFeature> COCONUT_PALM = registerKey("coconut_palm");
     public static final RegistryKey<PlacedFeature> PAPAYA_PALM = registerKey("papaya_palm");
 
@@ -99,6 +101,14 @@ public class TropicalTreePlacedFeatures {
 
         register(context, BANANA,
                 configuredFeatureRegistryEntryLookup.getOrThrow(TropicalTreeConfiguredFeatures.BANANA),
+                List.of());
+
+        register(context, MANGO,
+                configuredFeatureRegistryEntryLookup.getOrThrow(TropicalTreeConfiguredFeatures.MANGO),
+                List.of());
+
+        register(context, MANGO_TWO,
+                configuredFeatureRegistryEntryLookup.getOrThrow(TropicalTreeConfiguredFeatures.MANGO_TWO),
                 List.of());
 
         register(context, GENSAI_JUNGLE_TREES,
