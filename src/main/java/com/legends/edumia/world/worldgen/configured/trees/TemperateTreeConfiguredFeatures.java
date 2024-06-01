@@ -144,11 +144,11 @@ public class TemperateTreeConfiguredFeatures {
                 new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
         register(context, GENSAI_SAKURA_GROVE_TREES, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
-                new RandomFeatureEntry(sakura_big_tree, 0.01f), new RandomFeatureEntry(sakura_medium_tree, 0.07f),
-                new RandomFeatureEntry(sakura_bush, 0.1f), new RandomFeatureEntry(azalea_bush, 0.1f),
-                new RandomFeatureEntry(ceder, 0.05f), new RandomFeatureEntry(ceder_big, 0.03f),
-                new RandomFeatureEntry(cypress, 0.06f), new RandomFeatureEntry(aspen, 0.06f),
-                new RandomFeatureEntry(aspen2, 0.03f)), noting));
+                new RandomFeatureEntry(sakura_big_tree, 0.02f), new RandomFeatureEntry(sakura_medium_tree, 0.08f),
+                new RandomFeatureEntry(sakura_bush, 0.4f), new RandomFeatureEntry(azalea_bush, 0.3f),
+                new RandomFeatureEntry(ceder, 0.06f), new RandomFeatureEntry(ceder_big, 0.04f),
+                new RandomFeatureEntry(cypress, 0.07f), new RandomFeatureEntry(aspen, 0.07f),
+                new RandomFeatureEntry(aspen2, 0.04f)), noting));
 
 
     }

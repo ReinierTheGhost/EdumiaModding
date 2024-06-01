@@ -99,8 +99,8 @@ public class ScatterModelGenerator {
                 Map<Direction, ModelElementFace> mapFace = this.generatePartFaceMap(texture, xSize, ySize, zSize);
                 float halfXSize = xSize / 2.0F;
                 float halfZSize = zSize / 2.0F;
-                Vector3f posFrom = new Vector3f(posX - halfXSize, posY, posX - halfZSize);
-                Vector3f posTo = new Vector3f(posX + halfXSize, posY + ySize, posX + halfZSize);
+                Vector3f posFrom = new Vector3f(posX - halfXSize, posY, posZ - halfZSize);
+                Vector3f posTo = new Vector3f(posX + halfXSize, posY + ySize, posZ + halfZSize);
                 float rotAngle = this.rand.nextFloat() * 360.0F;
                 Vector3f rotOrigin = new Vector3f(0.5F, 0.5F, 0.5F);
                 boolean rescale = false;
