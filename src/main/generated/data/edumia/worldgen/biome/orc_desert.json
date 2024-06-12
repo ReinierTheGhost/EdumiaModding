@@ -1,95 +1,59 @@
 {
-  "carvers": {
-    "air": [
-      "minecraft:cave",
-      "minecraft:canyon",
-      "minecraft:cave_extra_underground"
-    ]
-  },
-  "downfall": 0.4,
+  "carvers": {},
+  "downfall": 0.5,
   "effects": {
-    "fog_color": 12771327,
-    "grass_color": 7200640,
-    "mood_sound": {
-      "block_search_extent": 8,
-      "offset": 2.0,
-      "sound": "minecraft:ambient.cave",
-      "tick_delay": 6000
-    },
-    "sky_color": 8827134,
-    "water_color": 4159204,
-    "water_fog_color": 329011
+    "fog_color": 12902399,
+    "foliage_color": 9615182,
+    "grass_color": 13419633,
+    "sky_color": 7254527,
+    "water_color": 5407446,
+    "water_fog_color": 1120828
   },
   "features": [
     [],
-    [
-      "minecraft:lake_lava_underground"
-    ],
-    [
-      "minecraft:amethyst_geode"
-    ],
+    [],
+    [],
     [],
     [],
     [],
     [
-      "minecraft:ore_dirt",
-      "minecraft:ore_gravel",
-      "minecraft:ore_granite_upper",
-      "minecraft:ore_granite_lower",
-      "minecraft:ore_diorite_upper",
-      "minecraft:ore_diorite_lower",
-      "minecraft:ore_andesite_upper",
-      "minecraft:ore_andesite_lower",
-      "minecraft:ore_tuff",
-      "minecraft:ore_coal_upper",
-      "minecraft:ore_coal_lower",
-      "minecraft:ore_iron_upper",
-      "minecraft:ore_iron_middle",
-      "minecraft:ore_iron_small",
-      "minecraft:ore_gold",
-      "minecraft:ore_gold_lower",
-      "minecraft:ore_copper",
-      "minecraft:disk_sand",
       "minecraft:disk_clay",
-      "minecraft:disk_gravel"
+      "minecraft:disk_gravel",
+      "minecraft:disk_sand",
+      "minecraft:ore_andesite_lower",
+      "minecraft:ore_andesite_upper",
+      "minecraft:ore_coal_upper",
+      "minecraft:ore_diorite_lower",
+      "minecraft:ore_diorite_upper",
+      "minecraft:ore_dirt",
+      "minecraft:ore_granite_lower",
+      "minecraft:ore_granite_upper",
+      "minecraft:ore_gravel",
+      "minecraft:ore_tuff"
     ],
     [],
+    [],
     [
-      "minecraft:spring_water"
+      "minecraft:glow_lichen",
+      "minecraft:patch_dead_bush_2",
+      "minecraft:patch_grass_savanna",
+      "minecraft:patch_sugar_cane"
     ],
     [
-      "minecraft:glow_lichen"
+      "minecraft:freeze_top_layer"
     ]
   ],
-  "has_precipitation": true,
+  "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {
     "ambient": [],
     "axolotls": [],
     "creature": [
       {
-        "type": "minecraft:sheep",
+        "type": "minecraft:rabbit",
         "maxCount": 4,
-        "minCount": 4,
-        "weight": 12
-      },
-      {
-        "type": "minecraft:pig",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 10
-      },
-      {
-        "type": "minecraft:chicken",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 10
-      },
-      {
-        "type": "minecraft:cow",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 8
+        "minCount": 1,
+        "weight": 3
       }
     ],
     "misc": [],

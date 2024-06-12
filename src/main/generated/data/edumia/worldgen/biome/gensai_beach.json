@@ -1,24 +1,13 @@
 {
-  "carvers": {
-    "air": [
-      "minecraft:cave",
-      "minecraft:canyon",
-      "minecraft:cave_extra_underground"
-    ]
-  },
-  "downfall": 0.4,
+  "carvers": {},
+  "downfall": 0.5,
   "effects": {
-    "fog_color": 12771327,
-    "grass_color": 7200640,
-    "mood_sound": {
-      "block_search_extent": 8,
-      "offset": 2.0,
-      "sound": "minecraft:ambient.cave",
-      "tick_delay": 6000
-    },
-    "sky_color": 8827134,
-    "water_color": 4159204,
-    "water_fog_color": 329011
+    "fog_color": 12638463,
+    "foliage_color": 10860366,
+    "grass_color": 12107900,
+    "sky_color": 7254527,
+    "water_color": 5212644,
+    "water_fog_color": 333363
   },
   "features": [
     [],
@@ -27,14 +16,32 @@
     [],
     [],
     [],
-    [],
-    [],
+    [
+      "minecraft:disk_clay",
+      "minecraft:disk_gravel",
+      "minecraft:disk_sand",
+      "minecraft:ore_andesite_lower",
+      "minecraft:ore_andesite_upper",
+      "minecraft:ore_coal_upper",
+      "minecraft:ore_diorite_lower",
+      "minecraft:ore_diorite_upper",
+      "minecraft:ore_dirt",
+      "minecraft:ore_granite_lower",
+      "minecraft:ore_granite_upper",
+      "minecraft:ore_gravel",
+      "minecraft:ore_tuff"
+    ],
     [],
     [],
     [
-      "edumia:beach/layers/white/first",
-      "edumia:beach/layers/white/second",
-      "edumia:beach/layers/white/third"
+      "minecraft:glow_lichen",
+      "minecraft:patch_cactus_desert",
+      "minecraft:patch_grass_savanna",
+      "minecraft:patch_sugar_cane",
+      "minecraft:patch_tall_grass"
+    ],
+    [
+      "minecraft:freeze_top_layer"
     ]
   ],
   "has_precipitation": true,
@@ -42,12 +49,25 @@
   "spawners": {
     "ambient": [],
     "axolotls": [],
-    "creature": [],
+    "creature": [
+      {
+        "type": "minecraft:rabbit",
+        "maxCount": 4,
+        "minCount": 1,
+        "weight": 3
+      },
+      {
+        "type": "minecraft:llama",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 2
+      }
+    ],
     "misc": [],
     "monster": [],
     "underground_water_creature": [],
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.8
+  "temperature": 0.5
 }

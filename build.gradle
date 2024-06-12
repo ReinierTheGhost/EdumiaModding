@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.4-SNAPSHOT'
+	id 'fabric-loom' version '1.6-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -76,6 +76,7 @@ dependencies {
 			deps.modApi(deps.include("io.github.fabricators_of_create.Porting-Lib:$module:$port_lib_version"))
 		}
 
+//		deps.modApi(deps.include("curse.maven:farmers-delight-refabricated-993166:$farmers_version"))
 
 
 		deps.modApi(deps.include( "curse.maven:chipped-456956:$chipped_version"))
@@ -99,6 +100,7 @@ dependencies {
 	def compat(DependencyHandler deps) {
 
 		deps.modCompileOnly("com.terraformersmc:modmenu:$modmenu_version")
+		//deps.modLocalRuntime("curse.maven:distant-horizons-508933:5390046")
 
 
 

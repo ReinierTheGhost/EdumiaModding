@@ -9,8 +9,7 @@
       }
     },
     "foliage_placer": {
-      "type": "minecraft:blob_foliage_placer",
-      "height": 2,
+      "type": "minecraft:new_palm_foliage_placer",
       "offset": 0,
       "radius": 3
     },

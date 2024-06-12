@@ -1,8 +1,8 @@
 package com.legends.edumia.world.map;
 
 import com.legends.edumia.utils.LoggerUtil;
-import com.legends.edumia.world.biomes.EdumiaBiome;
-import com.legends.edumia.world.biomes.EdumiaBiomesData;
+import com.legends.edumia.world.biomes.surface.EdumiaBiome;
+import com.legends.edumia.world.biomes.surface.EdumiaBiomesData;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.joml.Vector2i;
 
@@ -13,12 +13,11 @@ import java.util.List;
 import java.util.UUID;
 
 public class EdumiaMapRuntime {
-
     private static EdumiaMapRuntime single_instance = null;
     HashMap<Vector2i, EdumiaMapRegion> regions;
     HashMap<UUID, Vector2i> regionByUuids;
     private LoggerUtil loggerUtil;
-    private EdumiaMapUtils edumiaMapUtils;
+    private EdumiaMapUtils middleEarthMapUtils;
 
     private int latestValidationTick = 0;
     private int currentValidationBlockCount = 0;
@@ -36,22 +35,22 @@ public class EdumiaMapRuntime {
         regionByUuids = new HashMap<>();
 
         loggerUtil = LoggerUtil.getInstance();
-        edumiaMapUtils = EdumiaMapUtils.getInstance();
+        middleEarthMapUtils = EdumiaMapUtils.getInstance();
     }
 
     public EdumiaBiome getBiome(int posX, int posZ) {
-        if(!edumiaMapUtils.isWorldCoordinateInBorder(posX, posZ)) return EdumiaBiomesData.defaultBiome;
+        if(!middleEarthMapUtils.isWorldCoordinateInBorder(posX, posZ)) return EdumiaBiomesData.defaultBiome;
 
-        EdumiaMapRegion region = getRegionToUse(edumiaMapUtils.getRegionByWorldCoordinate(posX, posZ));
+        EdumiaMapRegion region = getRegionToUse(middleEarthMapUtils.getRegionByWorldCoordinate(posX, posZ));
         if(region == null) return EdumiaBiomesData.defaultBiome;
 
         return region.getBiome(getImageCoordinates(posX, posZ));
     }
 
     public Color getHeight(int posX, int posZ) {
-        if(!edumiaMapUtils.isWorldCoordinateInBorder(posX, posZ)) return null;
+        if(!middleEarthMapUtils.isWorldCoordinateInBorder(posX, posZ)) return null;
 
-        EdumiaMapRegion region = getRegionToUse(edumiaMapUtils.getRegionByWorldCoordinate(posX, posZ));
+        EdumiaMapRegion region = getRegionToUse(middleEarthMapUtils.getRegionByWorldCoordinate(posX, posZ));
         if(region == null) return null;
 
         return region.getHeightColor(getImageCoordinates(posX, posZ));
@@ -59,8 +58,8 @@ public class EdumiaMapRuntime {
 
     private Vector2i getImageCoordinates(int posX, int posZ){
         return new Vector2i(
-                (int)((float)posX / EdumiaMapConfigs.PIXEL_WEIGHT % EdumiaMapConfigs.REGION_SIZE),
-                (int)((float)posZ / EdumiaMapConfigs.PIXEL_WEIGHT % EdumiaMapConfigs.REGION_SIZE)
+            (int)((float)posX / EdumiaMapConfigs.PIXEL_WEIGHT % EdumiaMapConfigs.REGION_SIZE),
+            (int)((float)posZ / EdumiaMapConfigs.PIXEL_WEIGHT % EdumiaMapConfigs.REGION_SIZE)
         );
     }
 
@@ -80,19 +79,19 @@ public class EdumiaMapRuntime {
         currentValidationBlockCount = 0;
 
         // Tick delay
-        int serverTick = edumiaMapUtils.getTick();
+        int serverTick = middleEarthMapUtils.getTick();
         if(serverTick - latestValidationTick < EdumiaMapConfigs.BIOME_VALIDATION_TICK_DELAY) return;
         latestValidationTick = serverTick;
 
         // Create purge array
         List<Vector2i> toPurge = new ArrayList<>();
         List<Vector2i> playerCoordinates = new ArrayList<>();
-        for(ServerPlayerEntity player : edumiaMapUtils.getPlayers()){
+        for(ServerPlayerEntity player : middleEarthMapUtils.getPlayers()){
             playerCoordinates.add(new Vector2i(player.getBlockX(), player.getBlockZ()));
         }
 
         try{
-            edumiaMapUtils.getPlayers();
+            middleEarthMapUtils.getPlayers();
             regions.forEach((key, value) -> {
                 boolean hasPlayerInRange = false;
                 for(Vector2i coordinate : playerCoordinates){

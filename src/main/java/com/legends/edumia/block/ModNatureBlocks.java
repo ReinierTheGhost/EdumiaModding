@@ -16,7 +16,6 @@ import net.minecraft.util.Identifier;
 import static com.legends.edumia.block.blocksets.WoodBlockSets.LEAVES_STRENGTH;
 
 public class ModNatureBlocks {
-
     public static final Block GHOST_GUM_LEAVES = ModNatureBlocks.registerPlantBlock("ghost_gum_leaves",
             new EdumiaLeavesBlock(), false);
     public static final Block HOLLY_LEAVES = ModNatureBlocks.registerPlantBlock("holly_leaves",
@@ -35,6 +34,7 @@ public class ModNatureBlocks {
     public static final Block PEAR_LEAVES_FRUIT = ModNatureBlocks.registerPlantBlock("pear_leaves_fruit",
             new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)
                     .strength(LEAVES_STRENGTH).sounds(BlockSoundGroup.GRASS)), false);
+
     public static final Block CHERRY_LEAVES_FRUIT = ModNatureBlocks.registerPlantBlock("cherry_leaves_fruit",
             new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)
                     .strength(LEAVES_STRENGTH).sounds(BlockSoundGroup.GRASS)), false);
@@ -122,6 +122,9 @@ public class ModNatureBlocks {
 
     public static final Block WHITE_ASH_SAPLING = registerPlantBlock("white_ash_sapling",
             new SaplingBlock(new WhiteAshTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
+
+
+
 
 
 

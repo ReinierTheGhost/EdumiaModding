@@ -15,7 +15,7 @@ public class WorldTeleporterItem extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if(!ModDimensions.isEdumia(world)) {
+        if(!ModDimensions.isInEdumia(world)) {
             if (!user.isCreative()) {
                 //user.getInventory().removeStack(user.getActiveHand().ordinal());
                 user.getStackInHand(hand).decrement(1);

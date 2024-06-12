@@ -1,697 +1,73 @@
 package com.legends.edumia.world.biomes;
 
 import com.legends.edumia.Edumia;
-import com.legends.edumia.world.worldgen.configured.RockConfiguredFeatures;
-import com.legends.edumia.world.worldgen.placed.BeachPlacedFeatures;
-import com.legends.edumia.world.worldgen.placed.FlowerPlacedFeatures;
-import com.legends.edumia.world.worldgen.placed.RockPlacedFeatures;
-import com.legends.edumia.world.worldgen.placed.TreePlacedFeatures;
-import com.legends.edumia.world.worldgen.placed.ocean.ReefPlacedFeatures;
-import com.legends.edumia.world.worldgen.placed.trees.TemperateTreePlacedFeatures;
-import com.legends.edumia.world.worldgen.placed.trees.TropicalTreePlacedFeatures;
-import net.minecraft.registry.Registerable;
+import com.legends.edumia.utils.LoggerUtil;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.carver.ConfiguredCarvers;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeKeys;
 
 public class EdumiaBiomeKeys extends BiomeKeys {
+    // region SURFACE
+    public static final RegistryKey<Biome> EDUMIA_VALES = EdumiaBiomeKeys.register("edumia_vales");
+    public static final RegistryKey<Biome> GENSAI_BEACH = EdumiaBiomeKeys.register("gensai_beach");
+    public static final RegistryKey<Biome> EDUMIA_FOOTHILLS = EdumiaBiomeKeys.register("edumia_foothills");
     public static final RegistryKey<Biome> DARK_ELF_FOREST = EdumiaBiomeKeys.register("dark_elf_forest");
     public static final RegistryKey<Biome> EDUMIA_TUNDRA = EdumiaBiomeKeys.register("edumia_tundra");
+    public static final RegistryKey<Biome> FROZEN_OCEAN = EdumiaBiomeKeys.register("frozen_ocean");
+    public static final RegistryKey<Biome> FROZEN_POND = EdumiaBiomeKeys.register("frozen_pond");
     public static final RegistryKey<Biome> ORC_DESERT = EdumiaBiomeKeys.register("orc_desert");
+
     public static final RegistryKey<Biome> AVELION_PLAINS = EdumiaBiomeKeys.register("avelion_plains");
+
+    public static final RegistryKey<Biome> GENSAI_SAKURA_GROVE = EdumiaBiomeKeys.register("gensai_sakura_grove");
+
+    public static final RegistryKey<Biome> FAIRY_SWAMP = EdumiaBiomeKeys.register("fairy_swamp");
+
     public static final RegistryKey<Biome> AVELION_MOUNTAINS = EdumiaBiomeKeys.register("avelion_mountains");
     public static final RegistryKey<Biome> EDUMIA_MOUNTAINS = EdumiaBiomeKeys.register("edumia_mountains");
-    public static final RegistryKey<Biome> EDUMIA_OCEAN = EdumiaBiomeKeys.register("edumia_ocean");
-    public static final RegistryKey<Biome> EDUMIA_RIVER = EdumiaBiomeKeys.register("edumia_river");
-    public static final RegistryKey<Biome> TAIGA_FOREST = EdumiaBiomeKeys.register("taiga_forest");
-    public static final RegistryKey<Biome> GENSAI_JUNGLE = EdumiaBiomeKeys.register("gensai_jungle");
-    public static final RegistryKey<Biome> GENSAI_SAKURA_GROVE = EdumiaBiomeKeys.register("gensai_sakura_grove");
-    public static final RegistryKey<Biome> GENSAI_BEACH = EdumiaBiomeKeys.register("gensai_beach");
+
+    public static final RegistryKey<Biome> GENSAI_VOLCANO = EdumiaBiomeKeys.register("gensai_volcano");
+
+    public static final RegistryKey<Biome> OCEAN = EdumiaBiomeKeys.register("ocean");
+    public static final RegistryKey<Biome> OCEAN_COAST = EdumiaBiomeKeys.register("ocean_coast");
+
+    public static final RegistryKey<Biome> OASIS = EdumiaBiomeKeys.register("oasis");
+    public static final RegistryKey<Biome> POND = EdumiaBiomeKeys.register("pond");
+
     public static final RegistryKey<Biome> GENSAI_REEF = EdumiaBiomeKeys.register("gensai_reef");
-    public static final RegistryKey<Biome> MILLPOND = EdumiaBiomeKeys.register("millpond");
+    public static final RegistryKey<Biome> EDUMIA_RIVER = EdumiaBiomeKeys.register("edumia_river");
 
-    public static void boostrap(Registerable<Biome> context){
-        context.register(AVELION_PLAINS, avelion_plains(context));
-        context.register(ORC_DESERT, orc_desert(context));
-        context.register(DARK_ELF_FOREST, dark_elf_forest(context));
-        context.register(EDUMIA_MOUNTAINS, edumia_mountains(context));
-        context.register(TAIGA_FOREST, taiga_forest(context));
-        context.register(GENSAI_JUNGLE, gensai_jungle(context));
-        context.register(EDUMIA_TUNDRA, edumia_tundra(context));
-        context.register(EDUMIA_RIVER, edumia_river(context));
-        context.register(EDUMIA_OCEAN, edumia_ocean(context));
-        context.register(MILLPOND, millpond(context));
-        context.register(GENSAI_BEACH, gensai_beach(context));
-        context.register(GENSAI_REEF, gensai_reef(context));
-        context.register(AVELION_MOUNTAINS, avelion_mountains(context));
-        context.register(GENSAI_SAKURA_GROVE, gensai_sakura(context));
-    }
 
-    public static Biome gensai_sakura(Registerable<Biome> context) {
-        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
+    public static final RegistryKey<Biome> TAIGA_FOREST = EdumiaBiomeKeys.register("taiga_forest");
 
-        GenerationSettings.LookupBackedBuilder biomeBuilder =
-                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
-                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
 
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
+    public static final RegistryKey<Biome> GENSAI_JUNGLE = EdumiaBiomeKeys.register("gensai_jungle");
 
-        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.LAKE_LAVA_UNDERGROUND);
+    public static final RegistryKey<Biome> WASTE_POND = EdumiaBiomeKeys.register("waste_pond");
 
-        biomeBuilder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, UndergroundPlacedFeatures.AMETHYST_GEODE);
-        DefaultBiomeFeatures.addMineables(biomeBuilder);
+    // endregion
 
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_MIDDLE);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_SMALL);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COPPER);
+    // region CAVES
+    public static final RegistryKey<Biome> BASIC_CAVE = EdumiaBiomeKeys.register("basic_cave");
+    public static final RegistryKey<Biome> LUSH_CAVE = EdumiaBiomeKeys.register("lush_cave");
+    public static final RegistryKey<Biome> DRIPSTONE_CAVE = EdumiaBiomeKeys.register("dripstone_cave");
+    public static final RegistryKey<Biome> MUD_CAVE = EdumiaBiomeKeys.register("mud_cave");
+    public static final RegistryKey<Biome> FUNGUS_CAVE = EdumiaBiomeKeys.register("fungus_cave");
+    public static final RegistryKey<Biome> BASALT_CAVE = EdumiaBiomeKeys.register("basalt_cave");
+    public static final RegistryKey<Biome> MAGMA_CAVE = EdumiaBiomeKeys.register("magma_cave");
+    public static final RegistryKey<Biome> MITHRIL_CAVE = EdumiaBiomeKeys.register("mithril_cave");
+    public static final RegistryKey<Biome> DRY_CAVE = EdumiaBiomeKeys.register("dry_cave");
+    public static final RegistryKey<Biome> ICE_CAVE = EdumiaBiomeKeys.register("ice_cave");
 
-        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, TemperateTreePlacedFeatures.GENSAI_SAKURA_GROVE_TREES);
-
-        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
-
-        DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
-
-        return new Biome.Builder()
-                .precipitation(true)
-                .downfall(0.4f)
-                .temperature(0.8f)
-                .generationSettings(biomeBuilder.build())
-                .spawnSettings(spawnBuilder.build())
-                .effects((new BiomeEffects.Builder())
-                        .waterColor(4159204)
-                        .waterFogColor(329011)
-                        .skyColor(8827134)
-                        .grassColor(7200640)
-//                        .foliageColor(0xd203fc)
-                        .fogColor(12771327)
-                        .moodSound(BiomeMoodSound.CAVE).build())
-                .build();
-    }
-    public static Biome gensai_reef(Registerable<Biome> context) {
-        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-
-        GenerationSettings.LookupBackedBuilder biomeBuilder =
-                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
-                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
-
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.LAKE_LAVA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, UndergroundPlacedFeatures.AMETHYST_GEODE);
-        DefaultBiomeFeatures.addMineables(biomeBuilder);
-
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_MIDDLE);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_SMALL);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COPPER);
-
-        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ReefPlacedFeatures.REEF_KEY);
-
-        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
-
-        DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
-
-        return new Biome.Builder()
-                .precipitation(true)
-                .downfall(0.4f)
-                .temperature(0.8f)
-                .generationSettings(biomeBuilder.build())
-                .spawnSettings(spawnBuilder.build())
-                .effects((new BiomeEffects.Builder())
-                        .waterColor(4159204)
-                        .waterFogColor(329011)
-                        .skyColor(8827134)
-                        .grassColor(7200640)
-//                        .foliageColor(0xd203fc)
-                        .fogColor(12771327)
-                        .moodSound(BiomeMoodSound.CAVE).build())
-                .build();
-    }
-
-    public static Biome avelion_mountains(Registerable<Biome> context) {
-        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-
-        GenerationSettings.LookupBackedBuilder biomeBuilder =
-                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
-                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
-
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, RockPlacedFeatures.AVELION_MOUNTAIN_LAYERS);
-
-        return new Biome.Builder()
-                .precipitation(true)
-                .downfall(0.4f)
-                .temperature(0.8f)
-                .generationSettings(biomeBuilder.build())
-                .spawnSettings(spawnBuilder.build())
-                .effects((new BiomeEffects.Builder())
-                        .waterColor(4159204)
-                        .waterFogColor(329011)
-                        .skyColor(8827134)
-                        .grassColor(7200640)
-//                        .foliageColor(0xd203fc)
-                        .fogColor(12771327)
-                        .moodSound(BiomeMoodSound.CAVE).build())
-                .build();
-    }
-    public static Biome gensai_beach(Registerable<Biome> context) {
-        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-
-        GenerationSettings.LookupBackedBuilder biomeBuilder =
-                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
-                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
-
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, BeachPlacedFeatures.WHITE_SAND_LAYER_FIRST);
-        biomeBuilder.feature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, BeachPlacedFeatures.WHITE_SAND_LAYER_SECOND);
-        biomeBuilder.feature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, BeachPlacedFeatures.WHITE_SAND_LAYER_THIRD);
-
-        return new Biome.Builder()
-                .precipitation(true)
-                .downfall(0.4f)
-                .temperature(0.8f)
-                .generationSettings(biomeBuilder.build())
-                .spawnSettings(spawnBuilder.build())
-                .effects((new BiomeEffects.Builder())
-                        .waterColor(4159204)
-                        .waterFogColor(329011)
-                        .skyColor(8827134)
-                        .grassColor(7200640)
-//                        .foliageColor(0xd203fc)
-                        .fogColor(12771327)
-                        .moodSound(BiomeMoodSound.CAVE).build())
-                .build();
-    }
-
-    public static Biome millpond(Registerable<Biome> context) {
-        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-
-        GenerationSettings.LookupBackedBuilder biomeBuilder =
-                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
-                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
-
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.LAKE_LAVA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, UndergroundPlacedFeatures.AMETHYST_GEODE);
-        DefaultBiomeFeatures.addMineables(biomeBuilder);
-
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_MIDDLE);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_SMALL);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COPPER);
-
-        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
-
-        DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
-
-        return new Biome.Builder()
-                .precipitation(true)
-                .downfall(0.4f)
-                .temperature(0.8f)
-                .generationSettings(biomeBuilder.build())
-                .spawnSettings(spawnBuilder.build())
-                .effects((new BiomeEffects.Builder())
-                        .waterColor(4159204)
-                        .waterFogColor(329011)
-                        .skyColor(8827134)
-                        .grassColor(7200640)
-//                        .foliageColor(0xd203fc)
-                        .fogColor(12771327)
-                        .moodSound(BiomeMoodSound.CAVE).build())
-                .build();
-    }
-
-        public static Biome edumia_ocean(Registerable<Biome> context) {
-        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-
-        GenerationSettings.LookupBackedBuilder biomeBuilder =
-                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
-                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
-
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.LAKE_LAVA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, UndergroundPlacedFeatures.AMETHYST_GEODE);
-        DefaultBiomeFeatures.addMineables(biomeBuilder);
-
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_MIDDLE);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_SMALL);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COPPER);
-
-        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
-
-        DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
-
-        return new Biome.Builder()
-                .precipitation(true)
-                .downfall(0.4f)
-                .temperature(0.8f)
-                .generationSettings(biomeBuilder.build())
-                .spawnSettings(spawnBuilder.build())
-                .effects((new BiomeEffects.Builder())
-                        .waterColor(4159204)
-                        .waterFogColor(329011)
-                        .skyColor(8827134)
-                        .grassColor(7200640)
-//                        .foliageColor(0xd203fc)
-                        .fogColor(12771327)
-                        .moodSound(BiomeMoodSound.CAVE).build())
-                .build();
-    }
-    public static Biome edumia_river(Registerable<Biome> context) {
-        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-
-        GenerationSettings.LookupBackedBuilder biomeBuilder =
-                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
-                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
-
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.LAKE_LAVA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, UndergroundPlacedFeatures.AMETHYST_GEODE);
-        DefaultBiomeFeatures.addMineables(biomeBuilder);
-
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_MIDDLE);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_SMALL);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COPPER);
-
-        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
-
-        DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
-
-        return new Biome.Builder()
-                .precipitation(true)
-                .downfall(0.4f)
-                .temperature(0.8f)
-                .generationSettings(biomeBuilder.build())
-                .spawnSettings(spawnBuilder.build())
-                .effects((new BiomeEffects.Builder())
-                        .waterColor(4159204)
-                        .waterFogColor(329011)
-                        .skyColor(8827134)
-                        .grassColor(7200640)
-//                        .foliageColor(0xd203fc)
-                        .fogColor(12771327)
-                        .moodSound(BiomeMoodSound.CAVE).build())
-                .build();
-    }
-
-    public static Biome edumia_tundra(Registerable<Biome> context) {
-        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-
-        GenerationSettings.LookupBackedBuilder biomeBuilder =
-                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
-                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
-
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.LAKE_LAVA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, UndergroundPlacedFeatures.AMETHYST_GEODE);
-        DefaultBiomeFeatures.addMineables(biomeBuilder);
-
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_MIDDLE);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_SMALL);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COPPER);
-
-        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
-
-        DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
-
-        return new Biome.Builder()
-                .precipitation(true)
-                .downfall(0.4f)
-                .temperature(0.8f)
-                .generationSettings(biomeBuilder.build())
-                .spawnSettings(spawnBuilder.build())
-                .effects((new BiomeEffects.Builder())
-                        .waterColor(4159204)
-                        .waterFogColor(329011)
-                        .skyColor(8827134)
-                        .grassColor(7200640)
-//                        .foliageColor(0xd203fc)
-                        .fogColor(12771327)
-                        .moodSound(BiomeMoodSound.CAVE).build())
-                .build();
-    }
-
-    public static Biome gensai_jungle(Registerable<Biome> context) {
-        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-
-        GenerationSettings.LookupBackedBuilder biomeBuilder =
-                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
-                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
-
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.LAKE_LAVA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, UndergroundPlacedFeatures.AMETHYST_GEODE);
-        DefaultBiomeFeatures.addMineables(biomeBuilder);
-
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_MIDDLE);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_SMALL);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COPPER);
-
-        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.BAMBOO_LIGHT);
-        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, TropicalTreePlacedFeatures.GENSAI_JUNGLE_TREES);
-
-        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
-
-        DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
-
-        return new Biome.Builder()
-                .precipitation(true)
-                .downfall(0.4f)
-                .temperature(0.8f)
-                .generationSettings(biomeBuilder.build())
-                .spawnSettings(spawnBuilder.build())
-                .effects((new BiomeEffects.Builder())
-                        .waterColor(4159204)
-                        .waterFogColor(329011)
-                        .skyColor(8827134)
-                        .grassColor(7200640)
-//                        .foliageColor(0xd203fc)
-                        .fogColor(12771327)
-                        .moodSound(BiomeMoodSound.CAVE).build())
-                .build();
-    }
-    public static Biome taiga_forest(Registerable<Biome> context) {
-        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-
-        GenerationSettings.LookupBackedBuilder biomeBuilder =
-                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
-                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
-
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.LAKE_LAVA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, UndergroundPlacedFeatures.AMETHYST_GEODE);
-        DefaultBiomeFeatures.addMineables(biomeBuilder);
-
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_MIDDLE);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_SMALL);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COPPER);
-
-        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
-
-        DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
-
-        return new Biome.Builder()
-                .precipitation(true)
-                .downfall(0.4f)
-                .temperature(0.8f)
-                .generationSettings(biomeBuilder.build())
-                .spawnSettings(spawnBuilder.build())
-                .effects((new BiomeEffects.Builder())
-                        .waterColor(4159204)
-                        .waterFogColor(329011)
-                        .skyColor(8827134)
-                        .grassColor(7200640)
-//                        .foliageColor(0xd203fc)
-                        .fogColor(12771327)
-                        .moodSound(BiomeMoodSound.CAVE).build())
-                .build();
-    }
-    public static Biome edumia_mountains(Registerable<Biome> context) {
-        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-
-        GenerationSettings.LookupBackedBuilder biomeBuilder =
-                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
-                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
-
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.LAKE_LAVA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, UndergroundPlacedFeatures.AMETHYST_GEODE);
-        DefaultBiomeFeatures.addMineables(biomeBuilder);
-
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_MIDDLE);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_SMALL);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COPPER);
-
-        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
-
-        DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
-
-        return new Biome.Builder()
-                .precipitation(true)
-                .downfall(0.4f)
-                .temperature(0.8f)
-                .generationSettings(biomeBuilder.build())
-                .spawnSettings(spawnBuilder.build())
-                .effects((new BiomeEffects.Builder())
-                        .waterColor(4159204)
-                        .waterFogColor(329011)
-                        .skyColor(8827134)
-                        .grassColor(7200640)
-//                        .foliageColor(0xd203fc)
-                        .fogColor(12771327)
-                        .moodSound(BiomeMoodSound.CAVE).build())
-                .build();
-    }
-
-    public static Biome dark_elf_forest(Registerable<Biome> context) {
-        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-
-        GenerationSettings.LookupBackedBuilder biomeBuilder =
-                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
-                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
-
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.LAKE_LAVA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, UndergroundPlacedFeatures.AMETHYST_GEODE);
-        DefaultBiomeFeatures.addMineables(biomeBuilder);
-
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_MIDDLE);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_SMALL);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COPPER);
-
-        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
-
-        DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
-
-        return new Biome.Builder()
-                .precipitation(true)
-                .downfall(0.4f)
-                .temperature(0.8f)
-                .generationSettings(biomeBuilder.build())
-                .spawnSettings(spawnBuilder.build())
-                .effects((new BiomeEffects.Builder())
-                        .waterColor(4159204)
-                        .waterFogColor(329011)
-                        .skyColor(8827134)
-                        .grassColor(7200640)
-//                        .foliageColor(0xd203fc)
-                        .fogColor(12771327)
-                        .moodSound(BiomeMoodSound.CAVE).build())
-                .build();
-    }
-
-    public static Biome orc_desert(Registerable<Biome> context) {
-        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-
-        GenerationSettings.LookupBackedBuilder biomeBuilder =
-                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
-                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
-
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.LAKE_LAVA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, UndergroundPlacedFeatures.AMETHYST_GEODE);
-        DefaultBiomeFeatures.addMineables(biomeBuilder);
-
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_MIDDLE);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_SMALL);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COPPER);
-
-        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
-
-        DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
-
-        return new Biome.Builder()
-                .precipitation(true)
-                .downfall(0.4f)
-                .temperature(0.8f)
-                .generationSettings(biomeBuilder.build())
-                .spawnSettings(spawnBuilder.build())
-                .effects((new BiomeEffects.Builder())
-                        .waterColor(4159204)
-                        .waterFogColor(329011)
-                        .skyColor(8827134)
-                        .grassColor(7200640)
-//                        .foliageColor(0xd203fc)
-                        .fogColor(12771327)
-                        .moodSound(BiomeMoodSound.CAVE).build())
-                .build();
-    }
-
-    public static Biome avelion_plains(Registerable<Biome> context) {
-        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-
-        GenerationSettings.LookupBackedBuilder biomeBuilder =
-                new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
-                        context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
-
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        biomeBuilder.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE_EXTRA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LAKES, MiscPlacedFeatures.LAKE_LAVA_UNDERGROUND);
-
-        biomeBuilder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, UndergroundPlacedFeatures.AMETHYST_GEODE);
-        DefaultBiomeFeatures.addMineables(biomeBuilder);
-
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COAL_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_UPPER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_MIDDLE);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_IRON_SMALL);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GOLD_LOWER);
-        biomeBuilder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_COPPER);
-
-        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, TreePlacedFeatures.BEECH_KEY);
-        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, TreePlacedFeatures.BIG_BEECH_KEY);
-
-
-        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, FlowerPlacedFeatures.AVELION_FLOWER_KEY);
-
-        biomeBuilder.feature(GenerationStep.Feature.FLUID_SPRINGS, MiscPlacedFeatures.SPRING_WATER);
-
-        DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
-
-        return new Biome.Builder()
-                .precipitation(true)
-                .downfall(0.4f)
-                .temperature(0.8f)
-                .generationSettings(biomeBuilder.build())
-                .spawnSettings(spawnBuilder.build())
-                .effects((new BiomeEffects.Builder())
-                        .waterColor(4159204)
-                        .waterFogColor(329011)
-                        .skyColor(8827134)
-                        .grassColor(7200640)
-//                        .foliageColor(0xd203fc)
-                        .fogColor(12771327)
-                        .moodSound(BiomeMoodSound.CAVE).build())
-                .build();
-    }
-
+    // endregion
 
     private static RegistryKey<Biome> register(String name) {
         return RegistryKey.of(RegistryKeys.BIOME, new Identifier(Edumia.MOD_ID, name));
     }
 
     public static void registerModBiomes() {
-        Edumia.LOGGER.debug("Registering ModBiomes for " + Edumia.MOD_ID);
+        LoggerUtil.getInstance().logDebugMsg("Registering ModBiomes for " + Edumia.MOD_ID);
     }
 }

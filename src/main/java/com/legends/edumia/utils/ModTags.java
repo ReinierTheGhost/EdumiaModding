@@ -24,6 +24,9 @@ public class ModTags {
         public static final TagKey<Block> SOIL_STONE = tag("soil_stone");
         public static final TagKey<Block> BANISTERS = tag("banisters");
         public static final TagKey<Block> PILLARS = tag("pillars");
+        public static final TagKey<Block> GRAVEL = tag("gravel");
+        public static final TagKey<Block> DIRT = tag("dirt");
+        public static final TagKey<Block> VOLCANIC_PLANT_SURFACE = tag("volcanic_plant_surface");
 
         public static final TagKey<Block> REEDS_PLACEABLE_ON = tag("reeds_placeable_on");
 

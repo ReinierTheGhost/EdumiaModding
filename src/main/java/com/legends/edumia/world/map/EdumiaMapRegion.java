@@ -1,8 +1,8 @@
 package com.legends.edumia.world.map;
 
 import com.legends.edumia.utils.resources.FileUtils;
-import com.legends.edumia.world.biomes.EdumiaBiome;
-import com.legends.edumia.world.biomes.EdumiaBiomesData;
+import com.legends.edumia.world.biomes.surface.EdumiaBiome;
+import com.legends.edumia.world.biomes.surface.EdumiaBiomesData;
 import org.joml.Vector2i;
 
 import java.awt.*;
@@ -10,6 +10,7 @@ import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 
 public class EdumiaMapRegion {
+
     public final static int CALC_REGION_SIZE = EdumiaMapConfigs.REGION_SIZE * EdumiaMapConfigs.PIXEL_WEIGHT;
     public final Vector2i coordinate;
     private final BufferedImage biomeImage;
@@ -49,6 +50,6 @@ public class EdumiaMapRegion {
     }
 
     private double calculateDistance(double x1, double y1, double x2, double y2) {
-        return Point2D.distance(x1, y1, x2, y2);
+            return Point2D.distance(x1, y1, x2, y2);
     }
 }

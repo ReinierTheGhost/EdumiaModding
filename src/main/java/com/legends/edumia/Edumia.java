@@ -7,6 +7,9 @@ import com.legends.edumia.core.BlockLoader;
 import com.legends.edumia.core.CreativeTabLoader;
 import com.legends.edumia.core.ItemLoader;
 import com.legends.edumia.utils.ModRegisters;
+import com.legends.edumia.world.map.EdumiaMapGeneration;
+import com.legends.edumia.world.gen.ModWorldGeneration;
+import com.legends.edumia.world.worldgen.EdumiaFeatures;
 import com.legends.edumia.world.worldgen.trees.EdumiaFoliagePlacerTypes;
 import com.legends.edumia.world.worldgen.trees.EdumiaTreeDecoratorTypes;
 import com.legends.edumia.world.worldgen.trees.EdumiaTrunkPlacerTypes;
@@ -14,22 +17,18 @@ import net.fabricmc.api.ModInitializer;
 import com.legends.edumia.entity.ModEntities;
 import com.legends.edumia.statusEffects.ModStatusEffects;
 import com.legends.edumia.recipe.ModRecipes;
-import com.legends.edumia.sound.ModSounds;
 import com.legends.edumia.world.spawners.ModEntitySpawning;
 import com.legends.edumia.world.biomes.EdumiaBiomeKeys;
-import com.legends.edumia.world.biomes.EdumiaBiomesData;
-import com.legends.edumia.world.chunkgen.map.MapImageLoader;
+import com.legends.edumia.world.biomes.surface.EdumiaBiomesData;
 import com.legends.edumia.world.dimension.ModDimensions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-
 public class Edumia implements ModInitializer {
 
+
     public static final String MOD_ID = "edumia";
-    public static final String MOD_VERSION = "alpha-1.1.0-1.20.1";
+    public static final String MOD_VERSION = "alpha-1.4.0-1.20.1";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static final boolean IS_DEBUG = true;
     public static final int MAP_ITERATION = 3;
@@ -62,7 +61,7 @@ public class Edumia implements ModInitializer {
         ModEntities.registerModEntities();
         ModEntitySpawning.addSpawns();
 
-        ModSounds.registerModSounds();
+        //ModSounds.registerModSounds();
 
 
         EdumiaFoliagePlacerTypes.register();
@@ -72,10 +71,11 @@ public class Edumia implements ModInitializer {
         ModDimensions.register();
         EdumiaBiomeKeys.registerModBiomes();
         EdumiaBiomesData.loadBiomes();
+        ModWorldGeneration.generateModWorldGen();
 
         try {
-            MapImageLoader.loadImage(getClass().getClassLoader());
-        } catch (IOException | URISyntaxException e) {
+            new EdumiaMapGeneration();
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

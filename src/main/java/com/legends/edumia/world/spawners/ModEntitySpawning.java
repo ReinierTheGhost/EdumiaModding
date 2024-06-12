@@ -7,6 +7,7 @@ import net.minecraft.world.biome.Biome;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class ModEntitySpawning {
     private static HashMap<RegistryKey<Biome>, List<EntitySpawningSettings>> spawns = new HashMap<>();

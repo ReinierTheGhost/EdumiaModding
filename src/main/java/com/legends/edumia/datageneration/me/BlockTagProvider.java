@@ -1,5 +1,6 @@
 package com.legends.edumia.datageneration.me;
 
+import com.legends.edumia.block.blocksets.StoneSets;
 import com.legends.edumia.core.BlockLoader;
 import com.legends.edumia.datageneration.edumia.custom.models.SimplePillarModels;
 import com.legends.edumia.datageneration.edumia.custom.tags.Pillar;
@@ -49,7 +50,15 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
 
 
+        getOrCreateTagBuilder(ModTags.Blocks.GRAVEL)
+                .add(Blocks.GRAVEL);
 
+        getOrCreateTagBuilder(ModTags.Blocks.DIRT)
+                .add(Blocks.DIRT);
+
+        getOrCreateTagBuilder(ModTags.Blocks.VOLCANIC_PLANT_SURFACE)
+                .add(StoneSets.VOLCANIC_ROCK.block())
+                .add(Blocks.BASALT);
 
         getOrCreateTagBuilder(ModTags.Blocks.PILLARS)
                 .add(BlockLoader.BRICK_PILLAR)

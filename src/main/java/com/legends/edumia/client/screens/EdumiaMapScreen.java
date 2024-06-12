@@ -1,12 +1,11 @@
 package com.legends.edumia.client.screens;
 
+import com.legends.edumia.world.chunkgen.map.EdumiaHeightMap;
+import com.legends.edumia.world.map.EdumiaMapConfigs;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import com.legends.edumia.Edumia;
-import com.legends.edumia.world.biomes.EdumiaBiome;
-import com.legends.edumia.world.biomes.EdumiaBiomesData;
-import com.legends.edumia.world.chunkgen.map.MapImageLoader;
 import com.legends.edumia.world.dimension.ModDimensions;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
@@ -14,11 +13,13 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.text.ClickEvent;
+import net.minecraft.text.LiteralTextContent;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec2f;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import org.joml.Vector2i;
@@ -30,15 +31,15 @@ public class EdumiaMapScreen extends Screen {
     private static final Identifier WINDOW_TEXTURE = new Identifier(Edumia.MOD_ID,"textures/gui/map_background.png");
     private static final Identifier MAP_UI_TEXTURE = new Identifier(Edumia.MOD_ID,"textures/gui/map_ui.png");
     private static final Identifier MAP_TEXTURE = new Identifier(Edumia.MOD_ID,"textures/edumia_map.png");
-    private static final Text MAP_TITLE_TEXT = Text.of("Edumia Map");
+    private static final Text MAP_TITLE_TEXT = Text.of("Edumia");
     public static final int MARGIN = 5;
 
-    public static final int MAP_IMAGE_WIDTH = 2000;
-    public static final int MAP_IMAGE_HEIGHT = 1500;
+    public static final int MAP_IMAGE_WIDTH = 4000;
+    public static final int MAP_IMAGE_HEIGHT = 4000;
     public int windowWidth, windowHeight;
     public int mapWindowWidth, mapWindowHeight;
     public float minZoom;
-    private static final int MAX_ZOOM_LEVEL = 10;
+    private static final int MAX_ZOOM_LEVEL = 20;
     public static final float [] ZOOM_LEVELS = new float[MAX_ZOOM_LEVEL];
     private static final Vector2i WORLD_SIZE = getWorldSize();
 
@@ -57,8 +58,11 @@ public class EdumiaMapScreen extends Screen {
     private static boolean debug = false;
     AbstractClientPlayerEntity player;
 
+    private static int pixelWeight;
+
     public EdumiaMapScreen() {
         super(MAP_TITLE_TEXT);
+        pixelWeight = EdumiaMapConfigs.PIXEL_WEIGHT;
         float zoom = 1;
         for(int i = 0; i < ZOOM_LEVELS.length; i++) {
             ZOOM_LEVELS[i] = zoom;
@@ -71,17 +75,16 @@ public class EdumiaMapScreen extends Screen {
     protected void init() {
         if(this.client != null) {
             float[]  guiScaleModifiers = { // Index is GUI Scale
-                6.25f, // 0
-                3f, // 1
-                4f, // 2
-                5f, // 3
-                6.25f, // 4
+                    6.25f, // 0
+                    3f, // 1
+                    4f, // 2
+                    5f, // 3
+                    6.25f, // 4
             };
 
-            int guiScale = this.client.options.getGuiScale().getValue();
-
-            windowWidth = Math.round((float)MAP_IMAGE_WIDTH / guiScaleModifiers[guiScale]);
-            windowHeight = Math.round((float)MAP_IMAGE_HEIGHT / guiScaleModifiers[guiScale]);
+            int guiScale = Math.max(0, Math.min(guiScaleModifiers.length - 1, this.client.options.getGuiScale().getValue()));
+            windowWidth = Math.round((float)3000 / guiScaleModifiers[guiScale] / 2);
+            windowHeight = Math.round((float)3000 / guiScaleModifiers[guiScale] / 2);
 
             mapWindowWidth =  windowWidth - (MARGIN * 2);
             mapWindowHeight = windowHeight - (MARGIN * 2);
@@ -151,40 +154,39 @@ public class EdumiaMapScreen extends Screen {
 
         drawMaintTextures(context, x, y, mouseX, mouseY);
         Vec2f mapPlayerPos = getCoordinateOnMap((float)player.getBlockPos().getX(), (float)player.getBlockPos().getZ(), 4,4);
-        if(ModDimensions.isEdumia(player.getWorld())){
+        if(ModDimensions.isInEdumia(player.getWorld())){
             context.drawTexture(this.player.getSkinTexture(),
                     x + MARGIN + (int)mapPlayerPos.x - 4,
                     y + MARGIN + (int)mapPlayerPos.y - 4,
                     8, 8, 8, 8, 64, 64);
 
-            boolean oustideBound = cursorIsOutsideOfMapBounds(mouseX, mouseY);
+            boolean outsideBound = cursorIsOutsideOfMapBounds(mouseX, mouseY);
             cursorWorldCoordinate = getWorldCoordinateOfCursor(mouseX, mouseY);
 
             // Debug panel
             if(debug){
                 World world = this.player.getWorld();
                 Optional<RegistryKey<Biome>> biomeRegistry = world.getBiome(this.player.getBlockPos()).getKey();
-                String currentBiomeId = biomeRegistry.isPresent() ? biomeRegistry.get().getValue().toString() : "N/A";
+                MutableText text = MutableText.of(new LiteralTextContent("N/A"));
+                if(biomeRegistry.isPresent()) {
+                    String currentBiomeId = biomeRegistry.get().getValue().toString().replace(':', '.');
+                    text = MutableText.of(new LiteralTextContent("Biome: "));
+                    text.append(Text.translatable("biome." + currentBiomeId));
 
+                }
                 context.drawTextWithShadow(textRenderer, Text.literal("Player information"), 0, 5, 0xffffff);
                 BlockPos playerPos = this.player.getBlockPos();
-                context.drawTextWithShadow(textRenderer, Text.literal("Coordinates : " + (int)playerPos.getX() +
-                        ", " + (int)playerPos.getY() + ", " + (int)playerPos.getZ()), 5, 15, 0xffffff);
-                context.drawTextWithShadow(textRenderer, Text.literal("Biome : " + currentBiomeId), 5, 25, 0xffffff);
-
-                EdumiaBiome edumiaBiome = EdumiaBiomesData.biomeMap.get(MapImageLoader.getBiomeColor(cursorWorldCoordinate.x,
-                        cursorWorldCoordinate.y));
+                context.drawTextWithShadow(textRenderer, Text.literal("Coordinates : " + (int)playerPos.getX() + ", " + (int)playerPos.getY() + ", " + (int)playerPos.getZ()), 5, 15, 0xffffff);
+                context.drawTextWithShadow(textRenderer, text, 5, 25, 0xffffff);
 
                 context.drawTextWithShadow(textRenderer, Text.literal("Cursor information"), 0, 45, 0xffffff);
-                context.drawTextWithShadow(textRenderer, Text.literal("Coordinates : " + ((oustideBound) ? "N/A" :
-                        (int)cursorWorldCoordinate.x + ", " + ModDimensions.getHighestYAtXZ(mouseX, mouseY) + ", "+
-                                (int)cursorWorldCoordinate.y)), 5, 55, 0xffffff);
-                context.drawTextWithShadow(textRenderer, Text.literal("Biome : " + ((oustideBound || edumiaBiome == null) ? "N/A" : edumiaBiome.biome.getValue().toString())), 5, 65, 0xffffff);
+                context.drawTextWithShadow(textRenderer, Text.literal("Coordinates : " + ((outsideBound) ? "N/A" : (int)cursorWorldCoordinate.x + ", "+ (int)cursorWorldCoordinate.y)), 5, 55, 0xffffff);
 
-                if(!oustideBound && this.player.isCreative()){
-                    context.drawTextWithShadow(textRenderer, Text.literal("Right Click to teleport"), mouseX + 10,
-                            mouseY, 0xcccccc);
+
+                if(!outsideBound && this.player.isCreative()){
+                    context.drawTextWithShadow(textRenderer, Text.literal("Right Click to teleport"), mouseX + 10, mouseY, 0xcccccc);
                 }
+
             }
         }
     }
@@ -194,7 +196,7 @@ public class EdumiaMapScreen extends Screen {
         if(button == 1){
             if(!cursorIsOutsideOfMapBounds(mouseX, mouseY)){
                 if(this.player.isCreative() && debug){
-                    teleport(getWorldCoordinateOfCursor(mouseX, mouseY));
+                    getTeleport(getWorldCoordinateOfCursor(mouseX, mouseY));
                     this.close();
                     return true;
                 }
@@ -204,9 +206,20 @@ public class EdumiaMapScreen extends Screen {
         return false;
     }
 
-    private void teleport(Vector2i coord){
-        if (ModDimensions.isEdumia(this.player.getWorld())){
-            this.player.setPos(coord.x, this.player.getY(), coord.y);
+    private void getTeleport(Vector2i coord){
+        if(ModDimensions.isInEdumia(this.player.getWorld())){
+//            String tpString = "/tp %s ~ %s".formatted(coord.x, coord.y);
+//            new ClickEvent(ClickEvent.Action.RUN_COMMAND, tpString);
+
+//            float y = EdumiaHeightMap.getHeight(coord.x, coord.y);
+            this.player.setPos(coord.x, 250, coord.y);
+
+
+            /*
+
+                this.player.teleport(coord.x , y, coord.y);
+                player.refreshPositionAfterTeleport( coord.x , y, coord.y);
+             */
         }
     }
 
@@ -217,13 +230,13 @@ public class EdumiaMapScreen extends Screen {
     private void drawMaintTextures(DrawContext context, int x, int y, double mouseX, double mouseY) {
         // Border
         context.drawTexture(WINDOW_TEXTURE, x, y, 0, 0,  windowWidth, windowHeight,
-                 windowWidth, windowHeight);
+                windowWidth, windowHeight);
         // Map
         context.drawTexture(MAP_TEXTURE, x + MARGIN, y + MARGIN,
                 // UV (x,y)
                 mapDisplacementX, mapDisplacementY,
                 mapWindowWidth,
-                 mapWindowHeight,
+                mapWindowHeight,
                 (int) (MAP_IMAGE_WIDTH * getZoomLevel() * minZoom),
                 (int) (MAP_IMAGE_HEIGHT * getZoomLevel() * minZoom));
 
@@ -231,11 +244,9 @@ public class EdumiaMapScreen extends Screen {
 
         // Debug Button
         int debugButtonTextureOffset = children().get(debugButtonIndex).isMouseOver(mouseX, mouseY) ? 18 : 0;
-
-        if (!ModDimensions.isEdumia(player.getWorld())){
+        if(!ModDimensions.isInEdumia(player.getWorld())){
             debugButtonTextureOffset = 36;
         }
-
         context.drawTexture(MAP_UI_TEXTURE,
                 ((ButtonWidget)children().get(debugButtonIndex)).getX(),
                 ((ButtonWidget)children().get(debugButtonIndex)).getY(),
@@ -271,7 +282,7 @@ public class EdumiaMapScreen extends Screen {
                 ((ButtonWidget)children().get(dezoomButtonIndex)).getY(),
                 dezoomTextureOffset, 18, 18, 18, 256, 256);
 
-        ((ButtonWidget)children().get(debugButtonIndex)).active = ModDimensions.isEdumia(player.getWorld());
+        ((ButtonWidget)children().get(debugButtonIndex)).active = ModDimensions.isInEdumia(player.getWorld());
         ((ButtonWidget)children().get(centerOnPlayerButtonIndex)).active = canCenterOnPlayer();
         ((ButtonWidget)children().get(zoomButtonIndex)).active = (zoomLevel < MAX_ZOOM_LEVEL - 1);
         ((ButtonWidget)children().get(dezoomButtonIndex)).active = (zoomLevel > 1);
@@ -312,7 +323,11 @@ public class EdumiaMapScreen extends Screen {
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double amount) {
         if(!cursorIsOutsideOfMapBounds(mouseX, mouseY)){
-            cursorWorldCoordinate = getWorldCoordinateOfCursor(mouseX, mouseY);
+            Vector2i coord = getWorldCoordinateOfCursor(mouseX, mouseY);
+            coord.x /= pixelWeight;
+            coord.y /= pixelWeight;
+
+            cursorWorldCoordinate = coord;
             zoom((int)Math.round(amount), true);
         }
         return super.mouseScrolled(mouseX, mouseY, amount);
@@ -342,8 +357,8 @@ public class EdumiaMapScreen extends Screen {
     }
 
     private Vec2f getCoordinateOnMap(float posX, float posZ, int textureOffsetX, int textureOffsetY) {
-        float transformedPosX = ((posX / WORLD_SIZE.x) * mapWindowWidth * getZoomLevel()) - mapDisplacementX;
-        float transformedPosY = ((posZ / WORLD_SIZE.y) *  mapWindowHeight * getZoomLevel()) - mapDisplacementY;
+        float transformedPosX = ((posX / pixelWeight / WORLD_SIZE.x) * mapWindowWidth * getZoomLevel()) - mapDisplacementX;
+        float transformedPosY = ((posZ / pixelWeight / WORLD_SIZE.y) *  mapWindowHeight * getZoomLevel()) - mapDisplacementY;
 
         transformedPosX = Math.max(textureOffsetX, Math.min(mapWindowWidth - textureOffsetX, transformedPosX));
         transformedPosY = Math.max(textureOffsetY, Math.min( mapWindowHeight - textureOffsetY, transformedPosY));
@@ -361,14 +376,14 @@ public class EdumiaMapScreen extends Screen {
         return !isInBoundX || !isInBoundY;
     }
 
-    private void centerOnPlayer(){
-        if (canCenterOnPlayer()){
-            centerOnCoordinates(player.getX(), player.getZ());
+    private void centerOnPlayer() {
+        if(canCenterOnPlayer()){
+            centerOnCoordinates(player.getX()/pixelWeight, player.getZ()/pixelWeight);
         }
     }
 
     private boolean canCenterOnPlayer(){
-        return zoomLevel > 1 && this.player != null && ModDimensions.isEdumia(player.getWorld());
+        return zoomLevel > 1 && this.player != null && ModDimensions.isInEdumia(player.getWorld());
     }
 
     private void centerOnCoordinates(double x, double y){
@@ -379,15 +394,15 @@ public class EdumiaMapScreen extends Screen {
     }
 
     private Vector2i getCenterOfCurrentMap(){
-        int centerX = (int)((mapDisplacementX + (mapWindowWidth / 2)) / (getZoomLevel() * minZoom));
-        int centerY =  (int)((mapDisplacementY + ( mapWindowHeight / 2)) / (getZoomLevel() * minZoom));
+        int centerX = (int)((mapDisplacementX + (mapWindowWidth / 2)) / (getZoomLevel() * minZoom) / pixelWeight);
+        int centerY =  (int)((mapDisplacementY + ( mapWindowHeight / 2)) / (getZoomLevel() * minZoom) / pixelWeight);
 
         return new Vector2i(centerX, centerY);
     }
 
     private Vector2i getWorldCoordinateOfCursor(double mouseX, double mouseY) {
         mouseX -= (double) (this.width -  windowWidth) / 2;
-        mouseY -= (double) (this.height - windowHeight) / 2;
+        mouseY -= (double) (this.height - windowHeight) / 2 ;
 
         int centerX = (int)((mapDisplacementX + mouseX) / (getZoomLevel() * minZoom));
         int centerY =  (int)((mapDisplacementY + mouseY) / (getZoomLevel() * minZoom));
@@ -395,7 +410,7 @@ public class EdumiaMapScreen extends Screen {
         centerX= (int)(WORLD_SIZE.x / MAP_IMAGE_WIDTH * centerX);
         centerY = (int)(WORLD_SIZE.y / MAP_IMAGE_HEIGHT * centerY);
 
-        return new Vector2i(centerX, centerY);
+        return new Vector2i(centerX * pixelWeight, centerY * pixelWeight);
     }
 
 
@@ -416,7 +431,7 @@ public class EdumiaMapScreen extends Screen {
     }
 
     private static Vector2i getWorldSize(){
-        float worldSize = (float) Math.pow(2 , Edumia.MAP_ITERATION);
+        float worldSize = (float) Math.pow(2 , EdumiaMapConfigs.MAP_ITERATION);
 
         return new Vector2i((int)(MAP_IMAGE_WIDTH * worldSize), (int)(MAP_IMAGE_HEIGHT * worldSize));
     }

@@ -225,10 +225,40 @@ public class EdumiaHelpingGenerator {
 
         }
 
-        for (OreRockSets.CompleteOreRockSet set : OreRockSets.vanillaSets) {
-            SimpleBlockModel.blocks.add(set.tin_ore());
+        for (OreRockSets.OreRockSet set : OreRockSets.sets) {
+            if(set.coal_ore() != null){
+                SimpleBlockModel.blocks.add(set.coal_ore());
+                MineablePickaxe.blocks.add(set.coal_ore());
+            }
+            if(set.copper_ore() != null){
+                SimpleBlockModel.blocks.add(set.copper_ore());
+                MineablePickaxe.blocks.add(set.copper_ore());
+            }
+            if(set.tin_ore() != null){
+                SimpleBlockModel.blocks.add(set.tin_ore());
+                MineablePickaxe.blocks.add(set.tin_ore());
+            }
+            if(set.lead_ore() != null){
+                SimpleBlockModel.blocks.add(set.lead_ore());
+                MineablePickaxe.blocks.add(set.lead_ore());
+            }
+            if(set.silver_ore() != null){
+                SimpleBlockModel.blocks.add(set.silver_ore());
+                MineablePickaxe.blocks.add(set.silver_ore());
+            }
+            if(set.gold_ore() != null){
+                SimpleBlockModel.blocks.add(set.gold_ore());
+                MineablePickaxe.blocks.add(set.gold_ore());
+            }
+            if(set.iron_ore() != null){
+                SimpleBlockModel.blocks.add(set.iron_ore());
+                MineablePickaxe.blocks.add(set.iron_ore());
+            }
+            if(set.mithril_ore() != null){
+                SimpleBlockModel.blocks.add(set.mithril_ore());
+                MineablePickaxe.blocks.add(set.mithril_ore());
+            }
 
-            MineablePickaxe.blocks.add(set.tin_ore());
         }
 
         for (StoneSets.StoneSet set : StoneSets.naturalSets){
