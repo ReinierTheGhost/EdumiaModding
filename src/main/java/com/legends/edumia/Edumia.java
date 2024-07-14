@@ -70,7 +70,8 @@ public class Edumia implements ModInitializer {
 
         ModDimensions.register();
         EdumiaBiomeKeys.registerModBiomes();
-        EdumiaBiomesData.loadBiomes();
+        EdumiaBiomesData edumiaBiomesData = new EdumiaBiomesData();
+        edumiaBiomesData.loadBiomes();
         ModWorldGeneration.generateModWorldGen();
 
         try {

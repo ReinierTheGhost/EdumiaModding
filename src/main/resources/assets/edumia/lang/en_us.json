@@ -18,9 +18,6 @@
   "creativetab.food_items": "Edumia Food",
 
 "#Comment:": "Status Effects",
-  "effect.me.hallucination" : "Hallucination",
-
-"#Comment:": "Item - Ores",
 
 
 "#Comment:": "Item - General",
@@ -30,9 +27,40 @@
 
 "#Comment:": "Armours",
 
+"#Comment:": "tools",
+  "item.edumia.gensai_hoe": "Gensai hoe",
+  "item.edumia.gensai_axe": "Gensai axe",
+  "item.edumia.gensai_pickaxe": "Gensai pickaxe",
+  "item.edumia.gensai_shovel": "Gensai shovel",
 
 "#Comment:": "Item - Food",
-
+  "item.edumia.tea_sakura_petals": "Sakura petals",
+  "item.edumia.tea_mint_leaves": "Mint leaves",
+  "item.edumia.tea_leaf": "Tea leaf",
+  "item.edumia.tea_lily_petals": "Lily petals",
+  "item.edumia.tea_white_jade_petals": "White jade petals",
+  "item.edumia.tea_hibiscus_petals": "Hibiscus petals",
+  "item.edumia.tea_jasmine_petals": "Jasmine petals",
+  "item.edumia.tea_cinnamon_stick": "Cinnamon stick",
+  "item.edumia.tea_white_dragon_petals": "White dragon petals",
+  "item.edumia.broccoli": "Broccoli",
+  "item.edumia.paprika_green": "Green paprika",
+  "item.edumia.ramen": "Ramen",
+  "item.edumia.ramen_beef": "Ramen with beef",
+  "item.edumia.ramen_pork": "Ramen with pork",
+  "item.edumia.ramen_shrimps": "Ramen with shrimps",
+  "item.edumia.ramen_vegi": "Vegi ramen",
+  "item.edumia.red_grapes": "Red Grapes",
+  "item.edumia.rice": "Rice",
+  "item.edumia.rice_ball": "Rice ball",
+  "item.edumia.spinach": "Spinach",
+  "item.edumia.tomato": "Tomato",
+  "item.edumia.cheese": "Cheese",
+  "item.edumia.lettuce": "Lettuce",
+  "item.edumia.banana": "Banana",
+  "item.edumia.banana_bread": "Banana bread",
+  "item.edumia.mango": "Mango",
+  "item.edumia.date": "Date",
 
 "#Comment:": "Item - Resources",
 
@@ -78,6 +106,9 @@
   "item.edumia.gem_fine_topaz": "Fine topaz",
   "item.edumia.gem_perfect_topaz": "Perfect topaz",
 
+  "item.edumia.gensai_steel": "Gensai steal",
+
+
 "#Comment:": "Item - Spawn Eggs",
 
 "#Comment:": "Item - Entities",
@@ -93,7 +124,9 @@
   "block.edumia.acacia_beam": "Acacia beam",
   "block.edumia.dark_oak_beam": "Dark oak beam",
 
-
+"#Comment:": "Blocks - Ores",
+  "block.edumia.ruby_ore": "Ruby ore",
+  "block.edumia.high_elven_crystal": "High elven crystal",
 
 "#Comment:": "Block Edumia",
   "block.edumia.redish_gensai_bricks": "Redish gensai bricks",
@@ -708,6 +741,18 @@
   "block.edumia.mossy_brown_sandstone_bricks_balustrade": "Mossy brown sandstone bricks balustrade",
   "block.edumia.mossy_brown_sandstone_bricks_arrowslit": "Mossy brown sandstone bricks arrowslit",
 
+  "block.edumia.brown_sandstone_gold_bricks": "Brown sandstone gold bricks",
+  "block.edumia.brown_sandstone_gold_bricks_slab": "Brown sandstone gold bricks slab",
+  "block.edumia.brown_sandstone_gold_bricks_stairs": "Brown sandstone gold bricks stairs",
+  "block.edumia.brown_sandstone_gold_bricks_wall": "Brown sandstone gold bricks wall",
+  "block.edumia.brown_sandstone_gold_bricks_small_arch": "Brown sandstone gold bricks small arch",
+  "block.edumia.brown_sandstone_gold_bricks_two_meter_arch": "Brown sandstone gold bricks two meter arch",
+  "block.edumia.brown_sandstone_gold_bricks_round_arch": "Brown sandstone gold bricks round arch",
+  "block.edumia.brown_sandstone_gold_bricks_segmental_arch": "Brown sandstone gold bricks segmental arch",
+  "block.edumia.brown_sandstone_gold_bricks_gothic_arch": "Brown sandstone gold bricks gothic arch",
+  "block.edumia.brown_sandstone_gold_bricks_balustrade": "Brown sandstone gold bricks balustrade",
+  "block.edumia.brown_sandstone_gold_bricks_arrowslit": "Brown sandstone gold bricks arrowslit",
+
   "block.edumia.cacholong_bricks": "Cacholong bricks",
   "block.edumia.cacholong_bricks_slab": "Cacholong bricks slab",
   "block.edumia.cacholong_bricks_stairs": "Cacholong bricks stairs",
@@ -925,6 +970,7 @@
   "block.edumia.mossy_desert_mud_bricks_arrowslit": "Mossy desert mud bricks arrowslit",
 
   "block.edumia.graystone_pillar": "Graystone pillar",
+  "block.edumia.graystone_pillar_slab": "Graystone pillar slab",
 
   "block.edumia.graystone_bricks": "Graystone bricks",
   "block.edumia.graystone_bricks_slab": "Graystone bricks slab",
@@ -961,6 +1007,36 @@
   "block.edumia.mossy_graystone_bricks_gothic_arch": "Mossy graystone bricks gothic arch",
   "block.edumia.mossy_graystone_bricks_balustrade": "Mossy graystone bricks balustrade",
   "block.edumia.mossy_graystone_bricks_arrowslit": "Mossy graystone bricks arrowslit",
+
+  "block.edumia.limestone_pillar": "Limestone pillar",
+  "block.edumia.limestone_pillar_slab": "Limestone pillar slab",
+
+  "block.edumia.limestone_bricks": "Limestone bricks",
+  "block.edumia.limestone_bricks_slab": "Limestone bricks slab",
+  "block.edumia.limestone_bricks_stairs": "Limestone bricks stairs",
+  "block.edumia.limestone_bricks_wall": "Limestone bricks wall",
+  "block.edumia.limestone_bricks_small_arch": "Limestone bricks small arch",
+  "block.edumia.limestone_bricks_two_meter_arch": "Limestone bricks two meter arch",
+  "block.edumia.limestone_bricks_round_arch": "Limestone bricks round arch",
+  "block.edumia.limestone_bricks_segmental_arch": "Limestone bricks segmental arch",
+  "block.edumia.limestone_bricks_gothic_arch": "Limestone bricks gothic arch",
+  "block.edumia.limestone_bricks_balustrade": "Limestone bricks balustrade",
+  "block.edumia.limestone_bricks_arrowslit": "Limestone bricks arrowslit",
+
+  "block.edumia.obsidian_pillar": "Obsidian pillar",
+  "block.edumia.obsidian_pillar_slab": "Obsidian pillar slab",
+
+  "block.edumia.obsidian_bricks": "Obsidian bricks",
+  "block.edumia.obsidian_bricks_slab": "Obsidian bricks slab",
+  "block.edumia.obsidian_bricks_stairs": "Obsidian bricks stairs",
+  "block.edumia.obsidian_bricks_wall": "Obsidian bricks wall",
+  "block.edumia.obsidian_bricks_small_arch": "Obsidian bricks small arch",
+  "block.edumia.obsidian_bricks_two_meter_arch": "Obsidian bricks two meter arch",
+  "block.edumia.obsidian_bricks_round_arch": "Obsidian bricks round arch",
+  "block.edumia.obsidian_bricks_segmental_arch": "Obsidian bricks segmental arch",
+  "block.edumia.obsidian_bricks_gothic_arch": "Obsidian bricks gothic arch",
+  "block.edumia.obsidian_bricks_balustrade": "Obsidian bricks balustrade",
+  "block.edumia.obsidian_bricks_arrowslit": "Obsidian bricks arrowslit",
 
   "block.edumia.andesite_bricks": "Andesite bricks",
   "block.edumia.andesite_bricks_slab": "Andesite bricks slab",
@@ -1010,36 +1086,52 @@
   "block.edumia.dripstone_bricks_balustrade": "Dripstone bricks balustrade",
   "block.edumia.dripstone_bricks_arrowslit": "Dripstone bricks arrowslit",
 
-  "block.edumia.polished_dripstone_bricks": "Polished dripstone bricks",
-  "block.edumia.polished_dripstone_bricks_slab": "Polished dripstone bricks slab",
-  "block.edumia.polished_dripstone_bricks_stairs": "Polished dripstone bricks stairs",
+  "block.edumia.polished_dripstone": "Polished dripstone",
+  "block.edumia.polished_dripstone_slab": "Polished dripstone slab",
+  "block.edumia.polished_dripstone_stairs": "Polished dripstone stairs",
 
-  "block.edumia.chiseled_dripstone_bricks": "Chiseled dripstone bricks",
-  "block.edumia.chiseled_granite_bricks": "Chiseled granite bricks",
-  "block.edumia.chiseled_diorite_bricks": "Chiseled diorite bricks",
-  "block.edumia.chiseled_andesite_bricks": "Chiseled andesite bricks",
-  "block.edumia.dirty_chalk_bricks": "Dirty chalk bricks",
+  "block.edumia.chiseled_dripstone": "Chiseled dripstone",
+  "block.edumia.chiseled_granite": "Chiseled granite",
+  "block.edumia.chiseled_diorite": "Chiseled diorite",
+  "block.edumia.chiseled_andesite": "Chiseled andesite",
+  "block.edumia.dirty_chalk": "Dirty chalk",
 
 
 
   "block.edumia.brown_sandstone_pillar": "Brown sandstone pillar",
+  "block.edumia.brown_sandstone_pillar_slab": "Brown sandstone pillar slab",
+
+  "block.edumia.brown_sandstone_gold_pillar": "Brown sandstone gold pillar",
+  "block.edumia.brown_sandstone_gold_pillar_slab": "Brown sandstone gold pillar slab",
   "block.edumia.sandstone_pillar": "Sandstone pillar",
+  "block.edumia.sandstone_pillar_slab": "Sandstone pillar slab",
   "block.edumia.volcanic_demon_pillar": "Volcanic demon pillar",
+  "block.edumia.volcanic_demon_pillar_slab": "Volcanic demon pillar slab",
   "block.edumia.black_demon_pillar": "Black demon pillar",
+  "block.edumia.black_demon_pillar_slab": "Black demon pillar slab",
   "block.edumia.desert_mud_pillar": "Desert mud pillar",
+  "block.edumia.desert_mud_pillar_slab": "Desert mud pillar slab",
 
 
   "block.edumia.red_gensai_pillar": "Red gensai pillar",
+  "block.edumia.red_gensai_pillar_slab": "Red gensai pillar slab",
 
 
   "block.edumia.gensai_pillar": "Gensai pillar",
+  "block.edumia.gensai_pillar_slab": "Gensai pillar slab",
 
   "block.edumia.brick_pillar": "Brick pillar",
   "block.edumia.stone_pillar": "Stone pillar",
 
+  "block.edumia.brick_pillar_slab": "Brick pillar slab",
+  "block.edumia.stone_pillar_slab": "Stone pillar slab",
+
   "block.edumia.high_elven_pillar": "High elven pillar",
   "block.edumia.light_high_elven_pillar": "Light high elven pillar",
   "block.edumia.dark_high_elven_pillar": "Dark high elven pillar",
+  "block.edumia.high_elven_pillar_slab": "High elven pillar slab",
+  "block.edumia.light_high_elven_pillar_slab": "Light high elven pillar slab",
+  "block.edumia.dark_high_elven_pillar_slab": "Dark high elven pillar slab",
 
   "block.edumia.chalk_pillar": "Chalk pillar",
 
@@ -1375,6 +1467,76 @@
   "block.edumia.green_basalt_small_arch": "Green basalt small arch",
   "block.edumia.green_basalt_two_meter_arch": "Green basalt two meter arch",
 
+"#Comment:" : "Glass Blocks",
+  "block.edumia.fine_glass": "Fine glass",
+  "block.edumia.fine_glass_pane": "Fine glass pane",
+
+  "block.edumia.black_fine_glass": "Black fine glass",
+  "block.edumia.black_fine_glass_pane": "Black fine glass pane",
+  "block.edumia.black_paperwall": "Black paper wall",
+
+  "block.edumia.white_fine_glass": "White fine glass",
+  "block.edumia.white_fine_glass_pane": "White fine glass pane",
+  "block.edumia.white_paperwall": "White paper wall",
+
+  "block.edumia.orange_fine_glass": "Orange fine glass",
+  "block.edumia.orange_fine_glass_pane": "Orange fine glass pane",
+  "block.edumia.orange_paperwall": "Orange paper wall",
+
+  "block.edumia.magenta_fine_glass": "Magenta fine glass",
+  "block.edumia.magenta_fine_glass_pane": "Magenta fine glass pane",
+  "block.edumia.magenta_paperwall": "Magenta paper wall",
+
+  "block.edumia.light_blue_fine_glass": "Light blue fine glass",
+  "block.edumia.light_blue_fine_glass_pane": "Light blue fine glass pane",
+  "block.edumia.light_blue_paperwall": "Light blue paper wall",
+
+  "block.edumia.yellow_fine_glass": "Yellow fine glass",
+  "block.edumia.yellow_fine_glass_pane": "Yellow fine glass pane",
+  "block.edumia.yellow_paperwall": "Yellow paper wall",
+
+  "block.edumia.lime_fine_glass": "Lime fine glass",
+  "block.edumia.lime_fine_glass_pane": "Lime fine glass pane",
+  "block.edumia.lime_paperwall": "Lime paper wall",
+
+  "block.edumia.pink_fine_glass": "Pink fine glass",
+  "block.edumia.pink_fine_glass_pane": "Pink fine glass pane",
+  "block.edumia.pink_paperwall": "Pink paper wall",
+
+  "block.edumia.gray_fine_glass": "Gray fine glass",
+  "block.edumia.gray_fine_glass_pane": "Gray fine glass pane",
+  "block.edumia.gray_paperwall": "Gray paper wall",
+
+  "block.edumia.light_gray_fine_glass": "Light gray fine glass",
+  "block.edumia.light_gray_fine_glass_pane": "Light gray fine glass pane",
+  "block.edumia.light_gray_paperwall": "Light gray paper wall",
+
+  "block.edumia.cyan_fine_glass": "Cyan fine glass",
+  "block.edumia.cyan_fine_glass_pane": "Cyan fine glass pane",
+  "block.edumia.cyan_paperwall": "Cyan paper wall",
+
+  "block.edumia.purple_fine_glass": "Purple fine glass",
+  "block.edumia.purple_fine_glass_pane": "Purple fine glass pane",
+  "block.edumia.purple_paperwall": "Purple paper wall",
+
+  "block.edumia.blue_fine_glass": "Blue fine glass",
+  "block.edumia.blue_fine_glass_pane": "Blue fine glass pane",
+  "block.edumia.blue_paperwall": "Blue paper wall",
+
+  "block.edumia.brown_fine_glass": "Brown fine glass",
+  "block.edumia.brown_fine_glass_pane": "Brown fine glass pane",
+  "block.edumia.brown_paperwall": "Brown paper wall",
+
+  "block.edumia.green_fine_glass": "Green fine glass",
+  "block.edumia.green_fine_glass_pane": "Green fine glass pane",
+  "block.edumia.green_paperwall": "Green paper wall",
+
+  "block.edumia.red_fine_glass": "Red fine glass",
+  "block.edumia.red_fine_glass_pane": "Red fine glass pane",
+  "block.edumia.red_paperwall": "Red paper wall",
+
+
+
 
 "#Comment:" : "Plant Blocks",
 
@@ -1415,6 +1577,19 @@
   "block.edumia.pink_anemone": "Pink anemone",
   "block.edumia.simbelmyne": "Simbelmyne",
   "block.edumia.tuberose": "Tuberose",
+
+  "block.edumia.dry_bush": "Dry bush",
+  "block.edumia.tall_dry_bush": "Tall dry bush",
+  "block.edumia.tall_dead_bush": "Tall dead bush",
+  "block.edumia.beach_grass": "Beach grass",
+  "block.edumia.tall_beach_grass": "Tall beach grass",
+  "block.edumia.frosted_grass": "Frosted grass",
+  "block.edumia.tall_frosted_grass": "Tall frosted grass",
+
+  "block.edumia.parasol_mushroom_01": "Parasol mushroom",
+  "block.edumia.parasol_mushroom_02": "Parasol mushroom",
+  "block.edumia.parasol_mushroom_tall": "Tall parasol mushroom",
+
 
 "#Comment:" : "Wood BLocks",
   "block.edumia.apple_planks": "Apple planks",
@@ -1726,6 +1901,235 @@
   "block.edumia.silver_spruce_button": "Silver spruce button",
   "block.edumia.silver_spruce_pressure_plate": "Silver spruce pressure plate",
   "block.edumia.silver_spruce_beam": "Silver spruce beam",
+
+  "block.edumia.black_oak_planks": "Black oak planks",
+  "block.edumia.black_oak_slab": "Black oak slab",
+  "block.edumia.black_oak_stairs": "Black oak stairs",
+  "block.edumia.black_oak_fence": "Black oak fence",
+  "block.edumia.black_oak_fence_gate": "Black oak fence gate",
+  "block.edumia.black_oak_log": "Black oak log",
+  "block.edumia.black_oak_wood": "Black oak wood",
+  "block.edumia.stripped_black_oak_log": "Stripped black oak log",
+  "block.edumia.stripped_black_oak_wood": "Stripped black oak wood",
+  "block.edumia.black_oak_leaves": "Black oak leaves",
+  "block.edumia.black_oak_sapling": "Black oak sapling",
+  "block.edumia.black_oak_wood_wall": "Black oak wood wall",
+  "block.edumia.black_oak_button": "Black oak button",
+  "block.edumia.black_oak_pressure_plate": "Black oak pressure plate",
+  "block.edumia.black_oak_beam": "Black oak beam",
+
+  "block.edumia.banana_planks": "Banana planks",
+  "block.edumia.banana_slab": "Banana slab",
+  "block.edumia.banana_stairs": "Banana stairs",
+  "block.edumia.banana_fence": "Banana fence",
+  "block.edumia.banana_fence_gate": "Banana fence gate",
+  "block.edumia.banana_log": "Banana log",
+  "block.edumia.banana_wood": "Banana wood",
+  "block.edumia.stripped_banana_log": "Stripped banana log",
+  "block.edumia.stripped_banana_wood": "Stripped banana wood",
+  "block.edumia.banana_leaves": "Banana leaves",
+  "block.edumia.banana_sapling": "Banana sapling",
+  "block.edumia.banana_wood_wall": "Banana wood wall",
+  "block.edumia.banana_button": "Banana button",
+  "block.edumia.banana_pressure_plate": "Banana pressure plate",
+  "block.edumia.banana_beam": "Banana beam",
+
+  "block.edumia.dragon_blood_planks": "Dragon blood planks",
+  "block.edumia.dragon_blood_slab": "Dragon blood slab",
+  "block.edumia.dragon_blood_stairs": "Dragon blood stairs",
+  "block.edumia.dragon_blood_fence": "Dragon blood fence",
+  "block.edumia.dragon_blood_fence_gate": "Dragon blood fence gate",
+  "block.edumia.dragon_blood_log": "Dragon blood log",
+  "block.edumia.dragon_blood_wood": "Dragon blood wood",
+  "block.edumia.stripped_dragon_blood_log": "Stripped dragon blood log",
+  "block.edumia.stripped_dragon_blood_wood": "Stripped dragon blood wood",
+  "block.edumia.dragon_blood_leaves": "Dragon blood leaves",
+  "block.edumia.dragon_blood_sapling": "Dragon blood sapling",
+  "block.edumia.dragon_blood_wood_wall": "Dragon blood wood wall",
+  "block.edumia.dragon_blood_button": "Dragon blood button",
+  "block.edumia.dragon_blood_pressure_plate": "Dragon blood pressure plate",
+  "block.edumia.dragon_blood_beam": "Dragon blood beam",
+
+  "block.edumia.mahogany_planks": "Mahogany planks",
+  "block.edumia.mahogany_slab": "Mahogany slab",
+  "block.edumia.mahogany_stairs": "Mahogany stairs",
+  "block.edumia.mahogany_fence": "Mahogany fence",
+  "block.edumia.mahogany_fence_gate": "Mahogany fence gate",
+  "block.edumia.mahogany_log": "Mahogany log",
+  "block.edumia.mahogany_wood": "Mahogany wood",
+  "block.edumia.stripped_mahogany_log": "Stripped mahogany log",
+  "block.edumia.stripped_mahogany_wood": "Stripped mahogany wood",
+  "block.edumia.mahogany_leaves": "Mahogany leaves",
+  "block.edumia.mahogany_sapling": "Mahogany sapling",
+  "block.edumia.mahogany_wood_wall": "Mahogany wood wall",
+  "block.edumia.mahogany_button": "Mahogany button",
+  "block.edumia.mahogany_pressure_plate": "Mahogany pressure plate",
+  "block.edumia.mahogany_beam": "Mahogany beam",
+
+  "block.edumia.mango_planks": "Mango planks",
+  "block.edumia.mango_slab": "Mango slab",
+  "block.edumia.mango_stairs": "Mango stairs",
+  "block.edumia.mango_fence": "Mango fence",
+  "block.edumia.mango_fence_gate": "Mango fence gate",
+  "block.edumia.mango_log": "Mango log",
+  "block.edumia.mango_wood": "Mango wood",
+  "block.edumia.stripped_mango_log": "Stripped mango log",
+  "block.edumia.stripped_mango_wood": "Stripped mango wood",
+  "block.edumia.mango_leaves": "Mango leaves",
+  "block.edumia.mango_sapling": "Mango sapling",
+  "block.edumia.mango_wood_wall": "Mango wood wall",
+  "block.edumia.mango_button": "Mango button",
+  "block.edumia.mango_pressure_plate": "Mango pressure plate",
+  "block.edumia.mango_beam": "Mango beam",
+
+  "block.edumia.palm_planks": "Palm planks",
+  "block.edumia.palm_slab": "Palm slab",
+  "block.edumia.palm_stairs": "Palm stairs",
+  "block.edumia.palm_fence": "Palm fence",
+  "block.edumia.palm_fence_gate": "Palm fence gate",
+  "block.edumia.palm_log": "Palm log",
+  "block.edumia.palm_wood": "Palm wood",
+  "block.edumia.stripped_palm_log": "Stripped palm log",
+  "block.edumia.stripped_palm_wood": "Stripped palm wood",
+  "block.edumia.palm_leaves": "Palm leaves",
+  "block.edumia.palm_sapling": "Palm sapling",
+  "block.edumia.palm_wood_wall": "Palm wood wall",
+  "block.edumia.palm_button": "Palm button",
+  "block.edumia.palm_pressure_plate": "Palm pressure plate",
+  "block.edumia.palm_beam": "Palm beam",
+
+  "block.edumia.willow_planks": "Willow planks",
+  "block.edumia.willow_slab": "Willow slab",
+  "block.edumia.willow_stairs": "Willow stairs",
+  "block.edumia.willow_fence": "Willow fence",
+  "block.edumia.willow_fence_gate": "Willow fence gate",
+  "block.edumia.willow_log": "Willow log",
+  "block.edumia.willow_wood": "Willow wood",
+  "block.edumia.stripped_willow_log": "Stripped willow log",
+  "block.edumia.stripped_willow_wood": "Stripped willow wood",
+  "block.edumia.willow_leaves": "Willow leaves",
+  "block.edumia.willow_sapling": "Willow sapling",
+  "block.edumia.willow_wood_wall": "Willow wood wall",
+  "block.edumia.willow_button": "Willow button",
+  "block.edumia.willow_pressure_plate": "Willow pressure plate",
+  "block.edumia.willow_beam": "Willow beam",
+
+  "block.edumia.almond_planks": "Almond planks",
+  "block.edumia.almond_slab": "Almond slab",
+  "block.edumia.almond_stairs": "Almond stairs",
+  "block.edumia.almond_fence": "Almond fence",
+  "block.edumia.almond_fence_gate": "Almond fence gate",
+  "block.edumia.almond_log": "Almond log",
+  "block.edumia.almond_wood": "Almond wood",
+  "block.edumia.stripped_almond_log": "Stripped almond log",
+  "block.edumia.stripped_almond_wood": "Stripped almond wood",
+  "block.edumia.almond_leaves": "Almond leaves",
+  "block.edumia.almond_sapling": "Almond sapling",
+  "block.edumia.almond_wood_wall": "Almond wood wall",
+  "block.edumia.almond_button": "Almond button",
+  "block.edumia.almond_pressure_plate": "Almond pressure plate",
+  "block.edumia.almond_beam": "Almond beam",
+  "block.edumia.almond_door": "Almond door",
+  "block.edumia.almond_trapdoor": "Almond trapdoor",
+
+  "block.edumia.olive_planks": "Olive planks",
+  "block.edumia.olive_slab": "Olive slab",
+  "block.edumia.olive_stairs": "Olive stairs",
+  "block.edumia.olive_fence": "Olive fence",
+  "block.edumia.olive_fence_gate": "Olive fence gate",
+  "block.edumia.olive_log": "Olive log",
+  "block.edumia.olive_wood": "Olive wood",
+  "block.edumia.stripped_olive_log": "Stripped olive log",
+  "block.edumia.stripped_olive_wood": "Stripped olive wood",
+  "block.edumia.olive_leaves": "Olive leaves",
+  "block.edumia.olive_sapling": "Olive sapling",
+  "block.edumia.olive_wood_wall": "Olive wood wall",
+  "block.edumia.olive_button": "Olive button",
+  "block.edumia.olive_pressure_plate": "Olive pressure plate",
+  "block.edumia.olive_beam": "Olive beam",
+  "block.edumia.olive_door": "Olive door",
+  "block.edumia.olive_trapdoor": "Olive trapdoor",
+
+  "block.edumia.apple_door": "Apple door",
+  "block.edumia.apple_trapdoor": "Apple trapdoor",
+
+  "block.edumia.banana_door": "Banana door",
+  "block.edumia.banana_trapdoor": "Banana trapdoor",
+
+  "block.edumia.aspen_door": "Aspen door",
+  "block.edumia.aspen_trapdoor": "Aspen trapdoor",
+
+  "block.edumia.beech_door": "Beech door",
+  "block.edumia.beech_trapdoor": "Beech trapdoor",
+
+  "block.edumia.blackthorn_door": "Blackthorn door",
+  "block.edumia.blackthorn_trapdoor": "Blackthorn trapdoor",
+
+  "block.edumia.cedar_door": "Cedar door",
+  "block.edumia.cedar_trapdoor": "Cedar trapdoor",
+
+  "block.edumia.cherry_door": "Cherry door",
+  "block.edumia.cherry_trapdoor": "Cherry trapdoor",
+
+  "block.edumia.cypress_door": "Cypress door",
+  "block.edumia.cypress_trapdoor": "Cypress trapdoor",
+
+  "block.edumia.fir_door": "Fir door",
+  "block.edumia.fir_trapdoor": "Fir trapdoor",
+
+  "block.edumia.ghost_gum_door": "Ghost Gum door",
+  "block.edumia.ghost_gum_trapdoor": "Ghost Gum trapdoor",
+
+  "block.edumia.green_oak_door": "Green Oak door",
+  "block.edumia.green_oak_trapdoor": "Green Oak trapdoor",
+
+  "block.edumia.holly_door": "Holly door",
+  "block.edumia.holly_trapdoor": "Holly trapdoor",
+
+  "block.edumia.larch_door": "Larch door",
+  "block.edumia.larch_trapdoor": "Larch trapdoor",
+
+  "block.edumia.mango_door": "Mango door",
+  "block.edumia.mango_trapdoor": "Mango trapdoor",
+
+  "block.edumia.maple_door": "Maple door",
+  "block.edumia.maple_trapdoor": "Maple trapdoor",
+
+  "block.edumia.pear_door": "Pear door",
+  "block.edumia.pear_trapdoor": "Pear trapdoor",
+
+  "block.edumia.pine_door": "Pine door",
+  "block.edumia.pine_trapdoor": "Pine trapdoor",
+
+  "block.edumia.red_oak_door": "Red Oak door",
+  "block.edumia.red_oak_trapdoor": "Red Oak trapdoor",
+
+  "block.edumia.redwood_door": "Redwood door",
+  "block.edumia.redwood_trapdoor": "Redwood trapdoor",
+
+  "block.edumia.silver_spruce_door": "Silver Spruce door",
+  "block.edumia.silver_spruce_trapdoor": "Silver Spruce trapdoor",
+
+  "block.edumia.white_ash_door": "White Ash door",
+  "block.edumia.white_ash_trapdoor": "White Ash trapdoor",
+
+  "block.edumia.dragon_blood_door": "Dragon Blood door",
+  "block.edumia.dragon_blood_trapdoor": "Dragon Blood trapdoor",
+
+  "block.edumia.palm_door": "Palm door",
+  "block.edumia.palm_trapdoor": "Palm trapdoor",
+
+  "block.edumia.mahogany_door": "Mahogany door",
+  "block.edumia.mahogany_trapdoor": "Mahogany trapdoor",
+
+  "block.edumia.charred_door": "Charred door",
+  "block.edumia.charred_trapdoor": "Charred trapdoor",
+
+  "block.edumia.black_oak_door": "Black Oak door",
+  "block.edumia.black_oak_trapdoor": "Black Oak trapdoor",
+
+  "block.edumia.willow_door": "Willow door",
+  "block.edumia.willow_trapdoor": "Willow trapdoor",
 
   "gui.edumia.map.coords": "x : %d, z: %d"
 }

@@ -2,12 +2,14 @@ package com.legends.edumia.world.worldgen;
 
 import com.legends.edumia.Edumia;
 import com.legends.edumia.world.features.crystal.CrystalFeature;
+import com.legends.edumia.world.worldgen.placed.biomes.BiomePlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.boulders.BoulderPlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.*;
 import com.legends.edumia.world.worldgen.placed.crystrals.CrystalPlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.ocean.ReefPlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.plants.ReedsPlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.trees.BorealTreePlacedFeatures;
+import com.legends.edumia.world.worldgen.placed.trees.OakTreePlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.trees.TemperateTreePlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.trees.TropicalTreePlacedFeatures;
 import net.minecraft.registry.Registerable;
@@ -42,6 +44,8 @@ public class ModPlacedFeatures {
         BoulderPlacedFeatures.bootstrap(context);
         CrystalPlacedFeatures.bootstrap(context);
         ReedsPlacedFeatures.boostrap(context);
+        OakTreePlacedFeatures.boostrap(context);
+        BiomePlacedFeatures.boostrap(context);
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

@@ -63,7 +63,7 @@ public class EdumiaBiomeKeys extends BiomeKeys {
 
     // endregion
 
-    private static RegistryKey<Biome> register(String name) {
+    public static RegistryKey<Biome> register(String name) {
         return RegistryKey.of(RegistryKeys.BIOME, new Identifier(Edumia.MOD_ID, name));
     }
 

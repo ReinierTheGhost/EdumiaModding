@@ -123,6 +123,9 @@ public class ModNatureBlocks {
     public static final Block WHITE_ASH_SAPLING = registerPlantBlock("white_ash_sapling",
             new SaplingBlock(new WhiteAshTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
 
+    public static final Block WILLOW_SAPLING = registerPlantBlock("willow_sapling",
+            new SaplingBlock(new WillowTreeGrower(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)), false);
+
 
 
 

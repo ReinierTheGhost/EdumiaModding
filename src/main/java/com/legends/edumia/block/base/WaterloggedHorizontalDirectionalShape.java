@@ -42,7 +42,8 @@ public abstract class WaterloggedHorizontalDirectionalShape extends Shape implem
         return (Boolean)state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }
 
-    protected final void createBlockStateDefinition(StateManager.Builder<Block, BlockState> builder) {
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(new Property[]{DIRECTION, WATERLOGGED});
         this.addProperties(builder);
     }

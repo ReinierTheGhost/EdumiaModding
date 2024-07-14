@@ -2,6 +2,7 @@ package com.legends.edumia.world.worldgen.configured.boulders;
 
 import com.legends.edumia.Edumia;
 import com.legends.edumia.block.blocksets.StoneSets;
+import com.legends.edumia.block.register.NaturalStoneBlocks;
 import com.legends.edumia.world.features.bouders.BouldersFeatureConfig;
 import com.legends.edumia.world.worldgen.EdumiaFeatures;
 import net.minecraft.block.BlockState;
@@ -11,27 +12,30 @@ import net.minecraft.block.enums.SlabType;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
-import net.minecraft.world.biome.GenerationSettings;
-import net.minecraft.world.event.listener.GameEventListener;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 
 public class BoulderConfiguredFeatures {
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> ANDESITE_BOULDER = registerKey("andesite_boulder");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ANDESITE_BOULDER_2 = registerKey("andesite_boulder_2");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BIG_ANDESITE_BOULDER = registerKey("big_andesite_boulder");
     public static final RegistryKey<ConfiguredFeature<?, ?>> CALCITE_BOULDER = registerKey("calcite_boulder");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BIG_CALCITE_BOULDER = registerKey("big_calcite_boulder");
     public static final RegistryKey<ConfiguredFeature<?, ?>> DIORITE_BOULDER = registerKey("diorite_boulder");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BIG_DIORITE_BOULDER = registerKey("big_diorite_boulder");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GRANITE_BOULDER = registerKey("granite_boulder");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BIG_GRANITE_BOULDER = registerKey("big_granite_boulder");
     public static final RegistryKey<ConfiguredFeature<?, ?>> LIMESTONE_BOULDER = registerKey("limestone_boulder");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BIG_LIMESTONE_BOULDER = registerKey("big_limestone_boulder");
     public static final RegistryKey<ConfiguredFeature<?, ?>> SANDSTONE_BOULDER = registerKey("sandstone_boulder");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BIG_SANDSTONE_BOULDER = registerKey("big_sandstone_boulder");
     public static final RegistryKey<ConfiguredFeature<?, ?>> STONE_BOULDER = registerKey("stone_boulder");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BIG_STONE_BOULDER = registerKey("big_stone_boulder");
     public static final RegistryKey<ConfiguredFeature<?, ?>> MOSSY_BOULDER = registerKey("mossy_boulder");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BIG_MOSSY_BOULDER = registerKey("big_mossy_boulder");
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> featureRegisterable) {
         ConfiguredFeatures.register(featureRegisterable, ANDESITE_BOULDER, Feature.FOREST_ROCK,
                 new SingleStateFeatureConfig(Blocks.ANDESITE.getDefaultState()));
@@ -56,14 +60,40 @@ public class BoulderConfiguredFeatures {
                         .add(Blocks.MOSSY_COBBLESTONE_SLAB.getDefaultState().with(SlabBlock.TYPE, SlabType.BOTTOM).with(SlabBlock.WATERLOGGED, false), 2)
                         .add(Blocks.MOSSY_COBBLESTONE.getDefaultState(), 6))));
 
-        ConfiguredFeatures.register(featureRegisterable, ANDESITE_BOULDER_2, EdumiaFeatures.BOULDER,
+        ConfiguredFeatures.register(featureRegisterable, BIG_ANDESITE_BOULDER, EdumiaFeatures.BOULDER,
                 new BouldersFeatureConfig(BlockStateProvider.of(Blocks.ANDESITE), 1,4, 3));
+
+        ConfiguredFeatures.register(featureRegisterable, BIG_CALCITE_BOULDER, EdumiaFeatures.BOULDER,
+                new BouldersFeatureConfig(BlockStateProvider.of(Blocks.CALCITE), 1,4, 3));
+
+        ConfiguredFeatures.register(featureRegisterable, BIG_DIORITE_BOULDER, EdumiaFeatures.BOULDER,
+                new BouldersFeatureConfig(BlockStateProvider.of(Blocks.DIORITE), 1,4, 3));
+
+        ConfiguredFeatures.register(featureRegisterable,  BIG_GRANITE_BOULDER, EdumiaFeatures.BOULDER,
+                new BouldersFeatureConfig(BlockStateProvider.of(Blocks.GRANITE), 1,4, 3));
+
+        ConfiguredFeatures.register(featureRegisterable, BIG_LIMESTONE_BOULDER, EdumiaFeatures.BOULDER,
+                new BouldersFeatureConfig(BlockStateProvider.of(StoneSets.LIMESTONE.block()), 1,4, 3));
+
+        ConfiguredFeatures.register(featureRegisterable,  BIG_SANDSTONE_BOULDER, EdumiaFeatures.BOULDER,
+                new BouldersFeatureConfig(BlockStateProvider.of(Blocks.SANDSTONE), 1,4, 3));
+
+        ConfiguredFeatures.register(featureRegisterable,  BIG_STONE_BOULDER, EdumiaFeatures.BOULDER,
+                new BouldersFeatureConfig(BlockStateProvider.of(Blocks.STONE), 1,4, 3));
+
+        ConfiguredFeatures.register(featureRegisterable,  BIG_MOSSY_BOULDER, EdumiaFeatures.BOULDER,
+                new BouldersFeatureConfig(new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                        .add(Blocks.STONE.getDefaultState(), 3)
+                        .add(Blocks.ANDESITE.getDefaultState(), 2)
+                        .add(Blocks.STONE_SLAB.getDefaultState().with(SlabBlock.TYPE, SlabType.BOTTOM).with(SlabBlock.WATERLOGGED, false), 1)
+                        .add(Blocks.MOSSY_COBBLESTONE_SLAB.getDefaultState().with(SlabBlock.TYPE, SlabType.BOTTOM).with(SlabBlock.WATERLOGGED, false), 2)
+                        .add(Blocks.MOSSY_COBBLESTONE.getDefaultState(), 6)), 1,4, 3));
 
     }
 
 
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
-        return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier(Edumia.MOD_ID, name));
+        return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier(Edumia.MOD_ID, "boulders/" + name));
     }
 }

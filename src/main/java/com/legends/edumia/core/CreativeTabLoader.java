@@ -370,6 +370,10 @@ public class CreativeTabLoader {
                         entries.add(BlockLoader.RED_SAND_LAYER);
                         entries.add(BlockLoader.WHITE_SAND);
                         entries.add(BlockLoader.WHITE_SAND_LAYER);
+
+                        entries.add(BlockLoader.VOLCANIC_DIRT);
+                        entries.add(BlockLoader.VOLCANIC_DIRT_PATH);
+                        entries.add(BlockLoader.VOLCANIC_GRAVEL);
                     })
                     .build();
 

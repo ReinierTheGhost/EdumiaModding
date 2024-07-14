@@ -74,8 +74,10 @@ public class ModBiomeSource extends BiomeSource {
                     processedBiome = EdumiaBiomesData.oasis.biome;
                 } else if(EdumiaBiomesData.frozenBiomes.contains(biome)) {
                     processedBiome = EdumiaBiomesData.frozenPond.biome;
-                } else {
+                } else if(EdumiaBiomesData.pondBiomes.contains(biome)){
                     processedBiome = EdumiaBiomesData.pond.biome;
+                }else {
+                    processedBiome = biome;
                 }
             } else processedBiome = biome;
         } else processedBiome = biome;

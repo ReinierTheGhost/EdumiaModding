@@ -58,21 +58,22 @@ public class TreePlacedFeatures {
 
         register(context, COMMON_BEECH_PLACED_TREE_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(BeechTreeConfiguredFeatures.BEECH_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(uncommonTree,
-                        Blocks.BIRCH_SAPLING));
+                        ModNatureBlocks.BEECH_SAPLING));
         register(context, BEECH_PLACED_TREE_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(BeechTreeConfiguredFeatures.BEECH_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(rareTree,
-                        Blocks.BIRCH_SAPLING));
+                        ModNatureBlocks.BEECH_SAPLING));
         register(context, RARE_BEECH_PLACED_TREE_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(BeechTreeConfiguredFeatures.BEECH_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(veryRareTree,
-                        Blocks.BIRCH_SAPLING));
+                        ModNatureBlocks.BEECH_SAPLING));
         register(context, VERY_RARE_BEECH_PLACED_TREE_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(BeechTreeConfiguredFeatures.BEECH_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(superRareTree,
-                        Blocks.BIRCH_SAPLING));
+                        ModNatureBlocks.BEECH_SAPLING));
 
 
 
 
     }
+
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {
         return RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(Edumia.MOD_ID, name));

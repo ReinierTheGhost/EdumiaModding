@@ -1,15 +1,15 @@
 package com.legends.edumia.world.worldgen.configured.trees;
 
+import com.google.common.collect.ImmutableList;
 import com.legends.edumia.Edumia;
+import com.legends.edumia.block.ModNatureBlocks;
 import com.legends.edumia.block.blocksets.WoodBlockSets;
 import com.legends.edumia.world.worldgen.ModPlacedFeatures;
 import com.legends.edumia.world.worldgen.placed.trees.TemperateTreePlacedFeatures;
-import com.legends.edumia.world.worldgen.trees.foliageplacer.AspenFoliagePlacer;
-import com.legends.edumia.world.worldgen.trees.foliageplacer.CederFoliagePlacer;
-import com.legends.edumia.world.worldgen.trees.foliageplacer.CypressFoliagePlacer;
-import com.legends.edumia.world.worldgen.trees.foliageplacer.OvalFoliagePlacer;
+import com.legends.edumia.world.worldgen.trees.foliageplacer.*;
 import com.legends.edumia.world.worldgen.trees.trunkplacers.CanopyTrunkPlacer;
 import com.legends.edumia.world.worldgen.trees.trunkplacers.CederTrunkPlacer;
+import com.legends.edumia.world.worldgen.trees.trunkplacers.LargeTrunkPlacer;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
@@ -29,6 +29,7 @@ import net.minecraft.world.gen.foliage.PineFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.treedecorator.BeehiveTreeDecorator;
+import net.minecraft.world.gen.treedecorator.LeavesVineTreeDecorator;
 import net.minecraft.world.gen.trunk.LargeOakTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
@@ -36,27 +37,38 @@ import java.util.List;
 import java.util.OptionalInt;
 
 public class TemperateTreeConfiguredFeatures {
-    public static final RegistryKey<ConfiguredFeature<?, ?>> SAKURA_BUSH = registerKey("tree/temperate/sakura/sakura_bush");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> SAKURA_TREE_MEDIUM = registerKey("tree/temperate/sakura/sakura_tree_medium");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> SAKURA_TREE_BIG = registerKey("tree/temperate/sakura/sakura_tree_big");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SAKURA_BUSH = registerKey("sakura/sakura_bush");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SAKURA_TREE_MEDIUM = registerKey("sakura/sakura_tree_medium");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SAKURA_TREE_BIG = registerKey("sakura/sakura_tree_big");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> AZALEA_BUSH = registerKey("tree/temperate/azalea/azalea_bush");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> AZALEA_BUSH = registerKey("azalea/azalea_bush");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> CEDER_KEY = registerKey("tree/temperate/ceder/ceder_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> LARGE_CEDER_KEY = registerKey("tree/temperate/ceder/large_ceder_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> CEDER_KEY = registerKey("ceder/ceder_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> LARGE_CEDER_KEY = registerKey("ceder/large_ceder_tree");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> CYPRESS_KEY = registerKey("tree/cypress/cypress_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> CYPRESS_KEY = registerKey("cypress/cypress_tree");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ASPEN_KEY = registerKey("tree/temperate/aspen/aspen_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ASPEN_2_KEY = registerKey("tree/temperate/aspen/aspen_2_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ASPEN_KEY = registerKey("aspen/aspen_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ASPEN_2_KEY = registerKey("aspen/aspen_2_tree");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> BIRCH_TREE_KEY = registerKey("tree/temperate/birch/birch_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> MEGA_BIRCH_TREE_KEY = registerKey("tree/temperate/birch/mega_birch_tree");
-
-    public static final RegistryKey<ConfiguredFeature<?, ?>> BLACKTHORN_TREE_KEY = registerKey("tree/temperate/blackthorn/blackthorn_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BIRCH_TREE_KEY = registerKey("birch/birch_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> MEGA_BIRCH_TREE_KEY = registerKey("birch/mega_birch_tree");
 
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> GENSAI_SAKURA_GROVE_TREES = registerKey("tree/temperate/sakura/gensai_sakura_grove_trees");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> WHITE_ASH_TREE_KEY = registerKey("white_ash/white_ash_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SMALL_WHITE_ASH_TREE_KEY = registerKey("white_ash/small_white_ash_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> WHITE_ASH_BUSH_KEY = registerKey("white_ash/white_ash_bush");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> MEGA_WHITE_ASH_TREE_KEY = registerKey("white_ash/mega_white_ashtree");
+
+    public static final RegistryKey<ConfiguredFeature<?, ?>> MAPLE_TREE_KEY = registerKey("maple/maple_tree");
+
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BLACKTHORN_TREE_KEY = registerKey("blackthorn/blackthorn_tree");
+
+    public static final RegistryKey<ConfiguredFeature<?, ?>> HOLLY_TREE_KEY = registerKey("holly/holly_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> HOLLY_BEES_TREE_KEY = registerKey("holly/holly_tree_bees");
+
+    public static final RegistryKey<ConfiguredFeature<?, ?>> WILLOW_TREE_KEY = registerKey("willow/willow_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> GENSAI_SAKURA_GROVE_TREES = registerKey("sakura/gensai_sakura_grove_trees");
 
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context){
@@ -87,6 +99,41 @@ public class TemperateTreeConfiguredFeatures {
                 new CanopyTrunkPlacer(18, 3, 1.0f, 0.67f, 5.2f, 3, 0.44f, -0.05f, 2, 1),
                 BlockStateProvider.of(Blocks.BIRCH_LEAVES),
                 new OvalFoliagePlacer(2, ConstantIntProvider.create(0), ConstantIntProvider.create(3), 0.4f),
+                new TwoLayersFeatureSize(1, 0, 2))
+                .dirtProvider(BlockStateProvider.of(Blocks.GRASS_BLOCK)).build());
+
+        register(context, WHITE_ASH_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(WoodBlockSets.WHITE_ASH.log()),
+                new CanopyTrunkPlacer(16, 2, 0.9f, 0.87f, 5.2f, 3, 0.45f, -0.15f, 0,1),
+                BlockStateProvider.of(WoodBlockSets.WHITE_ASH.leaves()),
+                new OvalFoliagePlacer(2, ConstantIntProvider.create(0), ConstantIntProvider.create(3), 0.4f),
+                new TwoLayersFeatureSize(1, 0, 2))
+                .dirtProvider(BlockStateProvider.of(Blocks.GRASS_BLOCK)).build());
+        register(context, SMALL_WHITE_ASH_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(WoodBlockSets.WHITE_ASH.log()),
+                new CanopyTrunkPlacer(9, 2, 0.9f, 0.87f, 5.2f, 2, 0.45f, -0.15f, 0,1),
+                BlockStateProvider.of(WoodBlockSets.WHITE_ASH.leaves()),
+                new OvalFoliagePlacer(2, ConstantIntProvider.create(0), ConstantIntProvider.create(3), 0.4f),
+                new TwoLayersFeatureSize(1, 0, 2))
+                .dirtProvider(BlockStateProvider.of(Blocks.GRASS_BLOCK)).build());
+        register(context, MEGA_WHITE_ASH_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(WoodBlockSets.WHITE_ASH.log()),
+                new CanopyTrunkPlacer(34, 3, 1.6f, 0.56f, 8.3f, 4, 0.48f, 0f, 2,1),
+                BlockStateProvider.of(WoodBlockSets.WHITE_ASH.leaves()),
+                new OvalFoliagePlacer(3, ConstantIntProvider.create(-1), ConstantIntProvider.create(4), 0.7f),
+                new TwoLayersFeatureSize(1, 0, 2))
+                .dirtProvider(BlockStateProvider.of(Blocks.GRASS_BLOCK)).build());
+        register(context, WHITE_ASH_BUSH_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(WoodBlockSets.WHITE_ASH.log()),
+                new StraightTrunkPlacer(1, 0, 0), BlockStateProvider.of(WoodBlockSets.WHITE_ASH.leaves()),
+                new BushFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), 2),
+                new TwoLayersFeatureSize(0, 0, 0)).build());
+
+        register(context, MAPLE_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(WoodBlockSets.MAPLE.log()),
+                new CanopyTrunkPlacer(11, 2, 0.91f, 0.87f, 5.1f, 2, 0.37f, -0.1f, 1,1),
+                BlockStateProvider.of(ModNatureBlocks.MAPLE_LEAVES),
+                new OvalFoliagePlacer(2, ConstantIntProvider.create(0), ConstantIntProvider.create(3), 0.3f),
                 new TwoLayersFeatureSize(1, 0, 2))
                 .dirtProvider(BlockStateProvider.of(Blocks.GRASS_BLOCK)).build());
 
@@ -178,11 +225,38 @@ public class TemperateTreeConfiguredFeatures {
                 new RandomFeatureEntry(cypress, 0.07f), new RandomFeatureEntry(aspen, 0.07f),
                 new RandomFeatureEntry(aspen2, 0.04f)), noting));
 
+        register(context, HOLLY_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(WoodBlockSets.HOLLY.log()),
+                new StraightTrunkPlacer(9, 5, 0),
+                BlockStateProvider.of(ModNatureBlocks.HOLLY_LEAVES),
+                new HollyFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(2), UniformIntProvider.create(1, 3)),
+                new TwoLayersFeatureSize(1, 0, 1))
+                .dirtProvider(BlockStateProvider.of(Blocks.GRASS_BLOCK)).build());
+
+        register(context, HOLLY_BEES_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(WoodBlockSets.HOLLY.log()),
+                new StraightTrunkPlacer(9, 5, 0),
+                BlockStateProvider.of(ModNatureBlocks.HOLLY_LEAVES),
+                new HollyFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(2), UniformIntProvider.create(1, 3)),
+                new TwoLayersFeatureSize(1, 0, 1))
+                .decorators(ImmutableList.of(new BeehiveTreeDecorator(0.05f)))
+                .dirtProvider(BlockStateProvider.of(Blocks.GRASS_BLOCK)).build());
+
+
+        register(context, WILLOW_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(WoodBlockSets.WILLOW.log()),
+                new LargeTrunkPlacer(13, 2, 1.2f, 0.67f, 6.0f, 3, 0.32f),
+                BlockStateProvider.of(WoodBlockSets.WILLOW.leaves()),
+                new OvalFoliagePlacer(2, ConstantIntProvider.create(-1), ConstantIntProvider.create(3), 0.4f),
+                new TwoLayersFeatureSize(1, 0, 2))
+                .decorators(ImmutableList.of(new LeavesVineTreeDecorator(0.35F)))
+                .dirtProvider(BlockStateProvider.of(Blocks.GRASS_BLOCK)).build());
+
 
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name){
-        return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier(Edumia.MOD_ID, name));
+        return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier(Edumia.MOD_ID, "tree/temperate/" + name));
     }
 
     private static <FC extends FeatureConfig, F extends Feature<FC>> void register(Registerable< ConfiguredFeature<?, ?>> context,

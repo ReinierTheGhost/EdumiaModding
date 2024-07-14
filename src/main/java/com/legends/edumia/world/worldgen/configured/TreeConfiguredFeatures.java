@@ -20,6 +20,7 @@ import net.minecraft.util.math.intprovider.BiasedToBottomIntProvider;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.size.ThreeLayersFeatureSize;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
@@ -43,8 +44,6 @@ public class TreeConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> GHOST_GUM_BEES_KEY = registerKey("tree/ghost_gum_bees_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> WHITE_ASH_KEY = registerKey("tree/white_ash_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FIR_KEY = registerKey("tree/fir_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> HOLLY_KEY = registerKey("tree/holly_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> SILVER_SPRUCE_KEY = registerKey("tree/silver_spruce_tree");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> PINE_KEY = registerKey("tree/pine_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> REDWOOD_KEY = registerKey("tree/redwood_tree");
@@ -59,10 +58,11 @@ public class TreeConfiguredFeatures {
 
         register(context, TEST_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.MAPLE.log()),
-                new BirchTrunkPlacer(14, 4, 4),
+                new YellowMerantiTrunkPlacer(12, 13, 14),
                 BlockStateProvider.of(ModNatureBlocks.MAPLE_LEAVES.getDefaultState()),
-                new NewPalmFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0)),
-                new TwoLayersFeatureSize(1, 0, 2)).ignoreVines().build());
+                new BlobFoliagePlacer(ConstantIntProvider.create(6), ConstantIntProvider.create(4), 3),
+                new TwoLayersFeatureSize(1, 0, 1))
+                .ignoreVines().build ());
 
         register(context, DRAGON_BLOOD_SMALL_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.DRAGON_BLOOD.log()),
@@ -104,22 +104,6 @@ public class TreeConfiguredFeatures {
                 new TwoLayersFeatureSize(1, 0, 1)).ignoreVines()
                 .decorators(Collections.singletonList(new PineBranchDecorator(WoodBlockSets.PINE.log().getDefaultState(), 0.75f))).build());
 
-
-
-        register(context, SILVER_SPRUCE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.SILVER_SPRUCE.log()),
-                new StraightTrunkPlacer(5, 3, 0),
-                BlockStateProvider.of(WoodBlockSets.SILVER_SPRUCE.leaves()),
-                new SilverSpruceFoliagePlacer(ConstantIntProvider.create(2), UniformIntProvider.create(0, 2), UniformIntProvider.create(7, 11)),
-
-                new TwoLayersFeatureSize(2, 0, 2)).ignoreVines().build());
-
-        register(context, HOLLY_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(WoodBlockSets.HOLLY.log()),
-                new StraightTrunkPlacer(9, 5, 0),
-                BlockStateProvider.of(ModNatureBlocks.HOLLY_LEAVES),
-                new HollyFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(2), UniformIntProvider.create(1, 3)),
-                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
         register(context, FIR_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(WoodBlockSets.FIR.log()),

@@ -35,6 +35,7 @@
     [],
     [
       "edumia:reeds",
+      "edumia:tree/temperate/willow/willow_tree",
       "minecraft:flower_default",
       "minecraft:glow_lichen",
       "minecraft:kelp_cold",

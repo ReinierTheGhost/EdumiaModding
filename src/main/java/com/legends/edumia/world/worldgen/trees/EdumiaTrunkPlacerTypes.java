@@ -76,6 +76,13 @@ public class EdumiaTrunkPlacerTypes {
             TinyTreeTrunk.CODEC);
     public static final TrunkPlacerType<?> BIRCH_TREE_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("birch_tree_trunk_placer",
             BirchTrunkPlacer.CODEC);
+    public static final TrunkPlacerType<?> FRACTURED_YELLOW_MERANTI_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister(
+            "fractured_yellow_meranti_trunk_placer",
+            FracturedYellowMerantiTrunkPlacer.CODEC);
+
+    public static final TrunkPlacerType<?> YELLOW_MERANTI_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister(
+            "yellow_meranti_trunk_placer",
+            YellowMerantiTrunkPlacer.CODEC);
 
     public static void register() {
         Edumia.LOGGER.info("Registering Trunk Placers for " + Edumia.MOD_ID);

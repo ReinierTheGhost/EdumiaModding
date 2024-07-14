@@ -98,6 +98,11 @@ public class EdumiaFoliagePlacerTypes {
     public static final FoliagePlacerType<?> NEW_PALM_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("new_palm_foliage_placer",
             NewPalmFoliagePlacer.CODEC);
 
+    public static final FoliagePlacerType<?> ALMOND_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("almond_foliage_placer",
+            AlmondFoliagePlacer.CODEC);
+
+    public static final FoliagePlacerType<?> OLIVE_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("olive_foliage_placer",
+            OliveFoliagePlacer.CODEC);
 
     public static void register() {
         Edumia.LOGGER.info("Registering Foliage Placer for " + Edumia.MOD_ID);

@@ -24,7 +24,7 @@ import java.util.OptionalLong;
 
 
 public class ModDimensions {
-    public static final Vector3i ME_SPAWN_LOCATION = new Vector3i(939, 90, 915);
+    public static final Vector3i ME_SPAWN_LOCATION = new Vector3i(1555, 90, 1348);
     public static final String PATH = "edumia";
 
     public static final RegistryKey<DimensionOptions> DIMENSION_KEY =

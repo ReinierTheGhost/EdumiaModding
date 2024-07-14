@@ -68,6 +68,13 @@ public class RecipeProvider extends net.minecraft.data.server.recipe.RecipeProvi
             createWallsRecipe(exporter, record.block(), record.wall());
             createSlabsRecipe(exporter, record.block(), record.slab());
             createStairsRecipe(exporter, record.block(), record.stair());
+            createBalustradeRecipe(exporter, record.block(), record.balustrade());
+            createArrowSlitRecipe(exporter, record.block(), record.arrowSlit());
+            createSmallArchRecipe(exporter, record.block(), record.smallArch());
+            createTwoMeterArchRecipe(exporter, record.block(), record.twoMeterArch());
+            createStoneCutterRecipe(exporter, record.block(), record.gothicArch());
+            createStoneCutterRecipe(exporter, record.block(), record.roundArch());
+            createStoneCutterRecipe(exporter, record.block(), record.segmentalArch());
             if (record.pillar() != null) createPillarRecipe(exporter, record.block(), record.pillar());
         }
 
@@ -199,11 +206,51 @@ public class RecipeProvider extends net.minecraft.data.server.recipe.RecipeProvi
                 .offerTo(exporter);
     }
 
+    private void createArrowSlitRecipe(Consumer<RecipeJsonProvider> exporter, Block input, Block output) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 4)
+                .pattern("l l").pattern("l l").pattern("l l")
+                .input('l', input)
+                .criterion(FabricRecipeProvider.hasItem(input),
+                        FabricRecipeProvider.conditionsFromItem(input))
+                .offerTo(exporter);
+    }
+
+    private void createBalustradeRecipe(Consumer<RecipeJsonProvider> exporter, Block input, Block output) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 3)
+                .pattern("lll").pattern(" l ").pattern("lll")
+                .input('l', input)
+                .criterion(FabricRecipeProvider.hasItem(input),
+                        FabricRecipeProvider.conditionsFromItem(input))
+                .offerTo(exporter);
+    }
+
 
     private void createWallsRecipe(Consumer<RecipeJsonProvider> exporter, Block input, Block output) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 6)
                 .pattern("lll")
                 .pattern("lll")
+                .input('l', input)
+                .criterion(FabricRecipeProvider.hasItem(input),
+                        FabricRecipeProvider.conditionsFromItem(input))
+                .offerTo(exporter);
+    }
+
+    private void createSmallArchRecipe(Consumer<RecipeJsonProvider> exporter, Block input, Block output) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 4)
+                .pattern("lll")
+                .pattern("l l")
+                .pattern("l l")
+                .input('l', input)
+                .criterion(FabricRecipeProvider.hasItem(input),
+                        FabricRecipeProvider.conditionsFromItem(input))
+                .offerTo(exporter);
+    }
+
+    private void createTwoMeterArchRecipe(Consumer<RecipeJsonProvider> exporter, Block input, Block output) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 3)
+                .pattern("lll")
+                .pattern("ll ")
+                .pattern("l  ")
                 .input('l', input)
                 .criterion(FabricRecipeProvider.hasItem(input),
                         FabricRecipeProvider.conditionsFromItem(input))

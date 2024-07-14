@@ -34,8 +34,8 @@
     [],
     [],
     [
-      "edumia:andesite_boulder",
-      "edumia:andesite_boulder_2",
+      "edumia:boulders/andesite_boulder",
+      "edumia:boulders/big_andesite_boulder",
       "minecraft:brown_mushroom_normal",
       "minecraft:flower_default",
       "minecraft:glow_lichen",

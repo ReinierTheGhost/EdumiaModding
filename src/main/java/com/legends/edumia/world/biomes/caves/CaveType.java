@@ -3,7 +3,7 @@ package com.legends.edumia.world.biomes.caves;
 public enum CaveType {
     DEFAULT,
     MISTIES,
-    FOROD,
+    FROZEN,
     ASHEN,
-    HARAD
+    DESERT
 }

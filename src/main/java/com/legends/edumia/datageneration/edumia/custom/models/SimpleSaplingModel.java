@@ -34,6 +34,7 @@ public class SimpleSaplingModel {
             add(ModNatureBlocks.REDWOOD_SAPLING);
             add(ModNatureBlocks.SILVER_SPRUCE_SAPLING);
             add(ModNatureBlocks.WHITE_ASH_SAPLING);
+            add(ModNatureBlocks.WILLOW_SAPLING);
             add(ModNatureBlocks.MAHOGANY_SAPLING);
             add(ModNatureBlocks.PALM_SAPLING);
 

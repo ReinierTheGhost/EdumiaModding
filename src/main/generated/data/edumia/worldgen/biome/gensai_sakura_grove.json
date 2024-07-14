@@ -34,7 +34,11 @@
     [],
     [],
     [
+      "edumia:boulders/big_limestone_boulder",
+      "edumia:boulders/limestone_boulder",
+      "edumia:tree/oaks/oak/oak_bush_tree",
       "edumia:tree/temperate/sakura/gensai_sakura_grove_trees",
+      "edumia:tree/temperate/white_ash/white_ash_bush",
       "minecraft:brown_mushroom_normal",
       "minecraft:flower_meadow",
       "minecraft:glow_lichen",

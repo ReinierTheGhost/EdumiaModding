@@ -32,14 +32,20 @@ public class BlockLoader {
     public static final Block WHITE_SAND_LAYER = registerBlock("white_sand_layer",
             new Layer(AbstractBlock.Settings.copy(Blocks.SAND).sounds(BlockSoundGroup.SAND)));
 
-    public static final Block RUBY_ORE = NaturalStoneBlocks.registerStoneBlock("ruby_ore", new Block(FabricBlockSettings.copyOf(Blocks.LAPIS_ORE)
+    public static final Block RUBY_ORE = NaturalStoneBlocks.registerStoneBlock("ruby_ore",
+            new Block(FabricBlockSettings.copyOf(Blocks.LAPIS_ORE)
             .strength(3.0f, 3.0f).requiresTool().dropsLike(Blocks.IRON_ORE)), false);
 
 
     public static final Block HIGH_ELVEN_CRYSTAL = registerBlock("high_elven_crystal",
             new CrystalBlock(12, 2, DyeColor.LIGHT_BLUE));
 
-
+    public static final Block VOLCANIC_DIRT = registerBlock("volcanic_dirt",
+            new Block(FabricBlockSettings.copy(Blocks.DIRT)));
+    public static final Block VOLCANIC_DIRT_PATH = registerBlock("volcanic_dirt_path",
+            new DirtPathBlock(FabricBlockSettings.copy(Blocks.DIRT_PATH)));
+    public static final Block VOLCANIC_GRAVEL = registerBlock("volcanic_gravel",
+            new GravelBlock(FabricBlockSettings.copy(Blocks.GRAVEL)));
 
     public static final Block BRICK_PILLAR = registerBlock("brick_pillar",
             new EdumiaPillarBlock(AbstractBlock.Settings.create()));

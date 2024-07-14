@@ -34,6 +34,12 @@
     [],
     [],
     [
+      "edumia:boulders/big_stone_boulder",
+      "edumia:boulders/stone_boulder",
+      "edumia:tree/boreal/larch/sparse_larch_tree",
+      "edumia:tree/oaks/oak/oak_bush_tree",
+      "edumia:tree/temperate/birch/super_rare_birch_tree",
+      "edumia:tree/temperate/maple/maple_tree",
       "minecraft:brown_mushroom_normal",
       "minecraft:flower_default",
       "minecraft:glow_lichen",

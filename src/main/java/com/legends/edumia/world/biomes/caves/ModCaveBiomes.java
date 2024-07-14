@@ -54,8 +54,8 @@ public class ModCaveBiomes {
     public static RegistryKey<Biome> getBiome(Vec2f coordinates, EdumiaBiome surfaceBiome) {
         return switch (surfaceBiome.caveType) {
             case ASHEN -> ashCaves.getClosestBiome(coordinates);
-            case HARAD -> haradCaves.getClosestBiome(coordinates);
-            case FOROD -> forodCaves.getClosestBiome(coordinates);
+            case DESERT -> haradCaves.getClosestBiome(coordinates);
+            case FROZEN -> forodCaves.getClosestBiome(coordinates);
             default -> defaultCaves.getClosestBiome(coordinates);
         };
     }

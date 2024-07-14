@@ -4,6 +4,7 @@ import com.legends.edumia.Edumia;
 import com.legends.edumia.world.features.crystal.CrystalFeatureConfig;
 import com.legends.edumia.world.worldgen.configured.*;
 import com.legends.edumia.world.worldgen.configured.beach.BeachConfiguredFeatures;
+import com.legends.edumia.world.worldgen.configured.biomes.BiomeConfiguredFeatures;
 import com.legends.edumia.world.worldgen.configured.boulders.BoulderConfiguredFeatures;
 import com.legends.edumia.world.worldgen.configured.crystals.CrystalConfiguresFeatures;
 import com.legends.edumia.world.worldgen.configured.ocean.ReefConfiguredFeatures;
@@ -42,6 +43,7 @@ public class ModConfiguredFeatures {
         BoulderConfiguredFeatures.bootstrap(context);
         CrystalConfiguresFeatures.bootstrap(context);
         ReedsConfiguredFeatures.bootstrap(context);
+        BiomeConfiguredFeatures.bootstrap(context);
 
     }
 

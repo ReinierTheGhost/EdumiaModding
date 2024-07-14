@@ -30,12 +30,12 @@ import java.util.Optional;
 public class EdumiaMapScreen extends Screen {
     private static final Identifier WINDOW_TEXTURE = new Identifier(Edumia.MOD_ID,"textures/gui/map_background.png");
     private static final Identifier MAP_UI_TEXTURE = new Identifier(Edumia.MOD_ID,"textures/gui/map_ui.png");
-    private static final Identifier MAP_TEXTURE = new Identifier(Edumia.MOD_ID,"textures/edumia_map.png");
+    private static final Identifier MAP_TEXTURE = new Identifier(Edumia.MOD_ID,"textures/edumia_map_3000.png");
     private static final Text MAP_TITLE_TEXT = Text.of("Edumia");
     public static final int MARGIN = 5;
 
-    public static final int MAP_IMAGE_WIDTH = 4000;
-    public static final int MAP_IMAGE_HEIGHT = 4000;
+    public static final int MAP_IMAGE_WIDTH = 3000;
+    public static final int MAP_IMAGE_HEIGHT = 3000;
     public int windowWidth, windowHeight;
     public int mapWindowWidth, mapWindowHeight;
     public float minZoom;
