@@ -67,6 +67,7 @@ public class EdumiaBiomeKeys extends BiomeKeys {
         return RegistryKey.of(RegistryKeys.BIOME, new Identifier(Edumia.MOD_ID, name));
     }
 
+
     public static void registerModBiomes() {
         LoggerUtil.getInstance().logDebugMsg("Registering ModBiomes for " + Edumia.MOD_ID);
     }

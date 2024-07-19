@@ -102,7 +102,6 @@ public class EdumiaBiomesData {
         addBiome(new Color(129, 129, 129), new EdumiaBiome(53, EdumiaBiomeKeys.EDUMIA_MOUNTAINS, Blocks.SNOW_BLOCK, Blocks.STONE, Blocks.STONE, CaveType.MISTIES));
         addBiome(new Color(36, 31, 31), new EdumiaBiome(47, EdumiaBiomeKeys.GENSAI_VOLCANO, BlockLoader.VOLCANIC_DIRT, StoneSets.VOLCANIC_ROCK.block(), StoneSets.VOLCANIC_ROCK.block(), CaveType.ASHEN));
 
-
         addBiome(new Color(121, 186, 111), new EdumiaBiome(4, EdumiaBiomeKeys.TAIGA_FOREST, Blocks.GRASS_BLOCK, Blocks.DIRT, Blocks.STONE));
 
         addBiome(new Color(48, 109, 42), new EdumiaBiome(7, EdumiaBiomeKeys.GENSAI_JUNGLE, Blocks.GRASS_BLOCK, Blocks.DIRT, Blocks.STONE));

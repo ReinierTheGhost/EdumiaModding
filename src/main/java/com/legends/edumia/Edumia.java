@@ -28,7 +28,7 @@ public class Edumia implements ModInitializer {
 
 
     public static final String MOD_ID = "edumia";
-    public static final String MOD_VERSION = "alpha-1.4.0-1.20.1";
+    public static final String MOD_VERSION = "1.4.0-1.20.1";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static final boolean IS_DEBUG = true;
     public static final int MAP_ITERATION = 3;
